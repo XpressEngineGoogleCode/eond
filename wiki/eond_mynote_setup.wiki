@@ -1,5 +1,5 @@
-#summary 이온디 마이노트 설치 방법
-#labels mynote
+#summary 이온디 마이노트 레이아웃 설치 방법
+#labels mynote,layouts,manual
 
 === 설치 방법 ===
 
