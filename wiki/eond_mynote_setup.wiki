@@ -48,5 +48,5 @@ Err : './widgets/newest_comment/skins/mynote/list' template file does not exists
   * 이온디 마이노트 최근댓글위젯 스킨
   [http://code.google.com/p/eond/downloads/detail?name=newest_comment_mynote.zip&can=2&q=label%3Amynote#makechanges]
 {{{
-설치경로 : widgets\newest_comment\
+설치경로 : widgets\newest_comment\skins\mynote
 }}}
