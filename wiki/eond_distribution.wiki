@@ -1,0 +1,16 @@
+#summary 이온디에서 배포 중인 레이아웃의 목록
+#labels layouts
+
+= 이온디에서 제작 배포 중인 레이아웃 =
+
+|| 순번 || 레이아웃 이름 || 최초 배포한 날짜 || 최종 업데이트하여 배포한 날짜 || 현재 작동 여부 ||  
+|| 1     || 이온디 마이노트 레이아웃(eond_mynote)||모름||  2012.11.29 || 1.5.x 버전에서 작동됨 || 
+|| 2     || 이온디 공식 레이아웃(eond_official) || 모름 || 없음 || 1.5.x 버전에서 작동됨 || 
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
