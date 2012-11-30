@@ -78,3 +78,6 @@ Err : './widgets/newest_comment/skins/mynote/list' template file does not exists
 === 바뀐 점 ===
   * 로그인 방식이 이메일 방식으로 변경됨.
   * 메뉴 폰트에 tahoma 추가됨.
+
+=== 배포 ===
+이온디 마이노트 레이아웃은 XE 공식사이트 자료실과 구글 프로젝트 이 외에서의 배포를 금지합니다.
