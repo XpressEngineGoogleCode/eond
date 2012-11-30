@@ -19,7 +19,7 @@
    * 0.8.4에서의 로그인 방식
 {{{
     <p class="save">
-        <input type="checkbox" name="keep_signed" id="keepid" value="Y" onclick="if(this.checked) return confirm(keep_signed_msg);" />
+        <input type="checkbox" name="keep_signed" id="keepid" value="Y" />
         <label for="keepid">{$lang->keep_signed}</label>
 	</p>
 	<p class="keep_msg">{$lang->about_keep_warning}</p>
