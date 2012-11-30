@@ -1,0 +1,111 @@
+@charset "utf-8";
+/*
+NHN UIT Lab. WebStandardization Team (http://html.nhndesign.com/)
+Jeong, Chan Myeong 070601~070630
+*/
+
+/* White Skin - Start */
+
+/* Site Layout - Body Wrap */
+body { background:#ffffff;}
+#bodyWrap { position:relative; width:970px; margin:0 auto; padding:0 0 0 0;}
+
+/* Site Layout - Header */
+#logo {float:left;width:500px;border:1px solid red;padding:10px;}
+
+#search {border:1px solid red;text-align:right;}
+
+#header { position:relative; width:970px; height:140px; border-top:0px solid #323232; border-left:0px solid #d9d9d9; border-right:0px solid #d9d9d9; background:url(../images/white/bgHeader.png) no-repeat right bottom; margin-bottom:10px; z-index:99;}
+#header h1 { margin:0; padding:0; position:absolute; top:0px; left:0px;} /* 로고 상단부분과 좌측부분 처리 */
+#language { position:absolute; top:4px; right:15px; z-index:100;}
+#language strong { color:#5c5c5c; font:.75em Tahoma; margin-right:3px;}
+#language a img { vertical-align:-5px;}
+#language ul { margin:0; padding:0; position:absolute; top:15px; right:0px; display:none; border:1px solid #d9d9d9; background:#ffffff;}
+#language ul li { list-style:none; }
+#language ul li a { display:block; width:61px; padding:3px 8px; font:9px Tahoma; color:#5c5c5c; text-decoration:none;}
+#language ul li a:hover { background:#f4f4f4;}
+
+#top_index { width:770px;height:25px;text-align:right; background:url(../images/white/top_index_back.gif) no-repeat center top;}
+#top_index .top_index_td  { text-decoration:none; color:#4d4d4d;padding:0px 5px 0px 5px;}
+
+#it_search_form { position:absolute; top:55px; right:55px;}
+#it_search_form .input { border:1px solid #d9d9d9; height:17px; width:120px; color:#888888; font-size:.9em;}
+#it_search_form .submit_button { width:1px; height:1px; visibility:hidden; }
+
+#gnb { margin:0; padding:0; position:absolute; top:75px; left:0; height:38px; overflow:hidden; white-space:nowrap; margin-bottom:10px;}
+#gnb li { list-style:none; float:left; background:url(../images/white/bgGnbVr.gif) no-repeat left center; padding-left:1px; position:relative; left:-1px; white-space:nowrap;}
+#gnb li a { width:80px;text-align:center;display:block; float:left; padding:13px 0px 0 0px; height:25px; color:#727272; background:url(../images/white/bgGnb.gif) no-repeat center top; white-space:nowrap; text-decoration:none; font-family:"돋움", Dotum, "굴림", Gulim, AppleGothic, Sans-serif;}
+#gnb li a:hover,
+#gnb li a:focus { color:#000000;}
+#gnb li.on a { width:80px;text-align:center;font-weight:bold; color:#3f3f3f; background:url(../images/white/bgGnbOn.gif) no-repeat center top;}
+
+#gnb_sub { margin:0; padding:0; position:absolute; top:110px; left:10; height:90px; overflow:hidden; white-space:nowrap; margin-bottom:0px;}
+#gnb_sub .submenu {text-align:center; color:#333333;text-decoration:none;} /* 상단주메뉴 밑 서브메뉴 처리 부분 */
+
+#isSearch { position:relative; width:214px; text-align:right;float:right;}
+#isSearch .searchOrder { display:none;}
+#isSearch .checked { position:absolute; left:0; top:0; text-align:left; display:block; padding:5px 0 0 5px; width:64px; height:14px; background:url(../images/white/bgSearchTerm.gif) no-repeat; font:11px "돋움", Dotum, "굴림", Gulim, AppleGothic, Sans-serif; color:#5c5c5c; line-height:normal;}
+#isSearch ul { margin:0; padding:0; display:none; position:absolute; left:0; top:18px; padding:2px 0 3px 0; text-align:left; border:1px solid #b2b2b2; background:#ffffff; overflow:hidden;}
+#isSearch ul li { width:67px; height:18px; list-style:none;}
+#isSearch ul li input { display:none;}
+#isSearch ul li label { display:block; padding:4px 0 0 4px; width:63px; height:15px; font:11px "돋움", Dotum, "굴림", Gulim, AppleGothic, Sans-serif; color:#5c5c5c;}
+#isSearch ul li label.on { background:#ededed; }
+#isSearch ul li label:hover,
+#isSearch ul li label:focus { background:#ededed;}
+#isSearch .inputText { vertical-align:middle; _position:relative; _top:-1px; padding:3px 3px 1px 3px; width:94px; height:15px; color:#5c5c5c; border:none; background:url(../images/white/bgSearch.gif) no-repeat;}
+#isSearch .inputText:hover,
+#isSearch .inputText:focus { background:url(../images/white/bgSearchOn.gif) no-repeat;}
+*:first-child+html #isSearch .inputText { position:relative; top:-1px;}
+#isSearch .submit { vertical-align:middle; _position:relative; _top:-1px;}
+*:first-child+html #isSearch .submit { position:relative; top:-1px;}
+
+/* Site Layout - Content Body */
+#contentBody { position:relative; width:970px; padding-bottom:30px; overflow:hidden; background:url(../images/white/bgContentBody.gif) repeat-y left top; border-bottom:0px solid #dddddd;}
+
+/* Site Layout - Column Left */
+#columnLeft { position:relative; width:170px; float:left;}
+#columnLeft .mask { width:170px; height:5px; background:#ffffff; display:block;}
+
+#lnb { margin:0; padding:0; border-top:0px solid #dddddd; padding:4px 15px 0px 17px; width:140px;}
+#lnb li { list-style:none; padding-bottom:4px;}
+#lnb li a { padding:5px 10px 5px 25px; width:100px; display:block; border:0px solid #ffffff; background:url(../images/white/bgLnbOff.gif) repeat-x; color:#3e3e3e; position:relative; z-index:99; text-decoration:none;}
+#lnb li a:hover,
+#lnb li a:focus { color:#000000; background:url(../images/white/bgLnbOff.gif) repeat-x;  border:0px solid #de4332; font-weight:bold;}
+#lnb li.on a { color:#202020; background:url(../images/white/bgLnbOn.gif) repeat-x;  border:0px solid #de4332;}
+#lnb li.on a:hover,
+#lnb li.on a:focus { font-weight:bold;}
+#lnb li ul { margin:0; padding:0; background:#f9f9f9; display:none; position:relative; width:150px; padding:0 3px; position:relative; border-top:1px solid #ffffff; overflow:hidden;}
+#lnb li.on ul { margin:0; padding:0; display:block;}
+#lnb li ul li { padding:0; border-top:1px solid #f2f2f2; position:relative; top:-1px;}
+#lnb li ul li a { padding:6px 5px 6px 10px; width:150px; color:#818181 !important; border:none; background:none !important; border:none !important;}
+#lnb li ul li a:hover,
+#lnb li ul li a:focus { font-weight:normal !important; color:#de4332 !important;}
+#lnb li.on ul li.on a { color:#ff1a00 !important; font-weight:bold !important; background:url(../images/white/bulletLnb.gif) no-repeat 175px center  !important;}
+
+/* Site Layout - Column Right */
+#columnCenter { width:783px; float:right; overflow:hidden;padding:0px 0px 0px 15px;}
+#visualArea { width:100%; height:200px; background:#f5f5f5; margin-bottom:2.5em; position:relative; left:-15px; margin-right:-15px;}
+#content { width:100%; overflow:hidden;}
+#columnLeft .submenu_back { background:url("../images/white/smenu_back.gif") repeat-y;}
+#columnLeft .submenu_title  { background:url("../images/white/smenu_title.gif") no-repeat; height:40px; font-weight:bold; font-family:Tahoma; font-size:16px; color:#ffffff; padding:10px 10px 0px 20px; }
+#columnLeft .submenu_bottom { background:url("../images/white/smenu_bottom.gif") no-repeat; height:15px;}
+
+/* Site Layout - Footer */
+#footer { margin:0; padding:0; border-top:0px solid #f4f4f4; text-align:center; padding:22px 0px 0px 0px; height:35px; clear:both;background:url(../images/white/foot_back.gif) no-repeat left center; } /* background:url(../images/white/foot_back.gif) no-repeat left center;*/
+#footer ul {margin:0; padding:0;}
+#footer li { display:inline; padding:0 1em 0 1em; background:url(../images/white/vrType1.gif) no-repeat right center;} /* float:left; */ 
+#footer li.first-child { background:none;}
+#footer li a { color:#999999; font:.9em "돋움", Dotum, "굴림", Gulim, AppleGothic, Sans-serif;}
+#footer li address { display:inline; }
+
+#bottom_border_top {border-top:0px solid #e9e9e9;clear:both;height:5px;}
+
+#footer_banner_top {border-top:1px solid #e9e9e9;clear:both;height:5px;}
+#foot_banner_menu {margin:0;padding:0;}
+#foot_banner_menu li {display:inline;list-type:none;padding:0 .6em 0 1em;}
+
+#footer_border_top {border-top:1px solid #e9e9e9;clear:both;height:15px;}
+#copyright { width:650px;height:38px;text-align:center; color:#999999;background: url(../images/footer.png) no-repeat;margin-left:10px;}
+.none {}
+#mailto {width:80px;height:15px;position:absolute;margin-left:165px;margin-top:10px;left:0px;border:0px solid red;}
+/* White Skin - End */

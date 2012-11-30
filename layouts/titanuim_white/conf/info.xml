@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0.1">
+    <title xml:lang="ko">Titanium White [BASIC]</title>
+	
+    <description xml:lang="ko">
+        드로우홀릭 기본 레이아웃입니다.
+    </description>
+    <version>1.0.1</version>
+    <date>2010-08-4</date>
+    <author email_address="zzez@nate.com" link="http://www.drawholic.com/">
+        <name xml:lang="ko">DRAWHOLIC</name>
+    </author>
+	
+    <extra_vars>
+        <var name="logo_image" type="image">
+            <title xml:lang="ko">로고 이미지</title>
+            <description xml:lang="ko">로고이미지를 왼쪽 상단에 출력합니다. 최대 사이즈 제한(718*80px)</description>
+        </var>
+        <var name="logo_url" type="text">
+            <title xml:lang="ko">로고 이미지 링크</title>
+            <description xml:lang="ko">로고를 클릭시에 이동할 링크 URL을 입력해 주세요.</description>
+        </var>
+		
+		<var name="footlogo_image" type="image">
+            <title xml:lang="ko">하단 로고 이미지</title>
+            <description xml:lang="ko">로고이미지를 왼쪽 상단에 출력합니다. 최대 사이즈 제한(150*80px)</description>
+        </var>
+        <var name="footlogo_url" type="text">
+            <title xml:lang="ko">하단 로고 이미지 링크</title>
+            <description xml:lang="ko">하단 로고를 클릭시에 이동할 링크 URL을 입력해 주세요.</description>
+        </var>
+    </extra_vars>
+	
+    <menus>
+        <menu name="main_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">메인메뉴</title>
+			          <maxdepth>3</maxdepth>
+        </menu>
+		
+		<menu name="footer_menu" maxdepth="1" default="true">
+            <title xml:lang="ko">하단메뉴</title>
+        </menu>
+    </menus>
+
+
+</layout>

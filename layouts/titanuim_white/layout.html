@@ -1,0 +1,211 @@
+<!--%import("css/css.css")-->
+<!--%import("js/lang.js")-->
+
+<div id="wrap">
+
+	<div id="header">
+    
+    	<div id="logo">
+        {$layout_info->logo_bg_image}
+        <!--@if($layout_info->logo_image)-->
+        <a href="{$layout_info->logo_url}">
+        <img src="{$layout_info->logo_image}" class="iePngfix" alt="" />
+        </a>
+        <!--@end-->
+        </div>
+        
+        <div id="headgnb">
+        
+	<div class="langBar">
+		<div class="langSelect">
+			<a href="javascript:void(0);" onfocus="this.blur();" onclick="selLanguage('langbar')"><span>Select Language</span></a>
+			<div class="lang" id="langbar">
+				<ul>
+					<!--@foreach($lang_supported as $key => $val)--><!--@if($key!= $lang_type)-->
+					<li><a href="#" onclick="doChangeLangType('{$key}');return false;">{$val}</a></li>
+					<!--@end--><!--@end-->					
+				</ul>
+			</div>
+		</div>
+		<div class="langTxt">{$lang_supported[$lang_type]}</div>
+	</div>
+        
+        
+        </div>
+
+    </div>
+
+	<div id="gnb">
+	<div id="gnbhome"><a href="{$layout_info->logo_url}"><img src="img/home.png" class="iePngfix" alt="" /></a></div>
+
+	<div id="gnbmain">
+
+	<ul id="nav">
+		{@$_idx = 1}
+		<!--@foreach($main_menu->list as $key => $val)-->
+		<!--@if($val['selected'])-->{@ $menu_1st = $val }<!--@end-->
+		<!--@if($val['selected']&&$val['url']==$mid)-->{@$_menu_depth=2}{@$selected_menu=$val}<!--@end-->
+		<!--@if($val['link'])-->
+		<li class="nav{$_idx}"><a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--> <!--@if($val['selected'])-->class="on"<!--@end-->><!--@if($val['text']==$val['link'])--><span>{$val['text']}</span><!--@else-->{$val['link']}<!--@end--></a>
+		<!--@if($val['list'])-->
+
+			<ul>
+				<!--@foreach($val['list'] as $k => $v)-->
+				<!--@if($val['link'])-->
+				{@ $val2 = $v; }
+				<li <!--@if($val2['list'])-->class="selected"<!--@end-->><a href="{$v['href']}"<!--@if($v['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->>{$v['text']}</a>
+                
+                </li>
+				<!--@end-->
+				<!--@end-->
+			</ul>	
+		<!--@end-->
+			
+		</li>
+		{@$_idx++}
+		<!--@end-->
+		<!--@end-->
+	</ul>
+
+	</div>
+    
+        <div id="searchdiv">
+		<li class="search">
+			<form action="{getUrl()}" method="post" class="search">
+                <input type="hidden" name="vid" value="{$vid}" />
+                <input type="hidden" name="mid" value="{$mid}" />
+                <input type="hidden" name="act" value="IS" />
+                <input type="hidden" name="search_target" value="title_content" />
+				<div class="searchBox">
+					<input name="is_keyword" type="text" title="Search" class="inputText" accesskey="S" />
+					<input type="submit" class="submit" value=" " />
+				</div>
+			</form>
+		</li>
+        </div>
+
+    </div>
+    
+	<div id="visualsub"></div>
+
+	<div id="pagehead"></div>
+    <div id="shwl"></div>
+    
+    
+    <div id="submenu">
+    
+				<!--@if($menu_1st['list'])-->					
+					<div id="submenuTitle"><h3>{$menu_1st['text']}</h3></div>    <!--@endif--> 
+
+    <!--// 메뉴출력 --> 
+    <!--@if($menu_1st)--> 
+    <ol> 
+        {@ $idx = 1 } 
+        <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])--> 
+        <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a> 
+
+            <!--// main_menu 3차 시작 --> 
+            <!--@if($val['list'] && ($val['expand']=='Y'||$val['selected']) )--> 
+            <ul> 
+            <!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])--> 
+                <li <!--@if($v['selected'])-->class="on"<!--@end-->><a href="{$v['href']}" <!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$v['link']}</a></li> 
+            <!--@endif--><!--@endforeach--> 
+            </ul> 
+            <!--@endif--> 
+        </li> 
+        {@$idx++} 
+        <!--@endif--><!--@endforeach--> 
+    </ol> 
+    <!--@endif--> 
+
+                                       
+    </div>
+    
+    
+    
+    
+    <div id="shwl"></div>
+	<div id="subcontentwrap">
+		<div class="location">
+			<ul>
+				<li class="home"><a href="{$layout_info->logo_url}"><span>Home</span></a></li>
+				<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+				<!--@if($val['selected'])-->
+					<li><a href="{$val['href']}">{$val['link']}</a></li>
+					{@ $menu_1st = $val }
+				<!--@end-->
+				<!--@endif--><!--@endforeach-->
+				<!--@if($menu_1st)-->
+					{@ $idx = 1 }
+				<!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+					<!--@if($val['selected'])-->
+					<li><a href="{$val['href']}">{$val['link']}</a></li>
+					{@$idx++}
+						<!--@if($val['list'] && ($val['expand']=='Y'||$val['selected']) )-->
+						<!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+							<!--@if($v['selected'])-->
+					<li><strong><a href="{$val['href']}">{$v['link']}</a></strong></li>
+							<!--@endif-->
+						<!--@endif--><!--@endforeach-->
+						<!--@endif-->
+
+					<!--@end-->
+				<!--@endif--><!--@endforeach-->
+				<!--@endif-->
+			</ul>
+		</div> <!-- location end -->
+        
+    <div id="contentsub">{$content}</div>
+	
+	</div> <!-- subContentWrap end -->
+    
+    <div id="shwr"></div>
+
+
+<div id="footer">
+	<div id="wrap">
+    
+		<div id="footerlogo">
+          {$layout_info->footlogo_bg_image}
+        <!--@if($layout_info->footlogo_image)-->
+        <a href="{$layout_info->footlogo_url}">
+        <img src="{$layout_info->footlogo_image}" class="iePngfix" alt="" />
+        </a>
+        <!--@end-->
+        </div>
+        
+		<div id="footerwrap">
+        
+			<div id="footergnb">
+        {@$_idx = 0}
+        <!--@foreach($footer_menu->list as $key => $val)-->
+        <!--@if($val['selected']&&$val['url']==$mid)-->{@$_menu_depth=1}{@$selected_menu=$val}<!--@end-->
+        <!--@if($val['link'])-->
+		<li><a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->><!--@if($val['text']==$val['link'])--><span>{$val['text']}</span><!--@else-->{$val['link']}<!--@end--></a></li>
+        {@$_idx++}
+        <!--@end-->
+        <!--@end-->
+            </div>
+<!-- 사용자의 카피라이트를 적용하여 수정하세요. -->
+            <div id="footertext"></div>
+		</div>
+        
+    </div>	
+</div>
+
+<!-- 제작자 정보를 지우시면 라이센스 침해에 해당됩니다. -->
+<div id="address">
+<address style="font-style:normal" class="titanuim">
+<strong title="http://drawholic.com">Copyright(C) 2010. <a href="http://drawholic.com">DRAWHOLIC</a>. All right Reserved.</strong>
+</address>
+
+</div>
+
+</div>
+
+
+
+
+
+
+

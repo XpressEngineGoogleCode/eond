@@ -1,0 +1,208 @@
+<!-- 공통파일 -->
+<!--%import("js/common.js")-->
+<!--%import("css/common.css")-->
+
+<!-- 상단메뉴 컬러셋 -->
+<!--@if($layout_info->top_menu == "green")-->
+    <!--%import("css/green_top.css")-->
+<!--@elseif($layout_info->top_menu == "blue")-->
+    <!--%import("css/blue_top.css")-->
+<!--@else-->
+    <!--%import("css/red_top.css")-->
+<!--@end-->
+
+<!-- 서브메뉴 컬러셋 -->
+<!--@if($layout_info->sub_menu == "green")-->
+    <!--%import("css/green_sub.css")-->
+<!--@elseif($layout_info->sub_menu == "blue")-->
+    <!--%import("css/blue_sub.css")-->
+<!--@else-->
+    <!--%import("css/red_sub.css")-->
+<!--@end-->
+
+<!-- 배경 설정 -->
+<style>
+<!--@if(!$layout_info->bg_img)-->
+body { background:url(./images1/bg.png) center top repeat-X #555 }
+<!--@else-->
+body { background:url({$layout_info->bg_img}) center top repeat-x {$layout_info->bg_color} }
+<!--@end-->
+</style>
+<!-- /배경 설정 -->
+<div id=navi_UpService>
+<!--GNB-->
+<ul id="gnb">
+            <!-- navi_menu 1차 -->
+            <!--@foreach($navi_menu->list as $key => $val)--><!--@if($val['link'])-->
+                <!--@if($val['selected'])-->
+                    {@ $menu_1st = $val }
+                <!--@end-->
+
+                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+
+            <!--@end--><!--@end-->
+            <!-- //navi_menu 1차 -->
+</ul>
+<!--//GNB-->
+
+<div class=navi_Upservice_admin>
+<a href=./?module=admin&act=dispBoardAdminContent><img src="./images/navi_ico_admin.gif" width=10 height=10></a>
+</div>
+</div>
+<div id="bodyWrap">
+
+<!-- 헤더 -->
+<div id="headerWrap">
+
+<!-- 로고 -->
+<h1 id="logo">
+<!--@if(!$layout_info->logo_img)-->
+<img src="./images/logo.png" alt="logo" class="iePngFix"/><!--@else--><a href="{$layout_info->home_url}"><img src="{$layout_info->logo_img}" alt="logo" class="iePngFix"/></a><!--@end-->
+</h1>
+<!-- /로고 -->
+
+<!-- 상단메뉴 -->
+<div id="menuBoxWrap">
+<ul id="menuBox">
+<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+<!--@if($val['selected'])-->
+<li class="menuItem itemSelect">
+{@ $menu_1st = $val }
+<!--@else-->
+<li class="menuItem itemOff" onmouseover="this.className='menuItem itemOn'" onmouseout="this.className='menuItem itemOff'">
+<!--@end-->
+<span class="menuLeftBG"></span>
+
+<span class="menuText">
+<a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></span>
+
+<span class="menuRightBG"></span></li>
+<!--@end--><!--@end-->
+</ul>
+</div>
+<!-- /상단메뉴 -->
+
+<div id="headerRight">
+
+<!-- 로그정보 -->
+<ul id="Log">
+
+<!--@if(!$is_logged)-->
+	<li><a href="{getUrl('act','dispMemberLoginForm')}">Login</a></li>
+	<li><a href="{getUrl('mid',$layout_info->target_mid,'act','dispMemberSignUpForm')}">Join</a></li>
+<!--@else-->
+	<li><a href="{geturl('act','dispMemberInfo')}">MyInfo</a></li>
+	<li><a href="{getUrl('act','dispMemberLogout')}">Logout</a></li>
+<!--@end-->
+            
+<!--@if($logged_info->is_admin == 'Y')-->
+	<li><a href="{getUrl('','module','admin')}" onclick="window.open(this.href); return false;">Manage</a></li>
+	<li><a href="{getUrl('act','dispBoardAdminBoardInfo')}">Setup</a></li>
+<!--@else-->
+	<li><a href="javascript:addfavorites('{$layout_info->home_url}','{$layout_info->home_title}')">Bookmark</a></li>
+	<li><a href="mailto:{$layout_info->mail}">Contact</a></li>
+<!--@end-->
+
+</ul>
+<!-- /로그정보 -->
+
+<!-- 추가메뉴 -->
+<ul id="extraMenu">
+<!--@foreach($extra_menu->list as $key => $val)-->
+<li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+<!--@end-->
+</ul>
+<!-- /추가메뉴 -->
+
+<!-- 검색폼 -->
+<div id="searchBox">
+<form action="{getUrl()}" method="get">
+<div style="visibility:hidden;"><input type="hidden" name="mid" value="{$mid}" />
+<input type="hidden" name="act" value="IS" /></div>
+<input type="text" name="is_keyword" class="searchKeyword" value="{$is_keyword}"/>
+<input type="image" src="./images/search.png" class="searchButton" />
+</form>
+</div>
+<!-- /검색폼 -->
+
+</div>
+
+</div>
+<!-- /헤더 -->
+
+<div id="contentWrap">
+
+<div id="contentBtom"></div>
+
+<!-- 컨텐츠출력부 -->
+<div id="leftColumn">{$content}</div>
+<!-- /컨텐츠출력부 -->
+
+<div id="rightColumn">
+
+<!-- 우측서브메뉴 -->
+<!--@if($menu_1st['list'])-->
+<div id="lnb_top"> </div>
+
+<ol id="lnb">
+<li><div id="subtitle">Submenu</div></li>
+
+                {@ $idx = 1 }
+                <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+				<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+
+                    <!-- main_menu 3차 시작 -->
+                    <!--@if($val['list'] && ($val['expand']=='Y'||$val['selected']) )-->
+					<ul>
+                    <!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+						<li <!--@if($v['selected'])-->class="on"<!--@end-->><a href="{$v['href']}" <!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$v['link']}</a></li>
+                    <!--@end--><!--@end-->
+					</ul>
+                    <!--@end-->
+				</li>
+                {@$idx++}
+                <!--@end--><!--@end-->
+			</ol>
+ <div id="lnb_btom"><img src="images/none.gif" /> </div>
+             <!--@else-->  <!--@end--> 
+<!-- /우측서브메뉴 -->
+
+<!-- 위젯삽입 
+<div class="title_r"></div>, <div class="rightDiv"></div>를 이용하여 위젯을 넣을 수 있습니다.
+-->
+<div class="title_r">Widgets</div>
+<div class="rightDiv"></div>
+<!-- /위젯삽입 -->
+
+</div>
+
+
+
+
+</div>
+
+</div>
+
+<!-- 풋터 -->
+<div id="footerWrap">
+
+<div id="footer">
+
+<p id="copyright"><!--@if(!$layout_info->copyright)-->Copyright 2008 <b>mjworks</b>. all rights reserved.<!--@else-->{$layout_info->copyright}<!--@end--></p>
+<img src="images/check.png" id="check" alt="" class="iePngFix"/>
+<!--@if(!$layout_info->rss)-->
+<!--@else--><a href="{$layout_info->rss}" target="_blank"><img src="images/rss.png" id="rss" alt="RSS FEED" class="iePngFix"/></a>
+<!--@end-->
+<p id="by">skin by <a href="http://mjworks.kr" target="_blank">MJWORKS</a><br />Powered by <a href="http://zeroboard.com" target="_blank">ZEROBOARD</a></p>
+</div>
+
+
+
+<img src="images/footer_btom_l.png" id="bottomRound" class="iePngFix" />
+
+<div id="bottom"></div>
+
+<img src="images/footer_btom_r.png" id="bottomRound" class="iePngFix" />
+<!-- /풋터 -->
+
+</div>

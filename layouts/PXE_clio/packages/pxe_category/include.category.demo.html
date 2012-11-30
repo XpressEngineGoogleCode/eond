@@ -1,0 +1,51 @@
+<load target="packages/pxe_category/js/category.js" />
+
+<!--// 컬러셋과 연동될 css 파일 import -->
+<load cond="$layout_info->colorset == 'default'" target="packages/pxe_category/css/category_default.css" />
+<load cond="$layout_info->colorset == 'custom'" target="packages/pxe_category/css/category_custom.css" />
+
+<div class="pxeCategoryTree">
+    <a href="/board" class="all strong">{$lang->pxe_total_count}</a>
+    <ul>
+        <li class=" nav_tree_on " id="category_parent_112">
+            <button type="button" class="category_112">+</button>
+            <a href="/?mid=board&amp;category=112" class="nav_tree_label ">{$lang->pxe_demo_category}</a>
+            <span class="readBox">
+                <span><strong>1</strong></span>
+            </span>
+                <ul>
+                    <li class=" nav_tree_off " id="category_parent_114">
+                        <a href="/?mid=board&amp;category=114" class="nav_tree_label ">Preformance</a>
+                        <span class="readBox">
+                            <span><strong>1</strong></span>
+                        </span>
+                    </li>
+                    <li class=" nav_tree_off " id="category_parent_142">
+                        <a href="/?mid=board&amp;category=142" class="nav_tree_label ">System Spec</a>
+                    </li>
+                    <li class=" nav_tree_off " id="category_parent_144">
+                        <a href="/?mid=board&amp;category=144" class="nav_tree_label ">Validation</a>
+                    </li>
+                    <li class="nav_tree_last nav_tree_off " id="category_parent_146">
+                        <a href="/?mid=board&amp;category=146" class="nav_tree_label ">Metropolitan</a>
+                    </li>
+                </ul>
+            </li>
+            <li class=" nav_tree_off " id="category_parent_116">
+                <a href="/?mid=board&amp;category=116" class="nav_tree_label ">{$lang->pxe_demo_category}</a>
+            </li>
+            <li class=" nav_tree_off " id="category_parent_134">
+                <a href="/?mid=board&amp;category=134" class="nav_tree_label ">{$lang->pxe_demo_category}</a>
+            </li>
+            <li class=" nav_tree_off " id="category_parent_136">
+                <a href="/?mid=board&amp;category=136" class="nav_tree_label ">{$lang->pxe_demo_category}</a>
+            </li>
+            <li class=" nav_tree_off " id="category_parent_138">
+                <a href="/?mid=board&amp;category=138" class="nav_tree_label ">{$lang->pxe_demo_category}</a>
+            </li>
+            <li class="nav_tree_last nav_tree_off " id="category_parent_140">
+                <a href="/?mid=board&amp;category=140" class="nav_tree_label ">{$lang->pxe_demo_category}</a>
+            </li>
+        </li>
+    </ul>
+</div>

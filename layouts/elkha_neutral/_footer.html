@@ -1,0 +1,26 @@
+<div class="footer">
+
+	<hr />
+	<address class="copyright">
+		<block cond="$layout_info->copyright">{$layout_info->copyright}</block>
+		<span cond="!$layout_info->copyright" class="c">&copy; {date("Y")}</span> <strong><a href="{$layout_info->url}">{$layout_info->name}</a></strong>
+		<span class="powered">
+			Designed by <a href="http://www.mono-lab.net/" onclick="window.open(this.href); return false;">mono-lab</a>
+			/ UI Dev. <a href="{$layout_info->author[0]->homepage}" onclick="window.open(this.href);return false;">{$layout_info->author[0]->name}</a>
+		</span>
+	</address>
+
+	<hr />
+	<ul class="sta" cond="$sta">
+		<li loop="$sta->list=>$val"><a href="{$val['href']}" onclick="window.open(this.href); return false;"|cond="$val['open_window']=='Y'">{$val["link"]}</a></li>
+	</ul>
+
+	<hr />
+	<div class="sLang">
+		<em class="lang {$lang_type}_"><span>{$lang_supported[$lang_type]}</span></em>
+		<span class="lang select_language"><button type="button">Select Language</button></span>
+		<ul>
+			<li class="lang {$key}_" loop="$lang_supported=>$key,$val" cond="$key!=$lang_type"><button type="button" onclick="doChangeLangType('{$key}');return false;">{$val}</button></li>
+		</ul>
+	</div>
+</div>

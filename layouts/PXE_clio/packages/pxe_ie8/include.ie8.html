@@ -1,0 +1,26 @@
+<load target="packages/pxe_ie8/css/ie8.css" />
+
+<script type="text/javascript">
+	//<![CDATA[
+	function getIE8Download () {
+		var ua = navigator.userAgent;
+		var dlLink = "";
+		
+		try {
+			if ( ua.indexOf("NT 6.0") > -1 || ua.indexOf("NT 6.1") > -1 ) {
+				dlLink = "http://cdn.naver.com/naver/IE8/Naver_IE8Setup_Vista_Campaign.exe";
+			} else {
+				dlLink = "http://cdn.naver.com/naver/IE8/Naver_IE8Setup_XP_Campaign.exe";
+			}
+			
+			document.location.href = dlLink;
+		} catch(e){}
+	}
+	//]]>
+</script>
+
+<div id="IE_alert" class="pngFix">
+    <a class="gogetit" href="javascript:getIE8Download();">explorer8 설치하기</a>
+</div>
+
+    

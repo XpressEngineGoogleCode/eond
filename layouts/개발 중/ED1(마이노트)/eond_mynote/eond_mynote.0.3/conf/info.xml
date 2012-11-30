@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.3">
+    <title xml:lang="ko">이온디 마이노트</title>
+    <description xml:lang="ko">
+        이온디 마이노트 레이아웃입니다.
+    </description>
+    <version>0.3</version>
+    <date>2010-11-02</date>
+
+    <author email_address="eond@eond.com" link="http://eond.com">
+        <name xml:lang="ko">이온디</name>
+    </author>
+
+    <extra_vars>
+        <var name="colorset" type="select">
+            <title xml:lang="ko">컬러셋</title>
+            <description xml:lang="ko">원하시는 컬러셋을 선택해주세요.</description>
+            <options value="default">
+                <title xml:lang="ko">기본</title>
+            </options>
+        </var>
+        <var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요. (세로길이가 23px인 투명이미지가 가장 어울립니다)</description>
+        </var>
+        <var name="index_url" type="text">
+            <title xml:lang="ko">홈 페이지 URL</title>
+            <description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+             </var>
+        <var name="background_image" type="image">
+            <title xml:lang="ko">배경 이미지</title>
+            <description xml:lang="ko">배경 이미지를 사용하시려면 등록해주세요.</description>
+        </var>
+    </extra_vars>
+
+    <menus>
+		<menu name="site_menu" maxdepth="1" default="true">
+            <title xml:lang="ko">사이트 메뉴</title>
+			<description xml:lang="ko">사이트바에 등록하는 전역 메뉴입니다.</description>
+        </menu>
+        <menu name="main_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">상단 메뉴</title>
+        </menu>
+        <menu name="bottom_menu" maxdepth="1">
+            <title xml:lang="ko">하단 메뉴 </title>
+        </menu>
+    </menus>
+</layout>

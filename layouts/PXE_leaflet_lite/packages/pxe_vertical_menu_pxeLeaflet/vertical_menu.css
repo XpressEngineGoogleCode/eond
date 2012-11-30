@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+/*
+이 마크업 문서는 아래 제공자에 의해 작성 및 수정, 배포 되었습니다
+Markup : Hyunhw Jung
+Website: http://www.premiumxe.com
+Email : clubnb2@naver.com
+*/
+
+/* Colorset - pxeSky
+---------------------------------------------------------------------------------*/
+#sub_nav_pxeSky { margin:0; padding:0; font:8pt 돋움; letter-spacing:-1px; *zoom:1; list-style:none; overflow:hidden; }
+
+/* 1차 */
+#sub_nav_pxeSky li a { padding:8px 12px 8px 12px; display:block; border:1px solid #eee; color:#555; background:#fdfdfd url(img/icon_allow_right.gif) no-repeat right center; *zoom:1; }
+#sub_nav_pxeSky li a:hover { color:#22aaee !important; }
+#sub_nav_pxeSky li.on a { font-weight:bold; color:#22aaee; }
+
+/*2차 */
+#sub_nav_pxeSky li ul { list-style:none; margin:0; padding:0; }
+#sub_nav_pxeSky li ul li a { padding-left:0; font-weight:normal; border:none; border-bottom:1px solid #eee; background:none; color:#999; }
+#sub_nav_pxeSky li.on ul li a { font-weight:normal !important; color:#999; }
+#sub_nav_pxeSky li.on ul li.on a { font-weight:bold !important; color:#555; }
+
+/*3차 */
+#sub_nav_pxeSky li ul li ul { margin:0 0 0 13px; }
+#sub_nav_pxeSky li ul li ul li a { background:none; }
+#sub_nav_pxeSky li.on ul li.on ul li a { font-weight:normal !important; color:#999; background:none; }
+#sub_nav_pxeSky li.on ul li.on ul li.on a { font-weight:bold !important; color:#555; background:url(img/icon_allow_left.gif) no-repeat right center; }
+
+/*4차 */
+#sub_nav_pxeSky li.on ul li.on ul li.on ul li a { font-weight:normal !important; color:#999; background:none; }
+#sub_nav_pxeSky li.on ul li.on ul li.on ul li.on a{ font-weight:bold !important; color:#555; background:url(img/icon_allow_left.gif) no-repeat right center; }
+
+
+
+/* Colorset - pxeBlack
+---------------------------------------------------------------------------------*/
+#sub_nav_pxeBlack { margin:0; padding:0; font:8pt 돋움; letter-spacing:-1px; *zoom:1; list-style:none; overflow:hidden; }
+
+/* 1차 */
+#sub_nav_pxeBlack li a { padding:8px 12px 8px 12px; display:block; border:1px solid #282828; color:#555; background:#161616 url(img/icon_allow_right.gif) no-repeat right center; *zoom:1; }
+#sub_nav_pxeBlack li a:hover { color:#fff !important; }
+#sub_nav_pxeBlack li.on a { font-weight:bold; color:#ff0000; }
+
+/*2차 */
+#sub_nav_pxeBlack li ul { list-style:none; margin:0; padding:0; }
+#sub_nav_pxeBlack li ul li a { padding-left:0; font-weight:normal; border:none; background:url(img/breaker.png) no-repeat left bottom; _background:url(img/breaker.gif) no-repeat left bottom; color:#555; }
+#sub_nav_pxeBlack li.on ul li a { font-weight:normal !important; color:#555; }
+#sub_nav_pxeBlack li.on ul li.on a { font-weight:bold !important; color:#ff0000; }
+
+/*3차 */
+#sub_nav_pxeBlack li ul li ul { margin:0 0 0 13px; }
+#sub_nav_pxeBlack li ul li ul li a { background:none; }
+#sub_nav_pxeBlack li.on ul li.on ul li a { font-weight:normal !important; color:#555; background:none; }
+#sub_nav_pxeBlack li.on ul li.on ul li.on a { font-weight:bold !important; color:#ff0000; background:url(img/icon_allow_left.gif) no-repeat right center; }
+
+/*4차 */
+#sub_nav_pxeBlack li.on ul li.on ul li.on ul li a { font-weight:normal !important; color:#555; background:none; }
+#sub_nav_pxeBlack li.on ul li.on ul li.on ul li.on a{ font-weight:bold !important; color:#ff0000; background:url(img/icon_allow_left.gif) no-repeat right center; }

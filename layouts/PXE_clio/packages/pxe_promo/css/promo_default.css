@@ -1,0 +1,55 @@
+/* Promotion - 상단 콘트롤러 (pxe_promo)
+---------------------------------------------------------------------------------*/
+#promo_control { position:relative; height:40px; background:url(../img/default/bg_promo_control.png) }
+#promo_control span.promo_control_right { position:absolute; right:-10px; width:10px; height:40px; background:url(../img/default/bg_promo_control_right.png); text-indent:-1000em; }
+
+#tab_controler { margin:0; padding:0; height:40px; list-style:none; overflow:hidden; }
+#tab_controler li { float:left; text-indent:-1000em; }
+#tab_controler li a { display:block; height:40px; }
+
+#tab_controler li.static { width:95px; height:40px; background:url(../img/default/tab_controler.gif); }
+
+#tab_controler li.image a { width:41px; background:url(../img/default/tab_controler.gif) -95px 0; }
+#tab_controler li.image a:hover { background:url(../img/default/tab_controler.gif) -95px -40px;  border-left:1px solid #94bf1d;}
+#tab_controler li.image a.selected { background:url(../img/default/tab_controler.gif) -95px -40px;  border-left:1px solid #94bf1d;}
+
+#tab_controler li.slide a { width:41px; background:url(../img/default/tab_controler.gif) -136px 0; }
+#tab_controler li.slide a:hover { background:url(../img/default/tab_controler.gif) -136px -40px; border-left:1px solid #94bf1d; }
+#tab_controler li.slide a.selected { background:url(../img/default/tab_controler.gif) -136px -40px; border-left:1px solid #94bf1d; }
+
+#tab_controler li.movie a { width:41px; background:url(../img/default/tab_controler.gif) -177px 0; }
+#tab_controler li.movie a:hover { background:url(../img/default/tab_controler.gif) -177px -40px; border-left:1px solid #94bf1d; }
+#tab_controler li.movie a.selected { background:url(../img/default/tab_controler.gif) -177px -40px; border-left:1px solid #94bf1d; }
+
+#tab_controler li.mp3 .mp3btn { width:41px; height:40px; display:block; background:url(../img/default/tab_controler.gif) -218px 0; cursor:pointer; }
+#tab_controler li.mp3 .mp3btn:hover { background:url(../img/default/tab_controler.gif) -218px -40px; border-left:1px solid #94bf1d; }
+
+/* Promotion - 중간*/
+#promo_bd { position:relative; z-index:1; }
+#promo_image { _margin:0 0 -3px 0; display:none; }
+#promo_slide { position:relative; }
+#promo_movie { position:relative; display:none; }
+#promo_mp3 { position:absolute; width:275px; height:170px; bottom:-14px; right:-11px; background:url(../img/default/mp3player.png); z-index:1; }
+#promo_mp3 #playerArea { position:relative; width:230px; height:120px; top:20px; left:26px; }
+
+/* 슬라이드 - Main Container*/
+.main_view { position: relative; margin:0 auto; }
+/*--Window/Masking Styles--*/
+.window { overflow: hidden; /*--Hides anything outside of the set width/height--*/ position: relative; }
+.image_reel { position: absolute; top: 0; left: 0; }
+.image_reel img {float: left;}
+
+/* 슬라이드 - Paging Styles*/
+.slider_nav { position:absolute; padding:0 15px; bottom:-37px; overflow:hidden; }
+.page_nav { float:right; width: 40%; }
+.page_nav .paging { float:right; display: none; /*--Hidden by default, will be later shown with jQuery--*/ }
+.page_nav .paging a { float:left; margin-left:10px; width:27px; height:27px; text-decoration: none; font:12px Arial, Geneva, sans-serif; font-weight: bold; color:#aaa; background:url(../img/default/silde_nav_off.gif) no-repeat; display:block; text-align:center; line-height:26px; outline:0; selector-dummy:expression(this.hideFocus=true) }
+.page_nav .paging a.active { color:#fff; font-weight: bold;  background:url(../img/default/silde_nav_on.gif) no-repeat; }
+
+.values { float:left; width:60%; height:30px; text-align:left; line-height:140%; *zoom:1; overflow:hidden; }
+.values a { color:#999 !important; text-decoration: none; display:none; *zoom:1; }
+.values a:first-child { display:inline; }
+
+/* Promotion - 하단*/
+#promo_bottom { position:relative; height:40px; background:url(../img/default/bg_promo_bottom.png); }
+#promo_bottom span.promo_bottom_right { position:absolute; right:-10px; width:10px; height:40px; background:url(../img/default/bg_promo_bottom_right.png); text-indent:-1000em; }

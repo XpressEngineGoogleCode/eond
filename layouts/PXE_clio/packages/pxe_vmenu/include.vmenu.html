@@ -1,0 +1,48 @@
+<!-- 컬러셋용 CSS 파일 로드 -->
+<load cond="$layout_info->colorset == 'default'" target="packages/pxe_vmenu/css/vmenu_default.css" />
+<load cond="$layout_info->colorset == 'custom'" target="packages/pxe_vmenu/css/vmenu_custom.css" />
+
+<!-- 세로메뉴출력 -->
+<ul id="sub_nav">
+    <!--// 1차 메뉴 출력 안함 -->
+    <block loop="$main_menu->list=>$key,$val"><block cond="$val['link']">
+        {@ $menu_1st = $val }                       
+
+        <!--// main_menu 2차 시작 -->	
+        <block cond="$val['selected']&&$val['list']">
+            <block loop="$menu_1st['list']=>$key,$val"><block cond="$val['link']">
+             {@ $menu_2nd = $val }
+             <li class="on"|cond="$val['selected']"><a href="{$val['href']}" onclick="window.open(this.href);return false;"|cond="$val['open_window']=='Y'">{$val['link']}<span class="i" cond="$val['selected'] && $val['list']"></span></a>
+
+                 <!--// main_menu 3차 시작 -->
+                 <block cond="$val['selected']&&$val['list']">
+                 <ul>
+                     <block loop="$menu_2nd['list']=>$key,$val"><block cond="$val['link']">
+                     {@ $menu_3rd = $val }
+                     <li class="on"|cond="$val['selected']"><a href="{$val['href']}" onclick="window.open(this.href);return false;"|cond="$val['open_window']=='Y'">{$val['link']}<span class="i" cond="$val['selected'] && $val['list']"></span></a>
+
+                         <!--// main_menu 4차 시작 -->
+                         <block cond="$val['selected']&&$val['list']">
+                         <ul>
+                             <block loop="$menu_3rd['list']=>$key,$val"><block conf="$val['link']">
+                             {@ $menu_4th = $val }
+                             <li class="on"|cond="$val['selected']"><a href="{$val['href']}" onclick="window.open(this.href);return false;"|cond="$val['open_window']=='Y'">{$val['link']}</a>
+                             </li>
+                             </block></block>
+                         </ul>
+                         </block>
+                         <!--// main_menu 4차 끝 -->
+
+                     </li>
+                     </block></block>
+                 </ul>
+                 </block>
+                 <!--// main_menu 3차 끝 -->
+
+             </li>
+             </block></block>
+        </block><!--// main_menu 2차 끝 -->
+
+    </block></block><!--// 1차 메뉴 출력 안함-->
+      
+ </ul><!-- 세로메뉴출력 끝-->

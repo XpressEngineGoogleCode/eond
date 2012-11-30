@@ -1,0 +1,483 @@
+<!-- layout js file -->
+<!--%import("js/sunooWAL.js")-->
+
+<!-- layout css file -->
+<!--%import("css/walNormal.css")-->
+<!--%import("css/walColorset.css")-->
+
+<!-- language code file -->
+<!--%import("lang")-->
+  {@ $lang_code = substr($lang_type,0,2) }
+<!--@if(!in_array($lang_code,array('en','jp','zh','ko')))-->{@$lang_code='ko'}<!--@end-->
+  {@ Context::addBodyClass($lang_code)}
+
+<!-- layout set colorset -->
+  {@ Context::addBodyClass($layout_info->colorset)}
+  {@ $colorsetList = array('default','spring','summer','autumn','winter')}
+<!--@if(!in_array($layout_info->colorset,$colorsetList))-->{@$layout_info->colorset='default'}<!--@end-->
+
+<!-- layout set index_url -->
+  {@ $index_url=getSiteUrl($site_module_info->domain)}
+
+<!-- set current menu category -->
+  <!--@foreach($top_menu->list as $key => $val)--><!--@if($val['selected'])--> {@ $top_menuon = $val } <!--@end--><!--@endforeach-->
+  <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['selected'])--> {@ $menu_1st = $val } <!--@end--><!--@endforeach-->
+  <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['selected'])--> {@ $menu_2nd = $val } <!--@end--><!--@endforeach-->
+  <!--@foreach($menu_2nd['list'] as $key => $val)--><!--@if($val['selected'])--> {@ $menu_3th = $val } <!--@end--><!--@endforeach-->
+  <!--@foreach($bottom_menu->list as $key => $val)--><!--@if($val['selected'])--> {@ $bottom_menuon = $val } <!--@end--><!--@endforeach-->
+  
+<!-- layout set width -->
+  <!--@if(!$layout_info->bodyWrap_width)-->
+    {@ $layout_info->bodyWrap_width = 980 } <!--@end-->
+    {@ $leftColumn_width = 184 }
+  <!--@if($layout_info->quickMenu)-->
+    {@ $homeBody_width = ($layout_info->bodyWrap_width) - 73 } 
+    {@ $oneColumn_width = ($homeBody_width) - 10 } <!--@else-->
+    {@ $homeBody_width = ($layout_info->bodyWrap_width) } 
+    {@ $oneColumn_width = ($layout_info->bodyWrap_width) - 10 } <!--@end-->
+    {@ $rightColumn_width = ($homeBody_width) - ($leftColumn_width + 14) }
+    {@ $content_width = ($rightColumn_width) - 10 }
+    {@ $subdmli_width = ($layout_info->subdm_width) + 5 }
+  
+
+<!-- layout set Sort by Location -->
+    <!--@if($layout_info->alignment == 'C')--><!--@else--><style type="text/css"> 
+        #header{margin-left:20px;} #topimagePi .logoLine{margin-left:20px;} #logoLineWrap .logoLine{margin-left:20px;} #topimagePi {background-position:0px 0px;}
+        #topimageFi {padding-left:20px; text-align:left;} #twoColumnBody{margin-left:20px;} #oneColumnBody{margin-left:20px;} #bottomMenu{margin-left:20px;} #footer{margin-left:20px;} </style><!--@end-->
+<!-- header set style -->
+    <!--@if($layout_info->header_heightsize)--><style type="text/css"> 
+        #headerWrap{height:{$layout_info->header_heightsize}px;} #header{height:{$layout_info->header_heightsize}px;} </style><!--@end-->
+    <!--@if(!$layout_info->mainMenu_topspace)-->
+      <style type="text/css"> #mainMenuLine{ top:26px;  } </style><!--@else-->
+      <style type="text/css"> #mainMenuLine{ top:{$layout_info->mainMenu_topspace}px;  } </style><!--@end-->
+    <!--@if($layout_info->toplogo_position == 'up')-->{@ $mainMenu_width = ($layout_info->bodyWrap_width) - 200 }
+    <!--@if(!$layout_info->mainMenu_leftspace)-->
+      <style type="text/css"> #mainMenuLine{ left:200px;  } </style><!--@else-->
+      <style type="text/css"> #mainMenuLine{ left:{$layout_info->mainMenu_leftspace}px;  } </style><!--@end--><!--@end-->
+    <!--@if($layout_info->toplogo_position == 'down')-->{@ $mainMenu_width = ($layout_info->bodyWrap_width) }
+    <!--@if(!$layout_info->mainMenu_leftspace)-->
+      <style type="text/css"> #mainMenuLine{ left:0px;  } </style><!--@else-->
+      <style type="text/css"> #mainMenuLine{ left:{$layout_info->mainMenu_leftspace}px;  } </style><!--@end--><!--@end-->
+    <!--@if($layout_info->topMenuBorder_use == 'Y')--><!--@else-->
+      <style type="text/css">#topMenuLine table.tableTM td.tm1{ background:none; } #topMenuLine table.tableTM td.tm2{ background:none; } 
+                             #topMenuLine table.tableTM td.tm3{ background:none; } </style><!--@end-->
+<!-- topimage set style -->
+    <!--@if($layout_info->toplogo_topspace)-->
+      <style type="text/css"> #toplogo { top:{$layout_info->toplogo_topspace}px; } 
+             #topimagePi .logoLine .logotop { top:{$layout_info->toplogo_topspace}px; } 
+             #logoLineWrap .logoLine .logotop { top:{$layout_info->toplogo_topspace}px; } </style> <!--@end-->
+    <!--@if($layout_info->toplogo_leftspace)-->
+      <style type="text/css"> #toplogo { left:{$layout_info->toplogo_leftspace}px; }
+             #topimagePi .logoLine .logotop { left:{$layout_info->toplogo_leftspace}px; }
+             #logoLineWrap .logoLine .logotop { left:{$layout_info->toplogo_leftspace}px; } </style> <!--@end-->
+<!-- contentBody set style -->
+    <!--@if($layout_info->bodytopBorder_use == 'Y')-->
+    <!--@if(!$layout_info->bodytopBorder)--><style type="text/css"> #bodyWrap{ border-top:4px solid #f9a109;  }</style><!--@else-->
+      <style type="text/css"> #bodyWrap{ border-top:{$layout_info->bodytopBorder}px solid #{$layout_info->bodytopBorder_color}; } </style><!--@end--><!--@end-->
+    <!--@if($layout_info->bodytopBorder_use == 'N')--><style type="text/css"> #bodyWrap{ border:0; }</style><!--@end-->
+    <!--@if($layout_info->layout_background == 'Y')-->
+    <!--@if($layout_info->background_image)--><style type="text/css">.{$layout_info->colorset} #bodyWrap{ background-image: url({$layout_info->background_image}); }</style><!--@end-->
+    <!--@if($layout_info->background_style == 'X')--><style type="text/css">.{$layout_info->colorset} #bodyWrap{ background-repeat:repeat-x; background-position:0px 0px; }</style><!--@end-->
+    <!--@if($layout_info->background_style == 'Y')--><style type="text/css">.{$layout_info->colorset} #bodyWrap{ background-repeat:repeat-y; background-position:0px 0px; }</style><!--@end-->
+    <!--@if($layout_info->background_style == 'XY')--><style type="text/css">.{$layout_info->colorset} #bodyWrap{ background-repeat:repeat; background-position:0px 0px; }</style><!--@end-->
+    <!--@if($layout_info->background_style == 'N')--><style type="text/css">.{$layout_info->colorset} #bodyWrap{ background-repeat:no-repeat; background-position:center 0px; }</style><!--@end--><!--@end-->
+    <!--@if($layout_info->layout_background == 'N')--><style type="text/css"> .{$layout_info->colorset} #bodyWrap{ background:none; }</style><!--@end-->
+    <!--@if($layout_info->contentBody_background == 'Y')--><style type="text/css"> #twoColumnBody{ background:none; }</style><!--@end-->
+    <!--@if($layout_info->contentBody_background == 'N')--><style type="text/css"> #twoColumnBody{ background:#ffffff; }</style><!--@end-->
+<!-- footer set style -->
+    <!--@if($layout_info->bottomMenu_bgcolor)--><style type="text/css"> .{$layout_info->colorset} #bottomMenuWrap { background:#{$layout_info->bottomMenu_bgcolor}; }</style><!--@end-->
+    <!--@if($layout_info->bottomMenu_leftspace)--><style type="text/css"> #bottomMenu .bm { left:{$layout_info->bottomMenu_leftspace}px; }</style><!--@end-->
+    <!--@if($layout_info->copyright_heightsize)--><style type="text/css"> #address { height:{$layout_info->copyright_heightsize}px; }</style><!--@end-->
+    <!--@if($layout_info->copyright_leftspace)--><style type="text/css"> #address { margin-left:{$layout_info->copyright_leftspace}px; }</style><!--@end-->
+
+
+<div id="headerWrap"> 
+<div id="header" style="width:{$layout_info->bodyWrap_width}px;"> 
+<!--@if($layout_info->toplogo_position == 'up')-->
+<span id="toplogo"><a href="{$index_url}"><!--@if(!$layout_info->top_logo)-->
+	   <img src="./images/bgicons/sunoo_layout_Logo.png" alt="sunoo's layout" /><!--@else-->
+     <img src="{$layout_info->top_logo}" alt="logo" border="0" /><!--@end--></a></span><!--@end-->
+     
+<div id="mainMenuLine" style="width:{$mainMenu_width}px;">
+<table class="tableMM" border="0" cellspacing="0" cellpadding="0"><tr>
+<td class="mm1"></td><td class="mm2">
+<div id="mainMenu">
+  <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])--> {@ $menu_1 = $val } 
+		<div class="Mmenu">
+		  <a href="{$val['href']}" <!--@if($menu_1['list'])--> onmouseover="show('menu_{$idx1}');" onmouseout="hide('menu_{$idx1}');" <!--@end--> 
+		  <!--@if($val['selected'])-->class="on" <!--@end--><!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+	    <table cellpadding="0" id="menu_{$idx1}" onmouseover="show('menu_{$idx1}');" onmouseout="hide('menu_{$idx1}');"><tr><td>
+		  <!--@foreach($menu_1['list'] as $key => $val)--><!--@if($val['link'])--> {@ $menu_2 = $val} 
+		  <a href="{$val['href']}" <!--@if($menu_2['list'])--> onmouseover="show('menu2_{$idx2}')" onmouseout="hide('menu2_{$idx2}');" <!--@end--> 
+		  <!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;" <!--@end-->>{$val['link']}
+		  <!--@if($menu_2['list'])--><img src="./images/bgicons/arrow.gif" class="arrow" /></a>
+		<div class="Smenu">
+		  <table cellpadding="0" id="menu2_{$idx2}" onmouseover="show('menu2_{$idx2}');" onmouseout="hide('menu2_{$idx2}');"><tr><td>
+		  <!--@foreach($menu_2['list'] as $key => $val)--><!--@if($val['link'])--> {@ $menu_3 = $val} 
+		  <a href="{$val['href']}" <!--@if($menu_3['list'])--> onmouseover="show('menu3_{$idx3}');" onmouseout="hide('menu3_{$idx3}');" <!--@end-->
+		  <!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;" <!--@end-->>{$val['link']}
+		  <!--@if($menu_3['list'])--><img src="./images/bgicons/arrow.gif" class="arrow" /></a>
+ 		<div class="Smenu">
+ 		  <table cellpadding="0" id="menu3_{$idx3}" onmouseover="show('menu3_{$idx3}');" onmouseout="hide('menu3_{$idx3}');"><tr><td>
+		  <!--@foreach($menu_3['list'] as $key => $val)--><!--@if($val['link'])--> {@ $menu_4 = $val} 
+		  <a href="{$val['href']}" <!--@if($menu_4['list'])--> onmouseover="show('menu4_{$idx4}');" onmouseout="hide('menu4_{$idx4}');" <!--@end--> 
+		  <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+		  {@$idx4++} <!--@end--><!--@end--></td></tr></table></div><!--@else--></a><!--@end-->
+			{@$idx3++} <!--@end--><!--@end--></td></tr></table></div><!--@else--></a><!--@end-->
+			{@$idx2++} <!--@end--><!--@end--></td></tr></table></div>
+		  {@$idx1++} <!--@end--><!--@end--></div>
+</td><td class="mm3"></td></tr></table>
+</div><!-- /end_mainMenuLine -->
+
+<!--@if($layout_info->topMenuLine_use == 'Y')-->
+<div id="topMenuLine" style="width:{$layout_info->bodyWrap_width}px;"> 
+   <div id="totalMenu">
+	  <!-- class="totalMenu" | class="totalMenu opens" -->
+		 <div id="tmLayer" class="tmLayer">
+		 <div class="tmList logo">
+     <a href="{$layout_info->index_url}"><!--@if(!$layout_info->totalMenu_logoImage)-->
+		 <img src="images/bgicons/sitemapImg.gif" alt="home" /><!--@else-->
+     <img src="{$layout_info->totalMenu_logoImage}" alt="home" /><!--@end--></a></div>
+		 <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+		 <div class="tmList"><h2><a href='{$val['href']}'>{$val['link']}</a></h2>
+		 <!--@foreach($val['list'] as $key1 => $val1)--><!--@if($val1['link'])-->
+		 <ul><a href='{$val1['href']}'>{$val1['link']}</a>
+		 <!--@foreach($val1['list'] as $key2 => $val2)--><!--@if($val2['link'])-->
+		 <li><a href='{$val2['href']}'>{$val2['link']}</a></li>
+		 <!--@end--><!--@end--></ul><!--@end--><!--@end--></div><!--@end--><!--@end-->
+		 <button type="button" class="close" onclick="jQuery('#tmLayer').toggleClass('opens');" accesskey="X">
+		 <span>Close totalMenu</span></button>
+		</div></div><!-- /end totalMenu -->
+		
+<table class="tableTM" border="0" cellspacing="0" cellpadding="0" align="right"><tr><td class="tm1" valign="top"></td>
+<td class="tm2" valign="top">
+<!-- memberPage -->
+ <div id="memberPage" class="memberPage">
+  <!-- class="memberPage" | class="memberPage active" -->
+	 <button type="button" class="close" onclick="jQuery('#memberPage').toggleClass('active');" accesskey="X"><span>Close mypage layer</span></button>
+	 <h2 class="authorName">{$logged_info->nick_name}</h2>
+	  <ul> {@ $oPointModel = &getModel('point'); $point = $oPointModel->getPoint($logged_info->member_srl); $oModuleModel = &getModel('module');  $config = $oModuleModel->getModuleConfig('point'); $level = $oPointModel->getLevel($point, $config->level_step); }
+    <li class="point">{$lang->sl_point} : {$point} p </li>
+		<!--@foreach($logged_info->menu_list as $key => $val)-->
+    <li><a href="{getUrl('act',$key,'member_srl','')}">{Context::getLang($val)}</a></li><!--@end-->
+    <!--@if($logged_info->is_admin == 'Y')-->
+    <li class="admin"><a href="{getUrl('','module','admin')}" onclick="window.open(this.href); return false;">{$lang->sl_management}</a></li><!--@end-->
+		</ul>
+		<div id="latestLogin" class="latestLogin">{$lang->last_login} :<br />&nbsp;&nbsp; {zDate($logged_info->last_login, "Y-m-d(H:i)")}</div>
+	</div><!-- /end memberPage -->
+<div id="access">
+    <li class="sitemap"><button type="button" onclick="jQuery('#tmLayer').toggleClass('opens');"><span>sitemap</span></button></li>
+    <!--@if($is_logged)-->
+    <li class="logout"><a href="{getUrl('act','dispMemberLogout')}"><span>LOGOUT</span></a></li>
+    <li class="mypage"><button type="button" onclick="jQuery('#memberPage').toggleClass('active');"><span>mypage</span></button>
+		</li><!--@else-->
+    <li class="login"><button type="button" title="{$lang->sl_show_login}" onclick="jQuery('#popupLog').css('display','block');" accesskey="L"><span>LOGIN</span></button></li>
+	  <li class="register"><a href="{getUrl('act','dispMemberSignUpForm')}" title="{$lang->sl_show_join}" ><span>Register</span></a></li>
+		  <!--@end-->
+  <!--@if($layout_info->languageToggle_use == 'Y')-->
+     <li id="language">
+				<!-- class="language" | class="language open" -->
+				<button type="button" class="sLanguage" title="{$lang->sl_show_lang}" onclick="jQuery('#language').toggleClass('open'); return false;"><span>&nbsp;</span></button>
+					<em class="{$lang_type}"><span>{$lang_supported[$lang_type]}</span></em>
+					<ul class="languageList"><!--@foreach($lang_supported as $key => $val)--><!--@if($key!= $lang_type)-->
+						<li class="{$key}"><button type="button" onclick="doChangeLangType('{$key}');return false;">
+						<span>{$val}</span></button></li><!--@end--><!--@end--></ul></li><!--@else--><!--@end-->
+</div><!-- /end_access -->
+</td><td class="tm3" valign="top"></td></tr></table>
+
+ <!--@if(!$is_logged)-->
+    {@ $logPopup = MemberModel::getMemberConfig(); }
+    <!--%import("./filter/login.xml")-->
+    <!--@if($logPopup->enable_openid=='Y')--><!--%import("./filter/openid_login.xml")--><!--@end-->
+    <div id="popupLog" class="popupLog">
+       <!-- class="popupLog" | class="popupLog open" -->
+       <div id="logFace" class="logFace loginTypeA">
+          <!-- class="logFace loginTypeA" | class="logFace loginTypeB" -->
+          <button type="button" class="close" onclick="document.getElementById('popupLog').style.display='none'" accesskey="X"><span>Close Login Forms</span></button>
+          <form action="" method="post" class="typeA" id="commonLogin" onsubmit="return procFilter(this, login)">
+           <fieldset><legend>XE Login</legend>
+            <div class="plogimg">&nbsp;</div>
+            <div class="pidpw {$lang_type}">
+            <input name="user_id" type="text" title="{$lang->sl_show_id}" onfocus="this.className='idIn';" onblur="if(!this.value) this.className='idOut'" class="idOut" />
+            <input name="password" type="password" title="{$lang->sl_show_pw}" onfocus="this.className='pwIn';" onblur="if(!this.value) this.className='pwOut'" class="pwOut" />
+            </div><span class="loginButton"><input name="" type="submit" value="{$lang->cmd_login}" /></span>
+            <p class="pkeep">
+            <input name="keep_signed" type="checkbox" id="keepA" value="Y" class="pinputCheck" onclick="if(this.checked) return confirm('{$lang->about_keep_signed}');" />
+            <label for="keepA">{$lang->keep_signed}</label>
+            <!--@if($logPopup->enable_openid=='Y')-->&nbsp;&nbsp;&nbsp;&nbsp;
+            <input name="open_id" type="checkbox" id="open_id" value="Y" class="pinputCheck" onclick="document.getElementById('logFace').className='logFace loginTypeB'; return false;" />
+            <label for="open_id">OpenID</label><!--@end--></p>
+         </fieldset>
+        </form>
+      <!--@if($logPopup->enable_openid=='Y')-->
+        <form action="./" method="post" class="typeB" id="openidLogin" onsubmit="return procFilter(this, openid_login)">
+           <fieldset><legend>OpenID Login</legend>
+           <div class="plogimg">&nbsp;</div>
+           <div class="pidpw {$lang_type}">
+           <input name="openid" type="text" title="{$lang->sl_show_id}" onfocus="this.className='opidIn';" onblur="if(!this.value) this.className='opidOut'" class="opidOut" />
+           </div><span class="loginButton"><input name="" type="submit" value="{$lang->cmd_login}" /></span>
+           <p class="pkeep">
+           <input name="open_id" type="checkbox" id="open_id_2" value="Y" class="pinputCheck" onclick="document.getElementById('logFace').className='logFace loginTypeA';" />
+           <label for="open_id_2">OpenID</label></p>
+           </fieldset>
+        </form><!--@end-->
+      <ul class="logMenu">
+       <li class="join"><a href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a></li>
+       <li class="find"><a href="{getUrl('act','dispMemberFindAccount')}">{$lang->cmd_find_member_account}</a></li>
+       <li class="find"><a href="{getUrl('act','dispMemberResendAuthMail')}">{$lang->cmd_resend_auth_mail}</a></li>
+      </ul>
+   </div><!--@end--><!-- /end_popupLog -->
+</div><!-- /end_topmenuLine --><!--@else--><!--@end-->
+</div><!-- /end_header -->
+</div><!-- /end_headerWrap -->
+
+
+<!--@if($layout_info->topImage_select == 'PI')-->
+    <!--@if(!$layout_info->topimage_heightsize)-->
+      <style type="text/css"> #topimagePi{ height:100px; } #topimagePi .logoLine{ height:100px; } </style> <!--@else-->
+      <style type="text/css"> #topimagePi{ height:{$layout_info->topimage_heightsize}px; } #topimagePi .logoLine{ height:{$layout_info->topimage_heightsize}px; } </style> <!--@end-->
+<div id="topimagePi">
+     <!--@if($layout_info->top_image)-->
+     <!--@if($layout_info->alignment == 'C')-->
+     <style type="text/css"> #topimagePi { background: url({$layout_info->top_image}) no-repeat center top; }</style><!--@end-->
+     <!--@if($layout_info->alignment == 'L')-->
+     <style type="text/css"> #topimagePi { background: url({$layout_info->top_image}) no-repeat left top; }</style><!--@end--><!--@end-->
+     <!--@if($layout_info->toplogo_position == 'down')-->
+     <div class="logoLine" style="width:{$layout_info->bodyWrap_width}px;">
+     <a href="{$index_url}"><!--@if(!$layout_info->top_logo)-->
+	   <img src="./images/bgicons/sunoo_layout_Logo.png" alt="sunoo's layout" class="logotop" /><!--@else-->
+     <img src="{$layout_info->top_logo}" alt="logo" border="0" class="logotop" /><!--@end--></a></div><!--@end-->
+</div><!--@end--><!-- /end_topimagePi -->
+     
+<!--@if($layout_info->topImage_select == 'FI')-->
+     <!--@if(!$layout_info->topimage_heightsize)--> 
+      {@ $flashimage_height = 132 }<style type="text/css"> #topimageFi { height:132px; } 
+         #logoLineWrap{ height:132px; } #logoLineWrap .logoLine{ height:132px; } </style> <!--@else-->
+      {@ $flashimage_height = ($layout_info->topimage_heightsize) }<style type="text/css"> #topimageFi { height:{$layout_info->topimage_heightsize}px; } 
+         #logoLineWrap{ height:{$layout_info->topimage_heightsize}px; } #logoLineWrap .logoLine{ height:{$layout_info->topimage_heightsize}px; } </style> <!--@end-->
+<div id="topimageFi">
+  <div class="falseimage"><!--@if(!$layout_info->top_image)-->
+     <script type="text/javascript">displayMultimedia("http://localhost/layouts/xe_sunooWAL/images/topimage.swf",
+                   "{$homeBody_width}","{$flashimage_height}",false);</script><!--@else-->
+     <script type="text/javascript">displayMultimedia("{$layout_info->top_image}","{$homeBody_width}",
+                   "{$flashimage_height}",false);</script><!--@end--></div></div>
+  <!--@if($layout_info->toplogo_position == 'down')-->
+  <div id="logoLineWrap">
+     <div class="logoLine" style="width:{$layout_info->bodyWrap_width}px;">
+     <a href="{$index_url}"><!--@if(!$layout_info->top_logo)-->
+	   <img src="./images/bgicons/sunoo_layout_Logo.png" alt="sunoo's layout" class="logotop" /><!--@else-->
+     <img src="{$layout_info->top_logo}" alt="logo" border="0" class="logotop" /><!--@end--></a></div>
+</div><!--@end--><!--@end--><!-- /end_topimageFi -->
+
+
+<div id="bodyWrap">
+<!--@if($layout_info->layout_type == 'two')-->
+<div id="twoColumnBody" style="width:{$layout_info->bodyWrap_width}px"> 
+<table border="0" width="{$layout_info->bodyWrap_width}" cellspacing="0" cellpadding="0"><tr>
+<td  valign="top" width="190px;">
+
+<div id="leftColumn" style="width:{$leftColumn_width}px;"> 
+<!--@if($layout_info->logDefault_use == 'Y')-->
+<div id="logDefault" class="logDefault">
+  <div class="logDefaultTopbg">&nbsp;</div>
+  <!--@if(!$is_logged)-->
+   {@ $logDefault = MemberModel::getMemberConfig(); }
+   <!--%import("./filter/login.xml")-->
+   <!--@if($logDefault->enable_openid=='Y')--><!--%import("./filter/openid_login.xml")--><!--@end-->
+   <div id="loginFace" class="loginFace loginTypeA">
+   <!-- class="loginFace loginTypeA" | class="loginFace loginTypeB" -->
+   <form action="" method="post" class="typeA" id="commonLogin" onsubmit="return procFilter(this, login)">
+   <fieldset><legend>XE Login</legend>
+   <div class="idpw {$lang_type}">
+       <input name="user_id" type="text" title="{$lang->sl_show_id}" onfocus="this.className='idIn';" onblur="if(!this.value) this.className='idOut'" class="idOut" />
+       <input name="password" type="password" title="{$lang->sl_show_pw}" onfocus="this.className='pwIn';" onblur="if(!this.value) this.className='pwOut'" class="pwOut" />
+       <input name="login" type="image" src="./images/buttons/buttonLogind.gif" alt="login" class="btnlogin" />
+   </div>
+   <p class="keep">
+      <input name="keep_signed" type="checkbox" id="keepA" value="Y" class="inputCheck" onclick="if(this.checked) return confirm('{$lang->about_keep_signed}');" />
+      <label for="keepA">{$lang->keep_signed}</label>
+      <!--@if($logDefault->enable_openid=='Y')-->&nbsp;
+      <input name="use_open_id" type="checkbox" id="use_open_id" value="Y" class="inputCheck" onclick="document.getElementById('loginFace').className='loginFace loginTypeB'; return false;" />
+      <label for="use_open_id">OpenID</label>
+      <!--@end--></p>
+   </fieldset>
+   </form>
+   <!--@if($logDefault->enable_openid=='Y')-->
+   <form action="./" method="post" class="typeB" id="openidLogin" onsubmit="return procFilter(this, openid_login)">
+   <fieldset><legend>OpenID Login</legend>
+   <div class="idpw {$lang_type}">
+       <p>{$lang->openid}</p>
+       <input name="openid" type="text" title="{$lang->sl_show_id}" onfocus="this.className='opidIn';" onblur="if(!this.value) this.className='opidOut'" class="opidOut" />
+       <input name="login" type="image" src="./images/buttons/buttonLogind.gif" alt="login" class="btnlogin" />
+   </div>
+    <p class="keep">
+      <input name="use_open_id" type="checkbox" id="use_open_id_2" value="Y" class="inputCheck" onclick="document.getElementById('loginFace').className='loginFace loginTypeA';" />
+      <label for="use_open_id_2">OpenID</label></p>
+   </fieldset>
+   </form>
+   <!--@end-->
+   <ul class="logMenu">
+   <li class="join"><a href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a></li>
+   <li class="find"><a href="{getUrl('act','dispMemberFindAccount')}">{$lang->cmd_find_member_account}</a></li>
+   <li class="find"><a href="{getUrl('act','dispMemberResendAuthMail')}">{$lang->cmd_resend_auth_mail}</a></li>
+   </ul>
+   </div><!--@end-->
+   
+  <!--@if($is_logged)--><!-- default logged -->
+  <div id="loggedFace" class="loggedFace">
+	  <div class="authorName">{$logged_info->nick_name}</div>
+		<div class="btnlogout"><a href="{getUrl('act','dispMemberLogout')}">
+      <img src="./images/buttons/buttonLogoutd.gif" alt="{$lang->cmd_logout}" width="47" height="18" /></a></div>
+			  <ul> {@ $oPointModel = &getModel('point'); $point = $oPointModel->getPoint($logged_info->member_srl); $oModuleModel = &getModel('module');  $config = $oModuleModel->getModuleConfig('point'); $level = $oPointModel->getLevel($point, $config->level_step); }
+          <li class="point">{$lang->sl_point} : {$point} p </li>
+				  <!--@foreach($logged_info->menu_list as $key => $val)-->
+          <li class="list"><a href="{getUrl('act',$key,'member_srl','')}">{Context::getLang($val)}</a></li><!--@end-->
+          <!--@if($logged_info->is_admin == 'Y')-->
+          <li class="admin"><a href="{getUrl('','module','admin')}" onclick="window.open(this.href); return false;">{$lang->sl_management}</a></li><!--@end-->
+			 </ul>
+		<div class="latestLogin">{$lang->last_login} : {zDate($logged_info->last_login, "m.d. H:i")}</div>
+   </div><!--@end--><!-- /end default logged -->
+   <div class="logDefaultBottombg">&nbsp;</div>
+</div><!--@else--> <!--@end--><!-- /end logDefault -->
+
+<!-- 좌측컬럼 서브메뉴 --><!--@if($layout_info->left_menu == 'Y')-->
+<div id="leftSubm">
+    <div class="submTitle">
+     <!--@if(!$menu_1st)-->
+     <!--@if($top_menuon)--><a href="{$top_menuon['href']}" title="{$top_menuon['link']}">{$top_menuon['link']}</a><!--@end-->
+		 <!--@if($bottom_menuon)--><a href="{$bottom_menuon['href']}" title="{$bottom_menuon['link']}">{$bottom_menuon['link']}</a><!--@end--><!--@else-->
+     <a href="{$menu_1st['href']}" title="{$menu_1st['link']}">{$menu_1st['link']}</a><!--@end-->
+     </div>
+  <!-- leftColumn sub menu start --><!--@if($menu_1st)-->
+    <ol class="lsm" >
+      {@ $lsmidx = 1 }
+      <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+      <li <!--@if($val['selected'])-->class="on"<!--@end-->>
+      <a href="{$val['href']}"<!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+      <!--@if($val['list'] && ($val['expand']=='Y'||$val['selected']) )-->
+        <ul><!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+        <li <!--@if($v['selected'])-->class="on"<!--@end-->>
+        <a href="{$v['href']}"<!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$v['link']}</a></li><!--@endif--><!--@endforeach--></ul><!--@endif-->
+      </li> {@$lsmidx++} <!--@endif--><!--@endforeach-->
+    </ol><!--@endif-->
+    <div class="submBottom">&nbsp;</div>
+  </div><!--@else--><!--@end--><!-- /end leftSub menu -->
+  
+<!-- 달력 위젯 박스 --><!--@if($layout_info->calendar_use == 'Y')-->
+  <div id="leftWidgetC">
+  <div class="leftWidgetTop">&nbsp;</div>
+  <div class="leftWidget">
+     <img class="zbxe_widget_output" widget="calendar" skin="sunoo_calendar" srl="00" /> </div>
+  <div class="leftWidgetBottom">&nbsp;</div>
+  </div><!--@else--> <!--@end-->
+  
+<!-- 제목 있는 위젯 --><!--@if($layout_info->widgetTiA)-->
+  <div id="leftWidgetT">
+  <div class="leftWidgetTop"><img src="./images/bgicons/icon_text.png" class="icon_title" />{$layout_info->widgetTiA_title}</div>
+  <div class="leftWidget">{$layout_info->widgetTiA}</div>
+  <div class="leftWidgetBottom">&nbsp;</div></div><!--@else--> <!--@end-->
+  
+<!-- 제목 없는 위젯 --><!--@if($layout_info->widgetDeA)-->
+  <div id="leftWidgetD"><div class="leftWidgetTop">&nbsp;</div>
+  <div class="leftWidget">{$layout_info->widgetDeA}</div>
+  <div class="leftWidgetBottom">&nbsp;</div></div><!--@else--> <!--@end-->
+  
+<!-- 배너 소스 --><!--@if($layout_info->left_banner)-->
+  <div id="leftBanner"><a href="{$layout_info->left_banner_url}" target="_blank">
+  <img src="{$layout_info->left_banner}" alt="banner" class="iePngFix" /></a></div>
+  <!--@end-->
+  
+<!-- 접속 카운터 --><!--@if($layout_info->Counter_use == 'Y')-->
+  <div id="leftCounter"><div class="leftCounterTop">&nbsp;</div>
+  <div class="leftCounterBody">
+  <img class="zbxe_widget_output" widget="counter_status" skin="styx_flash" colorset="normal" /></div>
+  <div class="leftCounterBottom">&nbsp;</div></div><!--@else--> <!--@end-->
+
+</div></td><!-- /end leftColumn --> 
+
+<td valign="top">
+<div id="rightColumn" style="width:{$rightColumn_width}px;">
+<table class="tsl" border="0" width="{$rightColumn_width}" cellspacing="0" cellpadding="0">
+<!--@if($layout_info->searchLine_use == 'Y')-->
+  <tr><td class="sl1">&nbsp;</td><td class="sl2">
+  <div id="searchLine" style="width:{$rightColumn_width}px;">
+   <div class="currentMenu">
+      <span><a href="{$index_url}" title="HOME"><img src="./images/bgicons/icon_home.gif" alt="HOME" class="iconhome"/></a></span>
+			<!--@if(!$menu_1st && !$menu_2nd  && !$menu_3th)-->
+			<!--@if($top_menuon)--> > <a href="{$top_menuon['href']}" title="{$top_menuon['link']}">{$top_menuon['link']}</a><!--@end-->
+		  <!--@if($bottom_menuon)--> > <a href="{$bottom_menuon['href']}" title="{$bottom_menuon['link']}">{$bottom_menuon['link']}</a><!--@end--><!--@else-->
+      <!--@if($menu_1st)--> > <a href="{$menu_1st['href']}" title="{$menu_1st['link']}">{$menu_1st['link']}</a><!--@end-->
+		  <!--@if($menu_2nd)--> > <a href="{$menu_2nd['href']}" title="{$menu_2nd['link']}">{$menu_2nd['link']}</a><!--@end-->
+		  <!--@if($menu_3th)--> > <a href="{$menu_3th['href']}" title="{$menu_3th['link']}">{$menu_3th['link']}</a><!--@end--><!--@end-->
+		</div>
+		<form action="{getUrl()}" method="post" class="search">
+         <input type="hidden" name="vid" value="{$vid}" />
+         <input type="hidden" name="mid" value="{$mid}" />
+         <input type="hidden" name="act" value="IS" />
+         <input type="hidden" name="search_target" value="title_content" />
+				<fieldset><legend>{$lang->cmd_search}</legend>
+				 <div class="inputSearch {$lang_type}">
+					<input name="is_keyword" type="text" title="{$lang->sl_show_search}" onfocus="this.className='textIn';" onblur="if(!this.value) this.className='textOut'" class="textOut" accesskey="S" />
+					<input name="" type="image" src="images/buttons/buttonSearch.gif" alt="Search" class="searchButton" />
+				 </div></fieldset></form>
+	</div></td><td class="sl3">&nbsp;</td></tr> 
+	<tr><td class="sl4">&nbsp;</td><td class="sl5"></td><td class="sl6">&nbsp;</td></tr><!--@end-->
+	<tr><td class="ct1"></td> <td class="ct2"></td> <td class="ct3"></td></tr><tr><td class="ct4">&nbsp;</td> <td class="ct5">
+  <div id="content" style="width:{$content_width}px;">{$content}</div>
+  </td><td class="ct6">&nbsp;</td></tr> <tr><td class="ct7"></td> <td class="ct8"></td><td class="ct9"></td></tr></table>
+</div><!-- /end rightColumn --></td></tr></table>
+
+<!--@if($layout_info->quickMenu)-->
+ <div id="quickMenu">
+  <div class="quickMenuBgTop">&nbsp;</div>
+  <div class="qMenu"><!--@foreach($quickMenu->list as $key => $val)--> 
+   <p><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></p>
+   <!--@endforeach-->
+   <div class="arrowTop"><a href="#"><img src="./images/buttons/buttonArrowTop.gif" alt="{$lang->sl_show_top}" /></a></div>
+   </div>
+  <div class="quickMenuBgBottom">&nbsp;</div></div><!--@end-->
+</div><!--@end--><!-- /end twoColumnBody -->
+
+<!--@if($layout_info->layout_type == 'one')-->
+<div id="oneColumnBody" style="width:{$layout_info->bodyWrap_width}px;">
+   <div class="content" style="width:{$oneColumn_width}px;">{$content}</div>
+   <!--@if($layout_info->quickMenu)-->
+   <div id="quickMenu">
+   <div class="quickMenuBgTop">&nbsp;</div>
+   <div class="qMenu"><!--@foreach($quickMenu->list as $key => $val)--> 
+   <p><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></p>
+   <!--@endforeach-->
+   <div class="arrowTop"><a href="#"><img src="./images/buttons/buttonArrowTop.gif" alt="{$lang->sl_show_top}" /></a></div>
+   </div>
+   <div class="quickMenuBgBottom">&nbsp;</div></div><!--@end-->
+</div><!--@end--><!-- /end oneColumnBody -->
+</div><!-- /end_bodyWrap -->
+
+
+<div id="bottomMenuWrap">
+ <div id="bottomMenu" style="width:{$layout_info->bodyWrap_width}px;"><!--@foreach($bottom_menu->list as $key => $val)-->
+		<div class="bm"><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></div><!--@endforeach-->
+    <div class="copyright"><a href="http://www.goodpr.me" target="_blank" onfocus="this.blur();">Layout Design by SunooTC</a></div>
+    <!--@if($rss_url)--><div class="rssWrap"><li class="rss"><a href="{$rss_url}">RSS</a></li></div><!--@end-->
+    <div class="toplink"><a href="#" title="top" onfocus="this.blur();"><img src="./images/buttons/buttonTop.gif" alt="top" /></a></div>
+    <!--@if($layout_info->link_site)-->
+    <div id="linkSite" onclick="siteLayer()"><span>{$lang->sl_related_site}</span></div>
+		<ol id="sitelist"><ul><!--@foreach($link_site->list as $key => $val)-->
+		  <a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->
+			title="{$val['link']}" target="_blank">{$val['link']}</a><!--@endforeach--></ul></ol><!--@else--><!--@end-->
+</div></div>
+
+<div id="footerWrap">
+<div id="footer" style="width:{$layout_info->bodyWrap_width}px;" >
+ <div id="address">
+     <table border="0" cellspacing="0" cellpadding="0"><tr>
+      <td valign="middle"><div class="bottom_logo">
+       <a href="{$index_url}"><!--@if(!$layout_info->footer_logo)-->
+       <img src="./images/bgicons/xeLogo_sunoo.gif" alt="logo" border="0" class="iePngFix" /><!--@else-->
+       <img src="{$layout_info->footer_logo}" alt="logo" border="0" class="iePngFix" /><!--@end--></a></div></td>
+      <td valign="middle"><div class="bottom_text">{$layout_info->bottom_text}</div></td></tr></table>
+   </div></div>
+</div><!-- /end footerWrap -->
+
+
+

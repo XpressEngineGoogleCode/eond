@@ -1,0 +1,134 @@
+<!--// js 파일 import -->
+<!--%import("js/xe_official.js")-->
+
+<!--// 레이아웃과 연동될 css 파일 import -->
+<!--@if($layout_info->colorset == "white")-->
+    <!--%import("css/white.css")-->
+<!--@elseif($layout_info->colorset == "black")-->
+    <!--%import("css/black.css")-->
+<!--@elseif($layout_info->colorset == "blu")-->
+    <!--%import("css/blu.0.1.css")-->
+<!--@else-->
+    <!--%import("css/default.css")-->
+<!--@end-->
+
+<!--@if($layout_info->background_image)-->
+<style type="text/css">
+    body {  background:#FFFFFF url({getUrl()}{$layout_info->background_image}) repeat-x left top; }
+</style>
+<!--@end-->
+
+<!--@if(!$layout_info->colorset)-->
+    {@$layout_info->colorset = "default"}
+<!--@end-->
+<div id="bodyWrap">
+    <div id="header">
+        <h1><!--@if($layout_info->logo_image)--><a href="{$layout_info->index_url}"><img src="{$layout_info->logo_image}" alt="logo" border="0" class="iePngFix" /></a><!--@else-->&nbsp;<!--@end--></h1>
+		<div id="ad_top">
+		<script type="text/javascript"><!--
+		google_ad_client = "pub-7200623708996327";
+		/* 468x60, 작성됨 07. 11. 21 */
+		google_ad_slot = "4893507341";
+		google_ad_width = 468;
+		google_ad_height = 60;
+		//-->
+		</script>
+		<script type="text/javascript"
+		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		</script>
+		</div>
+        <div id="language">
+            <strong title="{$lang_type}">{$lang_supported[$lang_type]}</strong> <a href="#selectLang" onclick="showHide('selectLang');return false;"><img src="./images/{$layout_info->colorset}/buttonLang.gif" alt="Select Language" width="87" height="15" /></a>
+            <ul id="selectLang">
+                <!--@foreach($lang_supported as $key => $val)--><!--@if($key!= $lang_type)-->
+                <li><a href="#" onclick="doChangeLangType('{$key}');return false;">{$val}</a></li>
+                <!--@end--><!--@end-->
+            </ul>
+        </div>
+		
+        <!-- GNB -->
+        <ul id="gnb">
+            <!-- main_menu 1차 시작 -->
+            <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+                <!--@if($val['selected'])-->
+                    {@ $menu_1st = $val }
+                <!--@end-->
+
+                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+
+            <!--@endif--><!--@endforeach-->
+        </ul>
+
+        <form action="{getUrl()}" method="post" id="isSearch">
+            <!--@if($vid)-->
+            <input type="hidden" name="vid" value="{$vid}" />
+            <!--@end-->
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="act" value="IS" />
+            <input type="hidden" name="search_target" value="title_content" />
+            <input name="is_keyword" type="text" class="inputText" title="keyword" />
+
+            <input type="image" src="./images/{$layout_info->colorset}/buttonSearch.gif" alt="{$lang->cmd_search}" class="submit" />
+        </form>
+
+    </div>
+    <div id="contentBody">
+        <div id="columnLeft">
+
+            <!-- 로그인 위젯 -->
+            <img src="./images/blank.gif" class="zbxe_widget_output" widget="login_info" skin="eond_blu" colorset="{$layout_info->colorset}" />
+
+            <!-- 왼쪽 2차 메뉴 -->
+            <img src="./images/blank.gif" alt="" class="mask" />
+			
+            <!--@if($menu_1st)-->
+            <ol id="lnb">
+                {@ $idx = 1 }
+                <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+
+                    <!-- main_menu 3차 시작 -->
+                    <!--@if($val['list'] && ($val['expand']=='Y'||$val['selected']) )-->
+                    <ul>
+                    <!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+                        <li <!--@if($v['selected'])-->class="on"<!--@end-->><a href="{$v['href']}" <!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$v['link']}</a></li>
+                    <!--@endif--><!--@endforeach-->
+                    </ul>
+                    <!--@endif-->
+                </li>
+                {@$idx++}
+                <!--@endif--><!--@endforeach-->
+            </ol>
+            <!--@endif-->
+			
+			<!-- 새 글 -->
+			<div class="eondWidgetStyle">
+			<h2>새로 등록된 글들</h2>
+			<img class="zbxe_widget_output" widget="content" skin="default" colorset="white" content_type="document" list_type="normal" tab_type="none" option_view="title" show_browser_title="N" show_comment_count="N" show_trackback_count="N" show_category="N" show_icon="N" order_target="list_order" order_type="desc" thumbnail_type="crop" list_count="5" page_count="1" subject_cut_size="30" markup_type="list" />
+			</div>
+
+			<div class="eondWidgetStyle">
+			<h2>새로운 댓글</h2>
+			<img class="zbxe_widget_output" widget="content" skin="default" colorset="white" content_type="comment" list_type="normal" tab_type="none" option_view="title" show_browser_title="N" show_comment_count="N" show_trackback_count="N" show_category="N" show_icon="N" order_target="list_order" order_type="desc" thumbnail_type="crop" list_count="5" page_count="1" subject_cut_size="30" markup_type="list" />
+			</div>
+
+        </div>
+        <div id="columnRight">
+            <!-- 컨텐츠 시작 -->
+            {$content}
+
+        </div>
+    </div>
+    <ul id="footer">
+        <li class="first-child">
+            <address>
+            <a href="http://www.xpressengine.com" onclick="window.open(this.href);return false;"><img src="./images/powerdByXE.gif" alt="Powered By XpressEngine" width="70" height="5" /></a>
+            </address>
+
+        </li>
+
+        <!--@foreach($bottom_menu->list as $key => $val)-->
+        <li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+        <!--@endforeach-->
+    </ul>
+</div>

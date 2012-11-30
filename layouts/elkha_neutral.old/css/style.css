@@ -1,0 +1,111 @@
+@charset "utf-8";
+
+/**
+ * 김무건 || Elkha (elkha1914@hotmail.com)
+ * http://elkha.kr
+ * 2010-08-03
+ **/
+
+/* body */
+body { background:#e3e3e3; }
+#wrap { width:1000px; margin:0 auto 50px; background:url(../img/wrap.gif) repeat-y left top; }
+
+/* #header */
+#header { height:220px; background:url(../img/header.png) no-repeat left -200px; z-index:30; }
+#header h1 { position:absolute; left:60px; top:95px; }
+#header .layer { position:absolute; top:95px; right:70px; }
+#header .layer a { color:#50988f; text-decoration:none; }
+#header .layer a:hover,
+#header .layer a:focus { color:#0075c0; }
+#header .search { display:inline; float:left; width:155px; height:39px; margin:3px 20px 0; background:url(../img/header.png) no-repeat -500px top; }
+#header .search .inputText { display:inline; float:right; margin:13px 7px 0 5px; width:105px; font:12px Arial, Gulim; color:#444; }
+#header .search .submit { float:left; width:37px; height:39px; font-size:0; line-height:0; text-indent:-200px; overflow:hidden; cursor:pointer; }
+#header .rss { display:inline; float:left; margin:0 10px 0 10px; }
+#header .rss a { display:block; width:auto !important; width:0; height:44px; background:url(../img/header.png) no-repeat; }
+#header .rss a:hover { background-position:left -44px; }
+#header .rss a span { display:block; padding:14px 0 0 50px; font:11px Arial; }
+#header .login a { background-position:-150px top; }
+#header .login a:hover { background-position:-150px -44px; }
+#header .profile a { background-position:-300px top; }
+#header .profile a:hover { background-position:-300px -44px; }
+#gnb { position:absolute; left:28px; bottom:0; z-index:90; width:944px; height:52px; border-top:1px solid #ccc; border-bottom:1px solid #ccc; font-size:0; line-height:0; }
+#gnb a { color:#555; text-decoration:none; }
+#gnb a span { font:11px Arial, Gulim, Tahoma; }
+#gnb .ul1 { padding:0 20px; }
+#gnb .li1 { float:left; position:relative; padding:0 10px; }
+#gnb .a1 { display:block; overflow:hidden; padding:0 0 3px; }
+#gnb .a1:hover,
+#gnb .a1:focus,
+#gnb .on1 .a1 { padding:0; border-bottom:3px solid #95c0d5; }
+#gnb .a1 span { display:block; padding:20px 20px 16px; }
+#gnb .ul2 { display:none; position:absolute; left:0; top:52px !important; top:53px; border-bottom:1px solid #ccc; }
+#gnb .ul2 li { position:relative; border:1px solid #ccc; border-bottom:0; }
+#gnb .ul2 a { display:block; width:210px; height:34px; overflow:hidden; background-color:#fff; }
+#gnb .ul2 a:hover,
+#gnb .ul2 a:focus { background-color:#f2f2f2; }
+#gnb .ul2 a span { display:block; padding:12px 0 0 15px; }
+#gnb .sub2 .a2,
+#gnb .sub3 .a3 { background:#fff url(../img/sub.gif) no-repeat 200px center; }
+#gnb .on2 .a2,
+#gnb .on3 .a3,
+#gnb .on4 .a4 { border-bottom:2px solid #95c0d5; }
+#gnb .ul2 ul { display:none; position:absolute; left:210px; top:-1px !important; top:0; border-bottom:1px solid #ccc; }
+
+/* #container */
+#container { padding:40px 28px; background:url(../img/container.gif) repeat-y 680px top; }
+#column { float:right; width:250px; padding:0 20px; }
+#column a { color:#50988f; text-decoration:none; }
+#column a:hover,
+#column a:focus { color:#0075c0; text-decoration:underline; }
+#column .extension h3.title { margin:0; padding:0; color:#555; font:12px Arial; text-transform:uppercase; }
+#column .extension h3.title a { color:#555; }
+#column .extension div.section { margin:10px 0 40px; font:11px Arial; color:#555; }
+#content { float:left; width:600px; padding:0 25px; }
+#container.ec { background-position:320px top; }
+#container.ec #column { float:left; }
+#container.c { background:none; }
+#container.c #content { display:block; float:none; width:auto; }
+#container.c #column { display:none; }
+
+/* #footer */
+#footer { height:90px; background:url(../img/header.png) left -110px; }
+#footer .footer { padding:20px 50px; }
+#footer * { font:11px Arial; }
+#footer a { color:#50988f; text-decoration:none; }
+#footer a:hover,
+#footer a:focus { color:#0075c0; text-decoration:underline; }
+#footer .sta { display:inline; vertical-align:middle; }
+#footer .sta li { display:inline; background:url(../img/sta.gif) no-repeat left center; padding:0 10px; }
+#footer .sta li:first-child { background:none; }
+#footer .copyright { display:inline; margin:0 20px 0 0; color:#636363; }
+#footer .copyright .c { display:inline-block; width:21px; height:21px; margin:0 5px; overflow:hidden; background:url(../img/header.png) no-repeat right top; text-indent:-300px; vertical-align:middle; }
+#footer .copyright .powered { position:absolute; bottom:-20px; right:20px; font-size:10px; }
+#footer .copyright .powered * { font-size:10px; }
+#footer .sLang { position:absolute; right:60px; top:25px; background:url(../img/sta.gif) no-repeat right center; }
+#footer .sLang .lang { display:block; width:120px; height:14px; overflow:hidden; background:#777 url(../img/sLang.png) no-repeat; }
+#footer .sLang .lang:hover { background-color:#000; }
+#footer .sLang .lang * { display:block; width:120px; height:14px; text-indent:-200px; font-size:0; line-height:0; }
+#footer .sLang em { float:left; display:inline; margin:0 1px 0 0; }
+#footer .sLang em.ko_ { width:52px; }
+#footer .sLang em.en_ { width:55px; }
+#footer .sLang em.zh-CN_ { width:116px; }
+#footer .sLang em.jp_ { width:63px; }
+#footer .sLang em.es_ { width:55px; }
+#footer .sLang em.ru_ { width:55px; }
+#footer .sLang em.fr_ { width:51px; }
+#footer .sLang em.zh-TW_ { }
+#footer .sLang em.vi_ { width:74px; }
+#footer .sLang em.mn_ { width:68px; }
+#footer .sLang span.select_language { float:left; }
+#footer .sLang ul { display:none; position:absolute; right:0; bottom:18px; padding:1px 0; border:1px solid #ccc; background:#fff; }
+#footer .sLang ul li { margin:2px 0; }
+#footer .sLang .ko_ { background-position:left -10px; }
+#footer .sLang .en_ { background-position:left -20px; }
+#footer .sLang .zh-CN_ { background-position:left -30px; }
+#footer .sLang .jp_ { background-position:left -40px; }
+#footer .sLang .es_ { background-position:left -50px; }
+#footer .sLang .ru_ { background-position:left -60px; }
+#footer .sLang .fr_ { background-position:left -70px; }
+#footer .sLang .zh-TW_ { background-position:left -80px; }
+#footer .sLang .vi_ { background-position:left -90px; }
+#footer .sLang .mn_ { background-position:left -100px; }

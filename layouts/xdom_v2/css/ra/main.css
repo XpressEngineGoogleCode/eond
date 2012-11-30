@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+/*top 메뉴*/
+.top_gnb { position:relative; z-index:2; width:100%; height:22px; font-size:11px;}
+.top_gnb .top_bg { position:absolute; top:0; width:100%; height:22px; font-size:11px; background:#fff; opacity:.6; filter:alpha(opacity:60);}
+.top_gnb .top_box { position:relative; width:880px; margin:0 auto; padding:3px 0 0 0; z-index:10;}
+.top_gnb .top_left { position:absolute; text-align:left; width:300px; margin:0; padding:0; z-index:10;}
+
+/*헤더*/
+.bodyWrap { width:880px; margin:0 auto; }
+.header { position:relative; width:880px; height:107px; }
+.header h1 { position:absolute; margin:0; padding:0; top:0px; left:0px; }
+.head_ad_1 { position:absolute; left:250px; top:17px; width:360px; }
+.head_ad_2 { position:absolute; left:250px; top:78px; width:360px; }
+.head_ad_3 { position:absolute; right:0px; top:33px; text-align:right; width:220px; }
+
+/*메인메뉴*/
+.main_menu { position:relative; float:left; height:69px; width:880px; border-bottom:1px solid #DEDEDE; margin:0 auto 3px }
+.main_menu .tdate { position:absolute; left:15px; top:10px; }
+.main_menu .tdate .first-child { background: url(../../images/default/icon_today.gif) no-repeat left center; color: yellow; padding: 2px 0 2px 30px; }
+.main_menu .gnb { position:absolute; overflow:hidden; white-space:nowrap; left:107px }
+.main_menu .roll_gnb { position:absolute; overflow:hidden; white-space:nowrap; left:107px; margin:0; padding:0px }
+
+/*메인메뉴 광고*/
+.main_menu .head_ad_4 { position:absolute; left:15px; top:45px; width:655px; }
+.main_menu .head_ad_5 { position:absolute; right:10px; top:12px; text-align: right; width:200px; }
+
+/*메인2차메뉴*/
+.gnb2 { position:absolute; top:42px; left:40px; white-space:nowrap; overflow:hidden; margin:0; padding:0 }
+.roll_gnbSub { position:absolute; top:42px; left:38px; white-space:nowrap; overflow:hidden; margin:0; padding:0 }
+
+/*검색창*/
+.gSearch { position:absolute; top:41px; right:0px; padding:0; text-align:right;}
+.gSearch .inputText { position:relative; width:147px; height:16px; vertical-align:middle; margin:0; padding:2px; }
+.gSearch .submit { vertical-align:middle; padding:0}
+.isSearch { position:absolute; top:35px; right:237px; text-align:right; }
+.isSearch .inputText { position:relative; width:330px; height:20px; vertical-align:middle; padding:5px 2px 2px 4px}
+.isSearch .submit { vertical-align:middle }
+
+/*본문*/
+.content_Body { position:relative; clear:both; width:880px; padding-bottom:1px; margin:3px 0 0 0 }
+.content_Body_top { width:880px; float:left; overflow:hidden }
+.content_Body_bottom { width:880px; float:left; overflow:hidden }
+.columnMenu { position:relative; width:200px; float:right; }
+.columnContent { width:675px; float:left; overflow:hidden; }
+.main_bannerLeft { position:absolute; top:0px; left:-80px; z-index:100; }
+.main_bannerRight { position:absolute; top:0px; right:-80px; z-index:100; text-align:right;}

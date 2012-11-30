@@ -1,0 +1,214 @@
+<!-- js 파일 import -->
+<!--%import("js/jquery-latest.js")--> <!--이 파일을 삽입시 메뉴 추가가 안됨-->
+<!--%import("js/display.js")-->
+<!--%import("js/fakeselect.js")-->
+
+
+<!-- 레이아웃과 연동될 css 파일 import -->
+<!--@if($layout_info->colorset == "white")-->
+    <!--%import("css/eond_blu.css")-->
+<!--@elseif($layout_info->colorset == "black")-->
+    <!--%import("css/eond_rosso.css")-->
+<!--@else-->
+    <!--%import("css/default.css")-->
+<!--@end-->
+
+<!--@if($layout_info->background_image)-->
+<style type="text/css">
+    body {  background:#FFFFFF url({getUrl()}{$layout_info->background_image}) repeat-x left top; }
+</style>
+<!--@end-->
+
+<!--@if(!$layout_info->colorset)-->
+	{@$layout_info->colorset = "default"}
+<!--@end-->
+
+
+<!-- s : sitebar -->
+<div id="sitebar">
+	<ul>
+	<!--@foreach($site_menu->list as $key => $val)--><!--@if($val['link'])-->
+		<!--@if($val['selected'])-->
+			{@ $menu_1st = $val }
+		<!--@end-->
+	<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+	<!--@end--><!--@end-->
+	</ul>
+	<ul class="login">
+        <!--@if(!$is_logged)-->
+		<li><a href="{getUrl('mid',$layout_info->target_mid,'act','dispMemberSignUpForm')}"><img src="./images/login/btn_signup.png"></a></li>
+		<li><a href="{getUrl('act','dispMemberLoginForm')}"><img src="./images/login/btn_login.png"></a></li>
+        <!--@else-->
+
+            <!--<li><a href="{geturl('act','dispMemberInfo')}">정낙훈님</a></li>-->
+            <li><a href="{getUrl('act','dispMemberLogout')}"><img src="./images/login/btn_logout.png"></a></li>
+		<!--@end-->
+            <!-- 최고관리자이면 관리자 페이지 버튼 출력 -->
+            <!--@if($logged_info->is_admin == 'Y')-->
+            <li><a href="{getUrl('','module','admin')}" onclick="window.open(this.href); return false;"><img src="./images/login/btn_admin.gif" style="vertical-align:middle;"></a></li>
+            <!--@end-->
+	</ul>
+</div>
+<!-- e : sitebar -->
+
+<div id="wrap">
+	<div id="header">
+		<div class="title">
+			<span class="logo"><img src="./images/default/logo_uni.png" class="png24"></span>
+		</div>
+<!-- ************************************************ s : lnb ************************************************ -->
+
+<!-- GNB -->
+<!-- s : mainmenu -->
+<ul id="mainmenu">
+	<li class="menuEdgeLeft"></li>
+<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+    <!--@if($val['selected'])-->
+        {@ $menu_1st = $val }
+    <!--@end-->
+	<li class="menu"<!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+  
+	<!-- s : submenu -->
+	<ul class="submenu">
+	<span class="bgLeft"></span>
+	<span class="bg">
+	<!--@foreach($val['list'] as $key1 => $val1)--><!--@if($val1['link'])-->
+	<!--@if($val1['selected'])--><!--@end-->
+		<li <!--@if($val['selected'])-->class="on"<!--@end--> class="iePngFix"><a href="{$val1['href']}" <!--@if($val1['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val1['link']}</a></li>
+	<!--@end-->
+	<!--@end-->
+	</span>
+		<span class="bgRight"></span>
+	</ul>
+	<!-- e : submenu -->
+	</li>
+<!--@end--><!--@end-->
+	<li class="menuEdgeRight"></li>
+</ul>
+<!-- e : mainmenu -->
+<!--// GNB -->
+
+
+<!-- ************************************************ e : lnb ************************************************ -->
+
+		<div style="clear:both;position:relative;z-index:-1;"><a href="#">공지</a></div>
+	</div>
+	<div id="container">
+		<!--s: sidemenu-->
+		<div id="sidemenu">
+			
+			<!--s : snb-->
+			<div id="snb">
+				<div style="height:70px;background:#FFF;">
+				{@ $sub_title = array('center'=>'center','mhboard'=>'center','notice'=>'center','build'=>'center','feedback'=>'center','about'=>'center','theme'=>'center','sitemap'=>'center','traffic'=>'center','phpinfo'=>'center','trash'=>'center','inside'=>'inside','planner'=>'inside','todo'=>'inside','timetable_2008_2'=>'inside','sig'=>'inside','chat'=>'inside','monologue'=>'inside','me'=>'inside','nick'=>'inside','love'=>'inside','2u'=>'inside','propose'=>'inside','ahj'=>'inside','gallery_main'=>'gallery','favimg'=>'gallery','gallery'=>'gallery','people'=>'gallery','myphoto'=>'gallery','style'=>'gallery','manstyle'=>'gallery','todayimage'=>'gallery','KimYeongAe'=>'gallery','photogallery'=>'gallery','project'=>'project','readability'=>'project','hangeul'=>'project','hanja'=>'project','senario'=>'project','lifelog'=>'project','memobook'=>'project','freeimg'=>'project','tip'=>'tip','webtip'=>'tip','photoshop'=>'tip','css_naming'=>'tip','coding'=>'tip','layout'=>'tip','local_layout'=>'tip','source'=>'tip','colortable'=>'tip','images'=>'tip','icon'=>'tip','font'=>'tip','font_download'=>'tip','xe'=>'tip','xe_main'=>'tip','xe_skin'=>'tip','xe_bug'=>'tip','zb4'=>'tip','xe_idea'=>'tip','pds'=>'tip','cgi'=>'tip','webservice'=>'tip','adsense'=>'tip','jwfn'=>'tip','jwfn_template'=>'tip','jwfn_download'=>'tip','jwfn_qna'=>'tip','jwfn_idea'=>'tip','service'=>'collection','book'=>'collection','movie'=>'collection','poem'=>'collection','nakunpoem'=>'collection','music'=>'collection','musicplayer'=>'collection','mov'=>'collection','cf'=>'collection','ani'=>'collection','handwriting'=>'collection','favicon'=>'collection','harmonica'=>'collection','banner'=>'collection','error404'=>'collection','eng_study'=>'collection','eng_agony'=>'collection','news'=>'collection','eng_sentence'=>'collection','eng_voca'=>'collection','eng_wnr'=>'collection','eng_reading'=>'collection','ebs'=>'collection','ebsradio'=>'collection','business'=>'collection','stock'=>'collection','econote'=>'collection','financial_tech'=>'collection','community'=>'community','bbs'=>'community','qna'=>'community','guestbook'=>'community','scrap'=>'community','question'=>'community','todaycomment'=>'community','link'=>'community','campaign'=>'community','savethedeveloper'=>'community','mynote'=>'mynote','attach'=>'mynote','xynex'=>'mynote','history'=>'center','planet'=>'community','june'=>'community','nomorewar'=>'community');}
+				<!--@if($sub_title[$mid])--><div class='subtitle_{$sub_title[$mid]}'></div><!--@end--> 
+				</div>
+				<!--@if($menu_1st)-->
+				<ol>
+					{@ $idx = 1 }
+					<li style="border:0px;color:#4B4B4B;font-weight:bold;">통합게시판
+						<!--@if($logged_info->is_admin == 'Y')-->
+						<a href="{getUrl('','mid',$layout_info->target_mid,'act','dispLayoutAdminModify','layout_srl',$layout_info->layout_srl)}"><img src="./images/default/ico_customize.gif" title="레이아웃 관리" style="vertical-align:bottom;"></a>
+						<!--@end-->
+					</li>
+					<!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+					<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+
+						<!-- main_menu 3차 시작 -->
+						<!--@if($val['list'] && ($val['expand']=='Y'||$val['selected']) )-->
+						<ul>
+						<!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+							<li <!--@if($v['selected'])-->class="on"<!--@end-->><a href="{$v['href']}" <!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$v['link']}</a></li>
+						<!--@end--><!--@end-->
+						</ul>
+						<!--@end-->
+					</li>
+					{@$idx++}
+					<!--@end--><!--@end-->
+				</ol>
+				<!--@end-->
+			</div>
+			<!--e: snb-->
+			
+			<div style="text-align:center;"><img src="./images/default/adlabel_horz.gif" style="display:none;"></div>
+			<!-- s : adsense -->
+			
+			<!-- e : adsense-->
+			<div class="minihp"><a href="http://minihp.cyworld.com/pims/main/pims_main.asp?tid=20688856" target="_blank">정낙훈 미니홈피</a></div>
+			<div class="musicplayer"><a href="/musicplayer">뮤직플레이어</a></div>
+			<span class="divider_horz"></span>
+			        <div>
+ 
+            <select onchange="window.open(this.value)" class="selectbox_title" style="width:120px;">
+                <option value="#">미니홈피 바로가기</option>
+                <option value="http://minihp.cyworld.com/pims/main/pims_main.asp?tid=51167558" style="display:hidden;">이호준</option><!--안해정 38132992-->
+				<option value="http://minihp.cyworld.com/pims/main/pims_main.asp?tid=44604327">배진영</option>
+				<option value="http://minihp.cyworld.com/pims/main/pims_main.asp?tid=23740594">박균배</option>
+				<option value="http://minihp.cyworld.com/pims/main/pims_main.asp?tid=30489515">이재필</option>
+            </select>
+
+        </div>
+			<img class="zbxe_widget_output" widget="counter_status" skin="default" colorset="normal" />
+			
+		</div>
+		<!--e: sidemenu-->
+		<div id="content">
+			{$content}
+			<!-- s : adsense -->
+			<div class="contentAdsense" style="display:none;">
+			
+			</div>
+			<!-- e : adsense -->
+		</div>
+		<div id="widget">
+			
+			<img src="./images/default/adlabel_horz.gif" style="display:none;">
+			
+			<img class="zbxe_widget_output" widget="DroArc_clock" skin="ncloudblog" colorset="normal" clock_width="125" clock_height="125" style="margin-top:-15px;margin-bottom:-15px;" />
+			
+			<span class="divider_horz" style="margin-bottom:5px;margin-top:5px;"></span>
+			<!--s : adsense-->
+			<script type="text/javascript"><!--
+			google_ad_client = "pub-7200623708996327";
+			/* 이온디 위젯 상단 125x125, 작성됨 09. 2. 2 */
+			google_ad_slot = "2183190540";
+			google_ad_width = 125;
+			google_ad_height = 125;
+			//-->
+			</script>
+			<script type="text/javascript"
+			src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+			</script>   
+			<!--e : adsense-->
+			<div style="height:5px;"></div>
+			<span id="tag"><img class="zbxe_widget_output" widget="tag_list" skin="blog_tag_list" colorset="eond" list_count="20" /></span>
+			<img class="zbxe_widget_output" widget="tag_list" skin="blog_tag_list" colorset="eond" module_srl="{$module_srl}" list_count="20" />
+			<!-- s : banner -->
+			<div id="banner">
+			<a href="/savethedeveloper"><img src="/banner/files/attach/images/8751/854/164/banner_savethedeveloper.png"></a>
+			<a href="http://mirstyle.com" target="_blank"><img src="./images/default/banner_mirstyle.png" style="margin-top:2px;" title="Supported by MIRSTYLE"></a>
+			<a href="http://miniwini.com" target="_blank"><img src="./images/default/banner_miniwini.png" style="margin-top:2px;" title="Thanks for Miniwini"></a>
+			<a href="http://nzeo.com" target="_blank"><img src="./images/default/banner_xe.png" style="margin-top:2px;" title="Programing XE"></a>
+			
+			</div>
+			<!-- e : banner -->
+		</div>
+	</div>
+
+	<div id="footer">
+		<span class="bg_footerTop"></span>
+		<!-- s : footerMenu -->
+		<div id="footerMenu">
+			<ul>
+			<!--@foreach($footer_menu->list as $key => $val)--><!--@if($val['link'])-->
+				<!--@if($val['selected'])-->
+					{@ $menu_1st = $val }
+				<!--@end-->
+			<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+			<!--@end--><!--@end-->
+			</ul>
+			</div>
+		<!-- e : footerMenu -->
+		<span class="copyright"></span>
+	</div>
+</div>

@@ -1,0 +1,30 @@
+<!--// js 파일 import -->
+<!--%import("js/xe_official.js")-->
+<!--// 레이아웃과 연동될 css 파일 import -->
+<!--%import("css/black.css")-->
+
+<!--@if($layout_info->background_image)-->
+<style type="text/css">
+    body {  background:#000 url({getUrl()}{$layout_info->background_image}) repeat-x left top; }
+</style>
+<!--@end-->
+
+<!--@if(!$layout_info->colorset)-->
+    {@$layout_info->colorset = "default"}
+<!--@end-->
+<div id="bodyWrap">
+    <div id="header">
+        <h1><!--@if($layout_info->logo_image)--><a href="{$layout_info->index_url}"><img src="{$layout_info->logo_image}" alt="logo" border="0" class="iePngFix" /></a><!--@else-->&nbsp;<!--@end--></h1>
+
+        <!-- GNB -->
+        <ul id="gnb">
+			<embed src="./layouts/MLT_Gold/images/menu.swf" quality="high" pluginspage="" type="application/x-shockwave-flash" width="500" height="75"  wmode="transparent"></embed>
+        </ul>
+    </div>
+    <div id="contentBody">
+            {$content}
+    </div>
+    <ul id="footer">
+		<img src="./images/copy.gif" />
+    </ul>
+</div>

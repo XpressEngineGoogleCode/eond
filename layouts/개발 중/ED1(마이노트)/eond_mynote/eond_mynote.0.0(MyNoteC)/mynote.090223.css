@@ -1,0 +1,53 @@
+/************************************************** globar **************************************************/
+* { margin:0; padding:0; font-size:small; font-family:돋움, Dotum, AppleGothic, sans-serif;}
+html{height:100%;background-image: url(../images/main_bg.gif);margin:0;padding:0;}
+body {height:100%;margin:0;padding:0;}
+
+
+
+#wrap {
+	position:absolute;
+	width:100%;
+	margin:0px 0 0px;
+	padding:0 0 30px;
+	background-image: url(../images/yaewoni.gif) ; 
+	background-repeat: no-repeat; 
+	background-position: right ;bottom:0;
+	background-attachment:fixed;
+	
+	}
+#header{width:51px;background-color:#F6F6F6;background: url(../images/bg_header.gif) repeat-y;}
+#container{padding: 10px;overflow:hidden;}
+#footer{width:170px;padding: 10px 0 0 0;}
+span {display:inline-block;}
+
+/************************************************** header **************************************************/
+/* title */
+#header #title {float:left;width:31px;height:100%;background-color:#323232;border-right:2px solid #BCBCB9;} /*ul에서 마진&패딩값 없을 시, IE에서 li가 border의 영역까지 침범하여 overflow:hidden 속성 첨가*/
+#header #title ul {list-style-type:none;padding:10px 5px 5px 4px;margin:0;}
+#header #title .bgp{background:url(../images/title_all.gif) 0 0 no-repeat;}
+#header #logo .bgp{background-position:0 0 ;width:20px;height:82px;}
+#header #about .bgp{background-position:-21px 0 ;width:14px;height:36px;margin-left:3px;margin-bottom:-2px;_margin-bottom:4px;}
+#header #msg .bgp{background-position:-21px -37px ;width:14px;height:36px;margin-left:3px;}
+#header .separator {width:14px;height:0px;margin:1px 0px 5px 3px;_margin:-18px 0px -5px 3px;font:0px;border-bottom:1px solid #6E6E6E;}
+
+/* theme */
+#header #theme {float:left;margin:10px 0 0 6px;padding:0;}
+#header #theme li {list-style-type:none;font-size:0px;margin:6px 0 0px 0;_margin-bottom:-20px;line-height:0px;}
+#header #theme li .squre1{width:5px;height:5px; background:#6D6D6D;display:inline-block;}
+#header #theme li .squre2{width:5px;height:5px; background:#C3C52D;display:inline-block;}
+
+/************************************************** container **************************************************/
+#counter{height:12px;font:0.7em verdana;color:#4D524B;letter-spacing:-0.2em;}
+#profile {width: 144px;_width: 150px; height: 150px; background-color: #383838;font:11px dotum;color:#BCBCB9;padding:3px;}
+#login{margin-top:7px;}
+#seperateline{width: 6px;height:100%; background: url(../images/im_l_bg.gif);}
+#content{margin:10px 0px 10px 15px;}
+
+#gnb li {font:11px dotum}
+#menu{height:25px;width:100%;background-color:#F0F0F0;"}
+/************************************************** footer **************************************************/
+#widget_box{width: 160px;height: 150px; background-color:white;text-align:center;}
+
+
+#titlebar {position:absolute;width:31px;height:100%;background-color:#323232;border-right:2px solid #BCBCB9;} 

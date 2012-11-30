@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">레이어 컨트롤</title>
+    <title xml:lang="en">EOND Layout</title>
+    <version>0.4</version>
+    <date>2009-01-21~2009-02-03</date>
+	<description xml:lang="ko">
+        이온디(EOND.COM) 레이아웃입니다.
+		레이아웃 상단에 사이트바 메뉴가 삽입되어 있습니다.
+    </description>
+    <description xml:lang="en">
+        This layout is the EOND website layout.
+        Layout producer : Jeong Nak-hun
+    </description>
+    <author email_address="eond@eond.com" link="http://eond.com/mynote">
+        <name xml:lang="ko">정낙훈</name>
+        <name xml:lang="en">Jeong Nak-hun</name>
+    </author>
+
+    <extra_vars>
+        <var name="colorset" type="select">
+            <title xml:lang="ko">컬러셋</title>
+			<title xml:lang="en">Colorset</title>
+            <description xml:lang="ko">원하시는 컬러셋을 선택해주세요.</description>
+            <description xml:lang="en">Please select a colorset you want.</description>
+            <options value="default">
+                <title xml:lang="ko">기본</title>
+				<title xml:lang="en">Basic</title>
+            </options>
+        </var>
+        <var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+			<title xml:lang="en">Logo image</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요. (세로길이가 23px인 투명이미지가 가장 어울립니다)</description>
+            <description xml:lang="en">Please input a logo image which will be displayed on the top of layout. (Transparent image with height of 23px is recommended.)</description>
+        </var>
+        <var name="index_url" type="text">
+            <title xml:lang="ko">홈 페이지 URL</title>
+            <title xml:lang="en">Homepage URL</title>
+            <description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+            <description xml:lang="en">Please input the URL to redirect when user clicks the logo</description>
+        </var>
+        <var name="background_image" type="image">
+            <title xml:lang="ko">배경 이미지</title>
+            <title xml:lang="en">Background Image</title>
+            <description xml:lang="ko">배경 이미지를 사용하시려면 등록해주세요.</description>
+            <description xml:lang="en">Please input if you want to use background image.</description>
+        </var>
+    </extra_vars>
+
+    <menus>
+        <menu name="site_menu" maxdepth="1" default="true">
+            <title xml:lang="ko">사이트 메뉴</title>
+            <title xml:lang="en">Site Menu</title>
+			<description xml:lang="ko">사이트바에 등록하는 전역 메뉴입니다.</description>
+            <description xml:lang="en">Please input if you want to use background image.</description>
+        </menu>
+		<menu name="main_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">상단 메뉴</title>
+            <title xml:lang="en">Top menu</title>
+        </menu>
+        <menu name="footer_menu" maxdepth="1">
+            <title xml:lang="ko">하단 메뉴 </title>
+            <title xml:lang="en">Bottom menu</title>
+        </menu>
+    </menus>
+</layout>

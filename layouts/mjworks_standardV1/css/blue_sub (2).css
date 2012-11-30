@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* 
+우측서브메뉴 레드컬러셋
+*/
+
+#contentWrap {background:url(../images/blue/submenu_bg.png) right repeat-y #FFFFFF;}
+
+#lnb_top { padding:0; background:url(../images/blue/submenu_top.png) left top no-repeat; height:5px; width:100%; overflow:hidden; margin-top:10px;}
+
+#lnb_btom { padding:0; background:url(../images/blue/submenu_btom.png) left top no-repeat; height:5px; width:100%; overflow:hidden; margin-bottom:10px;}
+
+#subtitle { background:url(../images/blue/subtitle_bul.png) #264759 left top no-repeat; width:140px; margin-top:5px; padding:3px 10px 3px 10px; color:#FFFFFF; font:11px Tahoma, Arial, "맑은고딕", "돋움";  }
+
+.title_r { background:url(../images/blue/subtitle_bul.png) #264759 left top no-repeat; margin-left:12px; width:140px; padding:3px 10px 3px 10px; color:#FFFFFF; font:11px Tahoma, Arial, "맑은고딕", "돋움";  }
+
+#lnb {width:160px; padding:0 0 10px 12px; background-color:#41687d; list-style:none; overflow:hidden;}
+
+#lnb li { list-style:none; padding-top:5px;}
+
+#lnb li a { border-bottom:#4b7d96 solid 1px; margin-left:10px; padding:2px 8px 2px 0px; color:#86c2e3; width:142px; display:block; text-decoration:none; font:9px Arial, Helvetica, sans-serif}
+
+#lnb li a:hover,#lnb li a:focus { color:#c5e4f5; }
+
+#lnb li.on a { color:#ffffff;}
+
+#lnb li.on a:hover, #lnb li.on a:focus { color:#ffffff; }
+
+
+
+#lnb li ul { display:block;  width:150px;  position:relative; overflow:hidden;  text-decoration:none; padding-top:3px; }
+
+#lnb li.on ul { display:block; }
+
+#lnb li ul li { padding:0; padding-left:10px; }
+
+#lnb li ul li a {background:url(../images/blue/submenu_bul1.png) left 1px no-repeat; padding:1px 10px 0px 5px; border:none; width:135px; font-family:Arial, Helvetica, sans-serif; font-size:9px; color:#2a5064 !important;}
+
+#lnb li ul li a:hover, #lnb li ul li a:focus { background:url(../images/blue/submenu_bul1.png) left 1px no-repeat !important; color:#67aed4 !important;}
+#lnb li.on ul li.on a { background:url(../images/blue/submenu_bul2.png) left 1px no-repeat !important; color:#67aed4 !important;}
+
+
+

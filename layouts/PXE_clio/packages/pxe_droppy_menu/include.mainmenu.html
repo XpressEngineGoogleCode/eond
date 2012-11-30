@@ -1,0 +1,109 @@
+<!-- JS 파일 로드 -->
+<load cond="$layout_info->menu_type == 'pulldown'" target="packages/pxe_droppy_menu/js/jquery.droppy.js" />
+<load target="packages/pxe_droppy_menu/js/jquery.lavalamp.js" type="body" />
+<load target="packages/pxe_droppy_menu/js/jquery.easing.1.3.js" type="body" />
+
+<!--// 컬러셋과 연동될 css 파일 import -->
+<load cond="$layout_info->colorset == 'default'" target="packages/pxe_droppy_menu/css/droppy_default.css" />
+<load cond="$layout_info->colorset == 'custom'" target="packages/pxe_droppy_menu/css/droppy_custom.css" />
+
+<ul id="nav" cond="$layout_info->display_splash == 'hide' && $layout_info->menu_type == 'normal'" class="pngFix">
+    <span class="menuR pngFix">Menu Right Corner</span>
+    {@$_idx = 0}
+    <block loop="$main_menu->list=>$key,$val">
+        <block cond="$val['selected']">{@ $menu_1st = $val }</block>
+        <li cond="$val['link']" class="on"|cond="$val['selected']"><a href="{$val['href']}" onclick="window.open(this.href);return false;"|cond="$val['open_window']=='Y'">{$val['link']}<span class="vr pngFix"></span></a></li>
+        {@$_idx++}
+        </block>
+    </block>
+</ul>
+
+<ul id="nav" cond="$layout_info->display_splash == 'hide' && $layout_info->menu_type != 'normal'" class="pngFix">
+    <span class="menuR pngFix">Menu Right Corner</span>           
+    <block loop="$main_menu->list=>$key,$val">
+    {@ $menu_depth1 = $val }
+    <block cond="$val['selected']">{@ $menu_1st = $val }</block>
+    <block cond="$val['link']">
+    <li class="on"|cond="$val['selected']"><a href="{$val['href']}" onclick="window.open(this.href);return false;"|cond="$val['open_window']=='Y'">{$val['link']} <span class="vr pngFix"></span></a>
+        
+        <!--// main_menu 2차 시작 -->	
+        <block cond="$menu_depth1">
+        <ul>
+            <block loop="$menu_depth1['list']=>$key,$val">
+            {@ $menu_depth2 = $val }
+            <block cond="$val['link']">
+            <li class="on"|cond="$val['selected']"><a href="{$val['href']}" onclick="window.open(this.href);return false;"|cond="$val['open_window']=='Y'">{$val['link']} <block cond="$menu_depth2['list']"><span><img src="packages/pxe_droppy_menu/img/{$layout_info->colorset}/btn_allow.gif" /></span></block></a>
+            
+                <!--// main_menu 3차 시작 -->
+                <block cond="$menu_depth2">
+                <ul>
+                    <block loop="$menu_depth2['list']=>$key,$val">
+                    {@ $menu_depth3 = $val }
+                    <block cond="$val['link']">
+                    <li class="on"|cond="$val['selected']"><a href="{$val['href']}" onclick="window.open(this.href);return false;"|cond="$val['open_window']=='Y'">{$val['link']} <block cond="$menu_depth3['list']"><span><img src="packages/pxe_droppy_menu/img/{$layout_info->colorset}/btn_allow.gif" /></span></block></a>
+                    
+                        <!--// main_menu 4차 시작 -->
+                        <block cond="$menu_depth3">
+                        <ul>
+                            <block loop="$menu_depth3['list']=>$key,$val">
+                            {@ $menu_depth4 = $val }
+                            <block cond="$val['link']">
+                            <li class="on"|cond="$val['selected']"><a href="{$val['href']}" onclick="window.open(this.href);return false;"|cond="$val['open_window']=='Y'">{$val['link']}</a>
+                            </li>
+                            </block> <!--//end of if-->
+                            </block> <!--//end of loop-->
+                        </ul>
+                        </block>
+                        <!--// main_menu 4차 끝 -->
+                    </li>
+                    </block><!--//end of if-->
+                    </block><!--//end of loop-->
+                </ul>
+                </block>
+                <!--// main_menu 3차 끝 -->
+            
+            </li>
+            </block> <!--//end of cond-->
+            </block> <!--//end of loop-->
+        </ul>
+        </block>
+        <!--// main_menu 2차 끝 -->
+
+    </li>
+    </block><!--// end of if -->
+    </block><!--// end of loop -->
+
+</ul>
+<!--// main_menu 1차 끝 -->
+
+<!--Splash 메뉴-->
+<ul id="nav" cond="$layout_info->display_splash != 'hide'" class="pngFix">
+    <span class="menuR pngFix">Menu Right Corner</span>
+    <li><a href="#"><img src="packages/pxe_droppy_menu/img/default/splash_menu/clio_{$lang_type}.gif" /> <span class="vr pngFix"></span></a></li>
+    <li class="on"><a href="#"><img src="packages/pxe_droppy_menu/img/default/splash_menu/overview_{$lang_type}.gif" /> <span class="vr pngFix"></span></a></li>
+    <li><a href="http://www.premiumxe.com/?mid=pxeClio&act=dispWikiTreeIndex" target="_blank"><img src="packages/pxe_droppy_menu/img/default/splash_menu/guide_{$lang_type}.gif" /> <span class="vr pngFix"></span></a></li>
+    <li><a href="http://www.xpressengine.com/?mid=download&package_srl=19506416" target="_blank"><img src="packages/pxe_droppy_menu/img/default/splash_menu/download_{$lang_type}.gif" /> <span class="vr pngFix"></span></a></li>
+    <li><a href="http://www.premiumxe.com/clioForum" target="_blank"><img src="packages/pxe_droppy_menu/img/default/splash_menu/forums_{$lang_type}.gif" /> <span class="vr pngFix"></span></a></li>
+    <li><a href="http://contest.xpressengine.com/" target="_blank"><img src="packages/pxe_droppy_menu/img/default/splash_menu/contests_{$lang_type}.gif" /> <span class="vr pngFix"></span></a></li>
+</ul>
+
+<script type="text/javascript">
+//<![CDATA[
+(function($) {
+	jQuery(function($) {
+		
+	$(function() {
+		$("#nav").lavaLamp({
+			fx: "easeInOutQuad",
+			speed: 160
+		});
+		
+		<!--@if($layout_info->menu_type == "pulldown")-->
+		$('#nav').droppy();
+		<!--@end-->
+	});
+	
+	});
+}) (jQuery);
+//]]>
+</script>

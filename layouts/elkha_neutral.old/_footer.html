@@ -1,0 +1,31 @@
+<div class="footer">
+	<address class="copyright">
+		<!--@if($layout_info->copyright)-->
+			{$layout_info->copyright}
+		<!--@else-->
+			<span class="c">&copy; {date("Y")}</span> <strong><a href="{$layout_info->url}">{$layout_info->name}</a></strong>
+		<!--@end-->
+		<span class="powered">
+			<!--//Powered by <a href="http://www.xpressengine.com" onclick="window.open(this.href);return false;">XE</a>
+			/ //-->Designed by <a href="http://www.mono-lab.net/" onclick="window.open(this.href); return false;">mono-lab</a>
+			/ UI Dev. <a href="{$layout_info->author[0]->homepage}" onclick="window.open(this.href);return false;">{$layout_info->author[0]->name}</a>
+		</span>
+	</address>
+
+	<!--@if($sta)-->
+		<ul class="sta">
+			<!--@foreach($sta->list as $val)--><li><a href="{$val['href']}"<!--@if($val["open_window"]=="Y")--> onclick="window.open(this.href); return false;"<!--@end-->>{$val["link"]}</a></li><!--@end-->
+		</ul>
+	<!--@end-->
+
+	<div class="sLang">
+		<em class="lang {$lang_type}_"><span>{$lang_supported[$lang_type]}</span></em>
+		<span class="lang select_language"><button type="button">Select Language</button></span>
+		<ul>
+			<!--@foreach($lang_supported as $key => $val)--><!--@if($key!= $lang_type)-->
+				<li class="lang {$key}_"><button type="button" onclick="doChangeLangType('{$key}');return false;">{$val}</button></li>
+			<!--@end--><!--@end-->
+		</ul>
+	</div>
+
+</div>

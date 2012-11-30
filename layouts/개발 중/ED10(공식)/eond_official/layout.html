@@ -1,0 +1,79 @@
+<!-- js 파일 import -->
+<!--%import("js/webmini.js")-->
+<!--%import("js/menu.js")-->
+
+<!--%import("css/style.css")-->
+
+
+<!--@if($layout_info->width)-->
+<style type="text/css">
+<!--
+#column { width:{$layout_info->width}px; }
+#content { width:{$layout_info->width *-1 + 250 + 620}px; }
+#container { background-position:{$layout_info->width *-1 + 250 + 680}px top; }
+#container.ec { background-position:{$layout_info->width - 250 + 320}px top; }
+-->
+</style>
+<!--@end-->
+
+<!--@if($layout_info->background_image)-->
+<style type="text/css">
+body { background:#FFFFFF url({getUrl()}{$layout_info->background_image}) repeat-x center top; }
+</style>
+<!--@end-->
+
+<!--@if(!$layout_info->colorset)-->
+    {@$layout_info->colorset = "default"}
+<!--@end-->
+
+<ul id="skip_navigation">
+<li><a href="#columnRight" title="주메뉴 바로가기">본문 바로가기</a></li>
+<li><a href="#gnb" title="주메뉴 바로가기">주메뉴 바로가기</a></li>
+</ul>
+<hr />
+<div id="mini_gnb">
+	  <div class="top_box">
+	
+		<!--@if($logged_info)--><!--@if($layout_info->widget_top)-->{$layout_info->widget_top}<!--@end--><!--@end-->
+	  <ul class="account">
+	  <!--@if($logged_info)-->
+      <li class="profile first-child"><a href="#layer" onclick="jQuery('#memberProfile').toggleClass('active');">{$logged_info->nick_name}님</a></li>
+      <li><a href="{getUrl('act','dispMemberLogout')}"><img src="./images/{$layout_info->colorset}/btn_mini_logout.gif" alt="로그아웃" class="bul" /></a></li>
+      
+      <!--@else-->
+      <li class="first-child"><a href="/login"><img src="./images/{$layout_info->colorset}/btn_mini_login.gif" alt="로그인" class="bul" /></a></li>
+      <!--@end-->
+      <!--@if(!$logged_info)-->
+      <li><a href="{getUrl('act','dispMemberSignUpForm')}" title="회원가입">회원가입</a></li>
+      <!--@end-->
+      <li class="first-child"><a href="http://is.eond.com" title="이온디 생각찾기">생각찾기</a></li>
+		<li><a href="http://eond.com/mynote" title="이온디 마이노트">마이노트</a></li>
+	  </ul>
+	   <!--@if($is_logged)-->
+	   <!-- memberProfile -->
+		<div id="memberProfile" class="memberProfile">
+			<button type="button" class="close" onclick="jQuery('#memberProfile').toggleClass('active');" accesskey="X"><span>Close profile layer</span></button>
+			<h2 class="authorName">{$logged_info->nick_name}</h2>
+			{@ $oPointModel = &getModel('point'); $point = $oPointModel->getPoint($logged_info->member_srl); $oModuleModel = &getModel('module');  $config = $oModuleModel->getModuleConfig('point'); $level = $oPointModel->getLevel($point, $config->level_step); }
+			<ul>
+				<!--@foreach($logged_info->menu_list as $key => $val)-->
+				<li><a href="{getUrl('act',$key,'member_srl','')}">{Context::getLang($val)}</a></li>
+				<!--@end-->
+				<li>레벨 : <span>{$level}</span></li>
+				<li>포인트 : <span>{$point}</span></li>
+			</ul>
+
+			<button type="button" class="close" onclick="jQuery('#memberProfile').toggleClass('active');" accesskey="X"><span>Close profile layer</span></button>
+		</div>
+		<!-- /memberProfile -->
+		<!--@end-->
+		</div>
+</div>
+<hr />
+
+<div id="bodyWrap">
+	<div id="header"><!--#include("./_header.html")--></div>
+	<!--#include("./_menu2.html")-->
+	<div id="container" class="{$layout_info->column}"><!--#include("./_container.html")--></div>
+	<div id="footer"><!--#include("./_footer.html")--></div>
+</div>

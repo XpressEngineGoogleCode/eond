@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<skin version="0.2">
+    <title xml:lang="ko">MyNote 카운터 스킨</title>
+    <description xml:lang="ko">Today / Total  스킨</description>
+    <version>0.1</version>
+    <date>2009-02-22</date>
+    <link>http://eond.com</link>
+
+    <author email_address="eond@eond.com" link="http://eond.com">
+        <name xml:lang="ko">Jeong Nak-hun</name>
+    </author>
+
+    <colorset>
+        <color name="normal">
+            <title xml:lang="ko">normal</title>
+        </color>
+    </colorset>
+</skin>

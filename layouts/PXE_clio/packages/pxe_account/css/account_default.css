@@ -1,0 +1,65 @@
+/* 로그아웃 및 회원 정보 수정 (pxe_account)
+---------------------------------------------------------------------------------*/
+#pxe_account .edit_profile { margin:15px auto 0 auto; width:90px; height:20px; overflow:hidden; }
+#pxe_account .edit_profile .pfEdit { float:left; margin:0 10px 0 0; padding:0; width:40px; height:20px; background:url(../img/default/btn_profile.gif) 0 20px; text-indent:-1000em; display:block; }
+#pxe_account .edit_profile .pfLogout { float:left; width:40px; height:20px; background:url(../img/default/btn_profile.gif); text-indent:-1000em; display:block; }
+
+/* 회원 정보*/
+#pxe_account .memberProfile { position:relative; top:5px; margin:0; padding:0; width:248px; color:#797771; background:url(../img/default/bg_profile.png) no-repeat left top; *zoom:1; overflow:hidden; }
+#pxe_account .memberProfile ul{ position:relative; margin:0; padding:0; list-style:none; left:16px; }
+#pxe_account .memberProfile li { position:relative; float:left; margin:0; padding:0; width:122px; }
+
+#pxe_account .memberProfile li a { display:block; padding:5px 0 0 22px; height:17px; *padding:6px 0 0 22px; *height:16px; color:#666; text-decoration:none; top:0; background:url(../img/default/dots.gif) no-repeat left 0px; }
+#pxe_account .memberProfile li a:visited { color:#666; }
+#pxe_account .memberProfile li a:hover { background:url(../img/default/dots.gif) no-repeat left -22px; }
+#pxe_account .memberProfile li a:hover,
+#pxe_account .memberProfile li a:active,
+#pxe_account .memberProfile li a:focus{ text-decoration:none; }
+
+
+/* 로그인 창*/
+#pxe_account .loginLayer { position:relative; margin:0; padding:0; width:248px; color:#797771; text-align:center; }
+#pxe_account .loginLayer .inner { width:248px; margin:0 0 15px 0; padding:0; }
+#pxe_account .loginLayer .inner_oid { width:248px; margin:0; padding:0; }
+#pxe_account .loginLayer form{ *zoom:1; position:relative; overflow:hidden; }
+
+#pxe_account .loginLayer #commonLogin{ height:58px; margin:0; padding:0; }
+#pxe_account .loginLayer #openidLogin{ height:27px; margin:0; padding:0; }
+
+#pxe_account .loginLayer input { font:9pt 돋움,Dotum; }
+
+/*ID*/
+#pxe_account .loginLayer input.user_id { position:absolute; top:0; left:0; width:180px; height:18px; padding:8px 5px 0 5px; color:#505050; border:none; background-image:url(../img/default/bg_input.gif); background-color:transparent; vertical-align:top }
+:root #pxe_account .loginLayer input.user_id { height:23px; padding:3px 5px 0 5px; }
+#pxe_account .loginLayer input.user_id.focus { background:url(../img/default/bg_input_focus.gif)!important; }
+#pxe_account .loginLayer input.user_id.focusnot { background:url(../img/default/bg_input_notfocus.gif)!important; }
+
+/*Password*/
+#pxe_account .loginLayer input.user_pw { position:absolute; top:30px; left:0; width:180px; height:18px; padding:8px 5px 0 5px; color:#505050; border:none; background-image:url(../img/default/bg_input.gif); background-color:transparent; vertical-align:top }
+:root #pxe_account .loginLayer input.user_pw { height:23px; padding:3px 5px 0 5px; }
+#pxe_account .loginLayer input.user_pw.focus { background:url(../img/default/bg_input_focus.gif)!important; }
+#pxe_account .loginLayer input.user_pw.focusnot { background:url(../img/default/bg_input_notfocus.gif)!important; }
+
+/*Open ID*/
+#pxe_account .loginLayer .oid_desc { margin:0 0 15px 46px; }
+#pxe_account .loginLayer input.open_id { position:absolute; top:0; left:0; width:180px; height:18px; padding:8px 5px 0 5px; color:#505050; border:none; background-image:url(../img/default/bg_input.gif); background-color:transparent; vertical-align:top }
+:root #pxe_account .loginLayer input.open_id { height:23px; padding:3px 5px 0 5px; }
+#pxe_account .loginLayer input.open_id.focus { background:url(../img/default/bg_input_focus.gif)!important; }
+#pxe_account .loginLayer input.open_id.focusnot { background:url(../img/default/bg_input_notfocus.gif)!important; }
+
+#pxe_account .loginLayer button.submit_oid { width:52px; height:26px; background-image:url(../img/default/login_btn_submit.gif); background-color:transparent; border:none; margin:0; cursor:pointer; position:absolute; top:0px; left:196px; text-indent:-1000em; }
+#pxe_account .loginLayer span.info_openid { position:relative; width:248px; height:26px; margin:0; padding:0; display:block; background:url(../img/default/info_openid.gif); text-indent:-1000em; }
+
+#pxe_account .loginLayer .saveIDinfo { position:absolute; top:5px; *top:1px; left:196px; *left:190px; }
+#pxe_account .loginLayer .saveIDinfo .inputCheck { position:relative; top:2px; *top:1px; left:0; *left:2px; }
+#pxe_account .loginLayer .keep label{ color:#555; }
+#pxe_account .loginLayer button.submit { width:52px; height:26px; background-image:url(../img/default/login_btn_submit.gif); background-color:transparent; border:none; margin:0; cursor:pointer; position:absolute; top:30px; left:196px; text-indent:-1000em; }
+
+#pxe_account .loginLayer .help { margin:15px 0 0 0; padding:0; list-style:none; *zoom:1; overflow:hidden; }
+#pxe_account .loginLayer .help li { position:relative; margin:0; padding:0 3px 0 8px; display:inline; line-height:14px; background:url(../img/default/vr_extra.gif) no-repeat 0 1px; white-space:nowrap }
+#pxe_account .loginLayer .help li a { text-decoration:none; color:#5f6164; text-shadow:none; top:0; filter:none }
+#pxe_account .loginLayer .help li a:visited { color:#5f6164; }
+#pxe_account .loginLayer .help li.first { background:none }
+#pxe_account .loginLayer .help li a:hover,
+#pxe_account .loginLayer .help li a:active,
+#pxe_account .loginLayer .help li a:focus{ text-decoration:underline;}

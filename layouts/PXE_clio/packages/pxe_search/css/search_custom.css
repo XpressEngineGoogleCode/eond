@@ -1,0 +1,9 @@
+/* 통합 검색창 (pxe_search)
+---------------------------------------------------------------------------------*/
+#isSearch { position:absolute; width:153px; height:62px; top:-9px; right:12px; background:url(../img/custom/search.png); z-index:1; }
+#isSearch .searchOrder { display:none;}
+#isSearch #search_input { background:url(../img/custom/bg_inputtext.gif) left 10px no-repeat; }
+#isSearch .inputText { font:12px Tahoma,굴림; vertical-align:middle; position:absolute; top:32px; left:12px; border:none; margin:0; padding:0; width:110px; height:28px; color:#7d7d91; line-height:27px; }
+#isSearch .inputText.focus { background:none!important; }
+#isSearch .inputText.focusnot { background:none!important; }
+#isSearch .submit { margin:0; padding:0; position:absolute; top:40px; right:12px;}

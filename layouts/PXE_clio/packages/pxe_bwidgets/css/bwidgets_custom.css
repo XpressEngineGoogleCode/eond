@@ -1,0 +1,15 @@
+/* 하단 경로표시기 (pxe_bwidgets)
+---------------------------------------------------------------------------------*/
+.menuPath02 { margin:0; padding:0; position:relative; height:33px; background:url(../img/custom/bg_bread_home.gif) no-repeat 14px center; border-bottom:1px solid #d2d2d2; }
+.menuPath02 a,
+.menuPath02 a:visited { float:left; display:inline-block; height:23px; padding:10px 20px 0 0; margin-right:10px; background:url(../img/custom/icon_bread_arrow_02.gif) no-repeat right top; color:#999; font:9pt 돋움,굴림, Geneva, sans-serif; }
+.menuPath02 a:hover { color:#66bced; }
+.menuPath02 a.home { width:25px; }
+.menuPath02 span { float:left; display:inline-block; height:23px; padding:10px 20px 0 0; margin-right:10px; color:#666; font:bold 9pt 돋움,굴림, Geneva, sans-serif; }
+
+/* 하단 푸터 위젯*/
+.smartList { margin:0; padding:20px; }
+.smartList ul.column{ margin:0; padding:0; list-style: none; overflow:hidden; }
+.smartList ul.column li { float: left; width: 160px; /*Set default width*/ padding: 0; margin: 0; display: block; }
+.smartList ul.column .block { font:8pt 돋움,Dotum; letter-spacing:-1px; margin-right: 20px; /*Creates the 20px gap between each column*/ padding: 0; }
+.smartList ul.column .block h2 { font-size:8pt; margin:0 0 10px 0; padding:0; color:#333; border:none; }

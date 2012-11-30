@@ -1,0 +1,90 @@
+@charset "utf-8";
+/* xe_sunooWAL layout. Layout Design by SunooTC (http://www.goodpr.me/) */
+
+/* colorset default */
+.default #headerWrap{ background:url(../images/default/bgHeader.gif) repeat-x left bottom; _background-position:left top; }
+.default #bodyWrap{ background:url(../images/bodyimage.jpg) repeat-x left top; }
+.default #popupLog .logFace{ border:1px solid #3f678b; background:#f9f7e8; }
+.default #popupLog .logFace .loginButton input{ background:url(../images/default/buttonPupupLogin.gif) no-repeat 0px 0px; }
+.default #mainMenu .Mmenu table td { border:1px solid #bdb28c; background:#ededeb; }
+.default #mainMenu .Mmenu table td a { color:#444; border-top:1px solid #fff; border-bottom:1px solid #c8c8c7; }
+.default #mainMenu .Mmenu table td a:hover { color:#fff; background:#3399ff; border-bottom:1px solid #aaaaaa; }
+.default #leftSubm .submTitle { background:url(../images/default/leftWidgetBgTitle.png) no-repeat 0px 0px; }
+.default #leftWidgetT .leftWidgetTop{ color:#555; background:url(../images/default/leftWidgetBgTitle.png) no-repeat 0px 0px; }
+.default #bottomMenuWrap { background:#f3f1e9; }
+.default #footerWrap{ background:#f0efeb; }
+.default #quickMenu .qMenu { background:url(../images/default/bgQuickMenuBody.gif) repeat-y left top; }
+.default #quickMenu .qMenu p a { color:#665e50; }
+.default #quickMenu .quickMenuBgTop { background:url(../images/default/bgQuickMenuTop.gif) no-repeat left top; }
+.default #quickMenu .quickMenuBgBottom { background:url(../images/default/bgQuickMenuBottom.gif) no-repeat left bottom; }
+
+/* colorset spring */
+.spring #headerWrap { background:url(../images/spring/bgHeader.gif) repeat-x left bottom; _background-position:left top; }
+.spring #bodyWrap{ background:url(../images/spring/bgBody.gif) repeat-x left top; }
+.spring #popupLog .logFace{ border:1px solid #3f678b; background:#e2fbb6; }
+.spring #popupLog .logFace .loginButton input{ background:url(../images/spring/buttonPupupLogin.gif) no-repeat 0px 0px; }
+.spring #mainMenu .Mmenu table td { border:1px solid #bdb28c; background:#f2fdef; }
+.spring #mainMenu .Mmenu table td a { color:#444; border-top:1px solid #fff; border-bottom:1px solid #c8c8c7; }
+.spring #mainMenu .Mmenu table td a:hover { color:#444; background:#d2fbc7; border-bottom:1px solid #aaaaaa; }
+.spring #leftSubm .submTitle { background:url(../images/spring/leftWidgetBgTitle.png) no-repeat 0px 0px; }
+.spring #leftWidgetT .leftWidgetTop{ color:#555; background:url(../images/spring/leftWidgetBgTitle.png) no-repeat 0px 0px; }
+.spring #bottomMenuWrap { background:#f0f9e6; }
+.spring #footerWrap{ background:#f0efeb; }
+.spring #quickMenu .qMenu { background:url(../images/spring/bgQuickMenuBody.gif) repeat-y left top; }
+.spring #quickMenu .qMenu p a { color:#188303; }
+.spring #quickMenu .quickMenuBgTop { background:url(../images/spring/bgQuickMenuTop.gif) no-repeat left top; }
+.spring #quickMenu .quickMenuBgBottom { background:url(../images/spring/bgQuickMenuBottom.gif) no-repeat left bottom; }
+
+/* colorset summer */
+.summer #headerWrap{ background:url(../images/summer/bgHeader.gif) repeat-x left bottom; _background-position:left top; }
+.summer #bodyWrap{ background:url(../images/summer/bgBody.gif) repeat-x left top; }
+.summer #popupLog .logFace{ border:1px solid #3f678b; background:#f9f7e8; }
+.summer #popupLog .logFace .loginButton input{ background:url(../images/summer/buttonPupupLogin.gif) no-repeat 0px 0px; }
+.summer #mainMenu .Mmenu table td { border:1px solid #bdb28c; background:#f0f3fa; }
+.summer #mainMenu .Mmenu table td a { color:#444; border-top:1px solid #fff; border-bottom:1px solid #c8c8c7; }
+.summer #mainMenu .Mmenu table td a:hover { color:#444; background:#d1f5ff; border-bottom:1px solid #aaaaaa; }
+.summer #leftSubm .submTitle { background:url(../images/summer/leftWidgetBgTitle.png) no-repeat 0px 0px; }
+.summer #leftWidgetT .leftWidgetTop{ color:#555; background:url(../images/summer/leftWidgetBgTitle.png) no-repeat 0px 0px; }
+.summer #bottomMenuWrap { background:#f0effc; }
+.summer #footerWrap{ background:#f0efeb; }
+.summer #quickMenu .qMenu { background:url(../images/summer/bgQuickMenuBody.gif) repeat-y left top; }
+.summer #quickMenu .qMenu p a { color:#665e50; }
+.summer #quickMenu .quickMenuBgTop { background:url(../images/summer/bgQuickMenuTop.gif) no-repeat left top; }
+.summer #quickMenu .quickMenuBgBottom { background:url(../images/summer/bgQuickMenuBottom.gif) no-repeat left bottom; }
+
+/* colorset autumn */
+.autumn #headerWrap{ background:url(../images/autumn/bgHeader.gif) repeat-x left bottom; _background-position:left top; }
+.autumn #bodyWrap{ background:url(../images/autumn/bgBody.gif) repeat-x left top; }
+.autumn #popupLog .logFace{ border:1px solid #3f678b; background:#f9f7e8; }
+.autumn #popupLog .logFace .loginButton input{ background:url(../images/autumn/buttonPupupLogin.gif) no-repeat 0px 0px; }
+.autumn #mainMenu .Mmenu table td { border:1px solid #bdb28c; background:#fbf4e2; }
+.autumn #mainMenu .Mmenu table td a { color:#444; border-top:1px solid #fff; border-bottom:1px solid #c8c8c7; }
+.autumn #mainMenu .Mmenu table td a:hover { color:#444; background:#fce9bb; border-bottom:1px solid #aaaaaa; }
+.autumn #leftSubm .submTitle { background:url(../images/autumn/leftWidgetBgTitle.png) no-repeat 0px 0px; }
+.autumn #leftWidgetT .leftWidgetTop{ color:#555; background:url(../images/autumn/leftWidgetBgTitle.png) no-repeat 0px 0px; }
+.autumn #bottomMenuWrap { background:#f3f1e9; }
+.autumn #footerWrap{ background:#f0efeb; }
+.autumn #quickMenu .qMenu { background:url(../images/autumn/bgQuickMenuBody.gif) repeat-y left top; }
+.autumn #quickMenu .qMenu p a { color:#665e50; }
+.autumn #quickMenu .quickMenuBgTop { background:url(../images/autumn/bgQuickMenuTop.gif) no-repeat left top; }
+.autumn #quickMenu .quickMenuBgBottom { background:url(../images/autumn/bgQuickMenuBottom.gif) no-repeat left bottom; }
+
+/* colorset winter */
+.winter #headerWrap{ background:url(../images/winter/bgHeader.gif) repeat-x left bottom; _background-position:left top; }
+.winter #bodyWrap{ background:url(../images/winter/bgBody.gif) repeat-x left top; }
+.winter #popupLog .logFace{ border:1px solid #3f678b; background:#f9f7e8; }
+.winter #popupLog .logFace .loginButton input{ background:url(../images/winter/buttonPupupLogin.gif) no-repeat 0px 0px; }
+.winter #mainMenu .Mmenu table td { border:1px solid #bdb28c; background:#e7f2f7; }
+.winter #mainMenu .Mmenu table td a { color:#444; border-top:1px solid #fff; border-bottom:1px solid #c8c8c7; }
+.winter #mainMenu .Mmenu table td a:hover { color:#fff; background:#3399ff; border-bottom:1px solid #aaaaaa; }
+.winter #leftSubm .submTitle { background:url(../images/winter/leftWidgetBgTitle.png) no-repeat 0px 0px; }
+.winter #leftWidgetT .leftWidgetTop{ color:#555; background:url(../images/winter/leftWidgetBgTitle.png) no-repeat 0px 0px; }
+.winter #bottomMenuWrap { background:#e4f4f9; }
+.winter #footerWrap{ background:#ebeff0; }
+.winter #quickMenu .qMenu { background:url(../images/winter/bgQuickMenuBody.gif) repeat-y left top; }
+.winter #quickMenu .qMenu p a { color:#665e50; }
+.winter #quickMenu .quickMenuBgTop { background:url(../images/winter/bgQuickMenuTop.gif) no-repeat left top; }
+.winter #quickMenu .quickMenuBgBottom { background:url(../images/winter/bgQuickMenuBottom.gif) no-repeat left bottom; }
+
+/* end walcolorset */
+

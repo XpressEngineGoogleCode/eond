@@ -1,0 +1,58 @@
+/* Font Setting
+---------------------------------------------------------------------------------*/
+.enSansLL { font:18px Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif; line-height:140%; }
+.enSansL { font:12px Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif; line-height:140%; }
+.enSansS { font:9px Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif; text-transform:uppercase; line-height:140%; }
+.enSansSS { font:9px Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif; line-height:140%; }
+.enAriM { font:11px Arial, Helvetica, sans-serif; line-height:140%; }
+.enAriS { font:9px Arial, Helvetica, sans-serif; line-height:140%; }
+
+.krLL { font:bold 12px 굴림,Gulim; line-height:140%; }
+.krL { font:12px 굴림,Gulim; line-height:140%; }
+.krLE { font:12px 굴림,Gulim; letter-spacing:-1px; }
+.krM { font:9pt 돋움,Dotum; line-height:140%; }
+.krS { font:8pt 돋움,Dotum; letter-spacing:-1px; }
+
+.jpL { font:bold 18px meiryo,Arial,Helvetica; line-height:180%; }
+.jpM { font:12px meiryo,Arial,Helvetica; line-height:180%; }
+.jpS { font:11px meiryo,Arial,Helvetica; line-height:180%; }
+
+.tShadow { text-shadow:0 1px 0 #fff; filter:progid:DXImageTransform.Microsoft.dropshadow(OffX=0, OffY=1, Color=#ffffff, Positive=true); zoom:1; }
+
+/* Apply Curvy Button
+---------------------------------------------------------------------------------*/
+.applyCurvy { position:relative; display:block; margin:0 auto 0 auto; padding:0; width:328px; height:60px; background-color:#fff; border:2px solid #78a6eb; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px; cursor:pointer; } 
+
+/* Splash
+---------------------------------------------------------------------------------*/
+.splash_body { color:#999; }
+.splash_body a,
+.splash_body a:visited { color:#66bced; font-weight:bold; }
+
+.splash_body img.imgLeft { margin:0 20px 5px 0; border:1px solid #ddd; float:left; }
+
+.splash_body h2 { margin:0 0 10px 0; padding:0; color:#222; border:none; }
+
+.splash_body .moreBox { margin:15px 0 20px 0; padding:20px 20px 20px 20px; *padding:20px 20px 0 20px; font:12px 굴림,Gulim; color:#888; border:1px solid #d5f0ff; background-color:#fafafa; *zoom:1; }
+.splash_body .moreBox .left { float:left; width:50%; border-right:1px solid #ebebeb; }
+.splash_body .moreBox .right { float:right; width:45% }
+
+.splash_body .moreBox .list { margin:0; padding:0; list-style:none; }
+.splash_body .moreBox .list li { height:13px; }
+.splash_body .moreBox .list li.title { margin:0 0 15px 0; padding:15px 0 0 0; color:#454545; font-weight:bold; }
+.splash_body .moreBox .list li.check { margin:0 0 12px 0; padding:0 0 0 24px; background:url(../img/icon-check.gif) no-repeat; }
+.splash_body .moreBox .list li.nocheck { margin:0 0 12px 0; padding:0 0 0 24px; background:url(../img/icon-x.gif) no-repeat; }
+
+.splash_body .clio_feature { margin:0; padding:0; list-style:none; }
+.splash_body .clio_feature li { display:block; padding:10px 0; border-top:1px solid #ddd; color:#888;overflow:hidden; *zoom:1; }
+.splash_body .clio_feature li h3 { margin:0 0 10px 0; padding:0; color:#66bced; border:none; }
+.splash_body .clio_feature li p { margin:0; padding:0; }
+.splash_body .clio_feature li p.imgFeature { float:left; margin-right:15px; width:70px; height:70px; border:7px solid #f0f0f0; }
+
+/* #e2
+---------------------------------------------------------------------------------*/
+#e2 a.download_clio { display:block; margin:0; padding:0; width:152px; height:175px; text-indent:-1000em; outline:0; selector-dummy:expression(this.hideFocus=true); }
+#e2 a.download_clio:hover {  }
+
+#e2 a.download_psd { display:block; margin:10px 0 0 0; padding:0; width:152px; height:175px; text-indent:-1000em; outline:0; selector-dummy:expression(this.hideFocus=true); }
+#e2 a.download_psd:hover {  }

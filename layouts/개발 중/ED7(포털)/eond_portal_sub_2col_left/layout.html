@@ -1,0 +1,252 @@
+<!-- js 파일 import -->
+<!--%import("js/fakeselect.js")-->
+<!--%import("js/familysite.js")-->
+<!--%import("js/gnb.js")-->
+
+<!-- 레이아웃과 연동될 css 파일 import -->
+<!--@if($layout_info->colorset == "white")-->
+    <!--%import("css/eond_blu.css")-->
+<!--@elseif($layout_info->colorset == "black")-->
+    <!--%import("css/eond_rosso.css")-->
+<!--@else-->
+    <!--%import("css/default.css")-->
+<!--@end-->
+<!--@if($layout_info->background_image)-->
+<style type="text/css">
+    body {  background:#FFFFFF url({getUrl()}{$layout_info->background_image}) repeat-x left top; }
+</style>
+<!--@end-->
+
+<!--@if(!$layout_info->colorset)-->
+	{@$layout_info->colorset = "default"}
+<!--@end-->
+
+
+
+<!-- ********************************************* s : header *************************************************** -->
+<div id="header">
+	<!-- s : sitebar -->
+	<div id="mainmenu">
+					<div id="menuWrapper">
+						<ul id="menu">{@$tmp=0}
+							<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+									<li class="menu_list">
+										<a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--><!--@if($val['selected'])-->{@$menu_1st=$val}{@$tmp++} class="m_first fst_selected" <!--@else--> class="m_first" <!--@end-->>{$val['link']}</a>
+										<!--@if($val['list'])-->
+											<ol class="m_second">
+												<!--@foreach($val['list'] as $k => $v)-->
+													<!--@if($v['link'])-->
+														<li <!--@if($v['selected'])-->class="snd_selected" {@$menu_2nd=$v}{@$tmp++}<!--@end-->><a href="{$v['href']}"<!--@if($v['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->><span>{$v['link']}</span></a></li>
+													<!--@end-->
+												<!--@end-->
+											</ol>
+										<!--@end-->
+									</li>
+							<!--@end--><!--@end-->
+						</ul>
+						<div class="blank"></div>
+					</div>
+	</div>
+	<!-- e : sitebar -->
+	<div class="title">
+		<span class="logo">
+			<a href="{$layout_info->index_url}"><!--@if(!$layout_info->logo_image)--><img src="./logo/{$layout_info->colorset}/logo.png" alt="이온디" title="이온디" class="png24" /><!--@else--><img src="{$layout_info->logo_image}" alt="이온디" border="0" class="png24" /><!--@end--></a>
+		</span>
+		<span class="search">
+			<span class="today"><img class="zbxe_widget_output" widget="newest_document" skin="news_ticker_eond_portal" colorset="default" order_target="list_order" order_type="desc" subject_cut_size="40" display_regdate="Y" module_srls="173029" style="float:left;" /><a href="http://eond.xpressengine.net/" target="_blank"><img src="./images/default/powerdbyXE.png"></a></span>
+			<img class="zbxe_widget_output" widget="search_form" skin="eond" colorset="default" />
+			
+			
+			
+			<img class="zbxe_widget_output" widget="tag_list" skin="cozy_simple" colorset="red" list_count="7" mid_list="tube,entertain" style="height:35px;"/>
+			
+		</span>
+		<span class="clock">
+
+		</span>
+	</div>
+</div>
+<!-- ********************************************* s : navigation ************************************************ -->
+<!-- GNB -->
+<div id="gnb">
+
+
+	<div id="submenu">
+	
+		<div id="submenuWrapper">
+    <!--GNB2-->
+    <ul id="gnb2">
+    <!-- main_menu 2차 시작 -->
+    <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+    <!--@if($menu_1st)-->
+    {@ $idx = 1 }
+    <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+    </li>
+    {@$idx++}
+    <!--@end-->
+    <!--@end-->
+	<!--@end-->
+    </ul>
+	
+    <!--//GNB2-->
+		</div>
+	</div>
+</div>
+<!--// GNB -->
+
+<!-- ********************************************* s : contents ************************************************** -->
+<div id="container" style="clear:both;">
+	<!--s: sidemenu-->
+	<div id="sidemenu">
+    
+
+
+	
+	
+	<!--@foreach($menu_1st->list  as $key => $val)-->
+		<!--@if($val['link'])-->
+			<!--@if($val['selected'])-->{@ $menu_1st = $val }<!--@end-->
+		<!--@end-->
+	<!--@end-->
+	<img class="zbxe_widget_output" widget="cuenet_sub_title" skin="default" sub_title="{$menu_1st['text']}" />
+
+	<!-- 왼쪽 2차 메뉴 --> 
+	<!--@if($menu_1st)-->
+	<div id="lnbWrap">
+
+		<!-- s : 서브타이틀 -->
+			<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['selected'])-->
+			<a href="{$val['href']}"><div class="subtitle k{$selected_menu=$key}"><span>{$val['text']}{$selected_menu=$key}</span></div></a>
+			<!--@end--><!--@end-->
+		<!-- e : 서브타이틀 -->
+
+		<ul id="lnb">
+			{@ $idx = 1 }
+			<!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+			<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+				<!--@if($val['list'] && ($val['expand']=='Y'||$val['selected']) )-->
+				<ul>
+				<!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+				<li <!--@if($v['selected'])-->class="on" style="color:red;"<!--@end-->><a href="{$v['href']}" <!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$v['link']}</a></li>
+				<!--@endif--><!--@endforeach-->
+				</ul>
+			<!--@endif-->
+			</li>
+			{@$idx++}
+			<!--@endif--><!--@endforeach-->
+		</ul>
+	</div>
+	<!--@endif-->
+	
+	<!-- s : adsense -->
+	<div class="adsense" style="text-align:center;">
+	<script type="text/javascript"><!--
+	google_ad_client = "pub-7200623708996327";
+	/* 120x600, 작성됨 10. 2. 22 */
+	google_ad_slot = "5804260328";
+	google_ad_width = 120;
+	google_ad_height = 600;
+	//-->
+	</script>
+	<script type="text/javascript"
+	src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+	</script>
+	</div>
+	<!-- e: adsense -->
+
+	</div>
+	<!--e: sidemenu-->
+
+	<div id="content">
+
+<div id="location">
+	<span class="location">
+	<a class="location_home c_0" href="{$layout_info->index_url}" title="<!--@if(!$layout_info->index_name)-->Gray Style<!--@else-->{$layout_info->index_name}<!--@end-->"></a></span>
+	
+	<!--@if($menu_1st['link'])-->
+	<span class="location c_1">
+	<a href="{$menu_1st['href']}" title="{$menu_1st['text']}">{$selected_menu=$menu_1st['text']}</a></span><!--@end-->
+
+	<!--@if($menu_2nd['link'])-->
+	<span class="location c_2">
+	<a href="{$menu_2nd['href']}" title="{$menu_2nd['text']}">{$selected_menu=$menu_2nd['text']}</a></span><!--@end-->
+	
+	<!--@foreach($menu_2nd['list'] as $key => $val)--><!--@if($val['selected'])-->
+		{@$tmp++}<span class="location c_3"><a href="{$val['href']}" title="{$val['text']}">{$selected_menu=$val['link']}</a></span>
+	<!--@end--><!--@end-->
+	<style type="text/css">#location span.c_{$tmp} { background:none;}</style>
+	<!--@if($layout_info->notice)--><span class="location c_notice"><a href="{$layout_info->notice_url}" title="{$layout_info->notice}">{$layout_info->notice}</a></span><!--@end-->
+</div>
+
+		{$content}
+	</div>
+	<div id="widget">
+		<div class="loginbox">
+		<img class="zbxe_widget_output" widget="login_info" skin="xdom_login_v2" colorset="default_ga_3a" />
+		</div>
+		<img class="zbxe_widget_output" widget="JW_player" skin="default" location_1="http://www.youtube.com/watch?v=Glny4jSciVI" images_1="http://eond.com/./files/attach/filebox/590/176/176590.gif" play_width_1="150px" play_height_1="85px" play_skin_1="default" play_fit_1="uniform" />
+		
+
+		<!-- s : banner -->
+		<div id="banner">
+		<a href="/savethedeveloper"><img src="/banner/files/attach/images/8751/854/164/banner_savethedeveloper.png"></a>
+		
+		</div>
+		<!-- e : banner -->
+		<div class="minihp"><a href="http://mini.eond.com" target="_self">정낙훈 미니홈피</a></div>
+		<div class="musicplayer"><a href="/musicplayer">뮤직플레이어</a></div>
+		<span class="divider_horz"></span>
+        <select onchange="window.open(this.value)" class="selectbox_title" style="width:120px;">
+            <option value="#">미니홈피 바로가기</option>
+            <option value="http://minihp.cyworld.com/pims/main/pims_main.asp?tid=51167558" style="display:hidden;">이호준</option><!--안해정 38132992-->
+			<option value="http://minihp.cyworld.com/pims/main/pims_main.asp?tid=44604327">배진영</option>
+			<option value="http://minihp.cyworld.com/pims/main/pims_main.asp?tid=23740594">박균배</option>
+			<option value="http://minihp.cyworld.com/pims/main/pims_main.asp?tid=30489515">이재필</option>
+		</select>
+	</div>
+</div>
+
+<!-- ********************************************* s : sitemap ************************************************** -->
+<div id="sitemapWrap"></div>
+<span class="bg_footerTop" style=""></span>
+<!-- ********************************************* s : footer *************************************************** -->
+<div id="footer">
+	
+	<!-- s : footerMenu -->
+	<div id="footerMenu" style="float:left;">
+		<ul>
+		<!--@foreach($footer_menu->list as $key => $val)--><!--@if($val['link'])-->
+			<!--@if($val['selected'])-->
+				{@ $menu_1st = $val }
+			<!--@end-->
+		<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+		<!--@end--><!--@end-->
+		</ul>
+	</div>
+	<!-- e : footerMenu -->
+	<!-- s : familysite & top -->
+	<div style="float:right;">
+		
+		
+		<!--@if($layout_info->family_site)-->
+		<div id="family_site">
+			<h4 onclick="slideFamilySite()"><span>Family Site</span></h4>
+			<div id="site_list">
+				<ul>
+					<!--@foreach($family_site->list as $key => $val)-->
+					<li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+					<!--@endforeach-->
+				</ul>
+			</div>
+		</div>
+		<!--@end-->
+
+		<div class="top" style="float:right;margin-top:9px;"><a href="#" title="위로가기"><img src="./images/{$layout_info->colorset}/btn_top.gif" alt="위로가기" /></a></div>
+		
+
+	</div>
+	<!-- e : familysite & top -->
+	<div style="color:#848584;clear:both;width:880px;margin:0 auto;text-align:left;padding-top:5px;">본 사이트는 Google Adsense로 수입을 창출합니다.</div>
+	<div class="copyright"></div>
+
+<div class="emo"></div>

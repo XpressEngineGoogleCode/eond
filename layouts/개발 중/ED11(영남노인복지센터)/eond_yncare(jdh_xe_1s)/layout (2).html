@@ -1,0 +1,193 @@
+<!-- js 파일 import -->
+<!--%import("js/xe_official.js")-->
+
+<!-- 레이아웃과 연동될 css 파일 import -->
+<!--@if(!$layout_info->colorset)-->{@$layout_info->colorset = "default"}<!--@end-->
+<!--@if($layout_info->colorset == "white")-->
+    <!--%import("css/white.css")-->
+<!--@elseif($layout_info->colorset == "black")-->
+    <!--%import("css/black.css")-->
+<!--@else-->
+    <!--%import("css/default.css")-->
+<!--@end-->
+
+<div id="bodyWrap">
+	<div id="header">
+		
+		<div style="width:100%;height:70px;margin-bottom:10px;clear:both;">
+			<!-- 로고 -->
+			<div style="float:left;padding:10px;">
+				<a href="{$layout_info->index_url}" onfocus="this.blur()"><!--@if(!$layout_info->logo_image)--><img src="./images/{$layout_info->colorset}/zeroBoardXE.png" alt="ZeroBoard™  XE" class="iePngFix" /><!--@else--><img src="{$layout_info->logo_image}" alt="영남노인복지센터" border="0" class="iePngFix" /><!--@end--></a>
+			</div>
+			<!-- //로고 -->
+			<div style="float:right;height:100%;">
+				<div style="height:70%;padding:5px;">
+					<!-- 로그인 -->
+					<!--로그인/로그아웃 조건문 처리-->
+					<!--@if($logged_info)-->
+					<a href="./?mid=mypage&act=dispMemberLogout&member_srl=" class="top_index_td" onfocus="this.blur();">
+					로그아웃
+					</a>
+					<!--@else-->
+					<a href="./?mid=mypage&act=dispMemberLoginForm" class="top_index_td" onfocus="this.blur();">로그인</a>
+					<!--@end-->
+					<a href="./?mid=mypage&act=dispMemberSignUpForm&member_srl=" class="top_index_td" onfocus="this.blur();"> 
+					회원가입
+					</a>
+					<a href="./?mid=mypage&act=dispMemberInfo&member_srl={$member_srl}" class="top_index_td" onfocus="this.blur()">   
+					마이페이지
+					</a>
+					<a href="./?mid=sitemap" class="top_index_td" onfocus="this.blur()">  
+					사이트맵
+					</a>
+					<a href="./?mid=contactus" class="top_index_td" onfocus="this.blur()">  
+					Contact Us
+					</a> 
+					<!-- //로그인 -->
+				</div>
+				<div style="height:30%;">
+					<!-- 검색 -->
+					<form action="{getUrl()}" method="post" id="isSearch">
+						<input type="hidden" name="mid" value="{$mid}" />
+						<input type="hidden" name="act" value="IS" />
+						<input type="hidden" name="search_target" value="title_content" />
+						<input name="is_keyword" type="text" class="inputText" title="keyword" />
+						<input type="image" src="./images/{$layout_info->colorset}/buttonSearch.gif" alt="{$lang->cmd_search}" class="submit" />
+					</form>
+					<!-- //검색 -->
+				</div>
+			</div>
+		</div>
+		<div style="clear:both;height:15px;"></div>
+
+<!-- 메뉴 -->
+<div style="clear:both;">
+		<!--GNB-->
+		<ul id="gnb">
+            <!-- main_menu 1차 시작 -->
+            <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['text'])-->
+                <!--@if($val['selected'])-->
+                    {@ $menu_1st = $val }
+                <!--@end-->
+
+                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end--> onfocus="this.blur()">{$val['text']}</a></li>
+
+            <!--@end--><!--@end-->
+            <!-- main_menu 1차 끝 -->
+		</ul>
+		<!--//GNB-->
+		
+		<!--GNB_sub-->
+		<ul id="gnb_sub">
+
+           
+           	<!-- 2차 메뉴 -->
+            <!--@if($menu_1st)-->
+                {@ $idx = 1 }
+                <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['text'])-->
+				
+				&nbsp;<a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end--> class="submenu">
+				<!--@if($val['selected'])-->
+				<b>
+				<img src="./images/{$layout_info->colorset}/arrow.gif" border='0'>
+				<font color='#ffffff'>
+				{$val['text']}
+				</font>
+				</b>
+				<!--@else-->
+				{$val['text']}
+				<!--@end-->
+				</a>&nbsp;
+				
+                {@$idx++}
+                <!--@end-->
+                <!--@end-->
+            <!--@end-->
+
+		</ul>
+		<!--//GNB-->
+</div>
+<!-- //메뉴 -->
+
+
+	</div>
+	
+	<div id="contentBody">
+	<table border="0" cellpadding="0" cellspacing="0" align="center" width=100%>
+	<tr>
+	<td valign="top" width="200px" style="padding:0px 0px 0px 0px;">
+		<div id="columnLeft">
+			
+			<!-- 로그인 위젯 -->
+            <img src="./images/blank.gif" class="zbxe_widget_output" widget="login_info" skin="xe_official" colorset="{$layout_info->colorset}" />
+
+            <!-- 왼쪽 2차 메뉴-->
+			<img src="./images/blank.gif" alt="" class="mask" />
+			<!--@if($menu_1st)-->
+           
+            <div class="submenu_back">
+			<div class="submenu_title">
+			{$menu_1st['text']}
+			</div>
+			<!--@if($menu_1st['text']=='Mypage')--><img src="./images/blank.gif" class="zbxe_widget_output" widget="login_info" skin="jdh_xe_1m_nude" colorset="white" /><!--@end-->
+			
+			<ol id="lnb">
+                {@ $idx = 1 }
+                <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['text'])-->
+				<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['text']}</a>
+
+                    <!-- main_menu 3차 시작 -->
+                    <!--@if($val['list'])-->
+					<ul>
+                    <!--@foreach($val['list'] as $k => $v)--><!--@if($v['text'])-->
+						<li <!--@if($v['selected'])-->class="on"<!--@end-->><a href="{$v['href']}" <!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$v['text']}</a></li>
+                    <!--@end--><!--@end-->
+					</ul>
+                    <!--@end-->
+				</li>
+                {@$idx++}
+                <!--@end-->
+                <!--@end-->
+			</ol>
+			</div>
+			<div class="submenu_bottom"></div>
+            <!--@end-->
+            <br>
+            <img src="./images/{$layout_info->colorset}/nateon.gif"><br>
+		</div>
+	</td>
+	<td valign="top">
+			<div id="columnCenter">
+		         <!-- 컨텐츠 시작 -->
+	            {$content}
+            </div>
+	</td>
+	</tr>
+	</table>
+	
+	</div>
+	
+	<div id=bottom_border_top></div>
+	<ul id="footer">
+		<!--@foreach($bottom_menu->list as $key => $val)-->
+		<li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+        <!--@end-->
+	</ul>
+	
+	<div id=footer_banner_top></div>
+		<!--GNB-->
+		<ul id="foot_banner_menu">
+            <!-- foot_banner -->
+            <!--@foreach($foot_banner->list as $key => $val)--><!--@if($val['text'])-->
+                <!--@if($val['selected'])-->
+                    {@ $menu_1st = $val }
+                <!--@end-->
+                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end--> onfocus="this.blur()">{$val['link']}</a></li>
+            <!--@end--><!--@end-->
+            <!-- //foot_banner -->
+		<!--//GNB-->
+	</ul>
+	<div id=footer_border_top></div>
+	<div id="copyright">
+		<div id=mailto><a href="mailto:yncare@daum.net" onclick="window.open(this.href);return false;"><img src="./images/blank.gif" width=80 height=15 border=0></a></div>
+</div>

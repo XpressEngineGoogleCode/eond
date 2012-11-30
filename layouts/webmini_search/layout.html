@@ -1,0 +1,134 @@
+<!-- js 파일 import -->
+<!--%import("js/webmini.js")-->
+
+<!--%import("css/default.css")-->
+
+<!--@if($layout_info->background_image)-->
+<style type="text/css">
+body { background:#FFFFFF url({getUrl()}{$layout_info->background_image}) repeat-x center top; }
+</style>
+<!--@end-->
+
+<!--@if(!$layout_info->colorset)-->
+    {@$layout_info->colorset = "default"}
+<!--@end-->
+
+<ul id="skip_navigation">
+<li><a href="#colLeft" title="주메뉴 바로가기">본문 바로가기</a></li>
+<li><a href="#gnb" title="주메뉴 바로가기">주메뉴 바로가기</a></li>
+</ul>
+<hr />
+<div id="mini_gnb">
+	  <div class="top_box">
+	  <ul class="account">
+	  <!--@if($logged_info)-->
+      <li class="first-child"><strong>{$logged_info->nick_name}</strong>님 반갑습니다.</li>
+      <!--@if($logged_info->is_admin=="Y")-->
+	  <li><a href="{getUrl('','module','admin')}" onclick="window.open(this.href);return false;" title="관리">[관리]</a></li>
+      <!--@end-->
+      <li><a href="{getUrl('act','dispMemberLogout')}"><img src="./images/{$layout_info->colorset}/btn_mini_logout.gif" alt="로그아웃" title="로그아웃" class="bul" /></a></li>
+      <li class="profile"><a href="#layer" onclick="jQuery('#memberProfile').toggleClass('active');">마이페이지</a> <img src="/images/button/btn_mini_on.gif" alt="" class="bul" />
+	  </li>
+      <!--@else-->
+      <li class="first-child"><a href="/login"><img src="./images/{$layout_info->colorset}/btn_mini_login.gif" alt="로그인" title="로그인" class="bul" /></a></li>
+      <!--@end-->
+      <!--@if(!$logged_info)-->
+      <li><a href="{getUrl('act','dispMemberSignUpForm')}" title="회원가입">회원가입</a></li>
+      <!--@end-->
+      <li><a href="/guide" title="이용안내">이용안내</a></li>
+      <li><a href="/sitemap" title="전체보기">전체보기</a></li>
+      <li class="bookmark"><img src="./images/{$layout_info->colorset}/bookmark.png" alt="즐겨찾기 추가" class="iePngFix" onclick="javascript:bookmarksite('이온디', 'http://eond.com')" /></li>
+      </ul>
+	   <!--@if($is_logged)-->
+	   <!-- memberProfile -->
+		<div id="memberProfile" class="memberProfile">
+			<button type="button" class="close" onclick="jQuery('#memberProfile').toggleClass('active');" accesskey="X"><span>Close profile layer</span></button>
+			<h2 class="authorName">{$logged_info->nick_name}</h2>
+			<ul>
+				<!--@foreach($logged_info->menu_list as $key => $val)-->
+				<li><a href="{getUrl('act',$key,'member_srl','')}">{Context::getLang($val)}</a></li>
+				<!--@end-->
+			</ul>
+
+			<button type="button" class="close" onclick="jQuery('#memberProfile').toggleClass('active');" accesskey="X"><span>Close profile layer</span></button>
+		</div>
+		<!-- /memberProfile -->
+		<!--@end-->
+		</div>
+</div>
+<hr />
+<div id="bodyWrap">
+  <div id="header">
+    <h1><a href="{$layout_info->index_url}"><!--@if(!$layout_info->logo_image)--><img src="./images/{$layout_info->colorset}/logo.gif" alt="Eond" title="이온디" class="iePngFix" /><!--@else--><img src="{$layout_info->logo_image}" alt="{$layout_info->logo_alt}" border="0" class="iePngFix" /><!--@end--></a></h1>
+    <fieldset>
+	<legend>검색창</legend>
+    <form action="{getUrl()}" method="post" id="fo_is">
+    <!--@if($vid)-->
+	<input type="hidden" name="vid" value="{$vid}" />
+	<!--@end-->
+	<input type="hidden" name="mid" value="search" />
+    <input type="hidden" name="act" value="IS" />
+    <input type="hidden" name="search_target" value="title_content" />
+    <input name="is_keyword" value="{$is_keyword}" type="text" class="inputText" title="검색어 입력" />
+    <input type="image" src="./images/{$layout_info->colorset}/buttonSearch.gif" alt="{$lang->cmd_search}" class="submit" />
+    </form>
+	</fieldset>
+	<!--GNB-->
+    <ul id="gnb">
+            <!-- main_menu 1차 시작 -->
+            <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+                <!--@if($val['selected'])-->
+                    {@ $menu_1st = $val }
+                <!--@end-->
+
+                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+
+            <!--@endif--><!--@endforeach-->
+        </ul>
+    <!--//GNB-->
+  </div>
+  <hr />
+  <div id="contentBody">
+      <!-- 컨텐츠 시작 -->
+	  <div id="contents">
+		  <div id="colLeft">
+			{$content}
+		  </div>
+	  </div>
+	  <div id="colRight">
+			<div id="popular">	 
+			<img class="zbxe_widget_output" widget="popular_document" skin="jdh_default" colorset="normal" title="인기게시물" order_target="readed_count" order_type="desc" view_date="30" mid_list="movie,freeboard,goodboard,book,css,windows,dreamweaver,flash,photoshop,zeroboard,html,javascript,standard,hometip,accessibility,etctip,pds_zb4,pds_zbxe,pds_zbxe_widget,csssite,bestsite,freesite,skinsite" subject_cut_size="25" display_author="N" display_regdate="N" display_readed_count="N" display_voted_count="N" />
+			</div>
+			
+			<script type="text/javascript" src="http://external.wzdfactory.com/layer/468608f4c26df711520fe523fbadd7af.js"></script>
+			
+	  </div>
+    <div class="clear"></div>
+  </div>
+  <hr />
+<div id="footer">
+  <!--@if($layout_info->family_site)-->
+  <div id="family_site">
+		<h4 onclick="slideFamilySite()"><span>Family Site</span></h4>
+		<div id="site_list">
+			<ul>
+				<!--@foreach($family_site->list as $key => $val)-->
+				<li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+				<!--@endforeach-->
+			</ul>
+		</div>
+	</div>
+	<hr />
+	<!--@end-->
+    <ul class="foot_list">
+    <!--@foreach($bottom_menu->list as $key => $val)-->
+	<li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+	<!--@endforeach-->
+    </ul>
+    <p class="info">본 사이트에서는 회원분들의 게시된 이메일 주소가 무단으로 수집되는 것을 거부합니다.
+    이온디에 게시된 정보 및 게시물의 저작권과 기타 법적 책임은 자료제공자에게 있습니다.</p>
+    <p class="copyright">Copyright &copy; 2000 - 2010 <a href="/" title="eond.com">EOND.</a> All Rights Reserved.
+    <a href="<!--@if($layout_info->rss_url)-->{$layout_info->rss_url}<!--@else-->/rss<!--@end-->" class="rss_icon"> <abbr title="Really Simple Syndication">RSS</abbr></a></p>
+	<p class="top"><a href="#" title="위로가기"><img src="./images/{$layout_info->colorset}/btn_top.gif" alt="위로가기" /></a></p>
+  </div>
+</div> 

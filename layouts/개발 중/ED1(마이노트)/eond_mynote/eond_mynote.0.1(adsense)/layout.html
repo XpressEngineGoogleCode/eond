@@ -1,0 +1,139 @@
+<!--// js 파일 import -->
+<!--%import("js/wrapscroll.js")-->
+<!--%import("js/default.js")-->
+
+<!--// 레이아웃과 연동될 css 파일 import -->
+<!--@if($layout_info->colorset == "white")-->
+    <!--%import("css/white.css")-->
+<!--@elseif($layout_info->colorset == "black")-->
+    <!--%import("css/black.css")-->
+<!--@else-->
+    <!--%import("css/default.css")-->
+<!--@end-->
+
+<!--@if($layout_info->background_image)-->
+<style type="text/css">
+    #wrapper {  background:url({getUrl()}{$layout_info->background_image}) right bottom no-repeat fixed; }
+</style>
+<!--@end-->
+<script type="text/javascript">
+new wrapScroll('snb','sidebar','snb_static');
+</script>
+<!--@if(!$layout_info->colorset)-->
+    {@$layout_info->colorset = "default"}
+<!--@end-->
+
+<!-- s : wrap -->
+<div id="wrap">
+<!-- s : container -->
+<table id="container" cellSpacing="0">
+<tr valign="top">
+<!-- s : titlebar -->
+<td id="titlebar" nowrap>
+<span id="title"></span>
+<span id="theme"></span>
+<span id="top" onclick="back_top()" title="Top으로 올라갑니다"></span>
+</td>
+<!-- e : titlebar -->
+
+<!-- s : contents -->
+<td id="contents">
+
+
+<b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
+<table id="content" cellSpacing="0">
+<tr valign="top">
+<td id="sidebar" nowrap>
+<div id="snb_static">
+<div id="counter"><img class="zbxe_widget_output" widget="counter_status" skin="mynote" colorset="normal" /></div>
+<div id="profile">
+<img class="zbxe_widget_output" widget="newest_images" skin="mynote_profile" colorset="normal" thumbnail_type="ratio" thumbnail_width="125" thumbnail_height="100" cols_list_count="1" rows_list_count="1" display_author="N" display_regdate="N" display_readed_count="N" display_voted_count="N" module_srls="20915" />
+
+</div>
+<div id="login"><img class="zbxe_widget_output" widget="login_info" skin="eond_mynote" colorset="default" /></div>
+</div>
+<div id="snb">
+<span style="height:5px;display:inline-block;"></span>
+<img src="./images/common/blank.gif" class="zbxe_widget_output" widget="newest_document" skin="mynote_side" colorset="normal" title="NOTICE" order_target="list_order" order_type="desc" subject_cut_size="26" list_count="5" mid_list="news" />
+
+<span class="widget_title"><a href="/weblog">CATEGORY</a></span>
+<!--img class="zbxe_widget_output" widget="category" body="" skin="default" colorset="normal" mid_list="weblog" /-->
+
+<img src="./images/common/blank.gif" class="zbxe_widget_output" widget="newest_document" skin="mynote_side" colorset="normal" title="LATEST NOTES" order_target="list_order" order_type="desc" subject_cut_size="26" list_count="5" mid_list="weblog" />
+
+<img src="./images/common/blank.gif" class="zbxe_widget_output" widget="newest_comment" skin="mynote_side" colorset="layout" title="COMMENTS" subject_cut_size="26" list_count="5" mid_list="weblog" />
+</div>
+</td>
+<td id="innermain">
+<b class="rtopG"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
+<ul id="gnb">
+<!-- main_menu 1차 시작 -->
+<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+	<!--@if($val['selected'])-->
+		{@ $menu_1st = $val }
+	<!--@end-->
+<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+<!--@endif--><!--@endforeach-->
+</ul>
+<b class="rbottomG"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b></b>
+<div id="main">{$content}</div>
+</td>
+</tr>
+</table>
+</div>
+<b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b></b>
+
+
+
+</td>
+<!-- e : contents -->
+
+<!-- s : widget -->
+<td id="widgetbar">
+<div style="position:fixed;">
+<b class="rtop"><b class="r1"></b><b class="r2"></b><b class="r3"></b><b class="r4"></b></b>
+<div id="widget">
+<span class="widget_title">ADSENSE</span>
+   <!--s : adsense-->
+<script type="text/javascript"><!--
+google_ad_client = "pub-7200623708996327";
+/* 마이노트, 위젯, 125x125, 작성됨 09. 9. 19 */
+google_ad_slot = "0466494111";
+google_ad_width = 125;
+google_ad_height = 125;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+   <!--e : adsense-->
+<span class="widget_title"><a href="/{$mid}">CALENDAR</a></span>
+<img class="zbxe_widget_output" widget="calendar" skin="blog_calendar_list" colorset="normal" mid="{$mid}" />
+<span class="widget_title">TAGS</span>
+<span class="widget_title">LINK SITE</span>
+<a href="http://nzeo.com" target="_blank"><img src="http://eond.com/files/attach/images/8751/024/166/xe_mynote3.png"></a>
+</div>
+<b class="rbottom"><b class="r4"></b><b class="r3"></b><b class="r2"></b><b class="r1"></b></b>
+</div>
+</td>
+<!-- s : widget -->
+</tr>
+</table>
+<!-- e : container -->
+</div>
+<!-- e : wrap -->
+
+<!-- s : sitebar -->
+<div id="sitebar">
+	<ul>
+	<!--@foreach($site_menu->list as $key => $val)--><!--@if($val['link'])-->
+		<!--@if($val['selected'])-->
+			{@ $menu_1st = $val }
+		<!--@end-->
+	<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+	<!--@end--><!--@end-->
+	</ul>
+
+</div>
+<!-- e: sitebar -->
+

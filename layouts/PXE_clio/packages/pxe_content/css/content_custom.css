@@ -1,0 +1,7 @@
+/* 본문부 경로표시기 (pxe_content)
+---------------------------------------------------------------------------------*/
+.menuPath03 { position:relative; height:33px; background:url(../img/custom/bg_bread_home.gif) no-repeat 14px center; border-bottom:1px solid #d2d2d2; }
+.menuPath03 a,
+.menuPath03 a:visited { float:left; display:inline-block; height:23px; padding:10px 20px 0 0; margin-right:10px; background:url(../img/custom/icon_bread_arrow_02.gif) no-repeat right top; color:#999;  font:9pt 돋움,굴림, Geneva, sans-serif; }
+.menuPath03 a:hover { color:#66bced; }
+.menuPath03 a.home { width:25px; }

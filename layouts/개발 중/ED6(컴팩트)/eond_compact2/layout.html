@@ -1,0 +1,117 @@
+<!-- js 파일 import -->
+<!--%import("js/default.js")-->
+<!--%import("js/showHide.js")-->
+
+
+<!-- 레이아웃과 연동될 css 파일 import -->
+<!--@if($layout_info->colorset == "white")-->
+    <!--%import("css/eond_blu.css")-->
+<!--@elseif($layout_info->colorset == "black")-->
+    <!--%import("css/eond_rosso.css")-->
+<!--@else-->
+    <!--%import("css/default.css")-->
+<!--@end-->
+
+<!--@if($layout_info->background_image)-->
+<style type="text/css">
+    body {  background:#FFFFFF url({getUrl()}{$layout_info->background_image}) repeat-x left top; }
+</style>
+<!--@end-->
+
+<!--@if(!$layout_info->colorset)-->
+	{@$layout_info->colorset = "default"}
+<!--@end-->
+
+
+
+<div id="sitebar">
+	<ul>
+	<!--@foreach($site_menu->list as $key => $val)--><!--@if($val['link'])-->
+		<!--@if($val['selected'])-->
+			{@ $menu_1st = $val }
+		<!--@end-->
+	<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+	<!--@end--><!--@end-->
+	</ul>
+	<ul class="login">
+        <!--@if(!$is_logged)-->
+		<li><a href="{getUrl('mid',$layout_info->target_mid,'act','dispMemberSignUpForm')}"><img src="./images/login/btn_signup.png"></a></li>
+		<li><a href="{getUrl('act','dispMemberLoginForm')}"><img src="./images/login/btn_login.png"></a></li>
+        <!--@else-->
+
+            <!--<li><a href="{geturl('act','dispMemberInfo')}">정낙훈님</a></li>-->
+            <li><a href="{getUrl('act','dispMemberLogout')}"><img src="./images/login/btn_logout.png"></a></li>
+		<!--@end-->
+            <!-- 최고관리자이면 관리자 페이지 버튼 출력 -->
+            <!--@if($logged_info->is_admin == 'Y')-->
+            <li><a href="{getUrl('','module','admin')}" onclick="window.open(this.href); return false;"><img src="./images/login/btn_admin.gif" style="vertical-align:middle;"></a></li>
+            <!--@end-->
+	</ul>
+	</div>
+<div id="wrap">
+	<div id="header">
+		<div class="title">
+			<span class="logo"><img src="./images/default/logo_uni.png" class="png24"></span>
+		</div>
+		<!-- This is the start of the mainMenu -->
+		<div id="mainMenu">
+		<span class="menuEdgeLeft png24"></span>
+		<div style="float:left;">
+			<ul>
+			<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+				<!--@if($val['selected'])-->
+					{@ $menu_1st = $val }
+				<!--@end-->
+			<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+			<!--@end--><!--@end-->
+			</ul>
+			</div>
+			<div class="menuEdgeRight"></div>
+		</div>
+		<!-- The sub menu -->
+		<span id="submenu" style="position:absolute;z-index:12;">
+            {@ $idx = 1 }
+            <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+                         <!--2차메뉴-->
+                        <div id="submenu_{$idx}" class="submenu" style="<!--@if($val['selected'])-->display:block;<!--@else-->display:none;<!--@end-->">
+						<span class="bg_submenuLeft"></span>
+						<span class="bg_submenuRepeat">
+                        <!--@foreach($val['list'] as $key1 => $val1)--><!--@if($val1['link'])-->
+                        <!--@if($val1['selected'])--><!--@end-->
+                            <li <!--@if($val['selected'])-->class="on"<!--@end--> class="iePngFix"><a href="{$val1['href']}" <!--@if($val1['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val1['link']}</a></li>
+                        <!--@end-->
+                        <!--@end-->
+						</span>
+						<span class="bg_submenuRight">
+							<span class="btn_submenu_close" onClick="document.getElementById('submenu_{$idx}').style.display = 'none'"></span>
+						</span>
+						</div>
+            <!--@end-->
+            {@$idx++}
+            <!--@end-->
+		</span>
+		<div style="clear:both;position:relative;z-index:2;"><a href="#">공지</a></div>
+	</div>
+	<div id="container">
+		
+	</div>
+	<div id="footer">
+		<span class="bg_footerTop"></span>
+		<!-- s : footerMenu -->
+		<div id="footerMenu">
+			<ul>
+			<!--@foreach($footer_menu->list as $key => $val)--><!--@if($val['link'])-->
+				<!--@if($val['selected'])-->
+					{@ $menu_1st = $val }
+				<!--@end-->
+			<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+			<!--@end--><!--@end-->
+			</ul>
+			</div>
+		<!-- e : footerMenu -->
+		<span class="copyright"></span>
+	</div>
+</div>
+
+
+

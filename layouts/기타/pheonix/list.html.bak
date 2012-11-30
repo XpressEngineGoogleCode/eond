@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<style>
+body {margin:5px;padding:0px;background:#DBD8D3 url(./images/bg.gif) repeat-x;}
+
+#bodyWrap {width:980px;height:100%;background:#F8F6F3;}
+	#gnb {width:180px;float:left;background:#F8F6F3;text-align:center;border:0px solid black;}
+	#main {width:800px;height:100%;float:left;}
+		#tlb {clear:both;height:29px;border-bottom:1px solid #B2B2B2;border-left:1px solid #B2B2B2;}
+		#content {width:638px;height:100%;float:left;background:#FFFFFF;border-left:1px solid #B2B2B2;border-right:1px solid #B2B2B2;}
+		#snb {width:160px;height:100%;float:left;background:#F8F6F3;text-align:center;}
+</style>
+</head>
+
+<body>
+
+<!-- bodyWrap -->
+<div id=bodyWrap>
+
+	<!-- Global Navigation Bar -->
+	<div id=gnb>
+		<img src=./images/phoenix.jpg style="margin:5px 0 5px;">
+
+	</div>
+	<!--// Global Navigation Bar -->
+	
+	<!-- Main -->
+	<div id=main>
+
+		<!-- Top Login Bar -->
+		<div id=tlb></div>
+		<!--// Top Login Bar -->
+
+		<!-- Content -->
+		<div id=content></div>
+		<!--// Content -->
+
+		<!-- Sub Navigation Bar -->
+		<div id=snb>
+			<embed src="./images/watch.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="140" height="140" wmode="transparent"></embed>
+		</div>
+		<!--// Sub Navigation Bar -->
+
+	</div>
+	<!--// Main -->
+	
+</div>
+<!--// bodyWrap -->
+</body>
+</html>

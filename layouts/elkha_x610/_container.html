@@ -1,0 +1,61 @@
+<!--@if($layout_info->column != "c")-->
+<div id="column">
+
+	<!--@if($layout_info->widget_1)-->
+	<div class="extension">
+		<!--@if($layout_info->widget_1_title)--><h3 class="title">{$layout_info->widget_1_title}</h3><!--@end-->
+		<div class="section">{$layout_info->widget_1}</div>
+	</div>
+	<!--@end-->
+
+	<!--@if($selected)-->
+	<div class="lnb mpReset">
+		<em class="title"><a href="{$selected['href']}"<!--@if($selected["open_window"]=="Y")--> onclick="window.open(this.href); return false;"<!--@end-->><span>{$selected["text"]}</span></a></em>
+		<ul class="ul2">
+			<!--@foreach($selected["list"] as $val)-->
+			<li class="li2<!--@if($val['selected'])--> on2<!--@end-->">
+				<a href="{$val['href']}" class="a2"<!--@if($val["open_window"]=="Y")--> onclick="window.open(this.href); return false;"<!--@end-->><span>{$val["link"]}</span></a>
+				<!--@if($val["list"])-->
+				<ul class="ul3">
+					<!--@foreach($val["list"] as $v)-->
+					<li class="li3<!--@if($v['selected'])--> on3<!--@end-->">
+						<a href="{$v['href']}" class="a3"<!--@if($v["open_window"]=="Y")--> onclick="window.open(this.href); return false;"<!--@end-->><!--@if($v["text"] == $v["link"])--><span>{$v["text"]}</span><!--@else-->{$v["link"]}<!--@end--></a>
+					</li>
+					<!--@end-->
+				</ul>
+				<!--@end-->
+			</li>
+			<!--@end-->
+		</ul>
+	</div>
+	<!--@end-->
+
+	<!--@if($layout_info->widget_2)-->
+	<div class="extension">
+		<!--@if($layout_info->widget_2_title)--><h3 class="title">{$layout_info->widget_2_title}</h3><!--@end-->
+		<div class="section">{$layout_info->widget_2}</div>
+	</div>
+	<!--@end-->
+
+	<!--@if($layout_info->widget_3)-->
+	<div class="extension">
+		<!--@if($layout_info->widget_3_title)--><h3 class="title">{$layout_info->widget_3_title}</h3><!--@end-->
+		<div class="section">{$layout_info->widget_3}</div>
+	</div>
+	<!--@end-->
+
+</div>
+<!--@end-->
+
+<!--@if($selected)-->
+<ul id="nav" class="mpReset">
+	<li class="first"><a href="{$layout_info->url}">{$layout_info->name}</a></li>
+	<li><a href="{$selected['href']}"<!--@if($selected['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->>{$selected['text']}</a></li>
+	<!--@if($selected2)--><li><a href="{$selected2['href']}"<!--@if($selected2['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->>{$selected2['text']}</a></li><!--@end-->
+	<!--@if($selected3)--><li><a href="{$selected3['href']}"<!--@if($selected3['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->>{$selected3['text']}</a></li><!--@end-->
+</ul>
+<!--@end-->
+
+<div id="content">
+	{$content}
+</div>

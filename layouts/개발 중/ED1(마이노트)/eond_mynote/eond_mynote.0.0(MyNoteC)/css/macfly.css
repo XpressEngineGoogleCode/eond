@@ -1,0 +1,117 @@
+body {
+	background-color: #B4B6CD;
+	margin: 0px;
+	padding: 0px;
+	font-family: "Trebuchet MS", Arial, sans-serif;
+	/* Base font size is set to 100% for all elements
+	and we set individual elements to em units - which
+	are proportionate to the base font size -
+	.9em is almost the same as saying 90% but is
+	more stable cross-browser and platform. */
+	font-size: 100%;
+	color: #333333;
+}
+#header {
+	height: 94px;
+	/* Sets the header to be narrower than the 
+	width of sidebar + maincontent so that if
+	a horizontal scrollbar is needed, the
+	header background color will not be
+	cut off. Calculated by taking width of
+	mainwrapper + its left and right padding
+	or 720 + 24. */
+	min-width: 744px;
+	background-color: #FFFFFF;
+}
+#header h1 {
+	margin: 0;
+}
+
+/* 	The parent container for the sidebar and maincontent DIVs */
+#mainwrapper {
+	width: 720px;
+	margin: 0px auto;
+	padding: 0 12px;
+}
+
+/* 	We float both the maincontent and sidebar DIVs right.
+	Since sidebar comes first in the markup, it assumes
+	the rightmost position. By floating both DIVs, we
+	eliminate inherent bugs in IEPC and create a more
+	stable layout.
+	
+	Width is calculated so that the sum of the sidebar and
+	maincontent DIVs plus their left padding, right padding,
+	left border, and (or) right borders is equal to the width
+	of the mainwrapper DIV. */
+#maincontent {
+	float: right;
+	width: 520px; /* 520 + 18 + 2 = 540 */
+	margin: 0;
+	padding: 0 18px 18px 0;
+	border-right: 2px dotted #fff;
+	text-align: justify;
+	font-size: .9em;
+}
+#sidebar {
+	float: right;
+	/* the width of the sidebar considers the sidebar padding
+	and because of a calculation bug in IE5 Mac, also the
+	borders on the links in the navbar */
+	width: 160px; /* 162 + 18 + 2 = 180 */
+	padding: 0 0 0 18px;
+	font-size: .8em;
+}
+
+/* 	We set the top margin on the UL that holds the navbar */
+#nav {margin: 1em 0 0 0; padding: 0;}
+
+/* 	We set the bottom margin of each list item to 1px and
+	we turn off the default bullet character. */
+#nav li {
+	margin: 0 0 1px 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+/* 	For navbar links only - We turn off underlines, assign
+	3px padding, a border, a background color, a text color
+	and we set the link to display block which makes it act
+	like a "button" */
+#nav a, #nav a:visited {
+	text-decoration: none;
+	padding: 3px;
+	border: 1px solid #FFFFFF;
+	background-color: #666666;
+	color: #CCCCCC;
+	display: block;
+}
+
+/* 	the hover class is obvious. Active serves a dual purpose. In
+	all browsers, it is triggered when the mouse is down and
+	releases when the link loses focus. In IEPC it also is the
+	state of the link when tabbed to using the keyboard. Focus
+	is triggered when the link is tabbed to in browsers other
+	than IEPC. */
+#nav a:hover, #nav a:active, #nav a:focus {
+	color: #333;
+	background-color: #ccc;
+}
+h2 {font-size: 1.2em; margin: 24px 0px 0px;}
+
+#footer {
+	/* Clearing permits the footer to "escape" the float and span the
+	area below the sidebar and maincontent DIVs. */
+	clear: both;
+	background-color: #FFFFFF;
+	font-size: 0.7em;
+	padding: 8px;
+	/* To set min-width for footer, take mainwrapper minus its
+	left and right padding and subtract from that the left and right
+	footer padding: 744-16=728  */
+	min-width: 728px;
+	border-bottom: 2px dashed #B4B6CD;
+}
+#footer p {
+	margin: 0;
+}

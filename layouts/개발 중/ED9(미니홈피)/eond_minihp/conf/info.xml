@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout version="0.1">
+    <title xml:lang="ko">이온디 미니홈피</title>
+    <author email_address="eond@eond.com" link="http://eond.com" date="080720">
+        <name xml:lang="ko">정낙훈</name>
+        <description xml:lang="ko">
+            간단히 미니홈피를 나타내는 레이아웃입니다.
+        </description>
+    </author>
+    <date>2005-08-01</date>
+    <menus>
+        <menu name="navi_menu">
+            <title xml:lang="ko">네이게이션 메뉴 </title>
+            <title xml:lang="en">Navigation menu</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+        <menu name="main_menu" default="true">
+            <title xml:lang="ko">상단 메뉴</title>
+            <title xml:lang="en">Top menu</title>
+            <maxdepth>3</maxdepth>
+        </menu>
+        <menu name="bottom_menu">
+            <title xml:lang="ko">하단 메뉴 </title>
+            <title xml:lang="en">Bottom menu</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+        <menu name="favorite_site">
+            <title xml:lang="ko">즐겨찾는 사이트</title>
+            <title xml:lang="en">Favorite Site</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+    </menus>
+</layout>

@@ -1,0 +1,75 @@
+
+<h1>
+	<a href="{$layout_info->url}">
+		<img src="{$layout_info->logo}" alt="{$layout_info->name}" class="iePngFix" cond="$layout_info->logo" />
+		<img src="img/logo.png" alt="{$layout_info->name}" class="iePngFix" cond="!$layout_info->logo" />
+	</a>
+</h1>
+
+<hr />
+<div id="gnb">
+	<ul class="ul1">
+		<!--@foreach($gnb->list as $val)--><!--@if($val["link"])-->
+		<li class="li1<!--@if($val['selected'])-->{@$selected=$val} on1<!--@end-->">
+			<a href="{$val['href']}" class="a1"<!--@if($val["open_window"]=="Y")--> onclick="window.open(this.href); return false;"<!--@end-->><!--@if($val["text"] == $val["link"])--><span>{$val["text"]}</span><!--@else-->{$val["link"]}<!--@end--></a>
+			<!--@if($val["list"])-->
+			<ul class="ul2">
+				<!--@foreach($val["list"] as $v)--><!--@if($v["link"])-->
+				<li class="li2<!--@if($v['selected'])--> on2<!--@end--><!--@if($v['list'])--> sub2<!--@end-->">
+					<a href="{$v['href']}" class="a2"<!--@if($v["open_window"]=="Y")--> onclick="window.open(this.href); return false;"<!--@end-->><!--@if($v["text"] == $v["link"])--><span>{$v["text"]}</span><!--@else-->{$v["link"]}<!--@end--></a>
+					<!--@if($v["list"])-->
+					<ul class="ul3">
+						<!--@foreach($v["list"] as $va)--><!--@if($va["link"])-->
+						<li class="li3<!--@if($va['selected'])--> on3<!--@end--><!--@if($va['list'])--> sub3<!--@end-->">
+							<a href="{$va['href']}" class="a3"<!--@if($va["open_window"]=="Y")--> onclick="window.open(this.href); return false;"<!--@end-->><!--@if($va["text"] == $va["link"])--><span>{$va["text"]}</span><!--@else-->{$va["link"]}<!--@end--></a>
+							<!--@if($va["list"])-->
+							<ul class="ul4">
+								<!--@foreach($va["list"] as $vl)--><!--@if($vl["link"])-->
+								<li class="li4<!--@if($vl['selected'])--> on4<!--@end-->">
+									<a href="{$vl['href']}" class="a4"<!--@if($vl["open_window"]=="Y")--> onclick="window.open(this.href); return false;"<!--@end-->><!--@if($vl["text"] == $vl["link"])--><span>{$vl["text"]}</span><!--@else-->{$vl["link"]}<!--@end--></a>
+								</li>
+								<!--@end--><!--@end-->
+							</ul>
+							<!--@end-->
+						</li>
+						<!--@end--><!--@end-->
+					</ul>
+					<!--@end-->
+				</li>
+				<!--@end--><!--@end-->
+			</ul>
+			<!--@end-->
+		</li>
+		<!--@end--><!--@end-->
+	</ul>
+</div>
+
+<hr />
+<div class="layer mpReset">
+	<!--// 로그인 -->
+		<p class="rss login" cond="$is_logged"><a href="{getUrl('act','dispMemberLogout')}" title="{$lang->cmd_logout}"><span>Logout</span></a></p>
+		<p class="rss profile" cond="$is_logged"><a href="{getUrl('act','dispMemberInfo')}" title="{$lang->cmd_view_member_info}"><span>Profile</span></a></p>
+		<p class="rss login" cond="!$is_logged"><a href="{getUrl('act','dispMemberLoginForm')}" class="{$lang->cmd_login}"><span>Login</span></a></p>
+
+	<!--// RSS -->
+	<block cond="$layout_info->rss!='hide'">
+		<p class="rss" cond="$layout_info->rss == 'show' || !$rss_url"><a href="{getUrl('mid','','module','rss','act','rss')}"><span>RSS</span></a></p>
+		<p class="rss" cond="$layout_info->rss != 'show' && $rss_url"><a href="{$rss_url}"><span>RSS</span></a></p>
+	</block>
+
+	<!--// 검색 -->
+	<form action="{getUrl()}" method="get" class="search fr">
+		<input type="hidden" name="vid" value="{$vid}" />
+		<input type="hidden" name="mid" value="{$mid}" />
+		<input type="hidden" name="act" value="IS" />
+		<input type="hidden" name="search_target" value="title_content" />
+		<fieldset>
+			<legend class="none">{$lang->cmd_search}</legend>
+			<input name="is_keyword" type="text" title="Search" class="inputText" accesskey="S" />
+			<input type="submit" value="Search" class="submit" />
+		</fieldset>
+	</form>
+
+</div>
+
+{$layout_info->headerLayer}

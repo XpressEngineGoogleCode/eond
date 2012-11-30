@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout version="1.1">
+    <title xml:lang="ko">Crom_Design_layout_bookstyle</title>
+    <author email_address="crom@crom-design.com" date="2010.7.05">
+        <name xml:lang="ko">CROM</name>
+        <description xml:lang="ko">
+			Crom_Design_layout_bookstyle
+        </description>
+    </author>
+    <extra_vars>
+        <var name="colorset" type="select">
+            <title xml:lang="ko">컬러셋</title>
+            <description xml:lang="ko">WHITE</description>
+            <options>
+                <title xml:lang="ko">디폴트</title>
+                <value>default</value>
+            </options>
+        </var>
+        <var name="slogan" type="text">
+            <title xml:lang="ko">Slogan</title>
+            <description xml:lang="ko">좌상단에 표시할 Slogan을 입력하세요.</description>
+        </var>
+        <var name="suggestion" type="textarea">
+            <title xml:lang="ko">추천검색어 </title>
+            <description xml:lang="ko">좌상단에 표시할 추천검색어를 입력하세요. (HTML로 링크입력)</description>
+        </var>
+		<var name="notice" type="textarea">
+            <title xml:lang="ko">공지 </title>
+            <description xml:lang="ko">우상단에 표시할 내용를 입력하세요. </description>
+        </var>
+        <var name="logo" type="image">
+               <title xml:lang="ko">상단 로고이미지</title>
+               <description xml:lang="ko">상단에 표시될 로고이미지를 입력하세요. (175x110px)</description>
+        </var>
+        <var name="logo_url" type="text">
+               <title xml:lang="ko">ㄴ홈페이지 주소</title>
+               <description xml:lang="ko">로고 클릭시 이동할 홈페이지 URL을 입력하세요.</description>
+        </var>
+        <var name="logo_btm" type="image">
+               <title xml:lang="ko">하단 로고이미지</title>
+               <description xml:lang="ko">하단에 표시될 로고이미지를 입력하세요. (140x85px)</description>
+        </var>
+        <var name="contact" type="textarea">
+            <title xml:lang="ko">Contact </title>
+            <description xml:lang="ko">회사 정보를 입력하세요.  (HTML입력가능) </description>
+        </var>
+        <var name="copyright" type="textarea">
+            <title xml:lang="ko">카피라이트 </title>
+            <description xml:lang="ko">Copyright를 입력하세요.  (HTML입력가능) </description>
+        </var>
+    </extra_vars>
+    <menus>
+        <menu name="main_menu" default="true">
+            <title xml:lang="ko">메인 메뉴</title>
+            <maxdepth>3</maxdepth>
+        </menu>
+        <menu name="side_menu" maxdepth="1">
+               <title xml:lang="ko">사이드 메뉴</title>
+        </menu>
+    </menus>
+	
+</layout>

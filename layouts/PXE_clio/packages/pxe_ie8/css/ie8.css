@@ -1,0 +1,4 @@
+/* IE6 경고화면 (pxe_ie8)
+---------------------------------------------------------------------------------*/
+#IE_alert { position:absolute; width:257px; height:125px; top:0; left:210px; background:url(../img/postit.png); }
+#IE_alert .gogetit { position:absolute; display:block; width:47px; height:23px; top:60px; left:44px; text-indent:-1000em; overflow:hidden; }

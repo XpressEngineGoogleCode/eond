@@ -1,0 +1,46 @@
+{@$member_config = MemberModel::getMemberConfig(); }
+
+<load target="js/login.js" />
+<load target="css/login.css" />
+<!--// <load target="filter/login.xml" /> -->
+<!--%import("filter/login.xml")-->
+
+<div id="loginLayer" class="mpReset {$lang_type} oid{$member_config->enable_openid}">
+	<div class="layer">
+		<div class="iePngFix bg"><hr /></div>
+		<form action="" method="post" id="commonLogin" onsubmit="return procFilter(this, login)">
+			<fieldset>
+				<legend class="none">XE Login</legend>
+				<dl>
+					<dt class="user_id"><label for="uid">{$lang->user_id}</label></dt>
+					<dd><input name="user_id" type="text" id="uid" class="inputText" /></dd>
+					<dt class="password"><label for="upw">{$lang->password}</label></dt>
+					<dd><input name="password" type="password" id="upw" class="inputText" /></dd>
+				</dl>
+				<p class="keep"><input name="keep_signed" type="checkbox" id="keepA" value="Y" /><label for="keepA">{$lang->keep_signed}</label></p>
+				<p class="keepCaution"><span>{str_replace('\\n','<br />',$lang->about_keep_signed)}</span></p>
+				<span class="button submit"><input name="" type="submit" title="{$lang->cmd_login}" value="{$lang->cmd_login}" /></span>
+			</fieldset>
+		</form>
+		<block cond="$member_config->enable_openid=='Y'">
+			<!--// <load target="filter/openid_login.xml" /> -->
+			<!--%import("filter/openid_login.xml")-->
+			<form action="./" method="post" id="openidLogin" onsubmit="return procFilter(this, openid_login)">
+				<fieldset>
+					<legend class="none">OpenID Login</legend>
+					<dl>
+						<dt class="open_id"><label for="oid">Open ID</label></dt>
+						<dd><input name="openid" type="text" id="oid" class="inputText" /></dd>
+					</dl>
+					<span class="button submit"><input name="" type="submit" title="{$lang->cmd_login}" value="{$lang->cmd_login}" /></span>
+				</fieldset>
+			</form>
+		</block>
+		<ul>
+			<li><a href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a></li>
+			<li><a href="{getUrl('act','dispMemberFindAccount')}">{$lang->cmd_find_member_account}</a></li>
+			<li><a href="{getUrl('act','dispMemberResendAuthMail')}">{$lang->cmd_resend_auth_mail}</a></li>
+		</ul>
+	</div>
+	<span class="close"><button type="button" title="Close">Close</button></span>
+</div>

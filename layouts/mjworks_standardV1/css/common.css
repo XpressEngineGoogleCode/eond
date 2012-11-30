@@ -1,0 +1,89 @@
+@charset "utf-8";
+/* 
+공통적으로 적용되는 스타일 
+상단의 1차메뉴와 우측 서브메뉴의 설정은 각각의 CSS파일에서 설정
+*/
+
+body, div, ul, ol, li, p, h1, a {margin:0; padding:0;}
+
+img {border:none;}
+
+ul {margin:0;padding:0;}
+
+#navi_UpService {height: 23px;background: url('../images/navi_UpService_bg.gif') repeat-x left top;text-align:center;vertical-align:middle; padding-top:4px;font-size:11px;font-family:맑은 고딕;color:black;}
+#navi_UpService li {display:inline;margin-right:13px;list-style-type: none;}
+#navi_UpService li.first-child {}
+#navi_UpService li a { text-decoration:none;color:#000;height:27px;padding-top:4;}
+#navi_UpService li a:hover{ text-decoration:none;color:#999;}
+
+.navi_Upservice_admin {position:absolute; right:2px;top:6px;width:20px;}
+
+#bodyWrap { margin:0 auto; width:990px; position:relative; padding:0 10px; background:url(../images/mainmenu_bg.png) left top repeat-x #1a1a1a; }
+
+/* Header - 로고, 1차메뉴, 로그정보, 추가메뉴, 검색폼 */
+
+#headerWrap { width:990px; height:160px; overflow:hidden;}
+
+#logo { position:absolute; left:0px; top:0px; height:160px; width:200px; overflow:hidden;}
+
+#menuBoxWrap { padding:65px 0 0 190px; float:left; position:relative;}
+
+#menuBox {width:620px; height:95px; list-style:none; }
+
+#headerRight { float:right; width:170px; background:url(../images/extranav_bg.png) left top repeat-x; overflow:hidden;}
+
+#headerRight ul { margin:5px 0; padding:5px 0 5px 10px; float:left; list-style:none; height:100px; overflow:hidden;}
+
+#headerRight ul li {list-style:none; height:25px;}
+
+#headerRight ul li a 
+{ height:25px; color:#666666; font:9px Tahoma, Arial, "맑은고딕", "돋움"; padding:5px 10px; text-decoration:none; background:url(../images/nav_bull.gif) left 5px no-repeat; }
+
+#headerRight ul li a:focus, #headerRight ul li a:hover { text-decoration:underline; color:#999999;}
+
+#Log { width:75px}
+
+#extraMenu { width:74px; border-left:#1a1a1a 1px solid;}
+
+#searchBox  {background:url(../images/search_bg.png) left top; width:150px; padding:11px 10px 0 10px; height:30px; overflow:hidden; float:left;}
+
+#searchBox .searchKeyword 
+{width:90px; height:13px; float:left; color:#999999; background:#535353; border:solid 1px #5e5e5e; font:11px Tahoma, Arial, "맑은고딕", "돋움"; padding:2px 3px 1px 3px;}
+
+#searchBox .searchButton { float:right; position:relative;}
+
+/* Content - 컨텐츠출력부, 우측메뉴 */
+
+#contentWrap {width:990px; position:relative; overflow:hidden;}
+
+#leftColumn { width:800px; float:left; padding:10px 0 10px 10px; position:relative; background:url(../images/content_top.png) left top no-repeat #FFFFFF; overflow:hidden;}
+
+#contentBtom { position:absolute; left:0px; bottom:0px; width:10px; height:10px; background:url(../images/content_btom.png); overflow:hidden; z-index:999;}
+
+#rightColumn {width:172px; float:right; overflow:hidden;}
+
+.rightDiv {width:150px; padding:5px 10px 5px 12px;}
+
+/* Footer */
+
+#footerWrap {margin:0 auto; margin-bottom:50px;	width:1010px; height:90px;	position:relative;	overflow:hidden;}
+
+#footer {width:990px; height:70px; padding:0 10px; float:left; background: url(../images/footer_bg.png) top; overflow:hidden;}
+
+#footer p {font:9px Tahoma, Arial, "맑은고딕", "돋움"; color:#777777;}
+
+#footer p a {color:#999999; font-weight:bold; text-decoration:none;}
+
+#footer p a:hover, #footer p a:focus { text-decoration:underline;}
+
+#copyright { padding:15px 0 0 10px;}
+
+#check { position:absolute; left:20px; top:40px;}
+
+#rss { position:absolute; right:20px; top:12px;}
+
+#by { text-align:right; position:absolute; right:20px; top:40px;}
+
+#bottom { float:left; width:970px; height:20px; background: url(../images/footer_bg.png) bottom;}
+
+#bottomRound {float:left}

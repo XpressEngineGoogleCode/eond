@@ -1,0 +1,66 @@
+<!-- 컬러셋용 CSS 파일 로드 -->
+<load cond="$layout_info->colorset == 'default'" target="packages/pxe_vmenu/css/vmenu_default.css" />
+<load cond="$layout_info->colorset == 'custom'" target="packages/pxe_vmenu/css/vmenu_custom.css" />
+
+<!-- Splash용 세로메뉴 출력(한국어) -->
+<ul id="sub_nav" cond="$lang_type == 'ko'">
+   <li><a href="#" >둘러보기용 데모 메뉴</a></li>
+   <li><a href="#" >2차 메뉴</a> </li>
+   <li class="on"><a href="#" >선택 된 2차 메뉴<span class="i"></span></a>
+       <ul>
+           <li><a href="#" >3차 메뉴</a></li>
+           <li><a href="#" >3차 메뉴</a></li>
+           <li class="on"><a href="#" >선택 된 3차 메뉴<span class="i"></span></a>
+               <ul>
+                   <li><a href="#" >4차 메뉴</a></li>
+                   <li class="on"><a href="#" >선택 된 4차 메뉴</a></li>
+                   <li><a href="#" >4차 메뉴</a></li>
+               </ul>
+           </li>
+       </ul>
+   </li>
+   <li ><a href="#" >2차 메뉴</a></li>
+   <li ><a href="#" >2차 메뉴</a></li>
+</ul><!-- 세로메뉴출력 끝-->
+
+<!-- Splash용 세로메뉴 출력(영어) -->
+<ul id="sub_nav" cond="$lang_type == 'en'">
+   <li><a href="#" >Vertical Menu for Demo</a></li>
+   <li><a href="#" >Level 2 Menu</a> </li>
+   <li class="on"><a href="#" >Selected Level 2 Menu<span class="i"></span></a>
+       <ul>
+           <li><a href="#" >Level 3 Menu</a></li>
+           <li><a href="#" >Level 3 Menu</a></li>
+           <li class="on"><a href="#" >Selected Level 2 Menu<span class="i"></span></a>
+               <ul>
+                   <li><a href="#" >Level 4 Menu</a></li>
+                   <li class="on"><a href="#" >Selected Level 4 Menu</a></li>
+                   <li><a href="#" >Level 4 Menu</a></li>
+               </ul>
+           </li>
+       </ul>
+   </li>
+   <li ><a href="#" >Level 2 Menu</a></li>
+   <li ><a href="#" >Level 2 Menu</a></li>
+</ul><!-- 세로메뉴출력 끝-->
+
+<!-- Splash용 세로메뉴 출력(일본어) -->
+<ul id="sub_nav" cond="$lang_type == 'jp'">
+   <li><a href="#" >デモ用の縦メニュー</a></li>
+   <li><a href="#" >二番目のメニュー</a> </li>
+   <li class="on"><a href="#" >選択された二番目のメニュー<span class="i"></span></a>
+       <ul>
+           <li><a href="#" >三番目のメニュー</a></li>
+           <li><a href="#" >三番目のメニュー</a></li>
+           <li class="on"><a href="#" >選択された三番目のメニュー<span class="i"></span></a>
+               <ul>
+                   <li><a href="#" >四番目のメニュー</a></li>
+                   <li class="on"><a href="#" >選択された四番目のメニュー</a></li>
+                   <li><a href="#" >四番目のメニュー</a></li>
+               </ul>
+           </li>
+       </ul>
+   </li>
+   <li ><a href="#" >二番目のメニュー</a></li>
+   <li ><a href="#" >二番目のメニュー</a></li>
+</ul><!-- 세로메뉴출력 끝-->

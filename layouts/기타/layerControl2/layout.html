@@ -1,0 +1,63 @@
+<!-- js  import -->
+<!--%import("js/default.js")-->
+
+<!-- css  import -->
+<!--%import("css/common.css")-->
+
+<!--@if($layout_info->colorset == "white")-->
+    <!--%import("css/eond_blu.css")-->
+<!--@elseif($layout_info->colorset == "black")-->
+    <!--%import("css/eond_rosso.css")-->
+<!--@else-->
+    <!--%import("css/common.css")-->
+<!--@end-->
+
+<!--@if($layout_info->background_image)-->
+<style type="text/css">
+    body {  background:#FFFFFF url({getUrl()}{$layout_info->background_image}) repeat-x left top; }
+</style>
+<!--@end-->
+
+<!--@if(!$layout_info->colorset)-->
+	{@$layout_info->colorset = "default"}
+<!--@end-->
+
+
+
+
+
+<!-- s : mainmenu -->
+<div id="mainmenu" >
+
+	{@ $idx = 1 }<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+		<!--@if($val['selected'])-->
+		{@ $menu_1st = $val }
+		<!--@end-->
+		<div onmouseover="layer('dropdownlayer{$idx}',this,'justify-left','bottom+2',true)" onmouseout="layerclose('dropdownlayer{$idx}')" style="border:1px solid red;"<!--@if($val['selected'])-->class="on mainmenu"<!--@end--> class="mainmenu"><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href)return false"<!--@end-->>{$val['link']}</a></div>
+	{@$idx++}<!--@end--><!--@end-->
+
+</div>
+<!-- e : mainmenu -->
+
+
+		<!-- s : submenu -->
+            {@ $idx = 1 }
+            <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+                         <!--2޴-->
+                        
+							<!--@foreach($val['list'] as $key1 => $val1)--><!--@if($val1['link'])-->
+							<!--@if($val1['selected'])--><!--@end-->
+							<div id="dropdownlayer{$idx}" style="display:none;" onmouseover="layerwaitforclose('dropdownlayer{$idx}')" onmouseout="layerclose('dropdownlayer{$idx}"')">
+								<li <!--@if($val['selected'])-->class="on"<!--@end--> class="iePngFix"><a href="{$val1['href']}" <!--@if($val1['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val1['link']}</a></li></div>
+							<!--@end-->
+							<!--@end-->
+						
+            <!--@end-->
+            {@$idx++}
+            <!--@end-->
+		<!-- e : submenu -->
+
+
+<div>{$content}</div>
+
+

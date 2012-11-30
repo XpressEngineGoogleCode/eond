@@ -1,0 +1,153 @@
+@charset "utf-8";
+/*
+NHN UIT Lab. WebStandardization Team (http://html.nhndesign.com/)
+Jeong, Chan Myeong 070601~070630
+*/
+div {border:1px solid red;}
+/* Eond Blu Skin - Start */
+
+/* Site Layout - Body Wrap */
+body { background:url(../images/default/bgBody.gif) repeat-x;}
+#bodyWrap { position:absolute; width:100%;border:0px; margin:0 0; padding:0;}
+
+/* Site Layout - Header */
+#header { width:100%; height:159px; background: #FFF url() no-repeat bottom; margin-bottom:5px; z-index:-90;}
+#header h1 { position:absolute; top:50px; height:73px; width:100%;left:0px;background: url(../images/eond_blu/eond_blu_title_bg.gif) no-repeat top right #39AECE;background-position:right;}
+#header h2 { position:absolute; top:17px; left:0px;background:#323232 url(../images/eond_rosso/tintedpixel.png) no-repeat top left ;width:100%;height:30px;}
+#header h3 { position:absolute; top:0px; left:0px;background: #F6F6F6 url(../images/eond_rosso/pixel.png) no-repeat top left;width:100%; height:15px;border-bottom:2px solid #BCBCBC;padding:0;font:8pt verdana;letter-spacing:3;}
+
+#language { position:absolute; top:18px; right:19px; z-index:100; visibility : hidden;}
+#language strong { color:#ffffff; font:.75em Tahoma; margin-right:3px;}
+#language a img { vertical-align:-5px;}
+#language ul { position:absolute; top:15px; right:0px; display:none; border:1px solid #b23628; background:#DE4332;}
+#language ul li { list-style:none; }
+#language ul li a { display:block; width:61px; padding:3px 8px; font:9px Tahoma; color:#ffffff; text-decoration:none;}
+#language ul li a:hover { background:#bc4032;}
+
+#it_search_form { position:absolute; top:50px; right:15px;}
+#it_search_form .input { border:1px solid #bc4032; height:17px; width:120px; color:#888888; font-size:.9em;}
+#it_search_form .submit_button { width:1px; height:1px; visibility:hidden; }
+
+
+#gnb { position:absolute; top:126px; left:0px;right:0px; width:100%;height:30px; overflow:hidden; white-space:nowrap; margin-bottom:10px;background:#2e2e2e url(../images/eond_blu/eond_gnb_bg.gif) repeat-x top;text-align:center;border-top:0px solid #808080;}
+#gnb li { float:left; list-style:none; background:url(../images/default/bgGnbVr.gif) no-repeat left center; padding-left:2px; position:relative; left:-2px; white-space:nowrap;}
+#gnb li a { display:block; float:left; padding:8px 15px 0 15px; height:25px; color:#e8e8e8; white-space:nowrap; text-decoration:none;font-weight:bold; font-family:"Arial", "Verdana", "돋움", Dotum, "굴림", Gulim, AppleGothic, Sans-serif;font-size:10px;}
+#gnb li a:hover {background: url(../images/eond_blu/eond_gnb_bg_on.gif) top;font:bold 10px Arial;},
+#gnb li a:focus { color:#ffffff;}
+#gnb li.on a { border-top:2px solid #84CCE0;font-weight:bold; color:#ffffff;  background:#424242 url(../images/eond_blu/eond_gnb_bg_on.gif) repeat-x center top;font-size:10px;font-family:tahoma;}
+
+/* ../images/default/bgGnbOn.gif */
+#isSearch { position:relative; width:214px;left:770px;top:131px; text-align:right;z-index:120;}
+#isSearch .searchOrder { display:none;}
+#isSearch .checked { position:absolute; left:0; top:0; text-align:left; display:block; padding:5px 0 0 5px; width:64px; height:14px; background:url(../images/default/bgSearchTerm.gif) no-repeat; font:11px "돋움", Dotum, "굴림", Gulim, AppleGothic, Sans-serif; color:#ffffff; line-height:normal;}
+#isSearch ul { display:none; position:absolute; left:0; top:18px; padding:2px 0 3px 0; text-align:left; border:1px solid #919898; background:#536c6d;}
+#isSearch ul li { width:67px; height:18px; list-style:none; }
+#isSearch ul li input { display:none;}
+#isSearch ul li label { display:block; padding:4px 0 0 4px; width:63px; height:15px; font:11px "돋움", Dotum, "굴림", Gulim, AppleGothic, Sans-serif; color:#ffffff;}
+#isSearch ul li label.on { background:#455a5b; }
+#isSearch ul li label:hover,
+#isSearch ul li label:focus { background:#455a5b;}
+#isSearch .inputText { vertical-align:middle; _position:relative; _top:-1px; padding:3px 3px 1px 3px; width:94px; height:15px; color:#ffffff; border:none; background:url(../images/eond_rosso/bgSearch.gif) no-repeat;}
+#isSearch .inputText:hover,
+#isSearch .inputText:focus { background:url(../images/default/bgSearchOn.gif) no-repeat;}
+*:first-child+html body#default #isSearch .inputText { position:relative; top:-1px;}
+#isSearch .submit { vertical-align:middle; _position:relative; _top:-1px;}
+*:first-child+html body#default #isSearch .submit { position:relative; top:-1px;}
+
+/* Site Layout - Content Body */
+#contentBody { position:relative; width:980px; padding-bottom:30px; margin-left:5px;overflow:hidden; background:url(../images/default/bgContentBody.gif ) repeat-y left top; border-bottom:1px solid #dddddd;}
+/* 좌측 선 */
+/* Site Layout - Column Left */
+#columnLeft { position:relative; width:200px; float:left;}
+#columnLeft .mask { position:absolute;width:200px; height:5px; background:#ffffff; display:block;}
+
+/* 2번째 메뉴 상단 선 */
+/*2번째 메뉴 테두리*/
+#lnb { border-top:1px solid #dddddd; padding:4px 0px 0px 0px; width:200px;margin-top:5px;}
+#lnb li { padding-bottom:4px;}
+/* 2번째 메뉴 항목*/
+#lnb li a { padding:6px 5px 6px 13px; width:170px; display:block; border:1px dotted #e8e8e8 ; background:#F8F8F8;color:#666666; position:relative; z-index:99; text-decoration:none;margin-left:5px;}
+/*url(../images/default/bgLnbOff.gif) repeat-x*/
+/* 2번째 메뉴 항목 올렸을 때 */
+#lnb li a:hover,
+#lnb li a:focus { color:#8D990D; background:#EFEBDE; border:1px solid #F0EDE6;}
+/* DE4332 border:de4332 */
+/* 2번째 메뉴 항목 선택했을 때 */
+#lnb li.on a { color:#333333; background:#EFEBDE; border:1px solid #F0EDE6;}
+#lnb li.on a:hover,
+#lnb li.on a:focus { font-weight:bold;color:#8D990D;}
+/* 3번째 메뉴 상단 선 */
+#lnb li ul { display:none; position:relative; width:200px; _width:194px; padding:0 3px; position:relative; border-top:1px solid #ffffff; overflow:hidden;}
+#lnb li.on ul { display:block;}
+#lnb li ul li { padding:0; border-top:1px solid #f2f2f2; position:relative; top:-1px;}
+#lnb li ul li a { padding:6px 5px 6px 10px; width:169px; color:#818181 !important; border:none; background:none !important; border:none !important;}
+#lnb li ul li a:hover,
+#lnb li ul li a:focus { font-weight:normal !important; color:#de4332 !important;}
+#lnb li.on ul li.on a { color:#ff1a00 !important; font-weight:normal !important; background:url(../images/default/bulletLnb.gif) no-repeat 175px center  !important;}
+
+
+/* Site Layout - Column Right */
+#columnRight { width:770px; float:right; overflow:hidden;}
+#visualArea { width:770px; height:200px; background:#f5f5f5; margin-bottom:2.5em; position:relative; left:-15px; margin-right:-15px;}
+#content { width:100%; height:100%;overflow:hidden;}
+
+/* Site Layout - Content */
+#contentMain {position:relative;width:550px;text-align:left;padding:1em 0 0 0;text-valign:bottom;}
+#contentRight {position:absolute;float:right;right:0px;top:0px;background:#F8F8F8;height:100%;width:200px;text-align:center;padding-left:5px;padding-right:5px;overflow:visible;display:block; white-space:nowrap;text-decoration:none;}
+#contentLeft {position:absolute;left:5px;top:600px;}
+
+/* Site Layout - Footer */
+#footer { border-top:3px solid #f4f4f4; text-align:center; padding:2em 0 4em; clear:both;}
+#footer li { display:inline; padding:0 .6em 0 1em; background:url(../images/default/vrType1.gif) no-repeat left center;}
+#footer li.first-child { background:none;}
+#footer li a { color:#999999; font:.9em "돋움", Dotum, "굴림", Gulim, AppleGothic, Sans-serif;}
+#footer li address { display:inline; }
+
+/* Eond Blu Skin - End */
+
+/* Content Left */
+.leftContentBanner {position:relative;display:inline;height:80px;width:200px;padding-top:5px;}
+
+/* Content */
+#flow {clear:both;border-bottom:1px dotted #E5E5E5;width:550px;height:25px;text-align:center;margin-bottom:6px;vertical-align:middle;background:#FBFBFB;color:#505050;padding-top:5px;}
+
+#lst_gallery {position:relative;width:100%;background:#858585;clear:both;margin-bottom:10px;overflow:auto;display:block;}
+#lst_gallery_title {height:40px;background:#565656 url(http://eond.com/zbxe/files/attach/images/907/907/home_gallery_ni_title.gif) no-repeat left top;border-bottom:2px solid #999999;}
+#lst_gallery_title .goGallery {padding-top:20px;padding-right:20px;}
+#lst_gallery_content {height:280px;diplay:block;text-align:center;padding-top:10px;}
+#lst_article {background:#ffffff;margin:5px;padding:20px;diplay:block;}
+
+/* Recent c? */
+.rct_title {clear:both;border-bottom:1px solid;width:100%;margin-bottom:2px;}
+#tagcloud {clear:both;border-bottom:1px solid;width:100%;}
+#tagcloud_content {text-align:center;height:140px;vertical-align:inline;}
+
+/* Total Recently Comments */
+#trc {clear:both;border-bottom:1px solid;width:100%;}
+#trc_content {height:100%;overflow:auto;display:block;}
+.recentComment {}
+
+#member_output {border:1px solid #dddddd;height:200px;width:100%;}
+#member_output .login {}
+#member_output .join {}
+
+#menu_lst {border:1px solid #E0E1DB;font:11px 돋움;padding:5px 0 0 10px;color:#A4A4A4;line-height:200%;height:350px;_height:360px;overflow:hidden;display:block;background:#f9f9f9;margin-bottom:10px;}
+.menu_lst_category {overflow:hidden; white-space:nowrap; clear:both;font-weight:bold;font-family:verdana;font-size:9px;color:#7C7C7C;}
+#menu_lst li { display:block;float:left;padding-right:.6em;padding-left:1em;width:86px;font-weight:normal;font-size:11px;font-family:dotum,돋움;line-height:180%;}
+#menu_lst_foot {width:550px;overflow:auto;display:block;}
+
+/* Content Right */
+#banner {clear:both;width:200px;line-height:500%;}
+#banner li {display:inline;float:left;width:100px;height:40px;}
+/* word-wrap:break-word;
+white-space:nowrap;
+writing-mode:tb-rl;
+table-layout:fixed;
+word-break:break-all;
+diplay:block;
+overflow:visible; */
+
+#gnb_lnb {position:relative;top:160px;left:0px;width:100%;height:30px;background:#FFF;}
+/*
+#gnb { position:absolute; top:126px; left:0px;right:0px; width:100%;height:30px; overflow:hidden; white-space:nowrap; margin-bottom:10px;background:#2e2e2e url(../images/eond_blu/eond_gnb_bg.gif) repeat-x top;text-align:center;border-top:0px solid #808080;}
+*/

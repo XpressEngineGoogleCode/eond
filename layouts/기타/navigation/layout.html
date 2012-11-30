@@ -1,0 +1,29 @@
+<!--%import("css/default.css")-->
+<!--%import("js/jquery-latest.js")-->
+<!--%import("js/display.js")-->
+
+<!-- GNB -->
+	<!-- s : mainmenu -->
+	<ul id="menu">
+	<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+		<!--@if($val['selected'])-->
+			{@ $menu_1st = $val }
+		<!--@end-->
+	  <li class="menu"<!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+	  
+		<!-- s : submenu -->
+		<ul id="submenu">
+			<li class="submenu bgLeft"></li>
+		<!--@foreach($val['list'] as $key1 => $val1)--><!--@if($val1['link'])-->
+		<!--@if($val1['selected'])--><!--@end-->
+			<li class="submenu bg"<!--@if($val['selected'])-->class="on"<!--@end--> class="iePngFix"><a href="{$val1['href']}" <!--@if($val1['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val1['link']}</a></li>
+		<!--@end-->
+		<!--@end-->
+			<li class="submenu bgRight"></li>
+		</ul>
+		<!-- e : submenu -->
+	  </li>
+	<!--@end--><!--@end-->
+	</ul>
+	<!-- e : mainmenu -->
+<!--// GNB -->

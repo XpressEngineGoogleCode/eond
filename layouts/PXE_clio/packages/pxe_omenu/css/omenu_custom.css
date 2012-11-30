@@ -1,0 +1,83 @@
+/* 옵션 메뉴 - 일반 메뉴 (pxe_omenu)
+---------------------------------------------------------------------------------*/
+#option_menu { position:absolute; margin:0; padding:0; right:0; bottom:10px; list-style:none; }
+#option_menu li { float:left; height:45px; display:block; }
+#option_menu li.olb { width:11px; background:url(../img/custom/olb.png); }
+#option_menu li.ocb { background:url(../img/custom/ocb.png) repeat-x; }
+#option_menu li.orb { width:14px; background:url(../img/custom/orb.png); }
+#option_menu span.tw_bird { position:absolute; width:44px; height:37px; text-indent:-1000em; background:url(../img/custom/bird.png); top:-30px; right:40px; display:block; }
+
+#option_menu .optionMenuList { position:relative; margin:0; padding:0; top:5px; list-style:none; }
+#option_menu .optionMenuList li { float:left; height:30px; font:12px 굴림,Gulim,AppleGothic; display:inline; position:relative; margin:0; padding:0 16px; text-align:center; white-space:nowrap; }
+#option_menu .optionMenuList li a { position:relative; top:10px; text-shadow:0 1px 0 #e0e0e0; z-index:1; outline:0; selector-dummy:expression(this.hideFocus=true); *zoom:1; }
+#option_menu .optionMenuList li .vr { position:absolute; width:2px; height:30px; top:0px; right:0px; z-index:0; background: url("../img/custom/bu_bar.gif"); display:block; }
+#option_menu .optionMenuList li a,
+#option_menu .optionMenuList li a:visited { color:#666; text-decoration:none; }
+#option_menu .optionMenuList li.twitter { background:none; padding:0 16px; }
+
+
+/* 로그인 메뉴*/
+#option_menu .optionMenuList li.profile .memberProfile { position:absolute; margin:0; padding:0; width:154px; height:208px; top:0; left:7px; color:#797771; background:url(../img/custom/bg_profile.png) no-repeat left top; display:none; *zoom:1; overflow:hidden; }
+#option_menu .optionMenuList li.profile .memberProfile ul{ position:relative; margin:0; padding:0; top:55px; left:10px; list-style:none; }
+#option_menu .optionMenuList li.profile .memberProfile li { float:none!important; margin:0; padding:0; height:22px; }
+
+#option_menu .optionMenuList li.profile .memberProfile li a { display:block!important; margin:0; padding:6px 0 4px 22px; *padding:6px 0 6px 22px; font:11px 돋움,Dotum; text-align:left!important; letter-spacing:-1px; color:#666; text-decoration:none; text-shadow:none; filter:none; background:url(../img/custom/dots.gif) no-repeat left 0px; }
+#option_menu .optionMenuList li.profile .memberProfile li a:hover { background:url(../img/custom/dots.gif) no-repeat left -22px; }
+#option_menu .optionMenuList li.profile .memberProfile li a:hover,
+#option_menu .optionMenuList li.profile .memberProfile li a:active,
+#option_menu .optionMenuList li.profile .memberProfile li a:focus{ text-decoration:none; }
+#option_menu .optionMenuList li.profile .memberProfile .close { position:absolute; cursor:pointer; border:0; padding:0; top:50px; right:8px; width:40px; height:10px; background:url(../img/custom/btn_x.gif); }
+
+#option_menu .optionMenuList li.login,
+#option_menu .optionMenuList li.logout,
+#option_menu .optionMenuList li.signup,
+#option_menu .optionMenuList li.profile { width:55px; }
+
+
+/* 로그인 팝업 창*/
+#option_menu .optionMenuList .loginLayer { position:absolute; margin:0; padding:66px 0 20px 0; width:218px; height:122px; top:0; left:6px; color:#797771; background:url(../img/custom/bg_login.png) no-repeat left top; display:none; overflow:hidden; text-align:center; }
+#option_menu .optionMenuList .loginLayer .inner { width:218px; margin:0 0 15px 0; padding:0; }
+#option_menu .optionMenuList .loginLayer .inner_oid { width:218px; margin:0; padding:0; }
+#option_menu .optionMenuList .loginLayer form{ *zoom:1; position:relative; overflow:hidden; }
+
+#option_menu .optionMenuList .loginLayer #commonLogin{ height:58px; margin:0; padding:0; }
+#option_menu .optionMenuList .loginLayer #openidLogin{ height:27px; margin:0; padding:0; }
+
+#option_menu .optionMenuList .loginLayer input { font:9pt 돋움,Dotum; }
+
+/*ID*/
+#option_menu .optionMenuList .loginLayer input.user_id { position:absolute; top:0; left:12px; width:117px; height:18px; padding:8px 5px 0 5px; color:#505050; border:none; background-image:url(../img/custom/bg_input.gif); background-color:transparent; vertical-align:top }
+:root #option_menu .optionMenuList .loginLayer input.user_id { width:117px; height:23px; padding:3px 5px 0 5px; }
+#option_menu .optionMenuList .loginLayer input.user_id.focus { background:url(../img/custom/bg_input_focus.gif)!important; }
+#option_menu .optionMenuList .loginLayer input.user_id.focusnot { background:url(../img/custom/bg_input_notfocus.gif)!important; }
+
+/*Password*/
+#option_menu .optionMenuList .loginLayer input.user_pw { position:absolute; top:30px; left:12px; width:117px; height:18px; padding:8px 5px 0 5px; color:#505050; border:none; background-image:url(../img/custom/bg_input.gif); background-color:transparent; vertical-align:top }
+:root #option_menu .optionMenuList .loginLayer input.user_pw { width:117px; height:23px; padding:3px 5px 0 5px; }
+#option_menu .optionMenuList .loginLayer input.user_pw.focus { background:url(../img/custom/bg_input_focus.gif)!important; }
+#option_menu .optionMenuList .loginLayer input.user_pw.focusnot { background:url(../img/custom/bg_input_notfocus.gif)!important; }
+
+/*Open ID*/
+#option_menu .optionMenuList .loginLayer .oid_desc { margin:0 0 15px 46px; }
+#option_menu .optionMenuList .loginLayer input.open_id{ position:absolute; top:0; left:12px; width:117px; height:18px; padding:8px 5px 0 5px; color:#505050; border:none; background-image:url(../img/custom/bg_input.gif); background-color:transparent; vertical-align:top }
+:root #option_menu .optionMenuList .loginLayer input.open_id { width:117px; height:23px; padding:3px 5px 0 5px; }
+#option_menu .optionMenuList .loginLayer input.open_id.focus { background:url(../img/custom/bg_input_focus.gif)!important; }
+#option_menu .optionMenuList .loginLayer input.open_id.focusnot { background:url(../img/custom/bg_input_notfocus.gif)!important; }
+
+#option_menu .optionMenuList .loginLayer button.submit_oid { width:52px; height:26px; background-image:url(../img/custom/login_btn_submit.gif); background-color:transparent; border:none; margin:0; cursor:pointer; position:absolute; top:0px; left:146px; text-indent:-1000em; }
+#option_menu .optionMenuList .loginLayer span.info_openid { position:relative; left:12px; width:186px; height:26px; margin:0; padding:0; display:block; background:url(../img/custom/info_openid.gif); text-indent:-1000em; }
+
+#option_menu .optionMenuList .loginLayer .saveIDinfo { position:absolute; top:5px; *top:1px; left:147px; *left:141px; }
+#option_menu .optionMenuList .loginLayer .saveIDinfo .inputCheck { position:relative; top:2px; *top:1px; left:0; *left:2px; }
+#option_menu .optionMenuList .loginLayer .keep label{ color:#555; }
+#option_menu .optionMenuList .loginLayer button.submit { width:52px; height:26px; background-image:url(../img/custom/login_btn_submit.gif); background-color:transparent; border:none; margin:0; cursor:pointer; position:absolute; top:30px; left:146px; text-indent:-1000em; }
+
+#option_menu .optionMenuList .loginLayer .help { margin:15px 0 0 6px; padding:0; list-style:none; *zoom:1; overflow:hidden; }
+#option_menu .optionMenuList .loginLayer .help li { position:relative; margin:0; padding:0 5px 0 6px; display:inline; line-height:14px; background:url(../img/custom/vr_extra.gif) no-repeat 0 2px; white-space:nowrap }
+#option_menu .optionMenuList .loginLayer .help li a { text-decoration:none; color:#999; text-shadow:none; top:0; filter:none }
+#option_menu .optionMenuList .loginLayer .help li.first { background:none }
+#option_menu .optionMenuList .loginLayer .help li a:hover,
+#option_menu .optionMenuList .loginLayer .help li a:active,
+#option_menu .optionMenuList .loginLayer .help li a:focus{ text-decoration:underline;}
+
+#option_menu .optionMenuList .loginLayer .close { position:absolute; cursor:pointer; border:0; padding:0; top:50px; right:8px; width:40px; height:10px; background:url(../img/custom/btn_x.gif); }

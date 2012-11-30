@@ -1,0 +1,46 @@
+<!-- 왼쪽 2차 메뉴 -->
+<ul id="sub_nav">            
+<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+<!--@if($val['selected']&&$val['list'])-->
+{@ $menu_1st = $val }                       
+<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+
+   <!-- main_menu 2차 시작 -->	
+   <ul>
+       <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+       {@ $menu_2nd = $val }
+       <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+
+           <!-- main_menu 3차 시작 -->
+           <ul>
+               <!--@foreach($menu_2nd['list'] as $key => $val)--><!--@if($val['link'])-->
+               {@ $menu_3rd = $val }
+               <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+
+                   <!-- main_menu 4차 시작 -->
+                   <ul>
+                       <!--@foreach($menu_3rd['list'] as $key => $val)--><!--@if($val['link'])-->
+                       {@ $menu_4th = $val }
+                       <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+
+                       </li>
+                       <!--@endif--><!--@endforeach-->
+                   </ul>
+                   <!-- main_menu 4차 끝 -->
+
+               </li>
+               <!--@endif--><!--@endforeach-->
+           </ul>
+           <!-- main_menu 3차 끝 -->
+
+       </li>
+       <!--@endif--><!--@endforeach-->
+   </ul>
+   <!-- main_menu 2차 끝 -->
+
+</li>
+<!--@endif-->
+<!--@endif--><!--@endforeach-->
+
+</ul>
+<!-- 왼쪽 2차 메뉴 끝-->

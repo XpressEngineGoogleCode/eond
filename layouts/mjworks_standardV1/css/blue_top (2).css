@@ -1,0 +1,38 @@
+@charset "utf-8";
+/* 
+상단메인메뉴 레드컬러셋
+*/
+
+#menuBox .menuItem { margin-right:10px; float:left; display:block;}
+
+#menuBox .menuItem .menuLeftBG {   width:4px;    height:95px;    float:left;}
+
+#menuBox .itemSelect .menuLeftBG {background:url("../images/blue/select_l.png") no-repeat top;}
+
+#menuBox .itemOn .menuLeftBG {background:url("../images/blue/over_l.png") no-repeat top;}
+
+#menuBox .itemOff .menuLeftBG {}
+
+#menuBox .menuItem .menuText {height:83px;   white-space:nowrap;   font:14px Tahoma, Arial, "맑은고딕", "돋움";	letter-spacing:1px; padding:12px 15px 0 15px;    float:left;}
+
+#menuBox .itemSelect .menuText {background:transparent url("../images/blue/select_bg.png") repeat-x top; }
+
+#menuBox .itemSelect .menuText a {color:#000000; text-decoration:none;}
+
+#menuBox .itemOn .menuText {background:transparent url("../images/blue/over_bg.png") repeat-x top; }
+
+#menuBox .itemOn .menuText a {color:#000000;  text-decoration:none; }
+
+#menuBox .itemOff .menuText {}
+
+#menuBox .itemOff .menuText a { color:#ededed; text-decoration:none; }
+
+#menuBox .menuItem .menuRightBG { width:4px; height:95px; float:left;}
+
+#menuBox .itemSelect .menuRightBG {background:transparent url("../images/blue/select_r.png") no-repeat top;}
+
+#menuBox .itemOn .menuRightBG {background:transparent url("../images/blue/over_r.png") no-repeat top;}
+
+#menuBox .itemOff .menuRightBG {}
+
+

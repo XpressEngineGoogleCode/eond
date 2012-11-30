@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+#sitebar {background:#FBFBFB; border-bottom:1px solid #F0F0F0; width:100%;height:30px;min-width:500px;}
+
+#sitebar a:link,a:visited,a:active {color:#848689;text-decoration:none;font:11px dotum;letter-spacing:-1;}
+#sitebar a:hover {color:#555;}
+
+#sitebar li {list-style:none;border-left:1px solid #FFFFFF;border-right:1px solid #ECECEE;height:18px;padding:9px 9px 0 9px ;margin:0;}
+#sitebar li:hover {background:#FFFFFF;border-bottom:1px solid #FFF;border-right:1px solid #D4D4D6;border-left:1px solid #F0F0F0;}
+#sitebar li:first-child {border-left:1px solid #F0F0F0;margin-left:100px;}
+
+#sn {margin:0;padding:0;}
+
+#fm {float:right;padding:10px;display:none;}
+#login {width:200px;float:right;height:20px;text-align:right;padding:5px 10px;display:none;}

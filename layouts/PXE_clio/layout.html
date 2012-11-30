@@ -1,0 +1,188 @@
+<!--환경설정 인클루드-->
+<include target="include.pref.html" />
+
+<div id="container_site" style="width:{$layout_info->container_site_width+10}px;">
+
+    <div id="header">
+        <div class="wrapper">
+
+            <!--IE8 캠페인-->
+            <!--[if lte IE 6]>
+            <include target="packages/pxe_ie8/include.ie8.html" />
+            <![endif]-->
+
+            <!--로고-->
+            <a href="{$layout_info->index_url}" class="site_logo">
+                <block cond="$layout_info->logo_image"><img src="{$layout_info->logo_image}" alt="로고" /></block>
+                <block cond="!$layout_info->logo_image"><img src="img/{$layout_info->colorset}/logo_{$lang_type}.png" alt="로고" /></block>
+            </a>
+
+            <!--옵션 메뉴 인클루드-->
+            <include target="packages/pxe_omenu/include.omenu.html" />
+        </div><!--wrapper 끝-->
+    </div><!--header 끝-->
+
+    <div id="header_main" style="width:{$layout_info->container_site_width}px;">
+        <div class="wrapper">
+
+            <!--메인메뉴 인클루드-->
+            <include target="packages/pxe_droppy_menu/include.mainmenu.html" />
+
+            <!--통합검색 인클루드-->
+            <include target="packages/pxe_search/include.search.html" />
+
+        </div><!--wrapper 끝-->
+    </div><!--header_main 끝-->
+
+    <div id="header_sub" cond="$layout_info->display_hmenu != 'notuse'" style="width:{$layout_info->container_site_width}px;">
+        <div class="wrapper">
+
+            <!--2차 세로메뉴 및 빵조각 인클루드-->
+            <include target="packages/pxe_hmenu/include.hmenu.html" />
+
+        </div><!--wrapper 끝-->
+    </div><!--header_sub 끝-->
+
+    <!--프로모션 인클루드-->
+    <div id="promotion" cond="$layout_info->display_promotion == 'Y'" style="width:{$layout_info->container_site_width}px;">
+        <include target="packages/pxe_promo/include.promo.html" />
+    </div><!--promotion 끝-->
+
+    <!--둘러보기용-->
+    <span class="applyCurvy" cond="$layout_info->display_splash == 'show'" onclick="curvyCorners.init();"><img src="packages/pxe_splash/img/bg_curvy_{$lang_type}.gif" alt="둥근 모서리 적용" style="position:relative; top:2px; left:2px;" /></span>
+
+    <div id="container_body" class="{$layout_info->layout_type}" style="width:{$layout_info->container_site_width}px;">
+
+        <div id="equal">
+
+            <div id="e1" cond="$layout_info->layout_type != 'c'" style="width:{$layout_info->wid1_width}px;">
+                <div class="wrapper">
+
+                    <!--계정 관련 인클루드-->
+                    <div class="section_02" cond="$layout_info->display_accounts == 'widget'">
+                        <div class="sec_body">
+                            <include target="packages/pxe_account/include.account.html" />
+                        </div>
+                    </div>
+
+                    <!--2차 세로 메뉴 인클루드-->
+                    <div class="section_02" cond="$layout_info->display_vmenu == 'Y' && $menu_1st['list']">
+                        <include target="packages/pxe_vmenu/include.vmenu.html" />
+                    </div>
+
+                    <div class="section_02" cond="$layout_info->display_splash == 'show'">
+                        <include target="packages/pxe_vmenu/include.vmenu.demo.html" />
+                    </div>
+
+                    <!--카테고리 인클루드-->
+                    <div class="section_01" cond="$layout_info->display_category == 'Y' && $module_info->use_category == 'Y' && $layout_info->display_splash == 'hide'" style="margin-top:25px;">
+                        <span class="sec_title"><img class="iePngFix" src="packages/pxe_category/img/default/title_category_{$lang_type}.png" alt="카테고리" /></span>
+                        <div class="sec_body">
+                            <include target="packages/pxe_category/include.category.html" />
+                        </div>
+                    </div>
+                    <!--데모용 카테고리 인클루드-->
+                    <div class="section_01" cond="$layout_info->display_splash == 'show'" style="margin-top:25px;">
+                        <span class="sec_title"><img class="iePngFix" src="packages/pxe_category/img/default/title_category_{$lang_type}.png" alt="카테고리" /></span>
+                        <div class="sec_body">
+                            <include target="packages/pxe_category/include.category.demo.html" />
+                        </div>
+                    </div>
+
+                    <!--데모용 e1 사이드바 인클루드-->
+                    <block cond="$layout_info->display_splash == 'show'"><include target="packages/pxe_splash/include.splash.e1.html" /></block>
+
+                    <!--사용자용 e1 사이드바 인클루드-->
+                    <block cond="$layout_info->display_splash == 'hide'"><include target="include.e1.html" /></block>
+
+                    <!--소셜 네트워크 링크 인클루드-->
+                    <div class="section_03">
+                        <div class="sec_body">
+                            <include target="packages/pxe_social/include.social.html" />
+                        </div>
+                    </div>
+
+                    <!--언어설정 인클루드-->
+                    <div class="section_03">
+                        <div class="sec_body" style="overflow:visible">
+                            <include target="packages/pxe_selector_lang/include.selector.lang.html" />
+                        </div>
+                    </div>
+
+					 <!--사용자용 e3 사이드바 인클루드-->
+                    <block cond="$layout_info->display_splash == 'hide'"><include target="include.e3.html" /></block>
+
+                </div><!--wrapper 끝-->
+            </div><!--e1 끝-->
+
+            <div id="e2" cond="$layout_info->layout_type == 'eec' || $layout_info->layout_type == 'cee' || $layout_info->layout_type == 'ece'" style="width:{$layout_info->wid2_width}px;">
+                <div class="wrapper">
+
+                    <!--데모용 e2 사이드바 인클루드-->
+                    <include cond="$layout_info->display_splash == 'show'" target="packages/pxe_splash/include.splash.e2.html" />
+
+                    <!--사용자용 e2 사이드바 인클루드-->
+                    <include cond="$layout_info->display_splash == 'hide'" target="include.e2.html" />
+
+                </div>
+            </div><!--e2 끝-->
+
+            <div id="container_contents">
+                <div class="wrapper">
+                    <block cond="$layout_info->display_splash == 'hide'">
+                        <include cond="$layout_info->container_contents_style == 'useRound'" target="packages/pxe_content/include.content.html" />
+                        <block cond="$layout_info->container_contents_style == 'default'">{$content}</block>
+                    </block>
+                    <include cond="$layout_info->display_splash == 'show'" target="packages/pxe_splash/include.splash.html" />
+                </div><!--wrapper 끝-->
+            </div><!--container_contens 끝-->
+            <div class="clear"></div>
+
+            <div id="footer_01" cond="$layout_info->display_footer_widgets == 'Y'" style="width:{$layout_info->container_site_width}px;">
+                <div class="wrapper">
+                    <!--하단 위젯 인클루드-->
+                    <include target="packages/pxe_bwidgets/include.bwidgets.html" />
+                </div>
+            </div><!--footer_01 끝 -->
+
+        </div><!--equal 끝-->
+
+    </div><!--container_body 끝-->
+
+    <div id="footer_02" class="pngFix" style="width:{$layout_info->container_site_width-10}px;">
+        <span class="footerR pngFix">Footer Right Corner</span>
+
+        <div class="wrapper">
+            <div class="footer_left">
+                <!--좌측하단 메뉴-->
+                <ul class="bottom_menu" cond="$layout_info->display_splash == 'hide'">
+                    <li loop="$bottom_menu->list=>$key, $val"><a href="{$val['href']}" <block cond="$val['open_window']=='Y'">onclick="window.open(this.href);return false;"</block>>{$val['link']}</a></li>
+                </ul>
+
+                <!--좌측하단 메뉴 인클루드(데모용)-->
+                <include cond="$layout_info->display_splash == 'show'" target="packages/pxe_splash/include.splash.bottom.html" />
+
+                <div class="copyright_info">
+                    © From 2000.6.25 EOND.COM All Rights Reserved.
+                </div>
+            </div><!--footer_left 끝-->
+
+            <div class="footer_right">
+                <div class="madeWith">
+                    <p>powered by <a href="http://www.premiumxe.com" target="_blank">Premiumxe</a>
+                    <span class="address">http://www.premiumxe.com</span>
+                    </p>
+                </div><!--madeWith 끝-->
+            </div><!--footer_right 끝-->
+        </div>
+    </div><!--footer_02 끝-->
+
+</div><!--container_site 끝-->
+
+<!--새로 개발 된 IE6 PNG 해킹 JS-->
+<!--[if lte IE 6]>
+    <script type="text/javascript" src="js/pngFix.min.js"></script>
+    <script type='text/javascript'>
+      DD_belatedPNG.fix('.pngFix, img');
+    </script>
+<![endif]-->

@@ -1,0 +1,87 @@
+<!-- js 파일 import -->
+<!--%import("js/default.js")-->
+
+<!--%import("css/common.css")-->
+
+<!-- 레이아웃과 연동될 css 파일 import -->
+<!--@if($layout_info->colorset == "white")-->
+    <!--%import("css/white.css")-->
+<!--@elseif($layout_info->colorset == "black")-->
+    <!--%import("css/black.css")-->
+<!--@else-->
+    <!--%import("css/gray.css")-->
+<!--@end-->
+<!-- s : sitebar -->
+<div id="sitebar">
+	<ul>
+	<!--@foreach($site_menu->list as $key => $val)--><!--@if($val['link'])-->
+		<!--@if($val['selected'])-->
+			{@ $menu_1st = $val }
+		<!--@end-->
+	<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+	<!--@end--><!--@end-->
+	</ul>
+	<ul class="login">
+        <!--@if(!$is_logged)-->
+		<li><a href="{getUrl('mid',$layout_info->target_mid,'act','dispMemberSignUpForm')}"><img src="./images/login/btn_signup.png"></a></li>
+		<li><a href="{getUrl('act','dispMemberLoginForm')}"><img src="./images/login/btn_login.png"></a></li>
+        <!--@else-->
+
+            <!--<li><a href="{geturl('act','dispMemberInfo')}">정낙훈님</a></li>-->
+            <li><a href="{getUrl('act','dispMemberLogout')}"><img src="./images/login/btn_logout.png"></a></li>
+		<!--@end-->
+            <!-- 최고관리자이면 관리자 페이지 버튼 출력 -->
+            <!--@if($logged_info->is_admin == 'Y')-->
+            <li><a href="{getUrl('','module','admin')}" onclick="window.open(this.href); return false;"><img src="./images/login/btn_admin.gif" style="vertical-align:middle;"></a></li>
+            <!--@end-->
+	</ul>
+</div>
+<!-- e : sitebar -->
+
+<div id="wrap">
+<!-- s : header -->
+	<div id="header">
+		<div id="title">
+			<span id="logo"><img src="./images/logo.png"></span>
+		</div>
+		<div id="menu">
+<!-- ************************************************ s : lnb ************************************************ -->
+
+<!-- s : mainmenu -->
+<ul id="mainmenu">
+
+<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+    <!--@if($val['selected'])-->
+        {@ $menu_1st = $val }
+    <!--@end-->
+	<li class="mainmenu"<!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+	<!-- s : submenu -->
+	<ul class="submenu">
+	<!--@foreach($val['list'] as $key1 => $val1)--><!--@if($val1['link'])-->
+	<!--@if($val1['selected'])--><!--@end-->
+		<li <!--@if($val['selected'])-->class="on"<!--@end--> class="iePngFix"><a href="{$val1['href']}" <!--@if($val1['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val1['link']}</a></li>
+	<!--@end-->
+	<!--@end-->
+	</ul>
+	<!-- e : submenu -->
+	</li>
+<!--@end--><!--@end-->
+</ul>
+<!-- e : mainmenu -->
+
+<!-- ************************************************ e : lnb ************************************************ -->
+		</div>
+		<div id="submenu"></div>
+	</div>
+<!-- e : header -->
+
+<!-- s : container -->
+	<div id="container">
+		<div id="contents">{$content}</div>
+	</div>
+<!-- e : container -->
+
+<!-- s : footer -->
+	<div id="footer"></div>
+<!-- e : container -->
+</div>

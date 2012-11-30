@@ -1,0 +1,34 @@
+<!--%import("js/js.js")-->
+<!--%import("css/default.css")-->
+<!--%import("css/style.css")-->
+
+<script type="text/javascript">
+slide = "{$layout_info->slide}";
+</script>
+
+{@
+$layout_info->name = ($layout_info->name)? $layout_info->name : $layout_info->layout_title;
+$layout_info->url = ($layout_info->url)? $layout_info->url : "./";
+$layout_info->slide = (preg_match("/show_once/i", $layout_info->slide))? "once" : $layout_info->slide; // 메뉴 슬라이드
+}
+
+<div id="wrap" class="Wrapper {$layout_info->colorset}">
+	<a href="#content" class="skipTo">Skip to content</a>
+
+	<div id="header" class="mpReset">
+		<!--#include("./_header.html")-->
+	</div>
+{@
+	/**
+	 * 선택된 메뉴와 위젯태그가 모두 없으면 칼럼을 보이지 않는다.
+	 **/
+	$layout_info->column = ( $selected || $layout_info->widget_1 || $layout_info->widget_2 || $layout_info->widget_3)? $layout_info->column : "c";
+}
+	<div id="container" class="{$layout_info->column}">
+		<!--#include("./_container.html")-->
+	</div>
+
+	<div id="footer" class="mpReset {$layout_info->lang_srch}">
+		<!--#include("./_footer.html")-->
+	</div>
+</div>

@@ -1,0 +1,83 @@
+<!-- js 파일 import -->
+<!--%import("js/menu.js")-->
+<!--%import("js/xe_official.js")-->
+
+
+<!-- 레이아웃과 연동될 css 파일 import -->
+<!--@if($layout_info->colorset == "white")-->
+    <!--%import("css/eond_blu.css")-->
+<!--@elseif($layout_info->colorset == "black")-->
+    <!--%import("css/eond_rosso.css")-->
+<!--@elseif($layout_info->colorset == "rosso")-->
+    <!--%import("css/eond_rosso.css")-->
+<!--@else-->
+    <!--%import("css/default.css")-->
+<!--@end-->
+
+<div id="mainContainer">
+<img src="http://www.dhtmlgoodies.com/images/heading3.gif">
+<div id="dhtmlgoodies_menu">
+	<ul>
+		<li><a href="http://www.dhtmlgoodies.com">Products</a>
+			<ul>
+				<li><a href="http://www.dhtmlgoodies.com">Product 1</a></li>
+				<li><a href="http://www.dhtmlgoodies.com">Product 2</a>
+					<ul>
+						<li><a href="http://www.dhtmlgoodies.com">Prices</a></li>
+						<li><a href="http://www.dhtmlgoodies.com">White sheets</a></li>
+						<li><a href="http://www.dhtmlgoodies.com">User manuals</a></li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+		<li><a href="http://www.dhtmlgoodies.com">Support</a>
+			<ul>
+				<li><a href="http://www.dhtmlgoodies.com">Contact Us</a></li>
+				<li><a href="http://www.dhtmlgoodies.com">Report a bug</a>
+					<ul>
+						<li><a href="http://www.dhtmlgoodies.com">Product A</a></li>
+						<li><a href="http://www.dhtmlgoodies.com">Product B</a></li>
+						<li><a href="http://www.dhtmlgoodies.com">Another product</a></li>
+					</ul>
+				</li>
+				<li><a href="http://www.dhtmlgoodies.com">Sub item 3</a>
+
+					<ul>
+						<li><a href="http://www.dhtmlgoodies.com">Sub item 3.1</a></li>
+						<li><a href="http://www.dhtmlgoodies.com">Sub item 3.2</a>
+							<ul>
+								<li><a href="http://www.dhtmlgoodies.com">Sub item 3.2.1</a></li>
+								<li><a href="http://www.dhtmlgoodies.com">Sub item 3.2.2</a></li>
+								<li><a href="http://www.dhtmlgoodies.com">Sub item 3.2.3</a></li>
+							</ul>
+						</li>
+						<li><a href="http://www.dhtmlgoodies.com">Sub item 3.3</a></li>
+					</ul>
+				</li>
+				<li><a href="http://www.dhtmlgoodies.com">Sub item 4</a></li>
+				<li><a href="http://www.dhtmlgoodies.com">Sub item 5</a></li>
+			</ul>
+		</li>
+		<li><a href="http://www.dhtmlgoodies.com">Partners</a>
+			<ul>
+				<li><a href="http://www.dhtmlgoodies.com">Partner A</a></li>
+				<li><a href="http://www.dhtmlgoodies.com">Partner B</a></li>
+				<li><a href="http://www.dhtmlgoodies.com">Another partner</a></li>
+				<li><a href="http://www.dhtmlgoodies.com">Our latest partners</a></li>
+			</ul>
+		</li>
+		<li><a href="http://www.dhtmlgoodies.com">Visions</a>
+		<li><a href="http://www.dhtmlgoodies.com">History</a>
+	</ul>
+	</div>
+	<p>	Splendida porro oculi fugitant vitantque tueri. sol etiam caecat, contra si tendere pergas,propterea quia vis magnast ipsius et altea?ra per purum simulacra ferunturet feriunt oculos turbantia composituras. Praeterea splendor qui cumque est acer adurit saepe oculos ideo quod semina possidet ignismulta, dolorem oculis quae gignunt insinuando.lurida praeterea fiunt quae cumque tuenturarquati, quia luroris de corpore eorumsemina multa fluunt simulacris obvia rerum, multaque sunt oculis in eorum denique mixta,quae contage sua palloribus omnia pingunt. </p>
+		<p>E tenebris autem quae sunt in luce tuemurpropterea quia, cum propior caliginis a?rater init oculos prior et possedit apertos, insequitur candens confestim lucidus a?r,qui quasi purgat eos ac nigras discutit umbrasa?ris illius; nam multis partibus hic estmobilior multisque minutior et mage pollens.qui simul atque vias oculorum luce replevit atque pate fecit, quas ante obsederat a?r<ater>, continuo rerum simulacra secuntur, quae sita sunt in luce, lacessuntque ut videamus. quod contra facere in tenebris e luce nequimuspropterea quia posterior caliginis a?r crassior insequitur, qui cuncta foramina completobsiditque vias oculorum, ne simulacrapossint ullarum rerum coniecta moveri. Quadratasque procul turris cum cernimus urbis,propterea fit uti videantur saepe rutundae, angulus optusus quia longe cernitur omnissive etiam potius non cernitur ac perit eiusplaga nec ad nostras acies perlabitur ictus,a?ra per multum quia dum simulacra feruntur,cogit hebescere eum crebris offensibus a?r. hoc ubi suffugit sensum simul angulus omnis.fit quasi ut ad turnum saxorum structa tuantur;non tamen ut coram quae sunt vereque rutunda,sed quasi adumbratim paulum simulata videntur. </p>
+		<p>Umbra videtur item nobis in sole moveri et vestigia nostra sequi gestumque imitari,a?ra si credis privatum lumine posseindugredi, motus hominum gestumque sequentem;nam nihil esse potest aliud nisi lumine cassusa?r id quod nos umbram perhibere su?mus. ni mirum, quia terra locis ex ordine certislumine privatur solis qua cumque meantesofficimus, repletur item quod liquimus eius,propterea fit uti videatur, quae fuit umbracorporis, e regione eadem nos usque secuta. semper enim nova se radiorum lumina funduntprimaque dispereunt, quasi in ignem lana trahatur.propterea facile et spoliatur lumine terraet repletur item nigrasque sibi abluit umbras. Nec tamen hic oculos falli concedimus hilum. nam quo cumque loco sit lux atque umbra tueriillorum est; eadem vero sint lumina necne,umbraque quae fuit hic eadem nunc transeat illuc,an potius fiat paulo quod diximus ante,hoc animi demum ratio discernere debet, nec possunt oculi naturam noscere rerum.proinde animi vitium hoc oculis adfingere noli. Qua vehimur navi, fertur, cum stare videtur;quae manet in statione, ea praeter creditur ire.et fugere ad puppim colles campique videntur, quos agimus praeter navem velisque volamus.
+		Sidera cessare aetheriis adfixa caverniscuncta videntur, et adsiduo sunt omnia motu,quandoquidem longos obitus exorta revisunt,cum permensa suo sunt caelum
+		corpore claro. solque pari ratione manere et luna videturin statione, ea quae ferri res indicat ipsa. Exstantisque procul medio de gurgite montisclassibus inter
+		quos liber patet exitus ingens,insula coniunctis tamen ex his una videtur. atria versari et circum cursare columnaeusque adeo fit uti pueris videantur, ubi
+		ipsidesierunt verti, vix ut iam credere possintnon supra sese ruere omnia tecta minari. Iamque rubrum tremulis iubar ignibus erigere alte cum coeptat
+		natura supraque extollere montes,quos tibi tum supra sol montis esse videturcomminus ipse suo contingens fervidus igni,vix absunt nobis missus bis mille
+		sagittae,vix etiam cursus quingentos saepe veruti. </P>
+</p>
+</div>

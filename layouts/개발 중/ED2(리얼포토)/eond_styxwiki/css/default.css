@@ -1,0 +1,80 @@
+@charset "utf-8";
+/* reset */
+html{}
+body { font:12px Gulim, Arial; background:#FFF;}
+button { cursor:pointer; }
+p { margin:0; padding:0; line-height:150%; }
+fieldset,img { border:0; }
+caption,th { text-align:left; }
+hr { display:none; }
+
+/* default */
+.blank { display:block; overflow:hidden; clear:both; width:0; height:0; margin:0; padding:0; border:0; background:none; font-size:0; line-height:0; }
+.none { display:block; visibility:hidden; overflow:hidden; position:absolute; top:0; left:0; z-index:-1; width:0; height:0; margin:0; padding:0; font-size:0; line-height:0; }
+.skipTo { display:block; height:0; overflow:hidden; text-align:center; }
+.skipTo:active,
+.skipTo:hover,
+.skipTo:focus { height:auto; padding:5px; }
+.mpReset,
+.mpReset * { margin:0; padding:0; list-style:none; border:0; background:none; font-style:normal; font-family:Gulim, Arial, Tahoma; }
+
+/*
+#wrap,
+#header,
+#container,
+#content,
+#column .extension .section,
+#footer { position:relative; height:100%; }
+*/
+#wrap:after,
+#header:after,
+#container:after,
+#content:after,
+#column .extension .section:after,
+#footer:after { clear:both; content:""; }
+
+
+
+ul {margin:0;padding:0;}
+
+/* Sitebar - navi_UpService, TopSiteBar(tsb) */
+#sitebar_old {height: 23px;background: url('../images/bg_sitebar.gif') repeat-x left top;text-align:center;vertical-align:middle; padding-top:4px;font-size:11px;font-family:맑은 고딕;color:black;}
+#sitebar_old li {display:inline;margin-right:13px;list-style-type: none;}
+#sitebar_old li.first-child {}
+#sitebar_old li a { text-decoration:none;color:#000;height:27px;padding-top:4;}
+#sitebar_old li a:hover{ text-decoration:none;color:#999;}
+
+.sitebar_old_admin {position:absolute; right:2px;top:6px;width:20px;}
+
+/* Sitebar Naver Style */
+#sitebar_naver {background:#FBFBFB; border-bottom:1px solid #FDFDFD; width:100%;height:30px;text-align:center;margin:0 auto;}
+
+
+
+/* Body */
+
+#header {height:70px;background: url(../images/bg.gif) repeat-x;}
+#logo {padding:30px 0 0 50px ;}
+
+#navi {font-family: Segoe UI, Lucida Grande, Arial, sans-serif;	font-size: 12px;color: #444444;padding:0 30px;margin-top:5px;}
+
+#navi ul {margin:0;padding:0;}
+#navi li {display:inline;list-style:none;}
+
+#navi1 {padding-left:10px;padding-bottom:2px;margin:0;border-bottom:3px solid #ACD734;}
+#navi1 li {font-size:11px;font-weight:bold;background-color:#B4DB3F;margin-right:1px;	padding: 5px 10px 3px 10px;}
+
+#navi2 {font-size: 11px;margin:0px;padding:9px 13px 0px 13px;	height:32px;background: repeat-x top url(http://eond.com/realphoto/images/editbar_bg.png);}
+#navi2 li {list-style:none;margin-right:15px;padding:0;}
+
+#navi a:link {color:white;text-decoration:none;}
+#navi a:hover {color:white;text-decoration:none;}
+#navi a:visited {color:white;text-decoration:none;}
+#navi a:active {color:white;text-decoration:none;}
+
+#navi2 a:link {color:#444444;text-decoration:none;}
+#navi2 a:hover {color:#444444;text-decoration:none;}
+#navi2 a:visited {color:#444444;text-decoration:none;}
+#navi2 a:active {color:#444444;text-decoration:none;}
+
+#content {padding:0 30px;}

@@ -1,0 +1,104 @@
+@charset "utf-8";
+/*
+NHN UIT Lab. WebStandardization Team (http://html.nhndesign.com/)
+Jeong, Chan Myeong 070601~070630
+*/
+
+/* Eond Rosso Skin - Start */
+
+ul {margin:0;padding:0;}
+
+#navi_UpService {height: 23px;background: url('../images/navi_UpService_bg.gif') repeat-x left top;text-align:center;vertical-align:middle; margin-top:0px;padding-top:4px;font-size:11px;font-family:맑은 고딕, verdana, tahoma, 돋움, 굴림;color:black;display:none;}
+/* display:absolute,inline,block, none, */
+#navi_UpService li {display:inline;margin-right:13px;list-style-type: none;}
+#navi_UpService li.first-child {}
+#navi_UpService li a { text-decoration:none;color:#000;height:27px;padding-top:4;}
+#navi_UpService li a:hover{ text-decoration:none;color:#999;}
+
+.navi_Upservice_admin {position:absolute; right:2px;top:6px;width:20px;}
+
+
+/* Site Layout - Body Wrap */
+body { background:url(../images/default/bgTop.gif) repeat-x;}
+#bodyWrap { position:center; width:950px; margin:0 auto; padding:0;}
+
+/* Site Layout - Header */
+#header {height:130px;margin:0;padding:0;position: relative;z-index: 1;}
+#header h3 {float:right;text-align:left;width:150px;height:30px;margin:0px;letter-spacing:5px;margin-top:6px;margin-bottom:-10px;}
+#header h1 {clear:both;width:950px;height:73px;margin-top:5px;padding-top:5px;_padding-top:7px;}
+
+
+.png24 {tmp:expression(setPng24(this));}
+
+#it_search_form { position:absolute; top:50px; right:15px;border:0px solid red;}
+#it_search_form .input { border:1px solid #bc4032; height:17px; width:120px; color:#888888; font-size:.9em;}
+#it_search_form .submit_button { width:1px; height:1px; visibility:hidden; }
+
+#gnb {float:left;border:0px solid red;margin-top:0px;_margin-top:-27px;margin-left:0px;padding:0px;}
+#gnb li { position:static;float:left;  margin:0px;list-style:none;  background:url(../images/default/bgGnbVr.gif) no-repeat left center; padding-left:2px; position:relative; left:-2px; white-space:nowrap;}
+#gnb li a { display:block; float:left; padding:0px 0px 0px 0px; color:#B9BBC1; white-space:nowrap; text-decoration:none;font-weight:bold; font-family:"굴림", "Arial", "Verdana", "굴림", Dotum, "굴림", Gulim, AppleGothic, Sans-serif;font-size:12px;margin-right:10px;letter-spacing:-1px;}
+#gnb li a:hover {border-top:0px solid #B41D0C;background: url(../images/eond_rosso/eond_title_bg.png) bottom;font:bold 12px "굴림";color:#e8e8e8;},
+#gnb li a:focus { color:#ffffff;}
+#gnb li.on a { font-weight:bold; color:#ffffff; background:url(../images/default/bgGnbOn.gif) no-repeat center top;}
+
+#isSearch {position:inline;float:left;margin:-3px 5px;_margin:-7px;padding:0;border:0px solid red;}
+#isSearch .searchOrder { display:none;}
+#isSearch .checked {  display:none; padding:5px 0 0 5px; width:64px; height:14px; background:url(../images/default/bgSearchTerm.gif) no-repeat; font:11px "돋움", Dotum, "굴림", Gulim, AppleGothic, Sans-serif; color:#ffffff; line-height:normal;}
+#isSearch ul { display:none; position:absolute; left:0; top:18px; padding:2px 0 3px 0; text-align:left; border:1px solid #919898; background:#536c6d;}
+#isSearch ul li {display:none; width:67px; height:18px; list-style:none; }
+#isSearch ul li input { display:none;}
+#isSearch ul li label { display:block; padding:4px 0 0 4px; width:63px; height:15px; font:11px "돋움", Dotum, "굴림", Gulim, AppleGothic, Sans-serif; color:#ffffff;}
+#isSearch ul li label.on { background:#455a5b; }
+#isSearch ul li label:hover,
+#isSearch ul li label:focus { background:#455a5b;}
+#isSearch .inputText {float:left;padding:2px; background:#FBFCFC;width:180px; margin:0px;height:17px; color:#122F3B; border:none; }
+#isSearch .inputText:hover,
+#isSearch .inputText:focus { background:url(../images/default/bgSearchOn.gif) no-repeat;background:#FBFCFC;width:180px; margin:0px;height:17px; color:#122F3B;padding:2px;}
+*:first-child+html body#default #isSearch .inputText { position:relative; top:-1px;}
+#isSearch .submit { vertical-align:middle; margin-left:-3px;margin-top:0px;_margin-top:-6px;padding:0px;}
+*:first-child+html body#default #isSearch .submit { position:relative; top:-1px;}
+
+/* Site Layout - Content Body */
+#contentBody {width:950px; margin-top:70px;margin-left: 0px;border:0px solid red;}
+
+
+/* Site Layout - Column Left */
+#columnLeft {width:770px;overflow:hidden; float:left;margin:0;padding:0;}
+
+#visualArea { width:770px; height:150px; background:#f5f5f5; margin-bottom:2.5em; position:relative; left:-15px; margin-right:-15px;}
+#content { width:100%; overflow:hidden;}
+
+
+/* Site Layout - Column Right */
+#columnRight {width:151px; float:right;}
+#columnRight .mask { width:151px; height:5px; background:#ffffff; display:hidden;}
+
+#lnb {margin:0px; padding:0px;}
+#lnb li { padding-bottom:4px;list-style:none; }
+#lnb li a {font-size:11px;font-family:"돋움";letter-spacing:-1px; padding:6px 5px 6px 13px; width:90%; display:block; border:1px solid #e8e8e8; background:url(../images/default/bgLnbOff.gif) repeat-x; color:#3e3e3e; position:relative; z-index:99; text-decoration:none;margin-left:0px;}
+#lnb li a:hover,
+#lnb li a:focus { color:#ffffff; background:#9CB9CF; border:1px solid #F0F4F8;}
+#lnb li.on a { color:#ffffff; background:#77A9C5; border:1px solid #F0F4F8;}
+#lnb li.on a:hover,
+#lnb li.on a:focus {background:#9CB9CF; }
+
+#lnb li ul { display:none; position:relative; padding:0px; border-top:1px solid #ffffff;}
+#lnb li.on ul { display:block;}
+#lnb li ul li { padding:0; border-top:1px solid #f2f2f2; position:relative; top:-1px;}
+#lnb li ul li a { padding:6px 5px 6px 10px; width:129px; color:#818181 !important; border:none; background:none !important; border:none !important; }
+#lnb li ul li a:hover,
+#lnb li ul li a:focus { font-weight:normal !important; color:#4D4D4D !important;}
+#lnb li.on ul li.on a { color:#4D4D4D !important; font-weight:bold !important; background:url(../images/default/bulletLnb.gif) no-repeat 135px center  !important;}
+
+
+/* Site Layout - Content */
+#contentMain {position:absolute;width:950px;overflow:hidden;text-align:left;padding:1em 0 0 0; }
+#contentLeft {position:relative;float:right;right:0px;top:10px;background:#F3F3EF;height:100%;width:160px;text-align:center;padding-left:5px;padding-right:5px;overflow:visible;display:block; white-space:nowrap;text-decoration:none;}
+
+/* Site Layout - Footer */
+#footer { border-top:3px solid #f4f4f4; text-align:center; padding:2em 0 4em; clear:both;}
+#footer li { display:inline; padding:0 .6em 0 1em; background:url(../images/default/vrType1.gif) no-repeat left center;}
+#footer li.first-child { background:none;}
+#footer li a { color:#999999; font:.9em "돋움", Dotum, "굴림", Gulim, AppleGothic, Sans-serif;}
+#footer li address { display:inline; }
+/* Default Skin - End */

@@ -1,0 +1,50 @@
+<!--@if($layout_info->column != "c")-->
+<div id="column">
+	<!--@if($layout_info->widget_1)-->
+	<div class="extension">
+		<!--@if($layout_info->widget_1_title)--><h3 class="title">{$layout_info->widget_1_title}</h3><!--@end-->
+		<div class="section">{$layout_info->widget_1}</div>
+	</div>
+	<!--@end-->
+	<!--@if($layout_info->widget_2)-->
+	<div class="extension">
+		<!--@if($layout_info->widget_2_title)--><h3 class="title">{$layout_info->widget_2_title}</h3><!--@end-->
+		<div class="section">{$layout_info->widget_2}</div>
+	</div>
+	<!--@end-->
+	<!--@if($layout_info->widget_3)-->
+	<div class="extension">
+		<!--@if($layout_info->widget_3_title)--><h3 class="title">{$layout_info->widget_3_title}</h3><!--@end-->
+		<div class="section">{$layout_info->widget_3}</div>
+	</div>
+	<!--@end-->	
+	<!--@if($layout_info->widget_4)-->
+	<div class="extension">
+		<!--@if($layout_info->widget_4_title)--><h3 class="title">{$layout_info->widget_4_title}</h3><!--@end-->
+		<div class="section">{$layout_info->widget_4}</div>
+	</div>
+	<!--@end-->	
+	
+	<!-- 아래 코드는 저작권상 삭제하지 마세요.-->
+	<div class="wdg">
+	<h4>powered by</h4>
+	<ul>
+	<li><a href="http://www.raonnet.com/invite2/xynex" target="_blank"><img src="./images/bns/bn_raonnet.gif" alt="무료호스팅 라온넷"></a></li>
+	<li><a href="http://eond.com" target="_blank"><img src="./images/bns/bn_eond.gif" alt="이온디"></a></li>
+	<ul>
+	</div>
+	<!-- 끝 -->
+
+	<!--@if($layout_info->widget_5)-->
+	<div class="extension">
+		<!--@if($layout_info->widget_5_title)--><h3 class="title">{$layout_info->widget_5_title}</h3><!--@end-->
+		<div class="section">{$layout_info->widget_5}</div>
+	</div>
+	<!--@end-->	
+
+</div>
+<!--@end-->
+
+<div id="content">
+	{$content}
+</div>

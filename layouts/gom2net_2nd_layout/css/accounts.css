@@ -1,0 +1,126 @@
+.account{ position:absolute; top:170px; right:8px; margin:0; padding:0; z-index:1000;}
+.account li{ position:relative; float:left; list-style:none; background-image:url(../images/lineHeaderVr.gif); background-repeat:no-repeat; background-position:left 4px;}
+div.black .account li{ background-image:url(../images/lineHeaderVrBlack.gif);}
+.account li *{ vertical-align:top;}
+.account li li{ float:none; height:auto; background-image:none;}
+
+.account li.log{ background-image:none; font-size:0; line-height:0;}
+.account li.log a{ display:block; padding:5px 8px;}
+
+.account li.profile { z-index:9999; }
+.account li.profile button{ border:0; padding:0; width:53px; height:15px; cursor:pointer; background-color:transparent; background-image:url(../images/buttonProfile.gif); background-repeat:no-repeat; background-position:center -11px; overflow:visible;}
+div.black .account li.profile button{ background-position:center 5px;}
+.account li.profile button span{ position:relative; width:0; height:0; overflow:hidden; font-size:0; line-height:0; visibility:hidden; z-index:-1;}
+
+.account li.profile .memberProfile{ display:none; position:absolute; top:15px; left:8px; padding:20px; background:url(../images/modal_bg.gif) repeat; border:2px solid #cfdfec; z-index:20000; }
+.account li.profile .memberProfile.active{ display:block; }
+.account li.profile .memberProfile .authorName{ margin:0 0 5px 0; font-size:14px; font-weight:bold; color:#333; white-space:nowrap;}
+.account li.profile .memberProfile .point{ margin:0 0 5px 0; font-size:12px; color:#f60; white-space:nowrap;}
+.account li.profile .memberProfile .latestLogin{ margin:0 0 8px 0; font-size:12px; color:#888; white-space:nowrap;}
+.account li.profile .memberProfile ul{ margin:0; padding:15px 15px 5px 15px; list-style:none; border:1px solid #f2f2f2; background:#fcfcfc; }
+.account li.profile .memberProfile li{ float:none; white-space:nowrap; margin:0 0 10px 0; padding:0 0 0 10px; background:url(../images/bulletB.gif) no-repeat left center;}
+.account li.profile .memberProfile li a{ background:none; color:#333; text-decoration:none;}
+.account li.profile .memberProfile li a:hover,
+.account li.profile .memberProfile li a:active,
+.account li.profile .memberProfile li a:focus{ color:#147DB6; }
+.account li.profile .memberProfile .close{ position:absolute; cursor:pointer; border:0; padding:0; top:0; right:0; width:27px; height:27px; background:transparent url(../images/buttonCloseX.gif) no-repeat center center;}
+.account li.profile .memberProfile .close span{ position:absolute; font-size:0; line-height:0; width:0; height:.; overflow:hidden; visibility:hidden;}
+
+.account li.register a{ display:block; width:43px; height:5px; padding:5px 8px; background-image:url(../images/buttonRegister.gif); background-repeat:no-repeat; background-position:center -10px;}
+div.black .account li.register a{ background-position:center 5px;}
+.account li.register a span{ position:relative; width:0; height:0; overflow:hidden; font-size:0; line-height:0; visibility:hidden; z-index:-1;}
+
+.account li.flag { padding-left:10px; }
+
+.account li.language{ position:relative;}
+.account li.language em{ display:inline-block; height:15px; overflow:hidden; padding:0 8px; font-size:9px; font-style:normal; background-image:url(../images/buttonLanguage.gif); background-repeat:no-repeat; background-position:-92px -11px;}
+div.black .account li.language em{ background-position:8px -10px;}
+.account li.language em span{ display:inline-block; overflow:hidden; visibility:hidden;}
+.account li.language em.ko{ background-position:-92px -11px;}
+div.black .account li.language em.ko{ background-position:8px -11px;}
+.account li.language em.en{ background-position:-92px -26px;}
+div.black .account li.language em.en{ background-position:8px -26px;}
+.account li.language em.jp{ background-position:-92px -41px;}
+div.black .account li.language em.jp{ background-position:8px -41px;}
+.account li.language em.zh-CN{ background-position:-92px -55px;}
+div.black .account li.language em.zh-CN{ background-position:8px -55px;}
+.account li.language em.zh-TW{ background-position:-92px -71px;}
+div.black .account li.language em.zh-TW{ background-position:8px -71px;}
+
+.account li.language button{ height:15px; border:0; padding:0; font-size:0; line-height:0; overflow:visible; cursor:pointer; background-image:url(../images/buttonLanguage.gif); background-repeat:no-repeat; background-position:-92px 4px; background-color:transparent;}
+div.black .account li.language button{ background-position:8px 5px;}
+.account li.language button span{ font-size:0; line-height:0; width:0; height:0; overflow:hidden; visibility:hidden;}
+.account li.language .sLanguage{ position:relative; width:100px; text-align:right;}
+.account li.language .sLanguage span{ font-size:0; line-height:0; letter-spacing:-100px; display:inline-block; visibility:visible; width:100%; height:15px; background-image:url(../images/buttonSelectLanguageToggle.gif); background-repeat:no-repeat; background-position:85px 4px;}
+.account li.language.open .sLanguage span{ background-position:85px -6px;}
+.account li.language .languageList{ display:none; width:98px; margin:0; padding:5px 0; position:absolute; top:20px; right:0; background:#fff; border:1px solid #eee;}
+.account li.language.open .languageList{ display:block; z-index:999;}
+.account li.language .languageList button{ width:100%;}
+div.black .account li.language .languageList{ background:#666; border-color:#888;}
+.account li.language .languageList .ko button{ background-position:-92px -10px;}
+div.black .account li.language .languageList .ko button{ background-position:8px -10px;}
+.account li.language .languageList .en button{ background-position:-92px -25px;}
+div.black .account li.language .languageList .en button{ background-position:8px -25px;}
+.account li.language .languageList .jp button{ background-position:-92px -40px;}
+div.black .account li.language .languageList .jp button{ background-position:8px -40px;}
+.account li.language .languageList .zh-CN button{ background-position:-92px -55px;}
+div.black .account li.language .languageList .zh-CN button{ background-position:8px -55px;}
+.account li.language .languageList .zh-TW button{ background-position:-92px -70px;}
+div.black .account li.language .languageList .zh-TW button{ background-position:8px -70px;}
+
+.account li.language .languageList li { display:none;}
+.account li.language .languageList .ko,
+div.black .account li.language .languageList .ko,
+.account li.language .languageList .en,
+div.black .account li.language .languageList .en,
+.account li.language .languageList .jp,
+div.black .account li.language .languageList .jp,
+.account li.language .languageList .zh-CN,
+div.black .account li.language .languageList .zh-CN,
+.account li.language .languageList .zh-TW,
+div.black .account li.language .languageList .zh-TW { display:block; }
+
+/* Ajax Login Layer (Modal Window)
+---------------------------------------------------------------------------------*/
+/* modalWindow */
+.loginWindow{ display:none; position:fixed; left:0; top:100px; _position:absolute; width:100%; height:100%; z-index:900;} 
+.loginWindow.open{ display:block;}
+.loginWindow .modalWindow{ display:block; position:fixed; border:0; left:0; top:0; _position:absolute; width:100%; height:100%; background:#000; opacity:.3; filter:alpha(opacity:30);}
+.loginWindow .loginLayer{ position:absolute; width:289px; top:120px; left:50%; padding:30px; border:2px solid #cfdfec; margin:0 0 0 -175px; background:url(../images/modal_bg.gif) repeat;}
+.loginWindow .loginLayer form{ display:none; *zoom:1; margin:0 0 29px 0;}
+.loginWindow .loginLayer form:after{ content:""; display:block; clear:both;}
+.loginWindow .loginLayer form legend{ position:absolute; width:0; height:0; overflow:hidden; font-size:0; line-height:0; visibility:hidden;}
+.loginWindow .loginLayer fieldset{ border:0; margin:0; padding:0;}
+.loginWindow .loginLayer.loginTypeA form.typeA,
+.loginWindow .loginLayer.loginTypeB form.typeB{ display:block;}
+.loginWindow .loginLayer dl{ margin:0; padding:0 0 1px 0;}
+.loginWindow .loginLayer dt{ font-size:12px; font-weight:bold; color:#2c6a9a; margin:0 0 2px 0;}
+.loginWindow .loginLayer dd{ margin:0 0 21px 0;}
+.loginWindow .loginLayer .inputText{ width:269px; height:31px; padding:6px 9px 0 9px; border:1px solid #cae0f1; font:20px Tahoma; color:#333;}
+.loginWindow .loginLayer .inputText:focus{ background-color:#fbfbfb;}
+.loginWindow .loginLayer .inputCheck{ margin:0 3px 0 0; width:13px; height:13px; vertical-align:middle;}
+.loginWindow .loginLayer.loginTypeA .inputText{ background-image:url(../images/bgLoginText.gif); background-repeat:no-repeat; background-position:right top;}
+.loginWindow .loginLayer.loginTypeB .inputText{ background-image:url(../images/bgOpenidText.gif); background-repeat:no-repeat; background-position:right top; padding:6px 9px 0 35px; width:243px;}
+.loginWindow .loginLayer .keep{ margin:0; float:left; font-size:11px; line-height:normal; white-space:nowrap;}
+.loginWindow .loginLayer .keep label{ color:#2c6a9a;}
+.loginWindow .loginLayer .keep label:hover { color:#1d4665;}
+.loginWindow .loginLayer .loginButton,
+.loginWindow .loginLayer .loginButton input{ position:relative; border:0; color:#fff; font-size:12px; font-weight:bold; display:inline-block; height:36px; line-height:36px; background-color:transparent; background-image:url(../images/buttonLoginAction.gif); background-repeat:no-repeat; overflow:visible;}
+.loginWindow .loginLayer .loginButton,
+.loginWindow .loginLayer .loginButton input:hover { color:#99CCFF; }
+.loginWindow .loginLayer .loginButton{ float:right; background-position:0 0; right:11px;}
+.loginWindow .loginLayer .loginButton input{ left:11px; background-position:right 0; padding:0 30px 0 45px; cursor:pointer;}
+.loginWindow .loginLayer .help{ margin:0 -30px -30px -30px; padding:14px 0; list-style:none; text-align:center; background:url(../images/bg.jpg) repeat; border-top:1px solid #f2f2f2;}
+.loginWindow .loginLayer .help li{ display:inline; font-family:gulim; font-size:11px; line-height:11px; padding:0 0 0 5px;}
+.loginWindow .loginLayer .help li.join{ font-weight:bold;}
+.loginWindow .loginLayer .help li.find{ border-left:1px solid #b3b3b3;}
+.loginWindow .loginLayer .help li.typeA,
+.loginWindow .loginLayer .help li.typeB{ display:none; border-left:1px solid #b3b3b3;}
+.loginWindow .loginLayer.loginTypeA .help li.typeA,
+.loginWindow .loginLayer.loginTypeB .help li.typeB{ display:inline;}
+.loginWindow .loginLayer .help li a{ text-decoration:none; color:#C2DBE7;}
+.loginWindow .loginLayer .help li a:hover,
+.loginWindow .loginLayer .help li a:active,
+.loginWindow .loginLayer .help li a:focus{ text-decoration:none; color:#99CCFF; }
+.loginWindow .loginLayer .close{ position:absolute; cursor:pointer; border:0; padding:0; top:0; right:0; width:27px; height:27px; background:transparent url(../images/buttonCloseX.gif) no-repeat center center;}
+.loginWindow .loginLayer .close span{ position:absolute; font-size:0; line-height:0; width:0; height:.; overflow:hidden; visibility:hidden;}

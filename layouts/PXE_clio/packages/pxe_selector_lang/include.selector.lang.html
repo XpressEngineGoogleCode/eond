@@ -1,0 +1,23 @@
+<!-- JS 파일 로드 -->
+<load target="packages/pxe_selector_lang/js/jquery.selector.js" />
+
+<!-- 컬러셋용 CSS 파일 로드 -->
+<load cond="$layout_info->colorset == 'default'" target="packages/pxe_selector_lang/css/selector_lang_default.css" />
+<load cond="$layout_info->colorset == 'custom'" target="packages/pxe_selector_lang/css/selector_lang_custom.css" />
+
+<div id="pxe_selector_lang">
+    <span class="title">World wide : </span>
+    <div class="select">
+        <span class="ctrl"><span class="arrow"></span></span>
+        <button type="button" class="my_value">{$lang->pxe_lang}</button>
+        <ul class="a_list">
+        <block loop="$lang_supported=>$key,$val">
+            <block cond="$key!= $lang_type">
+            <li><span class="lists" onclick="doChangeLangType('{$key}');return false;">{$val}</span></li>
+            </block><!--//end of key-->
+        </block><!--//end of loop-->
+        </ul>
+    </div>
+
+    <div class="current_lang"><img class="iePngFix" src="packages/pxe_selector_lang/img/{$lang_type}.png" alt="" /><span>{$lang->pxe_current_lang}</span></div>
+</div><!--pxe_selector_lang 끝-->

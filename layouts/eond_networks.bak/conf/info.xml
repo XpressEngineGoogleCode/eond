@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title>이온디 네트웍스 레이아웃</title>
+	<description>
+		이온디 네트웍스 레이아웃입니다.
+    </description>
+	<version>0.1</version>
+    <date>2011-05-18</date>
+	<link>http://eond.com</link>
+    <author email_address="eond@eond.com" link="http://eond.com">
+        <name>이온디</name>
+    </author>
+
+    <menus>
+        <menu name="main_menu" default="true">
+            <title>메인 메뉴</title>
+            <maxdepth>2</maxdepth>
+        </menu>
+    </menus>
+	
+	<extra_vars>
+
+	<var name="title_layout"><title>레이아웃 설정</title></var>
+
+	<var name="colorset" type="select">
+            <title>① 컬러셋</title>
+			<options value="default">
+                <title>기본</title>
+            </options>
+		</var>
+	<var name="searchbox_color" type="text">
+		<title>검색박스 컬러</title>
+		<description>검색박스 테두리 색깔을 #000000 형식으로 입력하세요. 기본값은 #88EEFF 입니다.</description>
+	</var>
+
+	<var name="menubar_bg" type="image">
+		<title>메뉴바 배경이미지 지정</title>
+		<description>메뉴바의 배경이미지를 지정할 수 있습니다.</description>
+	</var>
+
+        
+    </extra_vars>
+
+</layout>

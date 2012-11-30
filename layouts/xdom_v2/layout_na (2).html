@@ -1,0 +1,683 @@
+<!--// js 파일 import -->
+<!--%import("js/layout.js")-->
+
+<!--// 레이아웃과 연동될 css 파일 import -->
+<!--%import("css/na/layout.css")-->
+<!--@if($layout_info->layout_type == "1")-->
+<!--%import("css/na/1.css")-->
+<!--@elseif($layout_info->layout_type == "2")-->
+<!--%import("css/na/2.css")-->
+<!--@elseif($layout_info->layout_type == "2a")-->
+<!--%import("css/na/2a.css")-->
+<!--@elseif($layout_info->layout_type == "2b")-->
+<!--%import("css/na/2b.css")-->
+<!--@elseif($layout_info->layout_type == "2c")-->
+<!--%import("css/na/2c.css")-->
+<!--@elseif($layout_info->layout_type == "3")-->
+<!--%import("css/na/3.css")-->
+<!--@elseif($layout_info->layout_type == "3a")-->
+<!--%import("css/na/3a.css")-->
+<!--@elseif($layout_info->layout_type == "3b")-->
+<!--%import("css/na/3b.css")-->
+<!--@elseif($layout_info->layout_type == "search")-->
+<!--%import("css/na/search.css")-->
+<!--@else-->
+<!--%import("css/na/main.css")-->
+<!--@end-->
+<!--@if(!$layout_info->layout_type)-->
+{@$layout_info->layout_type = "main"}
+<!--@end-->
+
+<style type="text/css">
+<!--@if($layout_info->background_image)-->
+body { background: url({$layout_info->background_image}) repeat-x center 0px; }
+<!--@end-->
+<!--@if($layout_info->colorset == "black")-->
+body { background-color: #FFF; }
+<!--@else-->
+body { background-color: #FFF; }
+<!--@end-->
+<!--@if($layout_info->header_image)-->
+.header { background: url({$layout_info->header_image}) repeat left 0px; }
+<!--@end-->
+<!--@if($layout_info->header_image_height)-->
+.header { height: {$layout_info->header_image_height}px; }
+<!--@end-->
+<!--@if($layout_info->memberProfile_right)-->
+.top_gnb .memberProfile { right: {$layout_info->memberProfile_right}px; }
+<!--@end-->
+<!--@if($layout_info->head_ad_1_left)-->
+.head_ad_1 { left: {$layout_info->head_ad_1_left}px; }
+<!--@end-->
+<!--@if($layout_info->head_ad_1_top)-->
+.head_ad_1 { top: {$layout_info->head_ad_1_top}px; }
+<!--@end-->
+<!--@if($layout_info->head_ad_2_left)-->
+.head_ad_2 { left: {$layout_info->head_ad_2_left}px; }
+<!--@end-->
+<!--@if($layout_info->head_ad_2_top)-->
+.head_ad_2 { top: {$layout_info->head_ad_2_top}px; }
+<!--@end-->
+<!--@if($layout_info->head_ad_3_right)-->
+.head_ad_3 { right: {$layout_info->head_ad_3_right}px; }
+<!--@end-->
+<!--@if($layout_info->head_ad_3_top)-->
+.head_ad_3 { top: {$layout_info->head_ad_3_top}px; }
+<!--@end-->
+<!--@if($layout_info->head_ad_4_left)-->
+.main_menu .head_ad_4 { left: {$layout_info->head_ad_4_left}px; }
+<!--@end-->
+<!--@if($layout_info->head_ad_4_top)-->
+.main_menu .head_ad_4 { top: {$layout_info->head_ad_4_top}px; }
+<!--@end-->
+<!--@if($layout_info->head_ad_5_right)-->
+.main_menu .head_ad_5 { right: {$layout_info->head_ad_5_right}px; }
+<!--@end-->
+<!--@if($layout_info->head_ad_5_top)-->
+.main_menu .head_ad_5 { top: {$layout_info->head_ad_5_top}px; }
+<!--@end-->
+<!--@if($layout_info->head_logo_top)-->
+.header h1 { top:{$layout_info->head_logo_top}px; }
+<!--@end-->
+<!--@if($layout_info->head_logo_left)-->
+.header h1 { left:{$layout_info->head_logo_left}px; }
+<!--@end-->
+<!--@if($layout_info->colorset == "cyan")-->
+.main_menu .gnb li a, .main_menu .gnb li a:hover, .main_menu .gnb li a:focus, .main_menu .gnb li a:visited, .main_menu .gnb li.on a { color:#333 }
+.main_menu .roll_gnb li a, .main_menu .roll_gnb li a:hover, .main_menu .roll_gnb li a:focus, .main_menu .roll_gnb li a:visited, .main_menu .roll_gnb li.on a { color:#333 }
+<!--@end-->
+<!--@if($layout_info->main_bannerLeft_top)-->
+.main_bannerLeft { top:{$layout_info->main_bannerLeft_top}px; }
+<!--@end-->
+<!--@if($layout_info->main_bannerLeft_left)-->
+.main_bannerLeft { left:{$layout_info->main_bannerLeft_left}px; }
+<!--@end-->
+<!--@if($layout_info->main_bannerRight_top)-->
+.main_bannerRight { top:{$layout_info->main_bannerRight_top}px; }
+<!--@end-->
+<!--@if($layout_info->main_bannerRight_right)-->
+.main_bannerRight { right:{$layout_info->main_bannerRight_right}px; }
+<!--@end-->
+<!--@if($layout_info->section_paddingR)-->
+#quick_go .extension .section { padding:0 {$layout_info->section_paddingR}px 0 0; }
+<!--@end-->
+</style>
+
+<!-- 상단 메뉴 시작 -->
+<div class="top_gnb {$layout_info->colorset}">
+	  <div class="top_box">
+
+		  <!-- 상단메뉴 왼쪽 시작 -->
+          <!--@if($layout_info->top_left)-->
+          <div class="top_left">{$layout_info->top_left}</div>
+          <!--@end-->
+		  <!-- 상단메뉴 왼쪽 끝 -->
+
+	      <ul class="account">
+			  <!--@if($is_logged)-->
+              <li class="first-child"><strong>{$logged_info->nick_name}</strong>님&nbsp<a href="#" onclick="jQuery('#memberProfile').toggleClass('active');" ><img src="./images/{$layout_info->colorset}/btn_gnb_menu.gif" alt="" class="bul" /></a>
+              <!--@if($logged_info->is_admin=="Y")-->
+	          <a href="{getUrl('','module','admin')}" onclick="window.open(this.href);return false;" title="{$lang->cmd_management}">[{$lang->cmd_management}]</a></li>
+              <!--@end-->
+              <li><a href="{getUrl('act','dispMemberLogout')}"><img src="./images/{$layout_info->colorset}/btn_logout.gif" alt="{$lang->cmd_logout}" title="{$lang->cmd_logout}" class="bul" /></a></li>
+			  <!--@else-->
+              <li><a href="{getUrl('act','dispMemberSignUpForm')}" title="{$lang->cmd_signup}">{$lang->cmd_signup}</a></li>
+			  <li class="first-child"><a href="#loginWindow" onclick="jQuery('#loginWindow').css('display','block');" accesskey="L"><img src="./images/{$layout_info->colorset}/btn_login.gif" alt="{$lang->cmd_login}" title="{$lang->cmd_login}" class="bul" /></a></li>
+			  <!--@end-->
+              <!--@foreach($top_menu->list as $key => $val)-->
+	          <li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end--> title="{$val['text']}">{$val['link']}</a></li>
+	          <!--@endforeach-->
+          </ul>
+	      <!--@if($is_logged)-->
+	      <!-- memberProfile -->
+		  <div id="memberProfile" class="memberProfile">
+		      <button type="button" class="close" onclick="jQuery('#memberProfile').toggleClass('active');" accesskey="X"><span>Close profile layer</span></button>
+			  
+			  {@ $oPointModel = &getModel('point'); $point = $oPointModel->getPoint($logged_info->member_srl); $oModuleModel = &getModel('module');  $config = $oModuleModel->getModuleConfig('point'); $level = $oPointModel->getLevel($point, $config->level_step); }
+			  <div class="point">Level : {$level} <br> Point : {$point}</div>
+			  <ul>
+				  <!--@foreach($logged_info->menu_list as $key => $val)-->
+			      <li><a href="{getUrl('act',$key,'member_srl','')}">{Context::getLang($val)}</a></li>
+				  <!--@end-->
+			  </ul>
+			  <button type="button" class="close" onclick="jQuery('#memberProfile').toggleClass('active');" accesskey="X"><span>Close profile layer</span></button>
+		  </div>
+		  <!-- /memberProfile -->
+		  <!--@end-->
+	  </div>
+      <div class="top_bg"></div>
+</div>
+<!-- 상단 메뉴 끝 -->
+
+<!-- Body 시작 -->
+<div class="bodyWrap {$layout_info->colorset}">
+
+	 <!-- Header 시작 -->
+     <div class="header">
+
+          <!--@if($layout_info->header_flash)-->
+          {$layout_info->header_flash}
+          <!--@end-->
+
+          <!--@if($layout_info->logo_image)-->
+		  <h1><a href="{$layout_info->index_url}"><img src="{$layout_info->logo_image}" alt="{$layout_info->site_name}" border="0" class="iePngfix" /></a></h1>
+          <!--@elseif($layout_info->layout_type == "main")-->
+		  <h1><a href="{$layout_info->index_url}"><img src="./images/logo_na.gif" alt="{$layout_info->site_name}" title="{$layout_info->site_name}" class="iePngfix" /></a></h1>
+		  <!--@else-->
+		  <h1><a href="{$layout_info->index_url}"><img src="./images/logo_s_na.gif" alt="{$layout_info->site_name}" title="{$layout_info->site_name}" class="iePngfix" /></a></h1>
+          <!--@end-->
+
+		  <!-- 메인용 검색창 시작 -->
+          <!--@if($layout_info->layout_type == "main")-->
+          <form action="{getUrl()}search/" id="cse-search-box" class="gSearch">
+            <div>
+              <input type="hidden" name="cx" value="partner-pub-8278444203493355:bly7cgcmpo4" />
+              <input type="hidden" name="cof" value="FORID:10" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="text" name="q" size="47" class="inputText Search{$layout_info->colorset}" />
+              <input type="image" src="./images/{$layout_info->colorset}/btnSearch.gif" alt="{$lang->cmd_search}" name="sa" class="submit" />
+            </div>
+          </form>
+          <script type="text/javascript" src="http://www.google.co.kr/cse/brand?form=cse-search-box&amp;lang=ko"></script> 
+          <!--@end-->
+		  <!-- 메인용 검색창 끝 -->
+
+		  <!-- 검색용 검색창 시작 -->
+          <!--@if($layout_info->layout_type == "search")-->
+          <form action="{getUrl()}search/" id="cse-search-box" class="gSearch">
+            <div>
+              <input type="hidden" name="cx" value="partner-pub-8278444203493355:afizhkrg3na" />
+              <input type="hidden" name="cof" value="FORID:10" />
+              <input type="hidden" name="ie" value="UTF-8" />
+              <input type="text" name="q" size="41" class="inputText iSearch{$layout_info->colorset}" />
+              <input type="image" src="./images/{$layout_info->colorset}/btSearch.gif" alt="{$lang->cmd_search}" name="sa" class="submit" />
+            </div>
+          </form>
+          <script type="text/javascript" src="http://www.google.co.kr/cse/brand?form=cse-search-box&lang=ko"></script>
+          <!--@end-->
+		  <!-- 검색용 검색창 끝 -->
+
+		  <!-- 메인용 검색하단 시작 -->
+          <!--@if($layout_info->layout_type == "main")-->
+          <div class="head_ad_2">{$layout_info->head_ad_2}</div>
+          <!--@end-->
+		  <!-- 메인용 검색하단 끝 -->
+
+		  <!-- 헤더 오른쪽 시작 -->
+          <!--@if($layout_info->head_ad_3)-->
+          <div class="head_ad_3">{$layout_info->head_ad_3}</div>
+          <!--@end-->
+		  <!-- 헤더 오른쪽 끝 -->
+
+     </div>
+	 <!-- Header 끝 -->
+
+	 <!-- 메인 메뉴 시작 -->
+	 <!--@if($layout_info->main_menu_type == "N")-->
+	 <!--@else-->
+     <div class="main_menu bgMenu{$layout_info->colorset}">
+          <div class="bgMenu_L{$layout_info->colorset}">
+               <div class="bgMenu_R{$layout_info->colorset}">
+
+		  <!-- 메인 메뉴 날짜 시작 -->
+		  <!--@if($layout_info->layout_type == "main")-->
+          <div class="tdate">
+               <div class="first-child">
+                    <script type="text/javascript">
+					<!--
+					var dayNames = new Array("일","월","화","수","목","금","토");
+					var monthNames = new Array("1월","2월","3월","4월","5월","6월","7월","8월","9.","10월","11월","12월");
+					var dt = new Date();
+					var y  = dt.getYear();
+					if (y < 1000) y +=1900; document.write("<span TITLE=오늘날짜와&nbsp;요일을알려줍니다.>"+monthNames[dt.getMonth()]+""+dt.getDate()+"("+dayNames[dt.getDay()]+")</span>");
+					//-->
+					</script>
+               </div>
+          </div>
+          <!--@end-->
+		  <!-- 메인 메뉴 날짜 끝 -->
+
+					<!-- 기본메뉴 시작 -->
+					<!--@if($layout_info->main_menu_type == "1")-->
+
+                    <!--GNB-->
+                    <ul class="gnb">
+                         <!-- main_menu 1차 시작 -->
+                         <!--@foreach($main_menu->list as $key => $val)-->
+                         <!--@if($val['link'])-->
+                         <!--@if($val['selected'])-->
+                         {@ $menu_1st = $val }
+                         <!--@end-->
+                         <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+                         </li>
+                         <!--@endif-->
+                         <!--@endforeach-->
+                    </ul>
+                    <!--//GNB-->
+
+                    <!--GNB2-->
+                    <!--@if($layout_info->layout_type == "main")-->
+                    <!--@else-->
+		            <!--@if($layout_info->main_2menu == "N")-->
+				    <!--@else-->
+                    <ul class="gnb2 gnb2{$layout_info->colorset}">
+                         <!-- main_menu 2차 시작 -->
+                         <!--@foreach($menu_1st['list'] as $key => $val)-->
+                         <!--@if($val['link'])-->
+                         <!--@if($menu_1st)-->
+                         {@ $idx = 1 } 
+                         <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end--> title="{$val['text']}">{$val['link']}</a>
+                         </li>
+                         {@$idx++}
+                         <!--@end-->
+                         <!--@end-->
+                         <!--@end-->
+                    </ul>
+				    <!--@end-->
+                    <!--@end-->
+                    <!--//GNB2-->
+
+					<!--@end-->
+					<!-- 기본메뉴 끝 -->
+
+					<!-- 롤오버메뉴 시작 -->
+					<!--@if($layout_info->main_menu_type == "2")-->
+
+                    <!--GNB-->
+                    <ul class="roll_gnb">
+                         <!-- main_menu 1차 시작 -->
+                         {@$gnb_count = 0;}
+                         <!--@foreach($main_menu->list as $key => $val)-->
+                         <!--@if($val['link'])-->
+                         <!--@if($val['selected'])-->
+                         {@ $menu_1st = $val }
+                         <!--@end-->
+                         <li id="gnbli{$gnb_count}" <!--@if($val['selected'])-->class="on"<!--@end-->onmouseover="gnbinToggle({$gnb_count}, this)" ><a href="{$val['href']}" onfocus="this.blur()" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+                         {@$gnb_count++;}
+                         <!--@end-->
+                         <!--@end-->
+                    </ul>
+                    <!--//GNB-->
+
+                    <script type="text/javascript">
+                         var gnb_count = {$gnb_count};
+                    </script>
+                    <!-- 2차 메뉴 -->
+                    {@$gnb_count = 0;}
+                    <!--@foreach($main_menu->list as $mkey => $mval)-->
+                    <!--@if($mval['text'])-->
+                    <!-- 왼쪽 2차 메뉴 -->
+                    <!--@if($mval['selected'])-->
+                    <ol id="gnb{$gnb_count}" class="roll_gnbSub roll_gnbSub{$layout_info->colorset}" style="display:block;">
+                         <!--@if(!$mval['list'])-->
+                         <li></li>
+                         <!--@end-->
+                         <!--@foreach($mval['list'] as $key => $val)-->
+                         <!--@if($val['text'])-->
+                         <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" onfocus="this.blur();" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['text']}</a></li>
+                         <!--@end-->
+                         <!--@end-->
+                    </ol>
+                    <script type="text/javascript">
+                         var gnb_count_now = {$gnb_count};
+                         reset_menu();
+                    </script>
+                    <!--@else-->
+                    <ol id="gnb{$gnb_count}" class="roll_gnbSub roll_gnbSub{$layout_info->colorset}" style="display:none;">
+                         <!--@if(!$mval['list'])-->
+                         <li></li>
+                         <!--@end-->
+                         <!--@foreach($mval['list'] as $key => $val)-->
+                         <!--@if($val['text'])-->
+                         <li><a href="{$val['href']}" onfocus="this.blur();" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['text']}</a> </li>
+                         <!--@end-->
+                         <!--@end-->
+                    </ol>
+                    <!--@end-->
+                    {@$gnb_count++;}
+                    <!--@end-->
+                    <!--@end-->
+
+				    <!--@end-->
+					<!-- 롤오버메뉴 끝 -->
+
+					<!-- 메인 메뉴바 우측 하단 검색창 시작 -->
+                    <form action="{getUrl()}" method="post" class="isSearch">
+                         <!--@if($vid)-->
+                         <input type="hidden" name="vid" value="{$vid}" />
+                         <!--@end-->
+                         <input type="hidden" name="mid" value="search" />
+                         <input type="hidden" name="act" value="IS" />
+                         <input type="hidden" name="search_target" value="title_content" />
+                         <input name="is_keyword" value="{$is_keyword}" type="text" class="inputText xSearch{$layout_info->colorset}" title="검색어를 입력해 주십시오" />
+                         <input type="image" src="./images/{$layout_info->colorset}/buttonSearch.gif" alt="{$lang->cmd_search}" class="submit" />
+                    </form>
+					<!-- 메뉴바 우측 하단 검색창 끝 -->
+
+					<!-- 메뉴바 하단 시작 -->
+                    <!--@if($layout_info->head_ad_4)-->
+                    <div class="head_ad_4">{$layout_info->head_ad_4}</div>
+                    <!--@end-->
+					<!-- 메뉴바 하단 끝 -->
+					<!-- 메뉴바 오른쪽 시작 -->
+                    <!--@if($layout_info->head_ad_5)-->
+                    <div class="head_ad_5">{$layout_info->head_ad_5}</div>
+                    <!--@end-->
+					<!-- 메뉴바 오른쪽 끝 -->
+
+               </div>
+          </div>
+     </div>
+	 <!--@end-->
+	 <!-- 메인 메뉴 끝 -->
+
+	 <!-- Content Body 시작 -->
+     <div class="content_Body">
+
+		  <!--@if($layout_info->content_Body_top)-->
+		  <div class="content_Body_top">{$layout_info->content_Body_top}</div>
+          <!--@end-->
+
+		  <!-- 메인용 왼쪽/오른쪽 베너 시작 -->
+		  <div class="main_bannerLeft">{$layout_info->main_bannerLeft}</div>	 
+		  <div class="main_bannerRight">{$layout_info->main_bannerRight}</div>
+		  <!-- 메인용 왼쪽/오른쪽 베너 끝 -->
+
+          <!--@if($layout_info->layout_type == "1")-->
+          <div class="columnContent">{$content}</div>
+          <!--@else-->
+          <div class="columnMenu">
+               <!--@if($layout_info->layout_type == "main")-->
+			   <!--@if($layout_info->login_i == "N")-->
+			   <!--@else-->
+               <img src="./images/blank.gif" class="zbxe_widget_output" widget="login_info" skin="xdom_login_v2" colorset="{$layout_info->colorset}_{$layout_info->layout_style}_{$layout_info->layout_type}" />
+			   <!--@end-->
+
+	           <!--퀵 메뉴 시작-->
+	           <!--@if($layout_info->quick_go == "N")-->
+			   <!--@else-->
+          	   <div id="quick_go" class="png_w80_bg">
+                    <div class="extension">
+                         <!--@foreach($quick_menu->list as $key => $val)-->
+                         <!--@if($val['link'])-->
+                         <div class="section">
+                             <h2><a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->>{$val['text']}</a></h2>
+                             <!--@if($val['list'])-->
+                             <ul>
+                                 <!--@foreach($val['list'] as $k => $v)-->
+                                 <!--@if($val['link'])-->
+                                 <li><a href="{$v['href']}"<!--@if($v['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->>{$v['text']}</a></li>
+                                 <!--@end-->
+                                 <!--@end-->
+                             </ul>
+                             <!--@end-->
+                         </div>
+                         <!--@end-->
+                         <!--@end-->
+                    </div>
+          	   </div>
+			   <!--@end-->
+               <!--퀵 메뉴 끝-->
+
+               <!--@end-->
+
+			   <!--@if($layout_info->login_i == "N")-->
+			   <!--@else-->
+               <!--@if($layout_info->layout_type == "2" || $layout_info->layout_type == "2a" || $layout_info->layout_type == "3a")-->
+               <img src="./images/blank.gif" class="zbxe_widget_output" widget="login_info" skin="xdom_login_v2" colorset="{$layout_info->colorset}_{$layout_info->layout_style}_{$layout_info->layout_type}" />
+               <!--@end-->
+               <!--@end-->
+
+		  <!--사이드 메뉴 시작-->
+               <!--@if($layout_info->layout_type == "main")-->
+               <!--@else-->
+			   <!--@if($layout_info->side_menu_type == "N")-->
+			   <!--@else-->
+
+			   <!-- 기본메뉴 시작 -->
+			   <!--@if($layout_info->side_menu_type == "1")-->
+               <!--@if($menu_1st)-->
+               <div class="lnbWrap lnbWrap{$layout_info->colorset}">
+                    <div class="subtitle bgsubtitle{$layout_info->colorset}">
+                         <h1 class="subtitle{$layout_info->colorset}">{$menu_1st['text']}</h1>
+                    </div>
+                    <ol class="lnb lnb{$layout_info->colorset}">
+                         {@ $idx = 1 }
+                         <!--@foreach($menu_1st['list'] as $key => $val)-->
+                         <!--@if($val['link'])-->
+                         <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+                         <!-- main_menu 3차 시작 -->
+                         <!--@if($val['list'] && ($val['expand']=='Y'||$val['selected']) )-->
+                         <ul>
+                              <!--@foreach($val['list'] as $k => $v)-->
+                              <!--@if($v['link'])-->
+                              <li <!--@if($v['selected'])-->class="on"<!--@end-->><a href="{$v['href']}" <!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$v['link']}</a>
+                              </li>
+                              <!--@endif-->
+                              <!--@endforeach-->
+                         </ul>
+                         <!--@endif-->
+                         </li>
+                         {@$idx++}
+                         <!--@endif-->
+                         <!--@endforeach-->
+                    </ol>
+               </div>
+               <!--@endif-->
+               <!--@end-->
+			   <!-- 기본메뉴 끝 -->
+
+			   <!-- 트리메뉴 시작 -->
+			   <!--@if($layout_info->side_menu_type == "2")-->
+					<img class="zbxe_widget_output" widget="navigator" skin="tree" colorset="white" menu_srl="{$layout_info->tree_menu_number}" start_depth="1" />
+               <!--@end-->
+			   <!--@if($layout_info->side_menu_type == "3")-->
+					<img class="zbxe_widget_output" widget="navigator" skin="tree" colorset="white" menu_srl="{$layout_info->tree_menu_number}" start_depth="2" />
+               <!--@end-->
+			   <!-- 트리메뉴 끝 -->
+
+               <!--@end-->
+			   <!--@end-->
+		  <!--사이드 메뉴 끝-->
+
+               <!--@if($layout_info->plus)-->
+               <div style="overflow: hidden;">
+                    <div style="padding: 0px ! important;">{$layout_info->plus}</div>
+               </div>
+               <!--@end-->
+          </div>
+          <!--@if($layout_info->layout_type == "3" || $layout_info->layout_type == "3a" || $layout_info->layout_type == "3b")-->
+		  <!--@if($layout_info->contentSide)-->
+          <div class="contentSide">{$layout_info->contentSide}</div>
+		  <!--@else-->
+		  <div class="contentSide">
+		  <div class="boxL boxT boxR boxB pdT8">
+		  <center>
+		  <script type="text/javascript"><!--
+		  google_ad_client = "pub-8278444203493355";
+		  /* 120x240, 작성됨 08. 5. 18 */
+		  google_ad_slot = "5503149330";
+		  google_ad_width = 120;
+		  google_ad_height = 240;
+		  //-->
+		  </script>
+		  <script type="text/javascript"
+		  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+		  </script>
+		  </center>
+		  </div>
+		  </div>
+          <!--@end-->
+		  <!--@end-->
+          <div class="columnContent png_w50_bg">
+               <!--@if($layout_info->layout_type == "main")-->
+               <!--@else-->
+               {$layout_info->content_top}
+               <!--@end-->
+               {$content}</div>
+          <!--@end-->
+
+		  <!--@if($layout_info->content_Body_bottom)-->
+		  <div class="content_Body_bottom">{$layout_info->content_Body_bottom}</div>
+          <!--@end-->
+
+     </div>
+	 <!-- Content Body 끝 -->
+
+     <!--@if($layout_info->layout_type == "main")-->
+	 <div id="service_wrap">
+		  <p class="left">서비스 링크</p>
+		  <ul class="svc_menu">
+			   <!--@foreach($svc_menu->list as $key => $val)-->
+			   <li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end--> title="{$val['text']}">{$val['link']}</a></li>
+			   <!--@endforeach-->
+		  </ul>
+		  <div class="svc_right">
+			   <a href="#sitemap" onclick="showHide('sitemap');return false;" title="서비스 전체보기">서비스 전체보기</a>
+		  </div>
+	      <div class="svc_bg"></div>
+	 </div>
+
+	 <!--사이트맵 시작-->
+	 <div id="sitemap" class="png_gray80_bg">
+          <div class="extension">
+               <!--@foreach($sitemap_menu->list as $key => $val)-->
+               <!--@if($val['link'])-->
+               <div class="section">
+                   <h2><a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->>{$val['text']}</a></h2>
+                   <!--@if($val['list'])-->
+                   <ul>
+                       <!--@foreach($val['list'] as $k => $v)-->
+                       <!--@if($val['link'])-->
+                       <li><a href="{$v['href']}"<!--@if($v['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->>{$v['text']}</a></li>
+                       <!--@end-->
+                       <!--@end-->
+                   </ul>
+                   <!--@end-->
+               </div>
+               <!--@end-->
+               <!--@end-->
+          </div>
+	 </div>
+     <!--사이트맵 끝-->
+     <!--@end-->
+
+	 <!-- Footer 시작 -->
+	 <div id="footer" class="footer{$layout_info->colorset}">
+          <ul class="foot_menu">
+               <!--@foreach($bottom_menu->list as $key => $val)-->
+               <li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end--> title="{$val['text']}">{$val['link']}</a></li>
+               <!--@endforeach-->
+          </ul>
+          <!--@if($layout_info->footer_copyright)-->
+          <p class="copyright copyright{$layout_info->colorset}">{$layout_info->footer_copyright}</p>
+          <!--@end-->
+          <!--@if($layout_info->footer_address)-->
+          <address>
+          <a href="mailto:{$layout_info->footer_address}" title="{$layout_info->footer_address}">E-mail : {$layout_info->footer_address}</a>
+          </address>
+          <!--@end-->
+
+          <!--@if($layout_info->family_site == "N")-->
+		  <!--@else-->
+          <select onchange="if(this.value) window.open(this.value);">
+               <option value="">Family Site</option>
+               <!--@foreach($family_menu->list as $key => $val)-->
+               <option value="{$val['href']}">{$val['link']}</option>
+               <!--@endforeach-->
+          </select> 
+          <!--@end-->
+	      <div class="foot_bg"></div>
+	 </div>
+	 <!-- Footer 끝 -->
+</div>
+<!-- Body 끝 -->
+
+<!-- 로그인 창 시작 -->
+<!--@if(!$is_logged)-->
+{@ $member_config = MemberModel::getMemberConfig(); }
+<!--%import("./filter/login.xml")-->
+<!--@if($member_config->enable_openid=='Y')-->
+<!--%import("./filter/openid_login.xml")-->
+<!--@end-->
+<!-- loginWindow -->
+<div id="loginWindow" class="loginWindow">
+     <!-- class="loginWindow" | class="loginWindow open" -->
+     <span class="modalWindow"></span>
+	 <div class="wide">
+
+		<div id="loginLayer" class="loginLayer loginTypeA">
+        <!-- class="loginLayer loginTypeA" | class="loginLayer loginTypeB" -->
+           
+            <form action="" method="post" id="commonLogin" onsubmit="return procFilter(this, login)">
+                <input name="user_id" type="text" class="id" id="uid" value="" onfocus="this.style.backgroundImage='none';" />
+                <input name="password" type="password" class="password" id="upw" onfocus="this.style.backgroundImage='none';" /> <input name="" type="submit" value=" " class="submit" />
+                    
+                <div class="saveIDinfo">
+                    <input name="keep_signed" type="checkbox" id="keepA" value="Y" class="inputCheck" onclick="if(this.checked) return confirm('{$lang->about_keep_signed}');"/>
+                    <label for="keepA">{$lang->keep_signed}</label>
+                </div>
+            </form>
+            
+            <!--@if($member_config->enable_openid=='Y')-->           
+            
+            <div class="clear"></div>
+            <div class="oid_desc"><img src="images/oid_desc.gif" alt="" /></div>
+                
+            <div class="form_field">
+                <form action="./" method="post" id="openidLogin" onsubmit="return procFilter(this, openid_login)">
+                    <input name="openid" type="text" class="oid" id="oid" onfocus="this.style.backgroundImage='none';" />
+                    <input name="" type="submit" value=" " class="submit_oid" />
+                </form>
+            </div>
+			<!--@else-->
+            <div class="oid_desc pdT20">
+			<p>아이디가 없으신 분은</P><p>회원가입 후 이용하실 수 있습니다.</P></div>
+
+            <!--@end-->
+            
+            <ul class="help">
+                <li class="join"><a href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a></li>
+                <li class="find"><a href="{getUrl('act','dispMemberFindAccount')}">{$lang->cmd_find_member_account}</a></li>
+                <li class="find"><a href="{getUrl('act','dispMemberResendAuthMail')}">{$lang->cmd_resend_auth_mail}</a></li>
+            </ul>
+
+        </div>
+		<div class="adLayer">
+	        <button type="button" class="close" onclick="document.getElementById('loginWindow').style.display='none'" accesskey="X"><span>Close Login Layer</span></button>
+
+			<!-- 로그인 창 광고 시작 -->
+			<!--@if($layout_info->adLayer)-->
+			{$layout_info->adLayer}
+			<!--@else-->
+
+<div class="boxL boxT boxR boxB">
+<center>
+<img style="BORDER-BOTTOM: #4371b9 2px dotted; BORDER-LEFT: #4371b9 2px dotted; WIDTH: 200px; DISPLAY: block; BACKGROUND: url(modules/editor/components/multimedia_link/tpl/multimedia_link_component.gif) no-repeat center 50%; HEIGHT: 248px; BORDER-TOP: #4371b9 2px dotted; BORDER-RIGHT: #4371b9 2px dotted" alt="" src="common/tpl/images/blank.gif" width="200" height="145"  auto_start="false" wmode="transparent" multimedia_src="http://www.xdom.com/files/faceOff/949/002/images/tomorrow.swf" editor_component="multimedia_link" />
+</center>
+</div>
+
+			<!--@end-->
+			<!-- 로그인 창 광고 끝 -->
+
+	        <button type="button" class="close" onclick="document.getElementById('loginWindow').style.display='none'" accesskey="X"><span>Close Login Layer</span></button>
+
+		</div>
+	 </div>
+</div>	 
+
+<!-- /loginWindow -->
+<!--@end-->
+<!-- 로그인 창 끝 -->
+
+<!--@if($layout_info->Analytics)-->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("{$layout_info->Analytics}");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+<!--@end-->

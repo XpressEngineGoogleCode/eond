@@ -1,0 +1,18 @@
+<!--// js 파일 import -->
+<!--%import("js/layout.js")-->
+
+<!--// layout 파일 include -->
+<!--@if($layout_info->layout_style == "na")-->
+<!--#include("layout_na.html")-->
+<!--@elseif($layout_info->layout_style == "da")-->
+<!--#include("layout_da.html")-->
+<!--@elseif($layout_info->layout_style == "ra")-->
+<!--#include("layout_ra.html")-->
+<!--@elseif($layout_info->layout_style == "ma")-->
+<!--#include("layout_ma.html")-->
+<!--@else-->
+<!--#include("layout_ga.html")-->
+<!--@end-->
+<!--@if(!$layout_info->layout_style)-->
+{@$layout_info->layout_style = "ga"}
+<!--@end-->

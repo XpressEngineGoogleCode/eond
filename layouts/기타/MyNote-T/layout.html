@@ -1,0 +1,36 @@
+<!--// js 파일 import -->
+<!--%import("js/mynote.js")-->
+
+<!--// 레이아웃과 연동될 css 파일 import -->
+<!--@if($layout_info->colorset == "white")-->
+    <!--%import("css/white.css")-->
+<!--@elseif($layout_info->colorset == "black")-->
+    <!--%import("css/black.css")-->
+<!--@else-->
+    <!--%import("css/default.css")-->
+<!--@end-->
+
+<!--@if($layout_info->background_image)-->
+<style type="text/css">
+    #wrapper {  background:url({getUrl()}{$layout_info->background_image}) right bottom no-repeat fixed; }
+</style>
+<!--@end-->
+
+<!--@if(!$layout_info->colorset)-->
+    {@$layout_info->colorset = "default"}
+<!--@end-->
+<div id="wrap">
+<table cellPadding="0" cellSpacing="0" id="container" >
+<tr valign="top">
+<td id="titlebar"></td>
+<td id="contents">
+<div id="header"></div>
+
+<div id="content">{$content}</div>
+
+<div id="footer"></div>
+</td>
+</tr>
+</table>
+</div>
+<div id="sitebar"></div>

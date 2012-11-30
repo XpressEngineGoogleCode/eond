@@ -1,0 +1,35 @@
+<!-- 레이아웃과 연동될 css 파일 import -->
+<!--@if($layout_info->colorset == "naver")-->
+    <!--%import("css/naver.css")-->
+<!--@elseif($layout_info->colorset == "black")-->
+    <!--%import("css/eond_rosso.css")-->
+<!--@elseif($layout_info->colorset == "yg")-->
+    <!--%import("css/yg.css")-->
+<!--@else-->
+    <!--%import("css/default.css")-->
+<!--@end-->
+
+
+<style type="text/css">
+
+<!--@if($layout_info->position)-->
+#sitebar {text-align:{$layout_info->position};}
+<!--@end-->
+
+</style>
+
+
+
+
+<div id="sitebar">
+	<div id="login">
+		<!--@if($layout_info->login!='off')-->
+		<img src="./images/naver/btn_logout.gif"><a href="./?module=admin&act=dispBoardAdminContent" target="_top"><img src="./images/naver/btn_admin.gif" style="float:right;margin-left:5px;"></a>
+		<!--@end-->
+		<div id="fms"></div>
+	</div>
+	<ul id="sn">
+		<!--@foreach($sitebar->list as $key => $val)--><!--@if($val['link'])--><!--@if($val['selected'])-->{@ $menu_1st = $val }<!--@end--><li style="display:inline-block;" <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end--> target=_top>{$val['link']}</a></li><!--@end--><!--@end-->
+	</ul>
+</div>
+<div id="content">{$content}</div>
