@@ -1,12 +1,12 @@
 #summary 이온디 공식 레이아웃의 버전별 달라진 점
 #labels eond_official
 
-= Introduction =
+= 이온디 공식 레이아웃의 버전별 차이점 =
 
-Add your content here.
+버전에 따라 변경된 점을 코드 소개와 함께 작성합니다.
 
 
-= 0.8.4 =
+=== ver.0.8.4.에서 달라진 점 ===
   * 로그인 방식이 ID에서 email 체크로 변경됨
   * 로그인 유지 체크할 경우 onclick 경고 창에서 레이어 방식으로 변경됨
    * 0.8.3의 방식
@@ -24,9 +24,6 @@ Add your content here.
 	</p>
 	<p class="keep_msg">{$lang->about_keep_warning}</p>
 }}}
-WikiWordLink
-[http://domain/page label]
-http://domain/page
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
