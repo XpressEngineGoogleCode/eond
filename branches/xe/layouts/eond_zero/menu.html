@@ -1,0 +1,33 @@
+<script type="text/javascript" src="../../common/js/jquery.js"></script><!-- http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js-->
+<script type="text/javascript" src="js/superfish.js"></script>
+
+
+
+<div id='menu-main' style="">
+<ul class="sf-menu" >
+	<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+	<!--@if($val['selected'])-->
+	{@ $menu_1st = $val }
+	<!--@end-->
+	<li><a href="{$val['href']}" onfocus="this.blur()" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->><span>{$val['link']}</span></a>
+		<div class="sf-caret"></div>
+			<ul class='sf-submenu'>
+				<!--@foreach($val['list'] as $mkey => $mval)--><!--@if($mval['text'])-->
+				<a href="{$mval['href']}" onfocus="this.blur()" <!--@if($mval['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->><li id=""><span>{$mval['text']}</span><div class="ccm-spacer" style="width:140px"></div></li></a>
+				<!--@end--><!--@end-->
+			</ul>
+	</li>
+	<!--@end-->
+	<!--@end-->
+</ul>
+</div>
+<script type="text/javascript">
+// initialise plugins
+$(function(){
+	jQuery('ul.sf-menu').superfish({autoArrows: false, onBeforeShow: function() {
+	$('li.sfHover div.sf-caret').show(150);
+	}, onHide: function() {
+	},
+	delay:800});
+});
+</script>

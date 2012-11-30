@@ -1,0 +1,215 @@
+<!--%import("js/webmini.js")-->
+<!--%import("css/default.css")-->
+
+<!--@if($layout_info->background_image)-->
+<style type="text/css">
+body { background:#FFFFFF url({getUrl()}{$layout_info->background_image}) repeat-x center top; }
+</style>
+<!--@end-->
+
+<!--@if(!$layout_info->colorset)-->
+    {@$layout_info->colorset = "default"}
+<!--@end-->
+
+<ul id="skip_navigation">
+<li><a href="#columnRight" title="주메뉴 바로가기">본문 바로가기</a></li>
+<li><a href="#gnb" title="주메뉴 바로가기">주메뉴 바로가기</a></li>
+</ul>
+<hr />
+<div id="mini_gnb">
+	  <div class="top_box">
+	  <ul class="account">
+	  <!--@if($logged_info)-->
+      <li class="first-child"><strong>{$logged_info->nick_name}</strong>님 반갑습니다.</li>
+      <!--@if($logged_info->is_admin=="Y")-->
+	  <li><a href="{getUrl('','module','admin')}" onclick="window.open(this.href);return false;" title="관리">[관리]</a></li>
+      <!--@end-->
+      <li><a href="{getUrl('act','dispMemberLogout')}"><img src="./images/{$layout_info->colorset}/btn_mini_logout.gif" alt="로그아웃" title="로그아웃" class="bul" /></a></li>
+      <li class="profile"><a href="#layer" onclick="jQuery('#memberProfile').toggleClass('active');">마이페이지</a> <img src="/images/button/btn_mini_on.gif" alt="" class="bul" />
+	  </li>
+      <!--@else-->
+      <li class="first-child"><a href="{getUrl('act','dispMemberLoginForm')}"><img src="./images/{$layout_info->colorset}/btn_mini_login.gif" alt="로그인" title="로그인" class="bul" /></a></li>
+      <!--@end-->
+      <!--@if(!$logged_info)-->
+      <li><a href="{getUrl('act','dispMemberSignUpForm')}" title="회원가입">회원가입</a></li>
+      <!--@end-->
+      <li><a href="/guide" title="이용안내">이용안내</a></li>
+      <li><a href="/sitemap" title="전체보기">전체보기</a></li>
+      </ul>
+	   <!--@if($is_logged)-->
+	   <!-- memberProfile -->
+		<div id="memberProfile" class="memberProfile">
+			<button type="button" class="close" onclick="jQuery('#memberProfile').toggleClass('active');" accesskey="X"><span>Close profile layer</span></button>
+			<h2 class="authorName">{$logged_info->nick_name}</h2>
+			{@ $oPointModel = &getModel('point'); $point = $oPointModel->getPoint($logged_info->member_srl); $oModuleModel = &getModel('module');  $config = $oModuleModel->getModuleConfig('point'); $level = $oPointModel->getLevel($point, $config->level_step); }
+			<ul>
+				<!--@foreach($logged_info->menu_list as $key => $val)-->
+				<li><a href="{getUrl('act',$key,'member_srl','')}">{Context::getLang($val)}</a></li>
+				<!--@end-->
+				<li>레벨 : <span>{$level}</span></li>
+				<li>포인트 : <span>{$point}</span></li>
+			</ul>
+
+			<button type="button" class="close" onclick="jQuery('#memberProfile').toggleClass('active');" accesskey="X"><span>Close profile layer</span></button>
+		</div>
+		<!-- /memberProfile -->
+		<!--@end-->
+		</div>
+</div>
+<hr />
+<div id="bodyWrap">
+  <div id="header">
+    <h1><a href="{$layout_info->index_url}"><!--@if(!$layout_info->logo_image)--><img src="./images/{$layout_info->colorset}/logo.gif" alt="Webmini" title="웹미니" class="iePngFix" /><!--@else--><img src="{$layout_info->logo_image}" alt="{$layout_info->logo_alt}" border="0" class="iePngFix" /><!--@end--></a></h1>
+	<!--@if('iphone' == $mid  || 'ipnews' == $mid || 'ipreview' == $mid || 'iptip' == $mid || 'ipimg' == $mid || 'ipapp' == $mid || 'ipqna' == $mid || 'ipgallery' == $mid || 'ipacc' == $mid)-->
+	<p class="top_title"><img src="./images/{$layout_info->colorset}/img_top_iphone.jpg" alt="아이폰" class="iePngFix" /></p>
+	<!--@end-->
+	
+	<!--GNB-->
+    <ul id="gnb">
+		 <!-- main_menu 1차 시작 -->
+		<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+			<!--@if($val['selected'])-->
+				{@ $menu_1st = $val }
+			<!--@end-->
+
+			<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+
+		<!--@endif--><!--@endforeach-->
+	</ul>
+	<p id="new"><img src="./images/{$layout_info->colorset}/icon_new.gif" alt="new" /></p>
+    <!--//GNB-->
+	
+    <!--GNB2-->
+    <ul id="gnb2">
+    <!-- main_menu 2차 시작 -->
+    <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+    <!--@if($menu_1st)-->
+    {@ $idx = 1 }
+    <li <!--@if($val['selected'])-->
+    class="on"<!--@end-->>
+    <a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+    </li>
+    {@$idx++}
+    <!--@end-->
+    <!--@end-->
+	<!--@end-->
+    </ul>
+	
+    <!--//GNB2-->
+	<fieldset>
+	<legend>검색창</legend>
+    <form action="{getUrl()}" method="post" id="isSearch">
+	<!--@if($vid)-->
+	<input type="hidden" name="vid" value="{$vid}" />
+	<!--@end-->
+	<input type="hidden" name="mid" value="{$mid}" />    
+	<input type="hidden" name="act" value="IS" />
+    <input type="hidden" name="search_target" value="title_content" />
+    <input name="is_keyword" value="{$is_keyword}" type="text" class="inputText" title="검색어 입력" />
+    <input type="image" src="./images/{$layout_info->colorset}/buttonSearch.gif" alt="{$lang->cmd_search}" class="submit" />
+    </form>
+	<p id="search_se"><img src="./images/{$layout_info->colorset}/icon_zoom.gif" alt="검색창" /></p>
+	</fieldset>
+  </div>
+  <hr />
+  <div id="contentBody">
+  
+  <!--@if($layout_info->sky_banner)-->
+  <!-- 스카이 스크랩퍼 -->
+  <div id="sky_banner">
+  <a href="{$layout_info->sky_url}" <!--@if($layout_info->sky_target== "yes")-->onclick="window.open(this.href);return false;"<!--@else if($layout_info->sky_target== "no")--><!--@end-->><img src="{$layout_info->sky_banner}" alt="{$layout_info->sky_alt}" border="0" class="iePngFix" /></a>
+  </div>
+ <hr />
+  <!--@else--><!--@end-->
+	<div id="columnLeft">
+
+      <!-- 로그인 위젯 -->
+      <img src="./images/blank.gif" class="zbxe_widget_output" widget="login_info" skin="webmini" colorset="{$layout_info->colorset}" />    
+	  	<!--@if($logged_info)-->
+		
+		<div class="point_stats">
+		<h4>내 포인트 현황</h4>
+		<img class="zbxe_widget_output" widget="point_status" skin="default" colorset="white" />
+		</div>
+		<hr />
+		<!--@end-->
+      <!-- 왼쪽 2차 메뉴 -->
+     
+	  <!--@if($menu_1st)-->
+	  <div id="lnbWrap">
+	  <!--@if('webtip' == $mid || 'hometip' == $mid || 'windows' == $mid || 'linux' == $mid || 'dreamweaver' == $mid || 'flash' == $mid || 'photoshop' == $mid || 'zeroboard' == $mid || 'html' == $mid || 'javascript' == $mid || 'css' == $mid || 'standard' == $mid || 'accessibility' == $mid || 'etctip' == $mid)-->
+	  <h2 class="tip"><span>팁공유방</span></h2>
+	  <!--@end-->
+	  <!--@if('site' == $mid)-->
+	  <h2 class="site"><span>사이트</span></h2>
+	  <!--@end-->
+	  <!--@if('community' == $mid || 'freeboard' == $mid || 'member' == $mid || 'kin' == $mid || 'faq' == $mid || 'goodboard' == $mid || 'bestboard' == $mid || 'question' == $mid || 'flashgame' == $mid || 'admini' == $mid  || 'planet' == $mid)-->
+	  <h2 class="community"><span>커뮤니티</span></h2>
+	  <!--@end-->
+	  <!--@if('life' == $mid || 'beauty' == $mid || 'food' == $mid || 'movie' == $mid || 'book' == $mid || 'it_science' == $mid || 'earlyadopter' == $mid || 'hobby' == $mid || 'travel' == $mid || 'childcare' == $mid)-->
+	  <h2 class="life"><span>라이프</span></h2>
+	  <!--@end-->
+	  <!--@if('iphone' == $mid  || 'ipnews' == $mid || 'ipreview' == $mid || 'iptip' == $mid || 'ipimg' == $mid || 'ipapp' == $mid || 'ipqna' == $mid || 'ipgallery' == $mid || 'ipacc' == $mid)-->
+	  <h2 class="iphone"><span>아이폰</span></h2>
+	  <!--@end-->
+			<ul id="lnb">
+                {@ $idx = 1 }
+                <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+
+                    <!--@if($val['list'] && ($val['expand']=='Y'||$val['selected']) )-->
+                    <ul>
+                    <!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+                        <li <!--@if($v['selected'])-->class="on"<!--@end-->><a href="{$v['href']}" <!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$v['link']}</a></li>
+                    <!--@endif--><!--@endforeach-->
+                    </ul>
+                    <!--@endif-->
+                </li>
+                {@$idx++}
+                <!--@endif--><!--@endforeach-->
+            </ul>
+           
+      </div>
+	  <hr />
+	  <!--@endif-->
+	
+	 <div id="banner_box">
+		<a href="http://www.webmini.net" target="_blank"><img src="http://www.webmini.net/images/banner/webmini_b.gif" border="0" alt="웹미니" /></a>
+	 </div>
+    </div>
+
+    <div id="columnRight">
+      <!-- 컨텐츠 시작 -->
+      {$content}
+    </div>
+    <div class="clear"></div>
+  </div>
+  <hr />
+<div id="footer">
+  <!--@if($layout_info->family_site)-->
+  <div id="family_site">
+		<h4 onclick="slideFamilySite()"><span>Family Site</span></h4>
+		<div id="site_list">
+			<ul>
+				<!--@foreach($family_site->list as $key => $val)-->
+				<li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+				<!--@endforeach-->
+			</ul>
+		</div>
+	</div>
+	<hr />
+	<!--@end-->
+    <ul class="foot_list">
+    <!--@foreach($bottom_menu->list as $key => $val)-->
+	<li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+	<!--@endforeach-->
+    </ul>
+    <p class="info">본 사이트에서는 회원분들의 게시된 이메일 주소가 무단으로 수집되는 것을 거부합니다.
+    웹미니에 게시된 정보 및 게시물의 저작권과 기타 법적 책임은 자료제공자에게 있습니다.</p>
+    <p class="copyright">Copyright &copy; 2003 - 2009 <a href="/" title="webmini.net">WEBMINI.NET.</a> All Rights Reserved.
+    <a href="<!--@if($layout_info->rss_url)-->{$layout_info->rss_url}<!--@else-->/rss<!--@end-->" class="rss_icon"> <abbr title="Really Simple Syndication">RSS</abbr></a></p>
+    <address><img src="./images/default/icon_email.gif" alt="email" /> <a href="mailto:webmini@webmini.net" title="webmini@webmini.net">E-mail : webmini@webmini.net</a></address>
+	<p class="top"><a href="#" title="위로가기"><img src="./images/{$layout_info->colorset}/btn_top.gif" alt="위로가기" /></a></p>
+  </div>
+</div>  
+<!--@if($layout_info->float)-->{$layout_info->float}<!--@else--><!--@end-->

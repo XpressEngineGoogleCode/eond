@@ -1,0 +1,40 @@
+<!--//%import("js/js.js")-->
+<!--%import("js/js.min.js")-->
+<!--%import("css/default.css")-->
+<!--%import("css/style.css")-->
+
+{@
+$layout_info->name = ($layout_info->name)? $layout_info->name : $layout_info->layout_title;
+$layout_info->url = ($layout_info->url)? $layout_info->url : "./";
+/**
+ * 위젯태그가 모두 없거나 칼럼 너비가 없으면 칼럼을 보이지 않는다.
+ **/
+$layout_info->column = ( $layout_info->width == 0 || $layout_info->widget_1 || $layout_info->widget_2 || $layout_info->widget_3)? $layout_info->column : "c";
+}
+
+<!--@if($layout_info->width)-->
+<style type="text/css">
+<!--
+#column { width:{$layout_info->width}px; }
+#content { width:{$layout_info->width *-1 + 250 + 600}px; }
+#container { background-position:{$layout_info->width *-1 + 250 + 680}px top; }
+#container.ec { background-position:{$layout_info->width - 250 + 320}px top; }
+-->
+</style>
+<!--@end-->
+
+<div id="wrap" class="Wrapper {$layout_info->colorset}">
+	<a href="#content" class="skipTo">Skip to content</a>
+
+	<div id="header" class="mpReset">
+		<!--#include("./_header.html")-->
+	</div>
+
+	<div id="container" class="{$layout_info->column}">
+		<!--#include("./_container.html")-->
+	</div>
+
+	<div id="footer" class="mpReset">
+		<!--#include("./_footer.html")-->
+	</div>
+</div>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout version="0.9">
+    <title xml:lang="ko">이온디 공식 레이아웃</title>
+    <author email_address="eond@eond.com" link="http://eond.com" date="2010. 11. 02">
+        <name xml:lang="ko">이온디</name>
+        <description xml:lang="ko">
+            제작 : 이온디
+			참조 레이아웃 : 웹미니, 엘카, PXE
+        </description>
+    </author>
+    <extra_vars>
+	<var name="colorset" type="select">
+            <title xml:lang="ko">컬러셋</title>
+            <description xml:lang="ko">원하시는 컬러셋을 선택해주세요.</description>
+            <options value="default">
+                <title xml:lang="ko">기본</title>
+            </options>
+        </var>
+       <var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요.</description>
+        </var>
+		<var name="logo_alt" type="text">
+            <title xml:lang="ko">로고 이미지 대체 텍스트</title>
+            <description xml:lang="ko">로고 이미지 alt 명을 입력해 주세요.</description>
+        </var>
+        <var name="index_url" type="text">
+            <title xml:lang="ko">홈 페이지 URL</title>
+            <description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+             </var>
+		<var name="column" type="select">
+            <title xml:lang="ko">칼럼 정렬</title>
+            <options name="default">
+                <title xml:lang="ko">본문 | 칼럼 (default)</title>
+                <value>default</value>
+            </options>
+			<options name="ec">
+				<title xml:lang="ko">칼럼 | 본문</title>
+				<value>ec</value>
+			</options>
+			<options name="c">
+				<title xml:lang="ko">본문</title>
+				<value>c</value>
+			</options>
+		</var>
+        <var name="width" type="text">
+            <title xml:lang="ko">칼럼 너비</title>
+            <description xml:lang="ko">입력 예: 250</description>
+        </var>
+        <var name="widget_top" type="textarea">
+            <title xml:lang="ko">상단위젯  태그</title>
+			<description xml:lang="ko">레이아웃 최상단 왼쪽에 삽입되는 위젯입니다. 간단한 알림말 등을 삽입하실 수 있어요.</description>
+        </var>
+        <var name="widget_1_title" type="text">
+            <title xml:lang="ko">칼럼위젯1 제목</title>
+        </var>
+        <var name="widget_1" type="textarea">
+            <title xml:lang="ko">칼럼위젯1 태그</title>
+			<description xml:lang="ko">한 칸에 모든 위젯을 삽입해도 됩니다.</description>
+        </var>
+        <var name="widget_2_title" type="text">
+            <title xml:lang="ko">칼럼위젯2 제목</title>
+        </var>
+        <var name="widget_2" type="textarea">
+            <title xml:lang="ko">칼럼위젯2 태그</title>
+        </var>
+        <var name="widget_3_title" type="text">
+            <title xml:lang="ko">칼럼위젯3 제목</title>
+        </var>
+        <var name="widget_3" type="textarea">
+            <title xml:lang="ko">칼럼위젯3 태그</title>
+        </var>
+        <var name="widget_4_title" type="text">
+            <title xml:lang="ko">칼럼위젯4 제목</title>
+        </var>
+        <var name="widget_4" type="textarea">
+            <title xml:lang="ko">칼럼위젯4 태그</title>
+        </var>
+        <var name="widget_5_title" type="text">
+            <title xml:lang="ko">칼럼위젯5 제목</title>
+        </var>
+        <var name="widget_5" type="textarea">
+            <title xml:lang="ko">칼럼위젯5 태그</title>
+        </var>
+		<var name="sky_banner" type="image">
+            <title xml:lang="ko">(광고)스카이 배너</title>
+            <title xml:lang="jp">Sky banner</title>
+            <title xml:lang="zh-CN">Sky banner</title>
+            <title xml:lang="en">Sky banner</title>
+            <title xml:lang="es">Sky banner</title>
+            <description xml:lang="ko">레이아웃 좌측 스카이 배너에 등록될 이미지를 입력하세요. (가로 70px 세로 110px)</description>
+            <description xml:lang="jp">레이아웃 좌측 스카이 배너에 등록될 이미지를 입력하세요. (가로 70px 세로 110px)</description>
+            <description xml:lang="zh-CN">레이아웃 좌측 스카이 배너에 등록될 이미지를 입력하세요. (가로 70px 세로 110px)</description>
+            <description xml:lang="en">레이아웃 좌측 스카이 배너에 등록될 이미지를 입력하세요. (가로 70px 세로 110px)</description>
+            <description xml:lang="es">레이아웃 좌측 스카이 배너에 등록될 이미지를 입력하세요. (가로 70px 세로 110px)</description>
+        </var>
+        <var name="sky_alt" type="text">
+            <title xml:lang="ko">└ 스카이 배너 대체 텍스트</title>
+            <title xml:lang="jp">Sky banner image alt</title>
+            <title xml:lang="zh-CN">Sky banner image alt</title>
+            <title xml:lang="en">Sky banner image alt</title>
+            <title xml:lang="es">Sky banner image alt</title>
+            <description xml:lang="ko">스카이 배너 이미지 alt 명을 입력해 주세요.</description>
+            <description xml:lang="jp">스카이 배너 이미지 alt 명을 입력해 주세요.</description>
+            <description xml:lang="zh-CN">스카이 배너 이미지 alt 명을 입력해 주세요.</description>
+            <description xml:lang="en">스카이 배너 이미지 alt 명을 입력해 주세요.</description>
+			<description xml:lang="es">스카이 배너 이미지 alt 명을 입력해 주세요.</description>
+        </var>
+		<var name="sky_url" type="text">
+            <title xml:lang="ko">└ 스카이 배너 URL</title>
+            <title xml:lang="jp">Sky banner URL</title>
+            <title xml:lang="zh-CN">Sky banner URL</title>
+            <title xml:lang="en">Sky banner URL</title>
+            <title xml:lang="es">Sky banner URL</title>
+            <description xml:lang="ko">스카이 배너 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+            <description xml:lang="jp">스카이 배너 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+            <description xml:lang="zh-CN">스카이 배너 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+            <description xml:lang="en">스카이 배너 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+			<description xml:lang="es">스카이 배너 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+        </var>
+		<var name="sky_target" type="select">
+            <title xml:lang="ko">└ 스카이 배너 새창여부</title>
+            <title xml:lang="jp">Sky banner open target</title>
+            <title xml:lang="zh-CN">Sky banner open target</title>
+            <title xml:lang="en">Sky banner open target</title>
+            <title xml:lang="es">Sky banner open target</title>
+			<options name="no" default="true">
+			<title xml:lang="ko">사용안함</title>
+			<title xml:lang="jp">非表示</title>
+			<title xml:lang="en">Disable</title>
+			<value>no</value>
+			</options>
+			<options name="yes">
+			<title xml:lang="ko">사용함</title>
+			<title xml:lang="jp">表示</title>
+			<title xml:lang="en">Enable</title>
+			<value>yes</value>
+			</options>
+            <description xml:lang="ko">로고 이미지 target을 설정해 주세요. ex)새창일경우 사용함 선택</description>
+            <description xml:lang="jp">로고 이미지 target을 설정해 주세요. ex)새창일경우 사용함 선택</description>
+            <description xml:lang="zh-CN">로고 이미지 target을 설정해 주세요. ex)새창일경우 사용함 선택</description>
+            <description xml:lang="en">로고 이미지 target을 설정해 주세요. ex)새창일경우 사용함 선택</description>
+			<description xml:lang="es">로고 이미지 target을 설정해 주세요. ex)새창일경우 사용함 선택</description>
+        </var>
+        <var name="background_image" type="image">
+            <title xml:lang="ko">배경 이미지</title>
+            <title xml:lang="jp">背景イメージ</title>
+            <title xml:lang="zh-CN">背景图片</title>
+            <title xml:lang="en">Background Image</title>
+			<title xml:lang="es">Imagen de fondo</title>
+            <description xml:lang="ko">배경 이미지를 사용하시려면 등록해주세요.</description>
+            <description xml:lang="jp">背景イメージを使う場合は、登録してください。</description>
+            <description xml:lang="zh-CN">要想使用背景图片请在这里上传。</description>
+            <description xml:lang="en">Please input if you want to use background image.</description>
+			<description xml:lang="es">Ingresar imagen de fondo si desea usar.</description>
+        </var>
+       <var name="copyright" type="image">
+            <title xml:lang="ko">카피라이트 이미지</title>
+            <title xml:lang="jp">ロゴのイメージ</title>
+            <title xml:lang="zh-CN">LOGO图片</title>
+            <title xml:lang="en">Logo image</title>
+            <title xml:lang="es">Imagen del logotipo</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요.</description>
+            <description xml:lang="jp">レイアウトの上端に表示されるロゴイメージを入力してください。</description>
+            <description xml:lang="zh-CN">请输入显示在布局顶部的LOGO图片。</description>
+            <description xml:lang="en">Please input a logo image which will be displayed on the top of layout.</description>
+            <description xml:lang="es">Ingresar una imagen para logotipo.</description>
+        </var>
+		<var name="copyright_alt" type="text">
+            <title xml:lang="ko">카피라이트 이미지 대체 텍스트</title>
+            <title xml:lang="jp">Logo image alt</title>
+            <title xml:lang="zh-CN">Logo image alt</title>
+            <title xml:lang="en">Logo image alt</title>
+            <title xml:lang="es">Logo image alt</title>
+            <description xml:lang="ko">로고 이미지 alt 명을 입력해 주세요.</description>
+            <description xml:lang="jp">로고 이미지 alt 명을 입력해 주세요.</description>
+            <description xml:lang="zh-CN">로고 이미지 alt 명을 입력해 주세요.</description>
+            <description xml:lang="en">로고 이미지 alt 명을 입력해 주세요.</description>
+			<description xml:lang="es">로고 이미지 alt 명을 입력해 주세요.</description>
+        </var>
+		<var name="rss_url" type="text">
+            <title xml:lang="ko">외부RSS URL</title>
+            <title xml:lang="jp">RSS URL</title>
+            <title xml:lang="zh-CN">RSS URL</title>
+            <title xml:lang="en">RSS URL</title>
+            <title xml:lang="es">RSS URL</title>
+            <description xml:lang="ko">외부 RSS URL을 입력해주세요. 공백시 기본 RSS URL로 적용됩니다.</description>
+            <description xml:lang="jp">외부 RSS URL을 입력해주세요. 공백시 기본 RSS URL로 적용됩니다.</description>
+            <description xml:lang="zh-CN">외부 RSS URL을 입력해주세요. 공백시 기본 RSS URL로 적용됩니다.</description>
+            <description xml:lang="en">외부 RSS URL을 입력해주세요. 공백시 기본 RSS URL로 적용됩니다.</description>
+			<description xml:lang="es">외부 RSS URL을 입력해주세요. 공백시 기본 RSS URL로 적용됩니다.</description>
+        </var>
+    </extra_vars>
+    <menus>
+        <menu name="main_menu" default="true">
+            <title xml:lang="ko">상단 메뉴</title>
+            <title xml:lang="jp">上端メニュー</title>
+            <title xml:lang="zh-CN">主菜单</title>
+            <title xml:lang="en">Top menu</title>
+            <title xml:lang="es">Menú Principal</title>
+            <maxdepth>3</maxdepth>
+        </menu>
+        <menu name="bottomL_menu">
+            <title xml:lang="ko">하단 왼쪽 메뉴</title>
+            <title xml:lang="jp">下段メニュー</title>
+            <title xml:lang="zh-CN">底部菜单</title>
+            <title xml:lang="en">Bottom menu</title>
+            <title xml:lang="es">Menú Inferior </title>
+            <maxdepth>1</maxdepth>
+        </menu>
+        <menu name="bottomR_menu">
+            <title xml:lang="ko">하단 오른쪽 메뉴</title>
+            <title xml:lang="jp">下段メニュー</title>
+            <title xml:lang="zh-CN">底部菜单</title>
+            <title xml:lang="en">Bottom menu</title>
+            <title xml:lang="es">Menú Inferior </title>
+            <maxdepth>1</maxdepth>
+        </menu>
+        <menu name="bottom_menu">
+            <title xml:lang="ko">하단 메뉴</title>
+            <title xml:lang="jp">下段メニュー</title>
+            <title xml:lang="zh-CN">底部菜单</title>
+            <title xml:lang="en">Bottom menu</title>
+            <title xml:lang="es">Menú Inferior </title>
+            <maxdepth>1</maxdepth>
+        </menu>
+		<menu name="family_site">
+            <title xml:lang="ko">패밀리 사이트</title>
+            <title xml:lang="en">Family site</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+    </menus>
+</layout>

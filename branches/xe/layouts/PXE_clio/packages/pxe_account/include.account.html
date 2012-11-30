@@ -1,0 +1,107 @@
+
+<!-- 컬러셋용 CSS 파일 로드 -->
+<load cond="$layout_info->colorset == 'default'" target="packages/pxe_account/css/account_default.css" />
+<load cond="$layout_info->colorset == 'custom'" target="packages/pxe_account/css/account_custom.css" />
+
+<!-- 언어팩용 내부 CSS -->
+<block cond="$lang_type == 'ko'">
+<style type="text/css">
+#pxe_account .memberProfile li a { font:8pt 돋움,Dotum; letter-spacing:-1px }
+#pxe_account .loginLayer input.user_id { background-position:0 0 }
+#pxe_account .loginLayer input.user_pw { background-position:0 -26px }
+#pxe_account .loginLayer input.open_id { background-position:0 -52px }
+#pxe_account .loginLayer button.submit,
+#pxe_account .loginLayer button.submit_oid { background-position:0 0 }
+#pxe_account .loginLayer .saveIDinfo,
+#pxe_account .loginLayer .help li a { font:8pt 돋움; letter-spacing:-1px; }
+</style>
+</block>
+
+<block cond="$lang_type == 'en'">
+<style type="text/css">
+#pxe_account .memberProfile li a { font: 11px Arial, Helvetica, sans-serif; line-height:100%; }
+#pxe_account .loginLayer input.user_id { background-position:0 -78px }
+#pxe_account .loginLayer input.user_pw { background-position:0 -104px }
+#pxe_account .loginLayer input.open_id { background-position:0 -130px }
+#pxe_account .loginLayer button.submit,
+#pxe_account .loginLayer button.submit_oid { background-position:0 -26px }
+#pxe_account .loginLayer .saveIDinfo,
+#pxe_account .loginLayer .help li a { font:11px Arial, Helvetica, sans-serif }
+</style>
+</block>
+
+<block cond="$lang_type == 'jp'">
+<style type="text/css">
+#pxe_account .memberProfile li a { font:10px meiryo,Arial,Helvetica; line-height:100%; }
+#pxe_account .loginLayer input.user_id { background-position:0 -156px }
+#pxe_account .loginLayer input.user_pw { background-position:0 -182px }
+#pxe_account .loginLayer input.open_id { background-position:0 -208px }
+#pxe_account .loginLayer button.submit,
+#pxe_account .loginLayer button.submit_oid { background-position:0 -52px }
+#pxe_account .loginLayer .saveIDinfo,
+#pxe_account .loginLayer .help li a { font:10px meiryo,Arial,Helvetica }
+</style>
+</block>
+
+
+<img class="zbxe_widget_output" widget="planet_document" skin="eond" colorset="layout" list_count="1" thumbnail_width="50" thumbnail_height="60" allow_repetition="N" show_author_name="N" show_number_of_comments="N" style="margin-bottom:10px;" />
+
+<div id="pxe_account">
+<block cond="!$is_logged">
+    {@ $member_config = MemberModel::getMemberConfig(); }
+    <!--%import("packages/pxe_account/filter/login.xml")-->
+    <block cond="$member_config->enable_openid=='Y'"><!--%import("packages/pxe_account/filter/openid_login.xml")--></block>
+    <!-- loginWindow -->
+    <div class="loginLayer pngFix">
+
+        <div class="inner">
+            <form action="" method="post" id="commonLogin" onsubmit="return procFilter(this, login)">
+                <input name="user_id" type="text" id="uid" value="" onfocus="this.className='user_id focus'" onblur="if (this.value.length==0) {this.className='user_id'}else {this.className='user_id focusnot'}" class="user_id" />
+                <input name="password" type="password" id="upw" onfocus="this.className='user_pw focus'" onblur="if (this.value.length==0) {this.className='user_pw'}else {this.className='user_pw focusnot'};" class="user_pw" />
+                <button type="submit" value="submit" class="submit">SUBMIT</button>
+
+                <div class="saveIDinfo">
+                    <input name="keep_signed" type="checkbox" id="keepA" value="Y" class="inputCheck" onclick="if(this.checked) return confirm('{$lang->about_keep_signed}');"/>
+                    <label for="keepA">{$lang->pxe_save}</label>
+                </div>
+            </form>
+        </div>
+
+        <span cond="$member_config->enable_openid=='N'" class="info_openid" style="display:none;">Open ID Information</span>
+
+        <div cond="$member_config->enable_openid=='Y'" class="inner_oid">
+            <form action="./" method="post" id="openidLogin" onsubmit="return procFilter(this, openid_login)">
+                <input name="openid" type="text" id="oid" onfocus="this.className='open_id focus'" onblur="if (this.value.length==0) {this.className='open_id'}else {this.className='open_id focusnot'}" class="open_id" />
+                <button type="submit" value="submit" class="submit_oid">SUBMIT</button>
+            </form>
+        </div>
+
+        <ul class="help">
+            <li class="first"><a href="<!--@if($layout_info->signup_mid)-->{getUrl('act','dispMemberSignUpForm','mid', $layout_info->signup_mid)}<!--@else-->{getUrl('act','dispMemberSignUpForm')}<!--@end-->"><strong>{$lang->pxe_signup}</strong></a></li>
+            <li><a href="<!--@if($layout_info->signup_mid)-->{getUrl('act','dispMemberFindAccount','mid', $layout_info->signup_mid)}<!--@else-->{getUrl('act','dispMemberFindAccount')}<!--@end-->">{$lang->pxe_find}</a></li>
+            <li><a href="<!--@if($layout_info->signup_mid)-->{getUrl('act','dispMemberResendAuthMail','mid', $layout_info->signup_mid)}<!--@else-->{getUrl('act','dispMemberResendAuthMail')}<!--@end-->">{$lang->pxe_auth}</a></li>
+        </ul>
+    </div><!--loginLayer 끝-->
+</block><!--로그인 되어있지 않은 경우 조건 끝-->
+
+<block cond="$is_logged">
+    <div id="memberProfile" class="memberProfile">
+        <ul>
+            <block loop="$logged_info->menu_list=>$key, $val">
+            <li><a href="<!--@if($layout_info->mypage_mid)-->{getUrl('act',$key,'member_srl','','mid',$layout_info->mypage_mid)}<!--@else-->{getUrl('act',$key,'member_srl','')}<!--@end-->">{Context::getLang($val)}</a></li>
+            </block>
+			<!--@if($logged_info->is_admin=="Y")-->
+			<li><a href="{getUrl('','module','admin')}" onclick="window.open(this.href);return false;" title="{$lang->cmd_management}">{$lang->cmd_management}</a></li>
+			<li><a href="{getUrl('act','dispLayoutAdminModify','layout_srl',$layout_info->layout_srl)}" title="{$lang->cmd_layout_management}">{$lang->cmd_layout_management}</a></li>
+			<li><a href="{getUrl('act','dispLayoutAdminEdit','layout_srl',$layout_info->layout_srl)}" title="{$lang->cmd_edit}">{$lang->cmd_edit}</a></li>
+			<!--@end-->
+        </ul>
+    </div><!--memberProfile 끝-->
+
+    <div class="edit_profile">
+        <a href="{getUrl('act','dispMemberModifyInfo')}" class="pfEdit">{$lang->cmd_modify_member_info}</a>
+        <a href="{getUrl('act','dispMemberLogout')}" class="pfLogout">{$lang->cmd_logout}</a>
+    </div>
+</block><!--로그인 되어있는 경우 조건 끝-->
+
+</div><!--pxe_account 끝-->

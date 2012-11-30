@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout version="0.1">
+    <title xml:lang="ko">이온디 미니홈피</title>
+    <author email_address="eond@eond.com" link="http://eond.com" date="080720">
+        <name xml:lang="ko">정낙훈</name>
+        <description xml:lang="ko">
+            간단히 미니홈피를 나타내는 레이아웃입니다.
+        </description>
+    </author>
+</layout> 

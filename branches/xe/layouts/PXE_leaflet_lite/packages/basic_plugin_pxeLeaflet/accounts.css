@@ -1,0 +1,126 @@
+@charset "utf-8";
+
+/*
+이 마크업 문서는 아래 제공자에 의해 정리 및 수정, 배포 되었습니다
+Markup : Hyunhw Jung
+Website: http://www.premiumxe.com
+Email : clubnb2@naver.com
+*/
+
+/* Site Accounts
+---------------------------------------------------------------------------------*/
+.account{ position:absolute; top:13px; right:0; margin:0; padding:0; z-index:10;}
+.account li{ position:relative; float:left; list-style:none; background-image:url(images/lineHeaderVr.gif); background-repeat:no-repeat; background-position:left 4px;}
+div.black .account li{ background-image:url(images/lineHeaderVrBlack.gif);}
+.account li *{ vertical-align:top;}
+.account li li{ float:none; height:auto; background-image:none;}
+
+.account li.log{ background-image:none; font-size:0; line-height:0;}
+.account li.log a{ display:block; padding:5px 8px;}
+
+.account li.profile button{ border:0; padding:0; width:53px; height:15px; cursor:pointer; background-color:transparent; background-image:url(images/buttonProfile.gif); background-repeat:no-repeat; background-position:center -10px; overflow:visible;}
+div.black .account li.profile button{ background-position:center 5px;}
+.account li.profile button span{ position:relative; width:0; height:0; overflow:hidden; font-size:0; line-height:0; visibility:hidden; z-index:-1;}
+
+.account li.profile .memberProfile{ display:none; position:absolute; top:15px; left:8px; padding:20px; background:#fff; border:2px solid #737373;}
+.account li.profile .memberProfile.active{ display:block;}
+.account li.profile .memberProfile .authorName{ margin:0 0 8px 0; font-size:16px; font-weight:bold; color:#333; white-space:nowrap;}
+.account li.profile .memberProfile ul{ margin:0; padding:15px 15px 5px 15px; list-style:none; border:1px solid #f2f2f2; background:#fcfcfc;}
+.account li.profile .memberProfile li{ float:none; white-space:nowrap; margin:0 0 10px 0; padding:0 0 0 10px; background:url(images/bulletB.gif) no-repeat left center;}
+.account li.profile .memberProfile li a{ background:none; color:#333; text-decoration:none;}
+.account li.profile .memberProfile li a:hover,
+.account li.profile .memberProfile li a:active,
+.account li.profile .memberProfile li a:focus{ text-decoration:underline;}
+.account li.profile .memberProfile .close{ position:absolute; cursor:pointer; border:0; padding:0; top:0; right:0; width:27px; height:27px; background:transparent url(images/buttonCloseX.gif) no-repeat center center;}
+.account li.profile .memberProfile .close span{ position:absolute; font-size:0; line-height:0; width:0; height:.; overflow:hidden; visibility:hidden;}
+
+.account li.register a{ display:block; width:43px; height:5px; padding:5px 8px; background-image:url(images/buttonRegister.gif); background-repeat:no-repeat; background-position:center -10px;}
+div.black .account li.register a{ background-position:center 5px;}
+.account li.register a span{ position:relative; width:0; height:0; overflow:hidden; font-size:0; line-height:0; visibility:hidden; z-index:-1;}
+
+.account li.language{ position:relative;}
+.account li.language em{ display:inline-block; height:15px; overflow:hidden; padding:0 8px; font-size:9px; font-style:normal; background-image:url(images/buttonLanguage.gif); background-repeat:no-repeat; background-position:-92px -10px;}
+div.black .account li.language em{ background-position:8px -10px;}
+.account li.language em span{ display:inline-block; overflow:hidden; visibility:hidden;}
+.account li.language em.ko{ background-position:-92px -10px;}
+div.black .account li.language em.ko{ background-position:8px -10px;}
+.account li.language em.en{ background-position:-92px -25px;}
+div.black .account li.language em.en{ background-position:8px -25px;}
+.account li.language em.jp{ background-position:-92px -40px;}
+div.black .account li.language em.jp{ background-position:8px -40px;}
+.account li.language em.zh-CN{ background-position:-92px -55px;}
+div.black .account li.language em.zh-CN{ background-position:8px -55px;}
+.account li.language em.zh-TW{ background-position:-92px -70px;}
+div.black .account li.language em.zh-TW{ background-position:8px -70px;}
+
+.account li.language button{ height:15px; border:0; padding:0; font-size:0; line-height:0; overflow:visible; cursor:pointer; background-image:url(images/buttonLanguage.gif); background-repeat:no-repeat; background-position:-92px 5px; background-color:transparent;}
+div.black .account li.language button{ background-position:8px 5px;}
+.account li.language button span{ font-size:0; line-height:0; width:0; height:0; overflow:hidden; visibility:hidden;}
+.account li.language .sLanguage{ position:relative; width:100px; text-align:right;}
+.account li.language .sLanguage span{ font-size:0; line-height:0; letter-spacing:-100px; display:inline-block; visibility:visible; width:100%; height:15px; background-image:url(images/buttonSelectLanguageToggle.gif); background-repeat:no-repeat; background-position:85px 4px;}
+.account li.language.open .sLanguage span{ background-position:85px -6px;}
+.account li.language .languageList{ display:none; width:98px; margin:0; padding:5px 0; position:absolute; top:20px; right:0; background:#fff; border:1px solid #eee;}
+.account li.language.open .languageList{ display:block; z-index:999;}
+.account li.language .languageList button{ width:100%;}
+div.black .account li.language .languageList{ background:#666; border-color:#888;}
+.account li.language .languageList .ko button{ background-position:-92px -10px;}
+div.black .account li.language .languageList .ko button{ background-position:8px -10px;}
+.account li.language .languageList .en button{ background-position:-92px -25px;}
+div.black .account li.language .languageList .en button{ background-position:8px -25px;}
+.account li.language .languageList .jp button{ background-position:-92px -40px;}
+div.black .account li.language .languageList .jp button{ background-position:8px -40px;}
+.account li.language .languageList .zh-CN button{ background-position:-92px -55px;}
+div.black .account li.language .languageList .zh-CN button{ background-position:8px -55px;}
+.account li.language .languageList .zh-TW button{ background-position:-92px -70px;}
+div.black .account li.language .languageList .zh-TW button{ background-position:8px -70px;}
+
+.account li.language .languageList li { display:none;}
+.account li.language .languageList .ko,
+div.black .account li.language .languageList .ko,
+.account li.language .languageList .en,
+div.black .account li.language .languageList .en,
+.account li.language .languageList .jp,
+div.black .account li.language .languageList .jp,
+.account li.language .languageList .zh-CN,
+div.black .account li.language .languageList .zh-CN,
+.account li.language .languageList .zh-TW,
+div.black .account li.language .languageList .zh-TW { display:block; }
+
+
+
+/* Ajax Login Layer (Modal Window)
+---------------------------------------------------------------------------------*/
+.loginWindow{ display:none; position:fixed; left:0; top:0; _position:absolute; width:100%; height:100%; z-index:100;} 
+.loginWindow.open{ display:block;}
+.loginWindow .modalWindow{ display:block; position:fixed; border:0; left:0; top:0; _position:absolute; width:100%; height:100%; background:#000; opacity:.6; filter:alpha(opacity:60);}
+.loginWindow .loginLayer{ position:absolute; margin:0 0 0 -175px; width:305px; top:120px; left:50%; padding:30px 0 0 0; color:#797771; background:#f9f9f9 url(images/bg_shape.gif) no-repeat left bottom; border-top:2px solid #636870; border-left:1px solid #e3e3e3; border-right:1px solid #e3e3e3; border-bottom:1px solid #e3e3e3; }
+
+.loginWindow .loginLayer form{ *zoom:1; position:relative; }
+.loginWindow .loginLayer form:after{ content:""; display:block; clear:both;}
+
+.loginWindow .loginLayer #commonLogin{ height:100px; }
+.loginWindow .loginLayer #openidLogin{ height:55px; }
+.loginWindow .loginLayer input.id{ position:absolute; top:0; left:33px; width:154px; height:15px; padding-top:5px; padding-left:4px; background:#ffffff url(images/bg_id.gif) no-repeat;  border:1px solid !important; border-color:#9a9a9a #d8d8d8 #d8d8d8 #9a9a9a !important; color:#666666; font:8pt 돋움; letter-spacing:-1px;}
+.loginWindow .loginLayer input.password{ position:absolute; top:27px; left:33px; width:154px; height:15px; padding-top:5px; padding-left:4px; background:#ffffff url(images/bg_pass.gif) no-repeat;  border:1px solid !important; border-color:#9a9a9a #d8d8d8 #d8d8d8 #9a9a9a !important; color:#666666; font:8pt 돋움; letter-spacing:-1px;}
+
+.loginWindow .loginLayer .oid_desc { margin:20px 0 10px 33px; }
+.loginWindow .loginLayer form_field { margin:0; padding:0; }
+.loginWindow .loginLayer input.oid{ margin-left:33px; width:154px; height:15px; padding-top:5px; padding-left:4px; background:#ffffff url(images/bg_id.gif) no-repeat;  border:1px solid !important; border-color:#9a9a9a #d8d8d8 #d8d8d8 #9a9a9a !important; color:#666666; font:8pt 돋움; letter-spacing:-1px;}
+.loginWindow .loginLayer input.submit_oid { width:52px; height:22px; background:url(images/login_btn_submit.gif) no-repeat; border:none; margin:0; cursor:pointer; position:absolute; top:0px; left:199px; }
+
+.loginWindow .loginLayer .saveIDinfo { position:absolute; top:5px; left:196px; font:8pt 돋움; letter-spacing:-1px; }
+.loginWindow .loginLayer .keep label{ color:#555;}
+.loginWindow .loginLayer input.submit { width:52px; height:22px; background:url(images/login_btn_submit.gif) no-repeat; border:none; margin:0; cursor:pointer; position:absolute; top:27px; left:199px; }
+
+.loginWindow .loginLayer .help{ position:absolute; top:98px; left:27px; font:8pt 돋움; letter-spacing:-1px; margin:0; padding:0;}
+.loginWindow .loginLayer .help li{ display:inline; font-size:11px; line-height:14px; padding:0 0 0 5px;}
+.loginWindow .loginLayer .help li.join{ font-weight:bold;}
+.loginWindow .loginLayer .help li.find{ border-left:1px solid #b3b3b3;}
+
+.loginWindow .loginLayer .help li a{ text-decoration:none; color:#555;}
+.loginWindow .loginLayer .help li a:hover,
+.loginWindow .loginLayer .help li a:active,
+.loginWindow .loginLayer .help li a:focus{ text-decoration:underline;}
+
+.loginWindow .loginLayer .close{ position:absolute; cursor:pointer; border:0; padding:0; top:0; right:0; width:27px; height:27px; background:transparent url(images/buttonCloseX.gif) no-repeat center center;}
+.loginWindow .loginLayer .close span{ position:absolute; font-size:0; line-height:0; width:0; height:.; overflow:hidden; visibility:hidden;}

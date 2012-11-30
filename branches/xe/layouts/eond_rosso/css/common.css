@@ -1,0 +1,19 @@
+body {overflow-y:scroll;}
+#sitebar {
+	position:absolute;
+	width:100%;
+	height: 27px;
+	background: url('../images/bg_sitebar.gif') repeat-x ;
+	text-align:center;
+	vertical-align:middle;
+	font-size:11px;
+	font-family:¸¼Àº °íµñ;
+	color:black;
+	}
+#sitebar ul {margin:0;padding-top:4px;padding-left:0;}
+#sitebar li {display:inline;margin-right:10px;}
+#sitebar li a { text-decoration:none;color:#000;}
+#sitebar li a:hover{ text-decoration:none;color:#575757;}
+
+#sitebar .login {position:absolute; right:2px;top:0px;margin:0;padding:0;margin-top:4px;}
+#sitebar .login li {margin-right:2px;}

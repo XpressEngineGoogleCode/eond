@@ -1,0 +1,51 @@
+
+<h1>
+	<a href="{$layout_info->url}">
+		<!--@if($layout_info->logo)--><img src="{$layout_info->logo}" alt="{$layout_info->name}" /><!--@else-->{$layout_info->name}<!--@end-->
+	</a>
+</h1>
+
+<div id="gnb" class="{$layout_info->slide}">
+	<ul class="ul1">
+		<!--@foreach($gnb->list as $val)--><!--@if($val["link"])-->
+		<li class="li1<!--@if($val['selected'])-->{@$selected=$val} on1<!--@end-->">
+			<a href="{$val['href']}" class="a1"<!--@if($val["open_window"]=="Y")--> onclick="window.open(this.href); return false;"<!--@end-->><!--@if($val["text"] == $val["link"])--><span>{$val["text"]}</span><!--@else-->{$val["link"]}<!--@end--></a>
+			<!--@if($val["list"])-->
+			<div class="shadow"><div class="border">
+				<ul class="ul2">
+					<!--@foreach($val["list"] as $v)-->
+					<li class="li2<!--@if($v['selected'])-->{@$selected2=$v} on2<!--@end-->">
+						<a href="{$v['href']}" class="a2"<!--@if($v["open_window"]=="Y")--> onclick="window.open(this.href); return false;"<!--@end-->><!--@if($v["text"] == $v["link"])--><span>{$v["text"]}</span><!--@else-->{$v["link"]}<!--@end--></a>
+						<!--@if($v["list"])-->
+						<ul class="ul3">
+							<!--@foreach($v["list"] as $va)-->
+							<li class="li3<!--@if($va['selected'])-->{@$selected3=$va} on3<!--@end-->">
+								<a href="{$va['href']}" class="a3"<!--@if($va["open_window"]=="Y")--> onclick="window.open(this.href); return false;"<!--@end-->><!--@if($va["text"] == $va["link"])--><span>{$va["text"]}</span><!--@else-->{$va["link"]}<!--@end--></a>
+							</li>
+							<!--@end-->
+						</ul>
+						<!--@end-->
+					</li>
+					<!--@end-->
+				</ul>
+			</div></div>
+			<!--@end-->
+		</li>
+		<!--@end--><!--@end-->
+	</ul>
+	<!--// Plus: 일반링크, 메뉴펼치기, 태그 레이어 -->
+	<!--@if($layout_info->plus)-->
+	<em class="plus" class="iePngFix"><a href="<!--@if($layout_info->plus_href)-->{$layout_info->plus_href}<!--@else-->#gnb<!--@end-->"><span>{$layout_info->plus}</span></a></em>
+	<!--@end-->
+</div>
+
+<ul class="logged_info mpReset">
+	<!--@if(!$logged_info)-->
+		<li class="li"><a href="{getUrl('act','dispMemberLoginForm')}" class="button small "><span>{$lang->cmd_login}</span></a></li>
+		<li class="li"><a href="{getUrl('act','dispMemberSignUpForm')}" class="button small"><span>{$lang->cmd_signup}</span></a></li>
+	<!--@else-->
+		<li class="li"><a href="{getUrl('act','dispMemberInfo')}" class="button small"><span>{$lang->cmd_view_member_info}</span></a></li>
+		<li class="li"><a href="{getUrl('act','dispMemberLogout')}" class="button small"><span>{$lang->cmd_logout}</span></a></li>
+		<!--@if($logged_info->is_admin=="Y")--><li class="li"><a href="{getUrl('','module','admin','act','dispLayoutAdminModify','layout_srl',$layout_info->layout_srl)}" class="button small green"><span>{$lang->cmd_management}</span></a></li><!--@end-->
+	<!--@end-->
+</ul>

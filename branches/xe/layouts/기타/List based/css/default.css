@@ -1,0 +1,205 @@
+@charset "utf-8";
+/*
+NHN UIT Lab. WebStandardization Team (http://html.nhndesign.com/)
+Jeong, Chan Myeong 070601~070630
+*/
+
+/* White Skin - Start */
+
+/* Site Layout - Body Wrap */
+body { background:#ffffff;}
+#bodyWrap { position:relative; width:980px; margin:0 auto; padding:1.5em 0 0 0;}
+
+/* Site Layout - Header */
+#header { position:relative; width:978px; height:114px; border:0px; background:url() no-repeat right bottom; margin-bottom:10px; z-index:99;}
+#header h1 { position:absolute; top:0px; left:25px;}
+#language { position:absolute; top:12px; right:19px; z-index:100;}
+#language strong { color:#5c5c5c; font:.75em Tahoma; margin-right:3px;}
+#language a img { vertical-align:-5px;}
+#language ul { position:absolute; top:15px; right:0px; display:none; border:1px solid #d9d9d9; background:#ffffff;}
+#language ul li { list-style:none; }
+#language ul li a { display:block; width:61px; padding:3px 8px; font:9px Tahoma; color:#5c5c5c; text-decoration:none;}
+#language ul li a:hover { background:#f4f4f4;}
+
+	/***********************************************************************
+		CSS - MENU ITEMS
+	 	Here, you could assign rules to the menu items at different depths.
+	***********************************************************************/
+	/* General configuration CSS */
+
+	#gnb ul li ul{
+		display:none;	/* Needed to display ok in Opera */
+	}
+
+
+	#gnb{
+	position:relative;top:100px;
+	}
+	#gnb ul{
+		margin:0px;	/* No indent */
+		padding:0px;	/* No indent */
+	}
+	#gnb li{
+		list-style-type:none;	/* No bullets */
+	}
+	#gnb a{
+
+		margin:5 0 0 0px;
+		padding:0px;
+	}
+	/* End general configuration CSS */
+
+
+	/* Cosmetic */
+
+	/***********************************************************************
+		CSS - MENU BLOCKS
+	 	General rules for all menu blocks (group of sub items)
+	***********************************************************************/
+	#gnb ul{
+		border:1px solid #000;
+		background-color:#FFF;
+		padding:1px;
+	}
+
+	#gnb ul.menuBlock1{	/* Menu bar - main menu items */
+		border:0px;
+		padding:1px;
+		border:1px solid #317082;
+		background-color:#E2EBED;
+		overflow:visible;
+	}
+	#gnb ul.menuBlock2{	/* Menu bar - main menu items */
+		border:0px;
+		padding:1px;
+		border:1px solid #555;
+	}
+
+	/***********************************************************************
+		CSS - MENU ITEMS
+	 	Here, you could assign rules to the menu items at different depths.
+	***********************************************************************/
+	/* General rules for all menu items */
+	#gnb a{
+		color: #000;
+		text-decoration:none;
+		padding-left:2px;
+		padding-right:2px;
+
+	}
+
+	/*
+	Main menu items
+	*/
+
+	#gnb .currentDepth1{
+		padding-left:5px;
+		padding-right:5px;
+		border:1px solid #E2EBED;
+	}
+	#gnb .currentDepth1over{
+		padding-left:5px;
+		padding-right:5px;
+		background-color:#317082;
+		border:1px solid #000;
+
+
+	}
+	#gnb .currentDepth1 a{
+		font-weight:bold;
+	}
+	#gnb .currentDepth1over a{	/* Text rules */
+		color:#FFF;
+		font-weight:bold;
+	}
+
+	/* Sub menu depth 1 */
+	#gnb .currentDepth2{
+		padding-right:2px;
+		border:1px solid #FFF;
+	}
+	#gnb .currentDepth2over{
+		padding-right:2px;
+		background-color:#E2EBED;
+		border:1px solid #000;
+	}
+	#gnb .currentDepth2over a{	/* Text rules */
+		color:#000;
+	}
+	/* Sub menu depth 2 */
+	#gnb .currentDepth3{
+		padding-right:2px;
+		border:1px solid #FFF;
+	}
+	#gnb .currentDepth3over{
+		padding-right:2px;
+		background-color:#EDE3EB;
+		border:1px solid #000;
+	}
+	/* Sub menu depth 3 */
+	#gnb .currentDepth4{
+		padding-right:2px;
+		border:1px solid #FFF;
+	}
+	#gnb .currentDepth4over{
+		padding-right:2px;
+		background-color:#EBEDE3;
+		border:1px solid #000;
+	}
+
+
+
+
+#isSearch { position:absolute; top:48px; right:15px; width:214px; text-align:right;display:none;}
+#isSearch .searchOrder { display:none;}
+#isSearch .checked { position:absolute; left:0; top:0; text-align:left; display:none; padding:5px 0 0 5px; width:64px; height:14px; background:url(../images/white/bgSearchTerm.gif) no-repeat; font:11px "µ¸¿ò", Dotum, "±¼¸²", Gulim, AppleGothic, Sans-serif; color:#5c5c5c; line-height:normal;display:none;}
+#isSearch ul { display:none; position:absolute; left:0; top:18px; padding:2px 0 3px 0; text-align:left; border:1px solid #b2b2b2; background:#ffffff; overflow:hidden;}
+#isSearch ul li { width:67px; height:18px; list-style:none;}
+#isSearch ul li input { display:none;}
+#isSearch ul li label { display:block; padding:4px 0 0 4px; width:63px; height:15px; font:11px "µ¸¿ò", Dotum, "±¼¸²", Gulim, AppleGothic, Sans-serif; color:#5c5c5c;}
+#isSearch ul li label.on { background:#ededed; }
+#isSearch ul li label:hover,
+#isSearch ul li label:focus { background:#ededed;}
+#isSearch .inputText { vertical-align:middle; padding:3px 3px 1px 3px; width:94px; height:15px; color:#5c5c5c; border:none; background:url(../images/white/bgSearch.gif) no-repeat;}
+#isSearch .inputText:hover,
+#isSearch .inputText:focus { background:url(../images/white/bgSearchOn.gif) no-repeat;}
+*:first-child+html #isSearch .inputText { position:relative; top:-1px;}
+#isSearch .submit { vertical-align:middle;}
+*:first-child+html #isSearch .submit { position:relative; top:-1px;}
+
+/* Site Layout - Content Body */
+#contentBody { position:relative; width:980px; padding-bottom:30px; overflow:hidden; background:url(../images/white/bgContentBody.gif) repeat-y left top; border-bottom:1px solid #dddddd;}
+
+/* Site Layout - Column Left */
+#columnLeft { position:relative; width:201px; float:left;display:none;}
+#columnLeft .mask { width:201px; height:5px; background:#ffffff; display:none;}
+
+#lnb { border-top:1px solid #dddddd; padding:4px 5px; width:190px;}
+#lnb li { padding-bottom:4px;}
+#lnb li a { padding:6px 5px 6px 13px; width:170px; display:block; border:1px solid #e8e8e8; background:url(../images/default/bgLnbOff.gif) repeat-x; color:#3e3e3e; position:relative; z-index:99; text-decoration:none;}
+#lnb li a:hover,
+#lnb li a:focus { color:#ffffff; background:#de4332; border:1px solid #de4332;}
+#lnb li.on a { color:#ffffff; background:#de4332; border:1px solid #de4332;}
+#lnb li.on a:hover,
+#lnb li.on a:focus { font-weight:bold;}
+#lnb li ul { display:none; position:relative; width:184px; padding:0 3px; position:relative; border-top:1px solid #ffffff; overflow:hidden;}
+#lnb li.on ul { display:block;}
+#lnb li ul li { padding:0; border-top:1px solid #f2f2f2; position:relative; top:-1px;}
+#lnb li ul li a { padding:6px 5px 6px 10px; width:169px; color:#818181 !important; border:none; background:none !important; border:none !important;}
+#lnb li ul li a:hover,
+#lnb li ul li a:focus { font-weight:normal !important; color:#de4332 !important;}
+#lnb li.on ul li.on a { color:#ff1a00 !important; font-weight:bold !important; background:url(../images/default/bulletLnb.gif) no-repeat 175px center  !important;}
+
+/* Site Layout - Column Right */
+#columnRight { width:770px; float:right; overflow:hidden;}
+#visualArea { width:770px; height:200px; background:#f5f5f5; margin-bottom:2.5em; position:relative; left:-15px; margin-right:-15px;}
+#content { width:100%; overflow:hidden;}
+
+/* Site Layout - Footer */
+#footer { border-top:3px solid #f4f4f4; text-align:center; padding:2em 0 4em; clear:both;}
+#footer li { display:inline; padding:0 .6em 0 1em; background:url(../images/white/vrType1.gif) no-repeat left center;}
+#footer li.first-child { background:none;}
+#footer li a { color:#999999; font:.9em "µ¸¿ò", Dotum, "±¼¸²", Gulim, AppleGothic, Sans-serif;}
+#footer li address { display:inline; }
+
+/* White Skin - End */

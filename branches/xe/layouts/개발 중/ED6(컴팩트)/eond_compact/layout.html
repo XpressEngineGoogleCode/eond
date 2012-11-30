@@ -1,0 +1,61 @@
+<!-- 레이아웃과 연동될 css 파일 import -->
+<!--%import("./css/default.css")--> 
+
+<div id=navi_UpService>
+<!--GNB-->
+<ul id="gnb">
+            <!-- navi_menu 1차 -->
+            <!--@foreach($navi_menu->list as $key => $val)--><!--@if($val['link'])-->
+                <!--@if($val['selected'])-->
+                    {@ $menu_1st = $val }
+                <!--@end-->
+
+                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+
+            <!--@end--><!--@end-->
+            <!-- //navi_menu 1차 -->
+</ul>
+<!--//GNB-->
+
+<div class=navi_Upservice_admin>
+<a href=./?module=admin&act=dispBoardAdminContent><img src="./images/navi_Upservice_ico_admin.gif" width=10 height=10></a>
+</div>
+</div>
+<div id=header></div>
+<div id=content-box><div id=content>
+		<!--GNB-->
+		<ul id="gnb">
+            <!-- main_menu 1차 시작 -->
+            <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+                <!--@if($val['selected'])-->
+                    {@ $menu_1st = $val }
+                <!--@end-->
+
+                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+
+            <!--@end--><!--@end-->
+            <!-- main_menu 1차 끝 -->
+		</ul>
+		<!--//GNB-->
+</div></div>
+<div id=footer>
+<!--@foreach($bottom_menu->list as $key => $val)-->
+		<li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+<!--@end-->
+<select onChange='if(this.selectedIndex) { this.blur(); window.open(options[selectedIndex].value); }'> 
+<option>즐겨찾는 사이트
+<!--@foreach($favorite_site->list as $key => $val)--><!--@if($val['link'])-->
+<!--@if($val['selected'])-->
+{@ $menu_1st = $val }
+<!--@end-->
+<option value="{$val['href']}">{$val['link']}
+<!--@end--><!--@end-->
+</select>
+<img src="./images/footer_img.gif">
+</div>
+
+
+
+
+
+

@@ -1,0 +1,86 @@
+<!-- JS 파일 로드 -->
+<load target="packages/pxe_bwidgets/js/smartColumn.js" type="body" />
+
+<!-- 컬러셋용 CSS 파일 로드 -->
+<load cond="$layout_info->colorset == 'default'" target="packages/pxe_bwidgets/css/bwidgets_default.css" />
+<load cond="$layout_info->colorset == 'custom'" target="packages/pxe_bwidgets/css/bwidgets_custom.css" />
+
+<!-- 라운드형 위젯 박스 --> 
+<div class="section_02" cond="$layout_info->display_splash == 'hide'" style="margin-bottom:0">
+    <div class="menuPath02" cond="$layout_info->display_bottom_breadclumb == 'Y'">
+        <!-- depth 1 -->
+        <block loop="$main_menu->list=>$key, $val">
+            <block cond="$val['selected']">{@$depth1 = $val}</block>
+        </block>
+        
+        <!-- depth 2 -->
+        <block cond="$depth1">
+            <block loop="$depth1['list']=>$key, $val">
+                <block cond="$val['selected']">{@$depth2 = $val}</block>
+            </block>
+        </block>
+        
+        <!-- depth 3 -->
+        <block cond="$depth2">
+            <block loop="$depth2['list']=>$key, $val">
+                <block cond="$val['selected']">{@$depth3 = $val}</block>
+            </block>
+        </block>
+        
+        <!-- depth 4 -->
+        <block cond="$depth3">
+            <block loop="$depth3['list']=>$key, $val">
+                <block cond="$val['selected']">{@$depth4 = $val}</block>
+            </block>
+        </block>
+        
+        <a href="{getSiteUrl()}" class="home">&nbsp;</a>
+        <a cond="$depth1" href="{$depth1['href']}">{$depth1['text']}</a>
+        <a cond="$depth2" href="{$depth2['href']}">{$depth2['text']}</a>
+        <a cond="$depth3" href="{$depth3['href']}">{$depth3['text']}</a>
+        <a cond="$depth4" href="{$depth3['href']}">{$depth4['text']}</a>
+        <span><!--@if($module_info->title)-->{$module_info->title}<!--@else-->{Context::getBrowserTitle()}<!--@end--></span>
+    </div><!--menuPath02 끝-->
+    
+    <div class="smartList">
+        <ul class="column">
+            <li>
+                <div class="block">
+                 <!--Content-->
+                 <h2>위젯 제목</h2>
+                 위젯 코드를 붙여 넣으세요
+                </div>
+            </li>
+            
+            <li>
+                <div class="block">
+                 <!--Content-->
+                 <h2>위젯 제목</h2>
+                 위젯 코드를 붙여 넣으세요
+                </div>
+            </li>
+            
+            <li>
+                <div class="block">
+                 <!--Content-->
+                 <h2>위젯 제목</h2>
+                 위젯 코드를 붙여 넣으세요
+                </div>
+            </li>
+            
+            <li>
+                <div class="block">
+                 <!--Content-->
+                 <h2>위젯 제목</h2>
+                 위젯 코드를 붙여 넣으세요
+                </div>
+            </li>
+        </ul>
+    </div><!--smartList 끝-->
+</div><!--section_02 끝-->
+
+<div class="section_02" cond="$layout_info->display_splash == 'show'" style="margin-bottom:0">
+    <div class="sec_body" style="text-align:center">
+        <img src="packages/pxe_bwidgets/img/default/sample.gif" alt="샘플 이미지" />
+    </div>
+</div><!--section_02 끝-->

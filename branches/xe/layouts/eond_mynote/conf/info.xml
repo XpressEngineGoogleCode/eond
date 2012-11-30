@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title>이온디 마이노트</title>
+    <description>
+        1. 기본정보
+		이름 : 이온디 마이노트 레이아웃
+		만든이 : 정낙훈(eond@eond.com)
+		홈페이지 : http://eond.com
+		설명 : 미니홈피 디자인을 본따 만든 레이아웃입니다. 미니홈피와 비슷한 레이아웃입니다.
+		미니홈피 대문과 같이 프로필 이미지와 프로필 코멘트를 레이아웃 설정에서 삽입 수정할 수 있으며,
+		
+		2. 메뉴
+		기본 메뉴 외에 사이트 네비게이션과 패밀리 사이트(즐겨찾는 홈페이지)를 구성할 수 있습니다.
+		기본 메뉴는 컨텐츠 상단에 출력되며, 패밀리 사이트는 왼쪽 사이드 박스에 있는 서브메뉴 아래에 출력됩니다.
+		패밀리 사이트는 메뉴를 선택하지 않을 시 출력되지 않으며,
+		사이트 네비게이션 메뉴는 선택하지 않을 경우 저작권 문구가 대신 출력됩니다.
+		
+		3. 너비
+		기본 컨텐츠 박스의 너비는 880px입니다만 원할 경우 레이아웃 설정에서 본문 너비를 조정할 수 있습니다.
+
+		4. 이미지 변경
+		설정가능한 이미지는 로고, 프로필, 기본배경, 우측하단 고정이미지 총 4개 입니다.
+		로고는 맨 왼쪽 상단에 세로로 출력되며, 
+		프로필은 프로필 박스에 출력됩니다.
+		기본배경은 컨텐츠 박스 외에 사이트 전체 바디에 출력되며
+		우측하단 고정이미지는 좋아하는 연예인 사진 등을 출력할 수 있게 설정할 수 있습니다.
+
+		5. 위젯(총 4개)
+		프로필 박스 하단에 1개의 위젯과 오른쪽 사이드 박스에 최대 3개의 위젯을 출력할 수 있습니다.
+		프로필박스 하단에 위치한 위젯은 공지사항 위젯이라고 되어있으며 
+		기타 위젯은 위젯 제목과 소스 코드를 입력하면 오른쪽 사이드 위젯이 출력됩니다.
+		위젯은 아래 위로 슬라이드 기능이 작동하며 설정에서 켜고 끌 수가 있습니다.
+    </description>
+    <version>1.3.2</version>
+    <date>2010-12-15</date>
+	<link>http://eond.com/eond_mynote</link>
+    <author email_address="eond@eond.com" link="http://eond.com">
+        <name>이온디</name>
+    </author>
+    <menus>
+		<menu name="site_menu" maxdepth="1" default="true">
+            <title>사이트 네비게이션(선택하지 않을 경우 메뉴 대신 저작권 문구가 출력됩니다.)</title>
+			<description>레이아웃 하단의 사이트 네비게이션입니다.</description>
+        </menu>
+		<menu name="main_menu" maxdepth="3" default="true">
+            <title>기본 메뉴(필수)</title>
+        </menu>
+		<menu name="family_site">
+			<title>패밀리 사이트(선택하지 않을 경우 표시되지 않습니다.)</title>
+			<maxdepth>1</maxdepth>
+		</menu>
+	</menus>
+    <extra_vars>
+        <var name="index_url" type="text">
+            <title>홈페이지 URL(*)</title>
+            <description>로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+		</var>
+		<var name="colorset" type="select">
+            <title>컬러셋</title>
+            <description>원하시는 컬러셋을 선택해주세요.</description>
+            <options value="default">
+                <title>기본</title>
+            </options>
+        </var>
+
+		<var name="con_width" type="text">
+            <title>본문 너비</title>
+            <description>입력 예: 880</description>
+        </var>
+        <var name="background_image" type="image">
+            <title>전체 배경이미지</title>
+            <description>배경 이미지를 사용하시려면 등록해주세요.</description>
+        </var>
+        <var name="background_image2" type="image">
+            <title>우측하단 고정 배경이미지</title>
+            <description>우측 하단에 고정된 이미지입니다.</description>
+        </var>
+		<var name="logo_image" type="image">
+            <title>로고이미지</title>
+            <description>로고이미지를 입력하세요. width 23px인 투명이미지가 가장 잘 어울립니다.(기본 사이즈 20*82)</description>
+        </var>
+
+		<var name="profile_image" type="image">
+			<title>프로필 이미지</title>
+		</var>
+		<var name="profile" type="textarea">
+			<title>프로필 코멘트</title>
+		</var>
+		<var name="wdg_notice" type="text">
+			<title>공지사항 위젯</title>
+			<description>로그인 위젯과 서브 메뉴 사이에 위치합니다. (li 형식, 제목은 25자 이내)</description>
+		</var>
+		<var name="wdg_notice_link" type="text">
+			<title>공지사항 연결url</title>
+		</var>
+
+		<var name="location_view" type="select">
+            <title>현재위치출력</title>
+            <options value="default">
+                <title>켜기</title>
+            </options>
+            <options value="hidden">
+                <title>끄기</title>
+            </options>
+        </var>
+
+		<var name="slide" type="select">
+				<title>위젯 슬라이드</title>
+				<options value="true">
+					<title>이동</title>
+				</options>
+				<options value="false">
+					<title>이동 안함</title>
+				</options>
+		</var>
+
+        <var name="wdg1h" type="text">
+            <title>위젯1 제목</title>
+        </var>
+		<var name="wdg1url" type="text">
+            <title>위젯1 url</title>
+        </var>
+		<var name="wdg1" type="textarea">
+			<title>위젯1 태그</title>
+		</var>
+		<var name="wdg2h" type="text">
+			<title>위젯2 제목</title>
+		</var>
+		<var name="wdg2url" type="text">
+            <title>위젯2 url</title>
+        </var>
+		<var name="wdg2" type="textarea">
+			<title>위젯2 태그</title>
+		</var>
+		<var name="wdg3h" type="text">
+			<title>위젯3 제목</title>
+		</var>
+		<var name="wdg3url" type="text">
+            <title>위젯3 url</title>
+        </var>
+		<var name="wdg3" type="textarea">
+			<title>위젯3 태그</title>
+		</var>
+	</extra_vars>
+
+</layout>

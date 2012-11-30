@@ -1,0 +1,31 @@
+/* 4단 세로메뉴 (pxe_vmenu)
+---------------------------------------------------------------------------------*/
+#sub_nav { margin:0; padding:0; font-family:Arial, Helvetica, sans-serif; font-size:12px; list-style:none; overflow:hidden; }
+
+/* 2차 */
+#sub_nav li a { position:relative; padding:10px 15px; display:block; color:#666; *zoom:1; border-bottom:1px solid #eee;}
+#sub_nav li a:hover { color:#333 !important; background:#daedf8; }
+#sub_nav li a .i{position:absolute;top:50%;left:100%;width:15px;height:8px;margin:-4px 0 0 -23px;_margin:-12px 0 0 -23px;color:#ccc;background:url(../img/custom/ico_sub.gif) no-repeat left bottom; }
+#sub_nav li.on a { font-weight:bold; color:#000;  }
+
+/*3차 */
+#sub_nav li ul { list-style:none; margin:0; padding:0; }
+#sub_nav li ul li a { padding-left:30px; font-weight:normal; border:none; color:#777; text-transform:none; }
+#sub_nav li.on ul { border-bottom:1px solid #eee; }
+#sub_nav li.on ul li a { font-weight:normal !important; color:#777; background:none; }
+#sub_nav li.on ul li.on a { font-weight:bold !important; color:#000; }
+
+/*4차 */
+#sub_nav li ul li ul { margin:0; padding:0;  border-bottom:1px solid #eee; border-top:1px solid #eee; }
+#sub_nav li ul li ul li a { padding-left:45px; background:none; }
+#sub_nav li.on ul li.on ul { border-bottom:none;}
+#sub_nav li.on ul li.on ul li a { font-weight:normal !important; color:#999; background:none; border:none; }
+#sub_nav li.on ul li.on ul li.on a { font-weight:bold !important; color:#000; }
+
+/*예비 */
+#sub_nav li ul li ul li ul { margin:0; padding:0; font-size:11px; }
+#sub_nav li ul li ul li ul li a { padding:0px 0 10px 60px; _padding:0 0 0 75px; background:none; border:none; }
+#sub_nav li.on ul li.on ul li.on ul li a { font-weight:normal !important; color:#999; background:none; }
+#sub_nav li.on ul li.on ul li.on ul li.on a{ font-weight:bold !important; color:#000; }
+
+#sub_nav li:last-child a { border:none; }

@@ -1,0 +1,255 @@
+<!--%import("js/js.js")-->
+<!--%import("css/default.css")-->
+<!--%import("lang")-->
+
+<style type="text/css">
+	<!--@if($layout_info->content_margin)-->#content .content_margin { margin:{$layout_info->content_margin}px;}<!--@end-->
+	<!--@if($layout_info->widget_width)-->
+		{@$tmp = $layout_info->widget_width}
+		#contentWrapper { background-position:{(940-$tmp)}px top;}
+		#content { width:{(940-$tmp)}px; float:left; }
+		#widget div.widget_div div.widget_content { width:{$tmp}px;}
+	<!--@end-->
+</style>
+
+{@$category = array()}
+
+<div id="outerWrapper_shadow" class="{$layout_info->colorset}">
+	<div id="outerWrapper_top"></div>
+	<div id="outerWrapper_left"><div id="outerWrapper_right">
+			<div id="outerWrapper">
+				<div id="header">
+					<div id="header_login">
+						<span class="header_title"><a href="{$layout_info->index_url}" title="<!--@if(!$layout_info->index_name)-->Simple Layout<!--@else-->{$layout_info->index_name}<!--@end-->"><!--@if(!$layout_info->index_name)-->Gray Style layout<!--@else-->{$layout_info->index_name}<!--@end--></a></span>
+						<!-- // Thank you for the login layer! -->
+						<!--@if(!$is_logged)-->							
+					    {@ $member_config = MemberModel::getMemberConfig(); }
+					    <!--%import("filter/login.xml")-->
+	            <form action="" method="post" class="typeA" id="commonLogin" onsubmit="return procFilter(this, login)">
+	                <fieldset>
+	                    <legend>XE Login</legend>
+	                    <dl>
+	                        <dt><label for="uid">{$lang->user_id}</label></dt>
+	                        <dd><input name="user_id" type="text" class="inputText" id="uid" value="{$lang->usr_id}" onfocus="this.value=(this.value=='{$lang->usr_id}')? '' : this.value;" /></dd>
+	                        <dt><label for="upw">{$lang->password}</label></dt>
+	                        <dd><input name="password" type="password" class="inputText" value="87654321" id="upw" onfocus="this.value='';" /></dd>
+	                    </dl>
+	                    <span class="keep"><input name="keep_signed" type="checkbox" id="keepA" value="Y" class="inputCheck" onclick="if(this.checked) return confirm('{$lang->about_keep_signed}');" /><label for="keepA">{$lang->keep_signed}</label></span>
+	                    <span class="loginButton"><input name="" type="submit" value="{$lang->cmd_login}" /></span>
+	                    <!--@if($member_config->enable_openid=='Y')--><span class="loginButton"><input type="button" value="{$lang->open_id}" onclick="jQuery('#commonLogin').css('display','none');jQuery('#openidLogin').css('display','block');" /></span><!--@end-->
+	                </fieldset>
+	            </form>
+	            <!--@if($member_config->enable_openid=='Y')-->
+		            <!--%import("filter/openid_login.xml")-->
+		            <form action="./" method="post" class="typeB" id="openidLogin" onsubmit="return procFilter(this, openid_login)">
+		                <fieldset>
+		                    <legend>OpenID Login</legend>
+		                    <dl>
+		                        <dt><label for="oid">Open ID</label></dt>
+		                        <dd><input name="openid" type="text" class="inputText" id="oid" value="OpenID" onfocus="this.value='';" /></dd>
+		                    </dl>
+		                    <span class="loginButton"><input name="" type="submit" value="{$lang->cmd_login}" /></span>
+		                    <span class="loginButton"><input type="button" value="{$lang->my_id}" onclick="jQuery('#openidLogin').css('display','none');jQuery('#commonLogin').css('display','block');" /></span>
+		                </fieldset>
+		            </form>
+	            <!--@end-->
+							<span><a href="{getUrl('act','dispMemberSignUpForm')}">{$lang->join}</a></span>
+							<span><a href="{getUrl('act','dispMemberFindAccount')}">{$lang->cmd_find_member_account}</a></span>
+							<span><a href="{getUrl('act','dispMemberResendAuthMail')}">{$lang->cmd_resend_auth_mail}</a></span>
+						<!--@else-->
+							<span><a href="#" class="member_{$logged_info->member_srl}" onclick="return false;" title="{$lang->myinfo}">{sprintf($lang->login_message, $logged_info->nick_name)}</a></span>
+							<span><a href="{getUrl('act','dispMemberLogout')}">{$lang->logout}</a></span>
+							<!--@if($logged_info->is_admin == "Y")--><span><a href="{getUrl('','module','admin')}" class="user_info" title="{$lang->cmd_management}">{$lang->manage}</a></span><!--@end-->
+						<!--@end-->
+						<div class="blank"></div>
+					</div>
+					
+			    <div class="header_search">
+					  <form action="{getUrl()}" method="post" id="isSearch">
+						<input type="hidden" name="mid" value="{$mid}" />
+						<input type="hidden" name="act" value="IS" />	
+						<input name="is_keyword" type="text" class="inputText" title="keyword" />
+						<input type="submit" title="{$lang->cmd_search}" value="" class="submit" />
+						</form>
+					</div>
+					
+					<div class="select_language">{@$tmp=0;}
+						<span class="language_title">Select Language </span>
+						<div class="language_line">
+							<span class="select_language_button"><button type="button" title="Select Language">{$lang_supported[$lang_type]}</button></span>
+							<ul>
+								<!--@foreach($lang_supported as $key => $val)--><!--@if($key != $lang_type)-->
+											{@$tmp++}
+											<li><button type="button" onclick="doChangeLangType('{$key}');return false;"><span>{$val}</span></button></li>
+								<!--@end--><!--@end-->
+							</ul>
+						</div>
+						<!--@if($tmp==0)-->
+								<style type="text/css">#header select_language { display:none; }</style>
+						<!--@end-->
+					</div>
+					
+					<h1 class="{$layout_info->colorset}"><a href="{$layout_info->index_url}" title="<!--@if(!$layout_info->index_name)-->Gray Style<!--@else-->{$layout_info->index_name}<!--@end-->" <!--@if($layout_info->logo_image)-->style="background:url({$layout_info->logo_image}) no-repeat;"<!--@end-->>
+							<span><!--@if(!$layout_info->index_name)-->Gray Style layout<!--@else-->{$layout_info->index_name}<!--@end--></span>
+					</a></h1>
+					<!-- #gnb by 김무건 || Elkha (elkha1914@hotmail.com) -->
+							<div id="gnb" class="Wrapper {$layout_info->newPost}">
+								<ul class="first_ul">{@$tmp=0}
+									<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+											<li class="first_li<!--@if($val['selected'])-->{@$category[$tmp]=$val}{@$tmp++} selected<!--@end-->">
+												<a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--> class="first_a<!--@if($val['list'])--> sub first_sub<!--@end-->"><!--@if($val['text']==$val['link'])--><span>{$val['text']}</span><!--@else-->{$val['link']}<!--@end--></a>
+												<!--@if($val['list'])-->
+													<ul class="second_ul">
+														<!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+																<li class="second_li<!--@if($v['selected'])--> selected selected_2{@$category[$tmp]=$v}{@$tmp++}<!--@end-->">
+																	<a href="{$v['href']}"<!--@if($v['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--> class="second_a<!--@if($v['list'])--> sub<!--@end-->"><!--@if($v['text']==$v['link'])--><span>{$v['text']}</span><!--@else-->{$v['link']}<!--@end--></a>
+																	<!--@if($v['list'])-->
+																		<ul class="third_ul">
+																			<!--@foreach($v['list'] as $ka => $va)--><!--@if($va['link'])-->
+																					<li class="third_li<!--@if($va['selected'])--> selected selected_3{@$category[$tmp]=$va}{@$tmp++}<!--@end-->">
+																						<a href="{$va['href']}"<!--@if($va['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--> class="third_a<!--@if($va['list'])--> sub<!--@end-->"><!--@if($va['text']==$va['link'])--><span>{$va['text']}</span><!--@else-->{$va['link']}<!--@end--></a>
+																					</li>
+																			<!--@end--><!--@end-->
+																		</ul>
+																	<!--@end-->
+																</li>
+														<!--@end--><!--@end-->
+													</ul>
+												<!--@end-->
+											</li>
+									<!--@end--><!--@end-->
+								</ul>
+							</div>
+					<!-- // #gnb by 김무건 || Elkha (elkha1914@hotmail.com) -->
+				</div>
+				<div id="contentWrapper">
+					<div id="content">
+						<!--@if($layout_info->category_view!='hidden')-->
+							<ul id="category" class="{$layout_info->colorset}">
+								<li class="category c_0"><a class="category_home" href="{$layout_info->index_url}"><span class="blank"><!--@if(!$layout_info->index_name)-->Gray Style<!--@else-->{$layout_info->index_name}<!--@end--></span></a></li>
+								<!--@if($tmp > 0)--><!--@for($i=0; $i<$tmp; $i++)-->
+									<li class="category c_{$i+1}"><a href="{$category[$i]['href']}">{$category[$i]['text']}</a></li>
+								<!--@end--><!--@end-->
+							  <!--@if($layout_info->notice)--><li class="category c_notice"><a href="{$layout_info->notice_url}">{$layout_info->notice}</a></li><!--@end-->
+							</ul>
+							<style type="text/css">#category .c_{$tmp} { background:none;}</style>
+						<!--@end-->
+						<div class="content_margin">
+						 {$content}
+					 	</div>
+					 	<div class="blank"></div>
+					</div>
+					<!--@if($layout_info->widget_width)-->
+						<div id="widget" class="{$layout_info->colorset}">
+						<!-- //3rd menu -->
+							<!--@if($tmp>0)--><!--@if($category[0]['list'])-->
+									<div class="widget_div third_menu">
+										<p class="widget_title"><span><a href="{$category[0]['href']}"<!--@if($category[0]['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->>{$category[0]['link']}</a></span></p>
+										<div class="widget_content">
+											<ol>
+												<!--@foreach($category[0]['list'] as $key => $val)-->
+												<!--@if($val['link'])--><li>
+													<a href="{$val['href']}" <!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--><!--@if($val['selected'])--> class="selected"<!--@end-->>{$val['text']}</a>
+													<!--@if($val['list'])-->
+														<!--@if(!$val['selected'])-->
+															<span id="test" class="more">more</span>
+														<!--@end-->
+														<ol<!--@if($val['selected'])--> class="selected"<!--@end-->>
+														<!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+																<li>
+																	<a href="{$v['href']}" <!--@if($v['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--><!--@if($v['selected'])--> class="selected"<!--@end-->>{$v['text']}</a>
+																</li>
+														<!--@end--><!--@end-->
+													</ol>
+													<!--@end-->
+													</li><!--@end-->
+												<!--@end-->
+											</ol>
+										</div>
+									</div>
+							<!--@end--><!--@end-->
+							<!--@if($layout_info->wdget_var_1)-->
+							<div class="widget_div">
+								<!--@if($layout_info->wdget_var_1_title)--><p class="widget_title"><span>{$layout_info->wdget_var_1_title}</span></p><!--@end-->
+								<div class="widget_content">{$layout_info->wdget_var_1}</div>
+							</div>
+							<!--@end-->
+							<!--@if($layout_info->wdget_var_2)-->
+							<div class="widget_div">
+								<!--@if($layout_info->wdget_var_2_title)--><p class="widget_title"><span>{$layout_info->wdget_var_2_title}</span></p><!--@end-->
+								<div class="widget_content">{$layout_info->wdget_var_2}</div>
+							</div>
+							<!--@end-->
+							<!--@if($layout_info->wdget_var_3)-->
+							<div class="widget_div">
+								<!--@if($layout_info->wdget_var_3_title)--><p class="widget_title"><span>{$layout_info->wdget_var_3_title}</span></p><!--@end-->
+								<div class="widget_content">{$layout_info->wdget_var_3}</div>
+							</div>
+							<!--@end-->
+							<!--@if($layout_info->wdget_var_4)-->
+							<div class="widget_div">
+								<!--@if($layout_info->wdget_var_4_title)--><p class="widget_title"><span>{$layout_info->wdget_var_4_title}</span></p><!--@end-->
+								<div class="widget_content">{$layout_info->wdget_var_4}</div>
+							</div>
+							<!--@end-->
+							<!--@if($layout_info->wdget_var_5)-->
+							<div class="widget_div">
+								<!--@if($layout_info->wdget_var_5_title)--><p class="widget_title"><span>{$layout_info->wdget_var_5_title}</span></p><!--@end-->
+								<div class="widget_content">{$layout_info->wdget_var_5}</div>
+							</div>
+							<!--@end-->
+						 <div class="blank"></div>
+						</div>
+					<!--@end-->
+				<div class="blank"></div>
+				<div id="footerWrapper" class="{$layout_info->colorset}">
+				<!--// 사이트 맵 -->
+				<!--@if($layout_info->sitemap!='hide')-->
+					<div id="sitemap">
+						<!--@foreach($main_menu->list as $key => $val)-->
+							<!--@if($val['link'])-->
+							<div class="section">
+								<h2><a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->>{$val['text']}</a></h2>
+								<!--@if($val['list'])-->
+									<ul>
+											<!--@foreach($val['list'] as $k => $v)-->
+												<!--@if($v['link'])-->
+													<li><a href="{$v['href']}"<!--@if($v['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->>{$v['text']}</a></li>
+												<!--@end-->
+											<!--@end-->
+										</ul>
+									<!--@end-->
+								</div>
+							<!--@end-->
+						<!--@end-->
+						<div class="blank"></div>
+					</div>
+				<!--@end-->
+				 	<div id="footer">
+				 		<!-- // Powered 및 Skin 문구를 지우려면 Pro버전을 구입해야 합니다 -->
+				 		<p class="powered">Powered by XE<br />Skin by <!--@if($lang->Elkha)-->{$lang->Elkha}<!--@else-->Elkha<!--@end--></p>
+						<ol>
+							<!--{@$tmp=0}-->
+							<!--@foreach($bottom_menu->list as $key => $val)--> 
+								<li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end--> <!--@if($tmp==0)-->class="footer_menu_first" <!--@end-->>{$val['link']}</a></li>
+								<!--{$tmp++}-->
+							<!--@end-->
+				    </ol>
+				    <p class="copyright"><!--@if($layout_info->index_name)-->Copyright (c) <a href="{$layout_info->index_url}" title="{$layout_info->index_name}">{$layout_info->index_name}</a> All Right Reserved.<!--@else-->Disigned by <a href="http://notepad.wo.tc/" title="Elkha" target="Elkha">Elkha</a><!--@end--></p>
+					 	<div class="blank"></div>
+				 	</div>
+				</div>
+			</div>
+		</div>
+		<div id="outerWrapper_bottom"></div>
+		<!-- // outerWrapper -->
+	</div></div>
+	
+	<div id="web">
+		<p class="xhtml xhtml_{$layout_info->colorset}"><span>Valid XHTML 1.0 Transitional</span></p>
+		<p class="css css_{$layout_info->colorset}"><span>Valid CSS Transitional</span></p>
+		<div class="blank"></div>
+	</div>
+	<div class="blank"></div>
+</div>
+

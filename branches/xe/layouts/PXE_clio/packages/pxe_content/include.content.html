@@ -1,0 +1,46 @@
+<!-- 컬러셋용 CSS 파일 로드 -->
+<load cond="$layout_info->colorset == 'default'" target="packages/pxe_content/css/content_default.css" />
+<load cond="$layout_info->colorset == 'custom'" target="packages/pxe_content/css/content_custom.css" />
+
+<!-- 라운드형 위젯 박스 --> 
+<div class="section_02">
+    <div cond="$layout_info->display_content_breadclumb == 'Y'" class="menuPath03">
+        <!-- depth 1 -->
+        <block loop="$main_menu->list=>$key, $val">
+            <block cond="$val['selected']">{@$depth1 = $val}</block>
+        </block>
+        
+        <!-- depth 2 -->
+        <block cond="$depth1">
+            <block loop="$depth1['list']=>$key, $val">
+                <block cond="$val['selected']">{@$depth2 = $val}</block>
+            </block>
+        </block>
+        
+        <!-- depth 3 -->
+        <block cond="$depth2">
+            <block loop="$depth2['list']=>$key, $val">
+                <block cond="$val['selected']">{@$depth3 = $val}</block>
+            </block>
+        </block>
+        
+        <!-- depth 4 -->
+        <block cond="$depth3">
+            <block loop="$depth3['list']=>$key, $val">
+                <block cond="$val['selected']">{@$depth4 = $val}</block>
+            </block>
+        </block>
+        
+        <a href="{getSiteUrl()}" class="home">&nbsp;</a>
+        <a cond="$depth1" href="{$depth1['href']}">{$depth1['text']}</a>
+        <a cond="$depth2" href="{$depth2['href']}">{$depth2['text']}</a>
+        <a cond="$depth3" href="{$depth3['href']}">{$depth3['text']}</a>
+        <a cond="$depth4" href="{$depth3['href']}">{$depth4['text']}</a>
+    </div><!--menuPath03 끝-->
+    
+    <div class="sec_body">
+        {$content}
+    </div>
+</div><!--section_02 끝-->
+
+

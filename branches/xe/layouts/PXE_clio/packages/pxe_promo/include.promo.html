@@ -1,0 +1,142 @@
+
+<!-- JS 파일 로드 -->
+<load target="packages/pxe_promo/js/swfobject.js" />
+<load target="packages/pxe_promo/js/jTypeWriter.js" type="body" />
+<load target="packages/pxe_promo/js/rotation.js" />
+<load target="packages/pxe_promo/js/jquery.idTabs.min.js" type="body" />
+
+<!-- 컬러셋용 CSS 파일 로드 -->
+<load cond="$layout_info->colorset == 'default'" target="packages/pxe_promo/css/promo_default.css" />
+<load cond="$layout_info->colorset == 'custom'" target="packages/pxe_promo/css/promo_custom.css" />
+
+<block cond="$layout_info->promo_selected == 'movie'">
+	<style type="text/css">
+    #promo_movie { display:block; }
+    </style>
+</block>
+
+<!-- 언어팩용 CSS -->
+<style type="text/css">
+.values { 
+	<block cond="$lang_type == 'ko'">font:8pt 돋움,Dotum; letter-spacing:-1px;</block>
+	<block cond="$lang_type == 'en'">font:9px Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif; text-transform:uppercase;</block>
+	<block cond="$lang_type == 'jp'">font:9px meiryo,Arial,Helvetica;</block>
+}
+</style>
+
+<div id="promo_control" class="pngFix" style="width:{$layout_info->container_site_width-10}px">
+    <span class="promo_control_right pngFix">Promotion Controler Right Corner</span>
+    
+    <!--콘트롤러 탭-->
+    <script type="text/javascript"> 
+	    //<![CDATA[
+	    jQuery(function($){
+		    $("#tab_controler").idTabs(); 
+			
+			$('.mp3btn').click(function(){
+				$('#promo_mp3').toggle();
+			});
+	    });
+	    //]]>
+	</script>
+
+    <ul id="tab_controler">
+      <li class="static"></li>
+      <li class="image"><a<!--@if($layout_info->promo_selected == "image")--> class="selected"<!--@end--> href="#promo_image">단일 이미지</a></li>
+      <li class="slide"><a<!--@if($layout_info->promo_selected == "slide")--> class="selected"<!--@end--> href="#promo_slide">슬라이드 이미지</a></li>
+      <li class="movie"><a<!--@if($layout_info->promo_selected == "movie")--> class="selected"<!--@end--> href="#promo_movie">플래쉬 동영상</a></li>
+      <li class="mp3"><span class="mp3btn" onMouseOver="jQuery('.mp3btn').css('background-position','-218 -40'); jQuery('.mp3btn').css('border-left','1px solid #94bf1d');" onMouseOut="jQuery('.mp3btn').css('background-position','-218 0'); jQuery('.mp3btn').css('border-left','none');">MP3</span></li>
+    </ul>
+    
+</div><!--promo_control 끝-->
+
+<div id="promo_bd">
+
+    <div id="promo_mp3" class="pngFix" 
+        <!--@if($layout_info->display_mp3 == "hide")-->
+        style="display:none;"
+        <!--@else-->
+        style="display:block;"
+        <!--@end-->
+    >
+        <div id="playerArea">
+			<script type="text/javascript">
+                //<![CDATA[
+                var flashvars = {};
+                var params = {};
+                var attributes = {};
+                
+                // SETUP
+                flashvars.xmlFile = "./layouts/PXE_clio/packages/pxe_promo/mp3player.xml";
+                // END SETUP
+                
+                params.play = "false";
+                params.scale = "noscale";
+                params.salign = "tl";
+                params.wmode = "transparent";
+                params.allowScriptAccess = "always";
+                
+                attributes.id = "playerArea";
+                
+                swfobject.embedSWF("./layouts/PXE_clio/packages/pxe_promo/swf/mp3player.swf", "playerArea", "250", "120", "9.0.0", "./layouts/PXE_clio/packages/pxe_promo/swf/expressInstall.swf", flashvars, params, attributes);
+                //]]>
+            </script>
+        </div>
+    </div><!--promo_mp3 끝-->
+    
+    <div id="promo_image" style="width:{$layout_info->container_site_width}px; height:{$layout_info->promo_height}px">
+      <a href="{$layout_info->promotion_url}">
+          <block cond="$layout_info->promotion_image"><img src="{$layout_info->promotion_image}" class="pngFix" alt="" width="{$layout_info->container_site_width}" height="{$layout_info->promo_height}" /></block>
+          <block cond="!$layout_info->promotion_image"><img src="packages/pxe_promo/img/gallery/sample.jpg" class="pngFix" alt="" width="{$layout_info->container_site_width}" height="{$layout_info->promo_height}" /></block>
+      </a>
+    </div><!--단일 이미지 끝-->
+    
+    <div id="promo_slide" style="height:{$layout_info->promo_height}px">
+        <div class="main_view">
+            <div class="window" style="height:{$layout_info->promo_height}px">
+                <div class="image_reel">
+                    <a href="http://www.premiumxe.com"><img src="packages/pxe_promo/img/gallery/reel_1.jpg" alt="" /></a>
+                    <a href="http://www.premiumxe.com"><img src="packages/pxe_promo/img/gallery/reel_2.jpg" alt="" /></a>
+                    <a href="http://www.premiumxe.com"><img src="packages/pxe_promo/img/gallery/reel_3.jpg" alt="" /></a>
+                    <a href="http://www.premiumxe.com"><img src="packages/pxe_promo/img/gallery/reel_4.jpg" alt="" /></a>
+                </div>
+            </div>
+        </div><!--main_view 끝-->
+        
+        <div class="slider_nav" style="width:{$layout_info->container_site_width-30}px;">
+            <div class="page_nav">
+                <div class="paging">
+                    <a href="#" rel="1">1</a>
+                    <a href="#" rel="2">2</a>
+                    <a href="#" rel="3">3</a>
+                    <a href="#" rel="4">4</a>
+                </div>
+            </div>
+            
+            <div class="values">
+                <a href="#" rel="1">{$lang->slide_01}</a>
+                <a href="#" rel="2">{$lang->slide_02}</a>
+                <a href="#" rel="3">{$lang->slide_03}</a>
+                <a href="#" rel="4">{$lang->slide_04}</a>
+            </div>
+        </div><!--slider_nav 끝-->
+    </div><!--promo_slide 끝-->
+    
+    <div id="promo_movie">
+		<script type="text/javascript">
+		    //<![CDATA[
+			var flashvars = false;
+			var params = {};
+			params.scale = "exactfit";
+			params.wmode = "transparent";
+			var attributes = {};
+			swfobject.embedSWF("{$layout_info->promo_movie_url}", "promo_movie", "{$layout_info->container_site_width}", "{$layout_info->promo_movie_height}", "9.0.0", "./layouts/PXE_clio/packages/pxe_promo/swf/expressInstall.swf", flashvars, params, attributes);
+			//]]>
+		</script>
+    </div><!--promo_movie 끝-->
+    
+</div><!--promo_body 끝-->
+
+<div id="promo_bottom" class="pngFix" style="width:{$layout_info->container_site_width-10}px">
+    <span class="promo_bottom_right pngFix">Promotion Bottom Right Corner</span>
+</div><!--promo_bottom 끝-->

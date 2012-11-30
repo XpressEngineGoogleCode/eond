@@ -1,0 +1,61 @@
+/* 카테고리 (pxe_category)
+---------------------------------------------------------------------------------*/
+/* Widget Tree */
+.pxeCategoryTree { font:12px Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif; }
+.pxeCategoryTree a.all { background:url(../img/custom/folder.gif) no-repeat left top; padding-left:20px;}
+.pxeCategoryTree a.strong { font-weight:bold; }
+.pxeCategoryTree *{ margin:0; padding:0; font-size:12px;}
+.pxeCategoryTree a strong{ letter-spacing:-1px; cursor:pointer; _cursor /**/:hand;}
+.pxeCategoryTree ul{ position:relative; display:block; padding:3px 0 0 0 !important; zoom:1; margin-left:8px;}
+.pxeCategoryTree ul li{ list-style:none; position:relative; padding:3px 0 2px 8px; white-space:nowrap;}
+.pxeCategoryTree ul li .nav_tree_label,
+.pxeCategoryTree ul li .sum{ position:relative; left:16px; _left /**/:0; top:0; font-style:normal;}
+.pxeCategoryTree ul li a {text-decoration:none; }
+.pxeCategoryTree ul li a.selected {font-weight:bold;}
+.pxeCategoryTree ul li button{ display:inline-block; position:relative; _left /**/:-16px; *top:-3px; width:13px; height:13px; *width:17px; *height:17px; margin:0 -13px 0 0; *margin:0 -17px -2px -2px; text-indent:-10000px; *text-indent:0; *font:0/0 Sans-serif; border:none; cursor:pointer; _cursor /**/:hand;}
+.pxeCategoryTree ul li ul{ display:none; padding:2px 0 0 0 !important; margin:0 0 -2px 6px; background-position:left top;}
+.pxeCategoryTree ul li ul li{ display:none;}
+.pxeCategoryTree ul li.nav_tree_on button{ background-position:0 -13px; *background-position:2px -11px;}
+.pxeCategoryTree ul li.nav_tree_off button{ background-position:0 0; *background-position:2px 2px;}
+.pxeCategoryTree ul li.nav_tree_on ul{ display:block;}
+.pxeCategoryTree ul li.nav_tree_on ul li{ display:block;}
+.pxeCategoryTree ul li.nav_tree_off ul{ display:none;}
+.pxeCategoryTree ul li.nav_tree_off ul li{ display:none;}
+.pxeCategoryTree ul li.active,
+.pxeCategoryTree ul li.active a{ font-weight:bold;}
+.pxeCategoryTree ul li.active li,
+.pxeCategoryTree ul li.active li a{ font-weight:normal;}
+.pxeCategoryTree .icon{ position:relative; left:16px;}
+
+/* Text Color */
+.pxeCategoryTree{ color:#888!important;}
+.pxeCategoryTree a { color:#888!important; text-decoration:none;}
+
+/* Tree */
+.pxeCategoryTree ul{ background:url(../img/custom/lineTreeVr.gif) repeat-y 0 -1px;}
+.pxeCategoryTree ul li{ background:url(../img/custom/lineTreeHr.gif) no-repeat 1px 5px !important;}
+.pxeCategoryTree ul li button{ background:url(../img/custom/buttonTreeCollapse.gif) no-repeat;}
+.pxeCategoryTree ul li.nav_tree_last{ background:url(../img/custom/lineTreeLastHr.gif) no-repeat 0 5px !important;}
+
+/* Additional Button */
+.readBox,
+.readBox span { margin:0; padding:0; position:relative; display:inline-block; text-decoration:none !important; white-space:nowrap; }
+.readBox { margin:0; padding:0; background-position:left top; overflow:visible; left:18px; top:-1px; *top:1px; _top:2px;}
+.readBox span { height:11px; left:9px; padding:0 7px 0 0; font:bold 10px Verdana,sans-serif; letter-spacing:0; background-position:right top!important; *vertical-align:top; }
+.readBox span strong { position:relative; font:bold 10px Verdana,sans-serif; letter-spacing:0; top:-1px; }
+
+/* Additional Button Coloring */
+.readBox,
+.readBox span {background:url(../img/custom/addButtonWhite.gif) no-repeat; }
+.readBox span { color:#fff; }
+
+/* Offset Debug */
+.readBox,
+span.readBox{ margin-right:5px;}
+
+/* Color Preset */
+.readBox.white,
+.readBox.white span,
+span.readBox.white,
+span.readBox.white button,
+span.readBox.white input { background-image:url(../tpl/images/buttonGreen.gif); color:#fff; }

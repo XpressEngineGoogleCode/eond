@@ -1,0 +1,38 @@
+<!--%import("css/default.css")--> 
+
+<div id=navi_UpService>
+<!--GNB-->
+<ul id="gnb">
+            <!-- navi_menu 1차 -->
+            <!--@foreach($navi_menu->list as $key => $val)--><!--@if($val['link'])-->
+                <!--@if($val['selected'])-->
+                    {@ $menu_1st = $val }
+                <!--@end-->
+
+                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+
+            <!--@end--><!--@end-->
+            <!-- //navi_menu 1차 -->
+</ul>
+<!--//GNB-->
+<div class=navi_Upservice_admin>
+<a href=./?module=admin&act=dispBoardAdminContent><img src="./images/navi_Upservice_ico_admin.gif" width=10 height=10></a>
+</div>
+</div>
+<div id=header>
+  <img src="./images/logo.gif"> <!--   header (height 100pixel) http://c1img.cyworld.co.kr/img/main_v7/logo/cyworld_logo.gif -->
+</div>
+<div id=content-box>
+  <div id=content>
+    <iframe src="http://minihp.cyworld.com/pims/main/pims_main.asp?tid=20688856" width="80%" height="530" frameborder=0 scrolling=no style="margin-top:0px;margin-left:0px;"></iframe> 
+<!-- 
+margin-top:20 or 5px;margin-left:15px; 
+http://minihp.cyworld.com/pims/main/pims_main.asp?tid=20688856
+http://minihp.cyworld.nate.com/pims/main/pims_main.asp?tid=20688856
+height : 564
+-->
+  </div>
+</div>
+<div id=footer>
+  <!--footer (height 50pixel)-->Copyright 2008 eond.com All Rights Reserved.
+</div>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.9">
+    <title xml:lang="ko">이온디 마이노트</title>
+    <description xml:lang="ko">
+        이온디 마이노트 레이아웃입니다.
+    </description>
+    <version>0.9</version>
+    <date>2010-11-08</date>
+
+    <author email_address="eond@eond.com" link="http://eond.com">
+        <name xml:lang="ko">이온디</name>
+    </author>
+
+    <extra_vars>
+        <var name="colorset" type="select">
+            <title xml:lang="ko">컬러셋</title>
+            <description xml:lang="ko">원하시는 컬러셋을 선택해주세요.</description>
+            <options value="default">
+                <title xml:lang="ko">기본</title>
+            </options>
+        </var>
+        <var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+            <description xml:lang="ko">로고이미지를 입력하세요. width 23px인 투명이미지가 가장 잘 어울립니다.(기본 사이즈 20*82)</description>
+        </var>
+        <var name="index_url" type="text">
+            <title xml:lang="ko">홈페이지 URL(*)</title>
+            <description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+             </var>
+		<var name="profile_image" type="image">
+			<title xml:lang="ko">프로필 이미지</title>
+		</var>
+		<var name="profile" type="textarea">
+			<title xml:lang="ko">프로필 코멘트</title>
+		</var>
+		<var name="wdg_notice" type="text">
+			<title xml:lang="ko">공지사항 위젯</title>
+			<description xml:lang="ko">로그인 위젯과 서브 메뉴 사이에 위치합니다. (li 형식, 제목은 25자 이내)</description>
+		</var>
+		<var name="wdg_notice_link" type="text">
+			<title xml:lang="ko">공지사항 연결url</title>
+		</var>
+        <var name="background_image" type="image">
+            <title xml:lang="ko">전체 배경이미지</title>
+            <description xml:lang="ko">배경 이미지를 사용하시려면 등록해주세요.</description>
+        </var>
+        <var name="background_image2" type="image">
+            <title xml:lang="ko">우측하단 고정 배경이미지</title>
+            <description xml:lang="ko">우측 하단에 고정된 이미지입니다.</description>
+        </var>
+		<var name="location_view" type="select">
+            <title xml:lang="ko">현재위치출력</title>
+            <options name="default">
+                <title xml:lang="ko">켜기</title>
+                <value>default</value>
+            </options>
+            <options name="hidden">
+                <title xml:lang="ko">끄기</title>
+                <value>hidden</value>
+            </options>
+        </var>
+		<var name="slide" type="select">
+				<title xml:lang="ko">위젯 슬라이드</title>
+				<options name="true">
+					<title xml:lang="ko">켜기</title>
+					<value>true</value>
+				</options>
+				<options name="false">
+					<title xml:lang="ko">끄기</title>
+					<value>false</value>
+				</options>
+		</var>
+		<var name="wdg_width" type="text">
+            <title xml:lang="ko">위젯 너비</title>
+            <description xml:lang="ko">입력 예: 140</description>
+        </var>
+        <var name="wdg1h" type="text">
+            <title xml:lang="ko">위젯1 제목</title>
+        </var>
+		<var name="wdg1" type="textarea">
+			<title xml:lang="ko">위젯1 태그</title>
+		</var>
+		<var name="wdg2h" type="text">
+			<title xml:lang="ko">위젯2 제목</title>
+		</var>
+		<var name="wdg2" type="textarea">
+			<title xml:lang="ko">위젯2 태그</title>
+		</var>
+		<var name="wdg3h" type="text">
+			<title xml:lang="ko">위젯3 제목</title>
+		</var>
+		<var name="wdg3" type="textarea">
+			<title xml:lang="ko">위젯3 태그</title>
+		</var>
+	</extra_vars>
+    <menus>
+        <menu name="main_menu" maxdepth="3" default="true">
+            <title xml:lang="ko">기본 메뉴</title>
+        </menu>
+		<menu name="site_menu" maxdepth="1" default="true">
+            <title xml:lang="ko">사이트 네비게이션</title>
+			<description xml:lang="ko">레이아웃 하단의 사이트 네비게이션입니다.</description>
+        </menu>
+		<menu name="family_site">
+			<title xml:lang="ko">패밀리 사이트</title>
+			<title xml:lang="en">Family site</title>
+			<maxdepth>1</maxdepth>
+		</menu>
+	</menus>
+</layout>

@@ -1,0 +1,184 @@
+<!-- js 파일 import -->
+<!--%import("js/xe_official.js")-->
+
+
+<!-- 레이아웃과 연동될 css 파일 import -->
+<!--@if($layout_info->colorset == "white")-->
+    <!--%import("css/eond_blu.css")-->
+<!--@elseif($layout_info->colorset == "black")-->
+    <!--%import("css/eond_rosso.css")-->
+<!--@elseif($layout_info->colorset == "rosso")-->
+    <!--%import("css/eond_rosso.css")-->
+<!--@else-->
+    <!--%import("css/default.css")-->
+<!--@end-->
+
+<!--@if($layout_info->background_image)-->
+<style type="text/css">
+    body {  background-repeat:repeat-x; background-image:url({getUrl()}{$layout_info->background_image}); }
+</style>
+<!--@end-->
+
+<div id="bodyWrap">
+	<div id="header">
+		<h3></h3>
+		<h2>
+			<!-- Muse Player 시작 skin="lavalic_logo" -->
+			<div style="position:absolute;top:3px;padding-left:110px;">
+            <img width="100%" height="100" src="http://eond.com/zbxe/common/tpl/images/widget_bg.jpg" class="zbxe_widget_output" style="clear:both;" widget="lavalic_show" body="" skin="tintedpixel" colorset="default" widget_cache="0" lavalic_module="music_xml" lavalic_popup_text="" widget_margin_top="0" widget_margin_left="0" widget_margin_right="0" widget_margin_bottom="0" widget_fix_width="" widget_width="50" widget_width_type="%" widget_position="" widget_sequence="66792" />
+            </div>
+
+
+            <!-- Muse Player 끝 --></h2>
+		<h1><a href="{$layout_info->index_url}"><!--@if(!$layout_info->logo_image)--><img src="./images/{$layout_info->colorset}/zeroBoardXE.png" alt="ZeroBoard™  XE" class="iePngFix" /><!--@else--><img src="{$layout_info->logo_image}" alt="logo" border="0" class="iePngFix" /><!--@end--></a></h1>
+
+		<div id="language">
+			<strong title="{$lang_type}">{$lang_type}</strong> <a href="#selectLang" onclick="showHide('selectLang');return false;"><img src="./images/{$layout_info->colorset}/buttonLang.gif" alt="Select Language" width="87" height="15" /></a>
+			<ul id="selectLang">
+                <!--@foreach($lang_supported as $val)--><!--@if($val != $lang_type)-->
+				<li><a href="#" onclick="doChangeLangType('{$val}');return false;">{$val}</a></li>
+                <!--@end--><!--@end-->
+			</ul>
+		</div>
+
+
+		<!--GNB-->
+		<ul id="gnb">
+            <!-- main_menu 1차 시작 -->
+            <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['text'])-->
+                <!--@if($val['selected'])-->
+                   {@ $menu_1st = $val }
+                <!--@end-->
+
+                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['text']}</a></li>
+
+            <!--@end--><!--@end-->
+            <!-- main_menu 1차 끝 -->
+		</ul>
+		<!--//GNB-->
+
+
+
+		<form action="{getUrl()}" method="post" id="isSearch">
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="act" value="IS" />
+
+			<input name="search_target" type="radio" value="title" id="search_target" class="searchOrder" checked="checked" title="search option" />
+			<label for="search_target" class="checked" id="search_target_label" onclick="showHide('selectOrder'); return false">{$lang->title}</label>
+			<ul id="selectOrder">
+				<li>
+					<input type="radio" name="search_target" value="title" id="search_target1" />
+					<label for="search_target1" onclick="chkIsKind(1, '{$lang->title}'); return false;" onmouseover="this.className='on'" onmouseout="this.style.background='none'">{$lang->title}</label>
+				</li>
+				<li>
+					<input type="radio" name="search_target" value="content" id="search_target2" />
+					<label for="search_target2" onclick="chkIsKind(2, '{$lang->content}'); return false;" onmouseover="this.className='on'" onmouseout="this.style.background='none'">{$lang->content}</label>
+				</li>
+				<li>
+					<input type="radio" name="search_target" value="title_content" id="search_target3" />
+					<label for="search_target3" onclick="chkIsKind(3, '{$lang->title}+{$lang->content}'); return false;" onmouseover="this.className='on'" onmouseout="this.style.background='none'">{$lang->title}+{$lang->content}</label>
+				</li>
+                <!--
+				<li>
+					<input type="radio" name="search_target" value="comment" id="search_target4" />
+					<label for="search_target4" onclick="chkIsKind(4, '{$lang->comment}'); return false;" onmouseover="this.className='on'" onmouseout="this.style.background='none'">{$lang->comment}</label>
+				</li>
+                -->
+			</ul>
+			<input name="is_keyword" type="text" class="inputText" title="keyword" />
+
+			<input type="image" src="./images/{$layout_info->colorset}/buttonSearch.gif" alt="{$lang->cmd_search}" class="submit" />
+		</form>
+
+	</div>
+	<div id="gnb_lnb"></div>
+	<div id="contentBody">
+		<div id="columnLeft">
+
+            <!-- 로그인 위젯
+             -->
+						<img src="./images/widget_bg.jpg" class="zbxe_widget_output" widget="login_info" skin="eond_blu" colorset="default"/>
+<div style="background:#fff;text-align:center;width:180px;height:150px;margin:0px;padding:0 0 0 8px;">
+<script type="text/javascript"><!--
+google_ad_client = "pub-7200623708996327";
+google_ad_width = 180;
+google_ad_height = 150;
+google_ad_format = "180x150_as";
+google_ad_type = "text_image";
+//2007-10-17: Eond, EondLoginFoot
+google_ad_channel = "2111854510+5028918187";
+google_color_border = "FFFFFF"; //dbdbdb
+google_color_bg = "FFFFFF";
+google_color_link = "0000FF";
+google_color_text = "000000";
+google_color_url = "008000";
+google_ui_features = "rc:6";
+//-->
+</script>
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+            <!-- 왼쪽 2차 메뉴 -->
+			<img src="./images/blank.gif" alt="" class="mask" />
+
+            <!--@if($menu_1st)-->
+            <div style="clear:both;">
+			<ol id="lnb">
+                {@ $idx = 1 }
+                <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['text'])-->
+				<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['text']}</a>
+
+                    <!-- main_menu 3차 시작 -->
+                    <!--@if($val['list'])-->
+					<ul>
+                    <!--@foreach($val['list'] as $k => $v)--><!--@if($v['text'])-->
+						<li <!--@if($v['selected'])-->class="on"<!--@end-->><a href="{$v['href']}" <!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$v['text']}</a></li>
+                    <!--@end--><!--@end-->
+					</ul>
+                    <!--@end-->
+				</li>
+                {@$idx++}
+                <!--@end--><!--@end-->
+			</ol>
+		</div>
+            <!--@end-->
+<!-- 공지사항 시작 -->
+<div style="clear:both;">
+            <img class="zbxe_widget_output" title="공지사항" style="float: left; width: 200px;" src="common/tpl/images/widget_bg.jpg" module_srl="907" widget="newest_document" widget_sequence="6946" skin="blog_newest_document" colorset="normal" widget_cache="0" order_target="list_order" order_type="desc" list_count="4" mid_list="notice" subject_cut_size="14" widget_margin_top="" widget_margin_left="" widget_margin_right="" widget_margin_bottom="" widget_fix_width="Y" widget_width="200" widget_width_type="px" widget_position="" height="100">
+          </div>
+<!-- 공지사항 끝 -->
+
+<!-- 구글 애드센스2 시작 -->
+<div align="center">
+
+</div>
+<!-- 구글 애드센스2 끝 -->
+
+		</div>
+		<div id="columnRight">
+            <!-- 컨텐츠 시작 -->
+            {$content}
+
+		</div>
+	</div>
+	<ul id="footer">
+
+        <!--@foreach($bottom_menu->list as $key => $val)-->
+		<li class="first-child"><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['text']}</a></li>
+        <!--@end--><br><br>
+        <li class="first-child">
+			<address>
+			<img src="./images/eond_rosso/CopyrightByEond.gif" alt="Powered By ZeroBoard" width="283" height="72" />
+			</address>
+
+
+	
+</div>
+		</li>
+	</ul>
+
+
+
+
+</div>

@@ -1,0 +1,43 @@
+<body>  
+<script>  
+function show(n) {  
+submenu.innerHTML=document.all('submenu'+n).innerHTML;  
+
+}  
+function hide(n) { 
+submenu.innerHTML=""; 
+}
+</script>  
+<style>
+.mainmenu {float:left;}
+</style>
+
+<!-- s : mainmenu -->
+<div onMouseOver=show(1) class=mainmenu>메뉴1
+
+</div>
+<div onMouseOver=show(2) class=mainmenu>메뉴2</div>
+<div onMouseOver=show(3) class=mainmenu>메뉴3</div>  
+<!-- e : mainmenu -->
+
+<!-- s : submenu -->
+<div id="submenu" style="clear:both;border:1px solid red;position:absolute;top:50px;display:block;width:100%;" onMouseOut=hide()></div>
+<span id=submenu1 style="display:none" class="submenu">  
+야후0  
+야후2  
+야후3  
+</span>
+  
+<span id=submenu2 style="display:none" class="submenu">  
+야후4  
+야후5  
+야후6  
+</span>  
+<span id=submenu3 style="display:none" class="submenu">  
+야후7  
+야후8  
+야후9  
+</span>  
+
+<!-- e : submenu -->
+</body>  

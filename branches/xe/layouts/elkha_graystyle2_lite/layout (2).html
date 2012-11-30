@@ -1,0 +1,274 @@
+<!--%import("js/elkha.js")-->
+<!--%import("css/elkha.css")-->
+<!--// JS&CSS Import -->
+<!--%import("lang")-->
+<!--@if(!$layout_info->colorset)-->{@$layout_info->colorset='default'}<!--@end-->
+<!--@if(!$layout_info->index_name)-->{@$layout_info->index_name='Gray Style 2 Lite'}<!--@end-->
+<script type="text/javascript">
+	colorset = '{$layout_info->colorset}';
+</script>
+
+{@$category = array()}
+
+<div id="outerWrapper" class="graystyle2 Wrapper {$layout_info->colorset}">
+	<div id="header">
+		<a href="#content" class="blank">Skip to content</a>
+		<h1><span class="span">
+				<!--@if($layout_info->index_url)--><a href="{$layout_info->index_url}"><!--@end-->
+					<!--@if($layout_info->logo_image)-->
+						<img src="{$layout_info->logo_image}" alt="{$layout_info->index_name}" class="iePngFix" />
+					<!--@else if($layout_info->design == 'xeOfficial')-->
+						<img src="img/logo.png" alt="{$layout_info->index_name}" class="iePngFix" />
+					<!--@else-->
+						<img src="img/logo.png" alt="{$layout_info->index_name}" class="iePngFix" />
+					<!--@end-->
+				<!--@if($layout_info->index_url)--></a><!--@end-->
+		</span></h1>
+		
+		<hr class="none" />
+		
+		<!-- .header_ -->
+		<div class="header_">
+			{@$tmp=0}
+			<!--@if(!$is_logged)-->
+				<!-- loginLayer -->
+					<div class="layers layers_{$tmp++}">
+					<span class="gray_button open"><button type="button" accesskey="L" title="{$lang->login}">Login</button></span>
+					<div class="headerLayer"><div class="headerLayer_bg">
+							<button type="button" class="close" accesskey="X"><span class="blank">Close This Layer</span></button>
+					    {@ $member_config = MemberModel::getMemberConfig(); }
+					    <!--%import("filter/login.xml")-->
+			        <form action="" method="post" id="commonLogin" class="commonLogin" onsubmit="return procFilter(this, login)">
+			            <fieldset>
+			                <legend class="none">XE Login</legend>
+			                <dl>
+			                    <dt><label for="uid">{$lang->user_id}</label></dt>
+			                    <dd><input name="user_id" type="text" id="uid" value="ID" class="inputText" onfocus="this.value=(this.value=='ID')? '' : this.value;" /></dd>
+			                    <dt><label for="upw">{$lang->password}</label></dt>
+			                    <dd><input name="password" type="password" value="87654321" id="upw" class="inputText" onfocus="this.value='';" /></dd>
+			                </dl>
+			                <span class="keep"><input name="keep_signed" type="checkbox" id="keepA" value="Y" /><label for="keepA">{$lang->keep_signed}</label></span>
+			                <span class="gray_button submit"><input name="" type="submit" title="{$lang->cmd_login}" value="{$lang->cmd_login}" /></span>
+			            </fieldset>
+			        </form>
+			        <!--@if($member_config->enable_openid=='Y')-->
+			          <!--%import("filter/openid_login.xml")-->
+			          <hr class="none" />
+			          <form action="./" method="post" id="openidLogin" class="openidLogin" onsubmit="return procFilter(this, openid_login)">
+			              <fieldset>
+			                  <legend class="none">OpenID Login</legend>
+			                  <dl>
+			                      <dt><label for="oid">Open ID</label></dt>
+			                      <dd><input name="openid" type="text" id="oid" value="Open ID" class="inputText" onfocus="this.value='';" /></dd>
+			                  </dl>
+			                  <span class="gray_button submit"><input name="" type="submit" title="{$lang->cmd_login}" value="{$lang->cmd_login}" /></span>
+			              </fieldset>
+			          </form>
+			        <!--@end-->
+					</div></div>
+				</div>
+				<!--// loginLayer -->
+				<!-- infoLayer -->
+					<div class="layers layers_{$tmp++}">
+						<span class="gray_button open"><button type="button" accesskey="J" title="{$lang->join}">Join</button></span>
+						<div class="headerLayer"><div class="headerLayer_bg">
+								<button type="button" class="close" accesskey="X"><span class="blank">Close This Layer</span></button>
+								<ul>
+									<li><a href="{getUrl('act','dispMemberSignUpForm')}">{$lang->newAcc}</a></li>
+									<li><a href="{getUrl('act','dispMemberFindAccount')}">{$lang->cmd_find_member_account}</a></li>
+									<li><a href="{getUrl('act','dispMemberResendAuthMail')}">{$lang->cmd_resend_auth_mail}</a></li>
+								</ul>
+						</div></div>
+					</div>
+				<!--// infoLayer -->
+			<!--@else-->
+			<!-- infoLayer -->
+			<div class="layers layers_{$tmp++}">
+				<span class="gray_button open"><button id="infoLayer_open" type="button" title="{sprintf($lang->login_message, $logged_info->nick_name)}">Profile</button></span>
+				<div class="headerLayer"><div class="headerLayer_bg">
+						<button type="button" class="close" accesskey="X"><span class="blank">Close This Layer</span></button>
+						<strong class="title">{$logged_info->user_id}</strong>
+						<ul>
+	            <!--@foreach($logged_info->menu_list as $key => $val)-->
+	         	   <li><a href="{getUrl('act',$key,'member_srl','')}">{Context::getLang($val)}</a></li>
+	            <!--@end-->
+						</ul>
+				</div></div>
+			</div>
+			<!--// infoLayer -->
+			<div class="layers layers_{$tmp++}">
+				<span class="gray_button open"><a href="{getUrl('act','dispMemberLogout')}" title="{$lang->logout}">Logout</a></span>
+			</div>
+			<!--@end-->
+			
+			<hr class="none" />
+			
+			<!-- langLayer -->
+			<div class="layers layers_{$tmp++}">
+				<span class="gray_button open"><button type="button" title="{$lang->select_language}">Select Language</button></span>
+				<div class="headerLayer"><div class="headerLayer_bg">
+						<button type="button" class="close" accesskey="X"><span class="blank">Close This Layer</span></button>
+						<span class="title">Language : <em>{$lang_supported[$lang_type]}</em></span>
+						<ul class="selectLanguage">
+							<!--@foreach($lang_supported as $key => $val)--><!--@if($key != $lang_type && $key != 'fr')-->
+								<li class="{$key}"><button type="button" title="{$val}" onclick="doChangeLangType('{$key}');return false;">{$val}</button></li>
+							<!--@end--><!--@end-->
+						</ul>
+				</div></div>
+			</div>
+			<!--// langLayer -->
+			
+			<!--@if($logged_info->is_admin == "Y")-->
+				<div class="layers layers_{$tmp++}">
+					<span class="gray_button open"><a href="{getUrl('','module','admin')}" class="user_info" title="{$lang->cmd_management}">{$lang->manage}</a></span>
+				</div>
+			<!--@end-->
+		</div>
+		<!--// .header_ -->
+		
+		<hr class="none" />
+		
+    <div class="header_search {$layout_info->searchPosition}">
+		  <form action="{getUrl()}" method="post">
+			<input type="hidden" name="mid" value="{$mid}" />
+			<input type="hidden" name="act" value="IS" />	
+			<input name="is_keyword" type="text" class="iePngFix inputText" title="keyword" accesskey="S" />
+			<input type="submit" title="{$lang->cmd_search}" value="{$lang->cmd_search}" class="submit" />
+			</form>
+		</div>
+		<hr class="none" />
+		
+		
+<!-- #gnb by 김무건 || Elkha (elkha1914@hotmail.com) -->
+		<div id="gnb" class="Wrapper">
+			<ul class="first_ul">{@$tmp=0}
+				<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+						<li class="first_li<!--@if($val['selected'])-->{@$category[$tmp]=$val}{@$tmp++} selected<!--@end-->">
+							<a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--> class="first_a<!--@if($val['list'])--> sub first_sub<!--@end-->"><!--@if($val['text']==$val['link'])--><span>{$val['text']}</span><!--@else-->{$val['link']}<!--@end--></a>
+							<!--@if($val['list'])-->
+								<ul class="second_ul">
+									<!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+											<li class="second_li<!--@if($v['selected'])--> selected selected_2{@$category[$tmp]=$v}{@$tmp++}<!--@end-->">
+												<a href="{$v['href']}"<!--@if($v['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--> class="second_a<!--@if($v['list'])--> sub<!--@end-->"><!--@if($v['text']==$v['link'])--><span>{$v['text']}</span><!--@else-->{$v['link']}<!--@end--></a>
+												<!--@if($v['list'])-->
+													<ul class="third_ul">
+														<!--@foreach($v['list'] as $ka => $va)--><!--@if($va['link'])-->
+																<li class="third_li<!--@if($va['selected'])--> selected selected_3{@$category[$tmp]=$va}{@$tmp++}<!--@end-->">
+																	<a href="{$va['href']}"<!--@if($va['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--> class="third_a<!--@if($va['list'])--> sub<!--@end-->"><!--@if($va['text']==$va['link'])--><span>{$va['text']}</span><!--@else-->{$va['link']}<!--@end--></a>
+																</li>
+														<!--@end--><!--@end-->
+													</ul>
+												<!--@end-->
+											</li>
+									<!--@end--><!--@end-->
+								</ul>
+							<!--@end-->
+						</li>
+				<!--@end--><!--@end-->
+			</ul>
+		</div>
+<!-- // #gnb by 김무건 || Elkha (elkha1914@hotmail.com) -->
+	</div>
+	
+	<!-- #contentWrapper -->
+	<div id="contentWrapper" class="{$layout_info->widget_align}">
+		<hr class="none" />
+		<div id="content" class="{$layout_info->content_background}">
+			<div class="content_line">
+				<div class="content_margin">
+					{$content}
+			 	</div>
+			 </div>
+		</div>
+		<hr class="none" />
+		
+		<!--@if($layout_info->widget_width && !($layout_info->widget_menu=='widget_1' && $tmp==1))-->
+			<style type="text/css">
+				#content { width:{(900-$layout_info->widget_width)}px; float:left; display:inline; }
+				#widget div.widget_div div.widget_content { width:{$layout_info->widget_width}px;}
+			</style>
+			<div id="widget" class="{$layout_info->colorset}">
+				<!--@if($tmp>0 && $layout_info->widget_menu!='none' && !($layout_info->widget_menu=='hidden_1' && $tmp==1))-->
+					<div class="widget_div lnb">
+						<h3 class="widget_title">{$category[$tmp-1]['link']}</h3>
+						<div class="widget_content">
+							<ol class="second_ol">
+				        <!--@foreach($category[0]['list'] as $key => $val)--><!--@if($val['link'])-->
+										<li class="second_li<!--@if($val['selected'])--> selected<!--@end--><!--@if($val['expand']=='Y')--> expand<!--@end-->">
+											<a href="{$val['href']}" class="second_a" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->><!--@if($val['link']==$val['text'])--><span>{$val['text']}</span><!--@else-->{$val['link']}<!--@end--></a>
+											<!--@if($val['list'] && !$val['selected'])--><span class="more {$layout_info->colorset}"><button type="button" title="more"></button></span><!--@end-->
+											<!--@if($val['list'])-->
+												<ol class="third_ol">
+													<!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+																<li class="third_li<!--@if($v['selected'])--> selected<!--@end-->">
+																	<a href="{$v['href']}" class="third_a" <!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$v['link']}</a>
+																</li>
+													<!--@end--><!--@end-->
+												</ol>
+											<!--@end-->
+										</li>
+				        <!--@end--><!--@end-->
+							</ol>
+						</div>
+					</div>
+				<!--@end-->
+				<!--@if($layout_info->wdget_var_1)-->
+				<hr class="none" />
+				<div class="widget_div">
+					<!--@if($layout_info->wdget_var_1_title)--><h3 class="widget_title">{$layout_info->wdget_var_1_title}</h3><!--@end-->
+					<div class="widget_content">{$layout_info->wdget_var_1}</div>
+				</div>
+				<!--@end-->
+				<!--@if($layout_info->wdget_var_2)-->
+				<hr class="none" />
+				<div class="widget_div">
+					<!--@if($layout_info->wdget_var_2_title)--><h3 class="widget_title">{$layout_info->wdget_var_2_title}</h3><!--@end-->
+					<div class="widget_content">{$layout_info->wdget_var_2}</div>
+				</div>
+				<!--@end-->
+				<!--@if($layout_info->wdget_var_3)-->
+				<hr class="none" />
+				<div class="widget_div">
+					<!--@if($layout_info->wdget_var_3_title)--><h3 class="widget_title">{$layout_info->wdget_var_3_title}</h3><!--@end-->
+					<div class="widget_content">{$layout_info->wdget_var_3}</div>
+				</div>
+				<!--@end-->
+				<!--@if($layout_info->wdget_var_4)-->
+				<hr class="none" />
+				<div class="widget_div">
+					<!--@if($layout_info->wdget_var_4_title)--><h3 class="widget_title">{$layout_info->wdget_var_4_title}</h3><!--@end-->
+					<div class="widget_content">{$layout_info->wdget_var_4}</div>
+				</div>
+				<!--@end-->
+				<!--@if($layout_info->wdget_var_5)-->
+				<hr class="none" />
+				<div class="widget_div">
+					<!--@if($layout_info->wdget_var_5_title)--><h3 class="widget_title">{$layout_info->wdget_var_5_title}</h3><!--@end-->
+					<div class="widget_content">{$layout_info->wdget_var_5}</div>
+				</div>
+				<!--@end-->
+			</div>
+		<!--@end-->
+	</div>
+	<!--// #contentWrapper -->
+</div>
+<!--// #outerWrapper -->
+
+<div id="footerWrapper" class="{$layout_info->colorset}">
+ 	<div id="footer" class="Wrapper">
+	 	<div class="Wrapper footer_">
+	 		<hr class="none" />
+			<ul class="snb">{@$tmp=0}
+				<!--@foreach($bottom_menu->list as $key => $val)--><!--@if($val['link'])-->
+						<li class="snb_{$tmp++}"><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+						{@$tmp++}
+				<!--@end--><!--@end-->
+	    </ul>
+	    <hr class="none" />
+	    <address class="copyright">
+	    	<em><!--@if($layout_info->copyright)-->{$layout_info->copyright}<!--@else-->Copyright 문구를 입력해주세요.<!--@end--></em>
+	    	<span class="powered">Powered by XE<br />Skin by Elkha</span>
+	    </address>
+    </div>
+ 	</div>
+</div>

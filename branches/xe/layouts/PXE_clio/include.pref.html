@@ -1,0 +1,102 @@
+<!--언어팩 추가-->
+<!--%import("packages/pxe_selector_lang/lang")-->
+
+<!--//JS 로드-->
+<block cond="$layout_info->apply_rounding == 'Y' && $layout_info->display_splash == 'show'">
+	<script type="text/JavaScript">
+    //<![CDATA[
+        var curvyCornersNoAutoScan = true;
+    //]]>
+    </script>
+</block>
+<load target="js/curvycorners.src.js" type="body" />
+
+<!--// 컬러셋과 연동될 css 파일 import -->
+<load cond="$layout_info->colorset == 'default'" target="css/default.css" />
+<load cond="$layout_info->colorset == 'custom'" target="css/custom.css" />
+<load cond="!$layout_info->colorset" target="css/default.css" />
+    
+<!-- 레이아웃 기본값 설정 -->
+<block cond="!$layout_info->display_splash">{@ $layout_info->display_splash = 'show'}</block>
+<block cond="!$layout_info->colorset">{@ $layout_info->colorset = 'default'}</block>
+<block cond="!$layout_info->layout_type">{@ $layout_info->layout_type = 'ece'}</block>
+<block cond="!$layout_info->container_site_width">{@ $layout_info->container_site_width = '980'}</block>
+<block cond="!$layout_info->display_accounts">{@ $layout_info->display_accounts = 'widget'}</block>
+<block cond="!$layout_info->display_category">{@ $layout_info->display_category = 'Y'}</block>
+<block cond="!$layout_info->display_vmenu">{@ $layout_info->display_vmenu = 'Y'}</block>
+<block cond="!$layout_info->display_promotion">{@ $layout_info->display_promotion = 'Y'}</block>
+<block cond="!$layout_info->promo_height">{@ $layout_info->promo_height = '327'; }</block>
+<block cond="!$layout_info->promo_movie_height">{@ $layout_info->promo_movie_height = '579'}</block>
+<block cond="!$layout_info->promo_movie_url">{@ $layout_info->promo_movie_url = 'http://www.youtube.com/v/KRHQwYZCRX0?fs=1&amp;hl=ko_KR&amp;rel=0&amp;hd=1'}</block>
+<block cond="!$layout_info->promo_selected">{@ $layout_info->promo_selected = 'slide'}</block>
+<block cond="!$layout_info->display_mp3">{@ $layout_info->display_mp3 = 'show'}</block>
+<block cond="!$layout_info->container_contents_style">{@ $layout_info->container_contents_style = 'useRound'}</block>
+<block cond="!$layout_info->wid1_width">{@ $layout_info->wid1_width = '280'}</block>
+<block cond="!$layout_info->wid2_width">{@ $layout_info->wid2_width = '152'}</block>
+<block cond="!$layout_info->margin_width">{@ $layout_info->margin_width = '10'}</block>
+<block cond="!$layout_info->apply_rounding">{@ $layout_info->apply_rounding = 'Y'}</block>
+<block cond="!$layout_info->apply_rounding_px">{@ $layout_info->apply_rounding_px = '5'}</block>
+<block cond="!$layout_info->display_footer_widgets">{@ $layout_info->display_footer_widgets = 'Y'}</block>
+    
+<!-- 레이아웃 구조 및 마진 기본 설정 -->
+<style type="text/css">
+/* 사이드바 1을 좌측에 정렬 */
+.ec #e1 { float:left; margin-right:{$layout_info->margin_width}px; _margin-right:{$layout_info->margin_width-3}px; }
+
+/* 사이드바 1을 우측에 정렬 */
+.ce #e1 { float:right; margin-left:{$layout_info->margin_width}px; _margin-left:{$layout_info->margin_width-3}px; }
+
+/* 사이드바 1,2를 좌측에 정렬 */
+.eec #e1 { float:left; margin-right:{$layout_info->margin_width}px; }
+.eec #e2 { float:left; margin-right:{$layout_info->margin_width}px; _margin-right:{$layout_info->margin_width-3}px; }
+
+/* 사이드바 1,2를 우측에 정렬 */
+.cee #e1 { float:right; margin-left:{$layout_info->margin_width}px; }
+.cee #e2 { float:right; margin-left:{$layout_info->margin_width}px; _margin-left:{$layout_info->margin_width-3}px; }
+
+/* 사이드바 1,2를 양쪽에 위치시키고 컨텐츠부를 가운데로 정렬 */
+.ece #e1 { float:left; margin-right:{$layout_info->margin_width}px; _margin-right:{$layout_info->margin_width-3}px; }
+.ece #e2 { float:right; margin-left:{$layout_info->margin_width}px; _margin-left:{$layout_info->margin_width-3}px; }
+
+/* height 100% 치팅 */
+<!--@if($layout_info->colorset == 'default')-->
+
+<!--@if($layout_info->display_promotion == 'Y')-->
+#container_body { margin:-466px auto -140px auto; }
+#equal { padding:466px 0 140px 0; }
+<!--@elseif($layout_info->display_hmenu != 'notuse')-->
+#container_body { margin:-354px auto -140px auto; }
+#equal { padding:354px 0 140px 0; }
+<!--@elseif($layout_info->display_promotion == 'Y' && $layout_info->display_hmenu != 'notuse')-->
+#container_body { margin:-524px auto -140px auto; }
+#equal { padding:524px 0 140px 0; }
+<!--@end--><!--// end of default color -->
+
+<!--@else-->
+
+<!--@if($layout_info->display_promotion == 'Y')-->
+#container_body { margin:-416px auto -140px auto; }
+#equal { padding:416px 0 140px 0; }
+<!--@elseif($layout_info->display_hmenu != 'notuse')-->
+#container_body { margin:-304px auto -140px auto; }
+#equal { padding:304px 0 140px 0; }
+<!--@elseif($layout_info->display_promotion == 'Y' && $layout_info->display_hmenu != 'notuse')-->
+#container_body { margin:-524px auto -140px auto; }
+#equal { padding:474px 0 140px 0; }
+<!--@end--><!--// end of custom color -->
+
+<!--@end--><!--// end of colorset setting -->
+
+/* 위젯 박스 하단 마진 */
+.section_02,
+.section_03,
+.section_04 { margin-bottom:{$layout_info->margin_width}px; }
+.section_01 { margin-bottom:{$layout_info->margin_width+15}px; }
+
+<!--@if($layout_info->apply_rounding == 'Y')-->
+/* 위젯 박스 모서리 처리 */
+.section_02,
+.section_03,
+.section_04 { border-radius:{$layout_info->apply_rounding_px}px; -webkit-border-radius:{$layout_info->apply_rounding_px}px; -moz-border-radius:{$layout_info->apply_rounding_px}px; }
+<!--@end-->
+</style>

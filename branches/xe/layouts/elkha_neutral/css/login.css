@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+/**
+ * 김무건 || Elkha (elkha1914@hotmail.com)
+ * http://elkha.kr
+ * 2011-02-20
+ **/
+
+/* #loginLayer */
+#loginLayer { position:fixed !important; left:0; top:0; z-index:-1; visibility:hidden; width:100%; height:100%; /* ie6 */ position:absolute; }
+#loginLayer.show { z-index:100; visibility:visible; }
+#loginLayer .close { position:absolute; left:0; top:0; z-index:1; width:100%; height:100%; overflow:hidden; background:#fff; opacity:.45; filter:alpha(opacity:45); }
+#loginLayer .close button { display:block; width:100%; height:100%; text-align:left; text-indent:-800px; font-size:0; line-height:0; }
+#loginLayer .bg { position:absolute; left:-39px; top:-38px; z-index:1; width:507px; height:290px; background:url(../login/bg-small.png) no-repeat; }
+#loginLayer.oidY .bg { height:391px; background-image:url(../login/bg.png); }
+#loginLayer .layer { position:absolute; left:50%; top:40% !important; z-index:10; width:338px; margin:-130px 0 0 -205px; padding:20px 45px; color:#777; /* ie6 */ position:absolute; top:400px; }
+
+#loginLayer form { position:relative; width:100%; margin:0 0 10px; padding:0 0 40px; z-index:30; }
+#loginLayer dl { padding:10px 0 0; }
+#loginLayer dt { display:block; width:125px; height:45px; overflow:hidden; background:url(../login/layerTitle.png) no-repeat; }
+#loginLayer dt.password { background-position:0 -45px; }
+#loginLayer dt.open_id { background-position:0 -90px; }
+#loginLayer.ko dt { background-position:-125px 0; }
+#loginLayer.ko dt.password { background-position:-125px -45px; }
+#loginLayer.ko dt.open_id { background-position:-125px -90px; }
+#loginLayer dt label { display:block; padding:30px 0; font:bold 14px Arial; text-indent:-500px; }
+#loginLayer dd { position:absolute; right:0; margin:-27px 0 0 0; overflow:hidden; border:1px solid #ddd; background:#fff url(../login/inputText.png) no-repeat 100% 1px; }
+#loginLayer dd .inputText { display:block; width:180px; padding:3px 8px; background:none !important; border:0; font:20px Tahoma; color:#777; overflow:hidden; ime-mode:disabled; }
+#loginLayer dd:hover { background-position:right -30px; border-color:#e6e6e6; }
+#loginLayer dd.focus,
+#loginLayer dd.focus .inputText { background-position:100% -30px; background-color:#fdffef; border-color:#d6d6d6; border-top-color:#ccc; border-left-color:#ccc; color:#444; }
+#loginLayer .keep { position:absolute; left:5px; bottom:0; font:12px "Gulim", Arial; }
+#loginLayer .keep label { position:absolute; left:20px; bottom:-10px; display:block; padding:10px 20px 10px 5px; white-space:nowrap; }
+#loginLayer .keepCaution { display:none; position:absolute; width:227px; left:-250px; bottom:-50px; padding:30px 0 0; background:url(../login/keep.png) no-repeat !important; /* ie6 */ background-image:url(../login/keep-ie6.png); }
+#loginLayer .keepCaution span { display:block; padding:0 40px 30px 30px; background:url(../login/keep.png) no-repeat 0 100% !important; color:#636363; font:12px "Dotum", Arial; line-height:130%; /* ie6 */ background-image:url(../login/keep-ie6.png);}
+#loginLayer .button { position:absolute; bottom:0; right:0; }
+#commonLogin { padding-top:20px; background:url(../login/layerTitle.png) no-repeat -750px 0; }
+#openidLogin { border-top:1px solid #e6e6e6; }
+#openidLogin dd { background-position:left 1px; }
+#openidLogin dd .inputText { width:155px; margin-left:25px; }
+#openidLogin dd:hover { background-position:left -30px; }
+#openidLogin dd.focus { background-position:left -30px; background-color:#fffbf1; }
+
+#loginLayer ul { position:relative; width:100%; padding:10px 0 0; z-index:30; border-top:1px solid #e6e6e6; text-align:center; white-space:nowrap; font:11px Arial; }
+#loginLayer ul li { display:inline; background:url(../img/sta.gif) no-repeat 0 center; padding:0 7px 0 10px; }
+#loginLayer ul li:first-child { padding-left:0; background:none; }
+#loginLayer ul li a { color:#50988f; text-decoration:none; }
+#loginLayer ul li a:hover,
+#loginLayer ul li a:focus { color:#0075c0; text-decoration:underline; }
+#loginLayer ul li { display:inline; }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout version="0.1">
+    <title xml:lang="ko">잡다한 xe 1차 기본템플릿 메인용</title>
+    <author email_address="ceo@wizone.co.kr" link="http://jobdahan.net" date="2007. 9. 13">
+        <name xml:lang="ko">똑띠</name>
+        <description xml:lang="ko">
+            잡다한 몽상백서 zbxe 버전 1차 템플릿(메인용) 레이아웃 입니다.
+            디자인 : 똑띠
+            레이아웃 제작 : 똑띠
+        </description>
+    </author>
+    <extra_vars>
+        <var name="colorset" type="select">
+            <title xml:lang="ko">컬러셋</title>
+            <description xml:lang="ko">원하시는 컬러셋을 선택해주세요.</description>
+            <options name="default">
+                <title xml:lang="ko">기본</title>
+                <value>default</value>
+            </options>
+            <options name="black">
+                <title xml:lang="ko">검은색</title>
+                <value>black</value>
+            </options>
+            <options name="white">
+                <title xml:lang="ko">하얀색</title>
+                <value>white</value>
+            </options>
+        </var>
+        <var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요. (세로길이가 23px인 투명이미지가 가장 어울립니다)</description>
+	    </var>
+        <var name="index_url" type="text">
+            <title xml:lang="ko">홈 페이지 URL</title>
+            <description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+             </var>
+        <var name="background_image" type="image">
+            <title xml:lang="ko">배경 이미지</title>
+            <description xml:lang="ko">배경 이미지를 사용하시려면 등록해주세요.</description>
+        </var>
+    </extra_vars>
+    <menus>
+        <menu name="main_menu" default="true">
+            <title xml:lang="ko">상단 메뉴</title>
+            <maxdepth>3</maxdepth>
+        </menu>
+	<menu name="main_menu2" default="true">
+            <title xml:lang="ko">상단 메뉴2</title>
+            <maxdepth>3</maxdepth>
+        </menu>
+        <menu name="bottom_menu">
+            <title xml:lang="ko">하단 메뉴 </title>
+            <maxdepth>1</maxdepth>
+        </menu>
+	<menu name="foot_banner">
+            <title xml:lang="ko">하단 배너</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+    </menus>
+</layout>

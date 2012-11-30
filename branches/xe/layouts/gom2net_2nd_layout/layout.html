@@ -1,0 +1,297 @@
+<!--%import("js/js.js")-->
+<!--@if($layout_info->layout_type == "left")-->
+<!--%import("css/left.css")-->
+<!--@elseif($layout_info->layout_type == "right")-->
+<!--%import("css/right.css")-->
+<!--@end-->
+<!--%import("css/style.css")-->
+<!--%import("css/enhancements.css")-->
+<!--%import("css/accounts.css")-->
+
+<!--header-->
+<div id="header_wrap">
+	<div id="header">
+		<div id="menuWrapper" class="{$layout_info->colorset}">
+			<ul id="menu">
+				{@$tmp=0}
+				<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+				<li class="menu_list">
+					<a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--><!--@if($val['selected'])-->{@$menu_1st=$val}{@$tmp++} class="m_first fst_selected" <!--@else--> class="m_first" <!--@end-->>{$val['link']}</a>
+					<!--@if($val['list'])-->
+					<ol class="m_second">
+						<!--@foreach($val['list'] as $k => $v)-->
+						<!--@if($v['link'])-->
+						<li <!--@if($v['selected'])-->class="snd_selected" {@$menu_2nd=$v}{@$tmp++}<!--@end-->><a href="{$v['href']}"<!--@if($v['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->><span>{$v['link']}</span></a></li>
+						<!--@end-->
+						<!--@end-->
+					</ol>
+					<!--@end-->
+				</li>
+				<!--@end--><!--@end-->
+			</ul>
+			<div class="blank"></div>
+		</div>
+		<p id="rss">
+			<a href="<!--@if($layout_info->rss)-->{$layout_info->rss}<!--@else-->./rss<!--@end-->" title="Rich Site Summary" >Grab the RSS feed</a>
+		</p>
+		<div class="logo">
+			<a href="{$layout_info->index_url}">
+				<!--@if($layout_info->logo_image)-->
+				<img src="{$layout_info->logo_image}" alt="{$layout_info->site_name}" border="0" class="iePngFix" />
+				<!--@else-->
+				<img src="./images/logo.png" alt="{$layout_info->site_name}" title="{$layout_info->site_name}" class="iePngFix" />
+				<!--@end-->
+			</a>
+		</div>
+		<form id="quick-search" method="get" action="{getUrl()}">
+			<input type="hidden" name="vid" value="{$vid}" />
+			<input type="hidden" name="mid" value="{$mid}" />
+			<input type="hidden" name="act" value="IS" />
+			<input type="hidden" name="search_target" value="title_content" />
+			<fieldset class="search">
+				<label for="qsearch">{$lang->cmd_search}</label>
+				<input class="tbox" id="qsearch" type="text" name="is_keyword" title="Start typing and hit ENTER" accesskey="S" />
+				<input class="btn" name="" type="image" src="images/btn.gif" title="Submit Search">
+			</fieldset>
+		</form>
+		<!--계정/다국어 설정 시작-->
+		<ul class="account">
+			<li class="log">
+				<!--@if($is_logged)-->
+				<a href="{getUrl('act','dispMemberLogout')}"><img src="images/buttonLogout.gif" width="33" height="5" alt="LOGOUT" /></a>
+				<!--@else-->
+				<a href="#loginWindow" onclick="jQuery('#loginWindow').css('display','block');" accesskey="L"><img src="images/buttonLogin.gif" width="25" height="5" alt="LOGIN" /></a>
+				<!--@end-->
+			</li>
+			<!--@if(!$is_logged)-->
+			<li class="register"><a href="{getUrl('act','dispMemberSignUpForm')}"><span>Register</span></a></li>
+			<!--@else-->
+			<li class="profile">
+				<button type="button" onclick="jQuery('#memberProfile').toggleClass('active');"><span>Profile</span></button>
+				<!-- memberProfile -->
+				<div id="memberProfile" class="memberProfile">
+					<!-- class="memberProfile" | class="memberProfile active" -->
+					<button type="button" class="close" onclick="jQuery('#memberProfile').toggleClass('active');" accesskey="X"><span>Close profile layer</span></button>
+					{@ $oPointModel = &getModel('point'); $point = $oPointModel->getPoint($logged_info->member_srl); $oModuleModel = &getModel('module');  $config = $oModuleModel->getModuleConfig('point'); $level = $oPointModel->getLevel($point, $config->level_step); }
+					<div class="authorName">
+						<a class="member_{$logged_info->member_srl}">{$logged_info->nick_name}님 환영합니다.</a>
+					</div>
+					<div class="point">Level : {$level} / Point : {$point}</div>
+					<div class="latestLogin">{$lang->last_login} <span>{zDate($logged_info->last_login, "Y.m.d.l H:i")}</span></div>
+					<ul>
+						<!--@foreach($logged_info->menu_list as $key => $val)-->
+						<li><a href="{getUrl('act',$key,'member_srl','')}">{Context::getLang($val)}</a></li>
+						<!--@end-->
+						<!--@if($logged_info->is_admin=="Y")-->
+						<li><a href="{getUrl('','module','admin')}" onclick="window.open(this.href);return false;">{$lang->cmd_management}</a></li>
+						<!--@if($layout_info->layout_srl)-->
+						<li><a href="{getUrl('act','dispLayoutAdminModify','layout_srl',$layout_info->layout_srl)}">{$lang->cmd_layout_management}</a> /  <a href="{getUrl('act','dispLayoutAdminEdit','layout_srl',$layout_info->layout_srl)}">{$lang->cmd_edit}</a></li>
+						<!--@end--><!--@end-->
+					</ul>
+						<button type="button" class="close" onclick="jQuery('#memberProfile').toggleClass('active');" accesskey="X"><span>Close profile layer</span></button>
+				</div>
+				<!-- /memberProfile -->
+			</li>
+			<!--@end-->
+			<!--@if($layout_info->language_type == "list")-->
+			<li class="language">
+				<!-- class="language" | class="language open" -->
+				<em class="{$lang_type}"><span>{$lang_supported[$lang_type]}</span></em>
+				<button type="button" class="sLanguage" onclick="jQuery('.language').toggleClass('open'); return false;"><span>Select Language</span></button>
+				<ul class="languageList">
+					<!--@foreach($lang_supported as $key => $val)--><!--@if($key!= $lang_type)-->
+					<li class="{$key}">
+						<button type="button" onclick="doChangeLangType('{$key}');return false;"><span>{$val}</span></button>
+					</li>
+					<!--@end--><!--@end-->
+				</ul>
+			</li>
+			<!--@elseif($layout_info->language_type == "flag")-->
+			<li class="flag">
+				<!--@foreach($lang_supported as $key => $val)-->
+				<!--@if($key!= $lang_type)-->
+				<a href="#" onclick="doChangeLangType('{$key}');return false;">
+					<img src="./images/{$key}.png" width="16px" height="11px" style="margin-top:2px;">
+				</a>
+				<!--@end-->
+				<!--@end-->
+			</li>
+			<!--@end-->
+		</ul>
+		<!--계정/다국어 설정 끝-->
+	</div>
+</div>
+<!--/header-->
+<!--content-outer-->
+<div id="content-wrap" class="clear" >
+	<!--content-->
+	<div id="content">
+		<div id="main">
+			{$content}
+		</div>
+	<!-- sidebar -->
+		<div id="sidebar">
+			<div id="profile">
+			<!--@if($layout_info->profile)-->
+				<h3>About Me</h3>
+					<p>
+						<a><img src="{$layout_info->profile_image}" width="40" height="40" alt="곰이넷" class="profile_img" /></a>
+						{$layout_info->profile}<!--@if($layout_info->profile_page)--><a href="{$layout_info->profile_page}">Learn more...</a><!--@else--><!--@end-->
+					</p>
+			<!--@end-->
+			</div>
+			<!--@if($menu_1st['list'])-->
+			<div class="sidemenu">
+				<h3><!--@if($layout_info->side_name)-->{$layout_info->side_name}<!--@else-->Sidebar Menu<!--@end--></h3>
+				<ul>
+					<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+					<!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+					<li style="display:<!--@if($val['selected'])-->block<!--@else-->none<!--@end-->"  {@$menu_2nd=$v}{@$tmp++}><a href="{$v['href']}" <!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->><span  <!--@if($v['selected'])-->class="on"<!--@end--> >{$v['link']}</span></a></li>
+					<!--@end--><!--@end-->
+					<!--@end--><!--@end-->
+				</ul>
+			</div>
+			<!--@else-->
+			<!--@end-->
+
+			<!--@if($layout_info->widget1)-->
+			<div class="widget">
+				{$layout_info->widget1}
+			</div>
+            <!--@end-->
+			<!--@if($layout_info->widget2)-->
+			<div class="widget">
+				{$layout_info->widget2}
+			</div>
+            <!--@end-->
+			<!--@if($layout_info->widget3)-->
+			<div class="widget">
+				{$layout_info->widget3}
+			</div>
+            <!--@end-->
+			<!--@if($layout_info->widget4)-->
+			<div class="widget">
+				{$layout_info->widget4}
+			</div>
+            <!--@end-->
+		<!-- /sidebar -->
+		</div>
+	<!--/content-->
+	</div>
+<!-- /content-out-->
+</div>	
+<!--footer-outer-->
+<div id="footer_outer" class="clear">
+	<div id="footer_wrap">
+		<div id="banner_line">
+			<a target="_blank" class="banner" >{$layout_info->banner01}</a>
+			<a target="_blank" class="banner" >{$layout_info->banner02}</a>
+			<a target="_blank" class="banner" >{$layout_info->banner03}</a>
+			<a target="_blank" class="banner" >{$layout_info->banner04}</a>
+			<a target="_blank" class="banner" >{$layout_info->banner05}</a>
+		</div>
+		<div id="blog_line">
+			<a href="<!--@if($layout_info->facebook)-->{$layout_info->facebook}<!--@else-->http://www.facebook.com<!--@end-->" target="_blank" ><img src="images/social_facebook.png" alt="facebook" class="iePngFix" ></a>
+			<a href="<!--@if($layout_info->twitter)-->{$layout_info->twitter}<!--@else-->http://www.twitter.com<!--@end-->" target="_blank" ><img src="images/social_twitter.png" alt="twitter" class="iePngFix" ></a>
+			<a href="<!--@if($layout_info->rss)-->{$layout_info->rss}<!--@else-->./rss<!--@end-->" target="_blank" ><img src="images/social_rss.png" alt="Rich Site Summary" class="iePngFix" ></a>
+			<a href="mailto:{$layout_info->mail}" target="_blank" ><img src="images/social_email.png" alt="email" class="iePngFix" ></a>
+		</div>
+
+		<div id="sitemap">
+			<div class="extension">
+				<div class="section logo">
+                    <!--@if(!$layout_info->sitemap_image)-->
+					<img src="images/xeKnee.gif" width="102" height="55" alt="XE&#8482; CLEVER CONTENT MANAGEMENT SYSTEM" class="iePngFix" />
+                    <!--@else-->
+					<img src="{$layout_info->sitemap_image}" alt="{$layout_info->site_name}" class="iePngFix" />
+                    <!--@end-->
+				</div>
+				<!--@foreach($main_menu->list as $key => $val)-->
+				<!--@if($val['link'])-->
+				<div class="section">
+					<h2><a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--> title="{$val['text']}" >{$val['text']}</a></h2>
+                    <!--@if($val['list'])-->
+					<ul>
+                        <!--@foreach($val['list'] as $k => $v)-->
+                        <!--@if($val['link'])-->
+						<li><a href="{$v['href']}"<!--@if($v['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--> title="{$v['text']}" >{$v['text']}</a></li>
+                        <!--@end-->
+                        <!--@end-->
+					</ul>
+                    <!--@end-->
+				</div>
+                <!--@end-->
+                <!--@end-->
+			</div>
+		</div>
+	</div>
+<!--/footer-outer-->
+</div>
+
+<!-- footer-bottom -->
+<div id="footer_bottom">
+	<p class="bottom_left">
+		<!--@if($layout_info->copyright)-->{$layout_info->copyright}<!--@end-->
+	</p>
+	<p class="bottom_right">
+		<!--@foreach($global_menu->list as $key => $val)-->
+		<a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a> |
+		<!--@endforeach-->
+		<a href="{$layout_info->rss}" title="Rich Site Summary" >RSS Feed</a> |
+		<strong><a href="#header" rel="" id="anchor1" class="anchorLink">Back to Top</a></strong>
+   </p>
+<!-- /footer-bottom-->
+</div>
+
+<!--AJAX 로그인 창 시작-->
+<!--@if(!$is_logged)-->
+    {@ $member_config = MemberModel::getMemberConfig(); }
+    <!--%import("./filter/login.xml")-->
+    <!--@if($member_config->enable_openid=='Y')--><!--%import("./filter/openid_login.xml")--><!--@end-->
+    <!-- loginWindow -->
+    <div id="loginWindow" class="loginWindow">
+    <!-- class="loginWindow" | class="loginWindow open" -->
+        <span class="modalWindow"></span>
+        <div id="loginLayer" class="loginLayer loginTypeA">
+        <!-- class="loginLayer loginTypeA" | class="loginLayer loginTypeB" -->
+            <button type="button" class="close" onclick="document.getElementById('loginWindow').style.display='none'" accesskey="X"><span>Close Login Layer</span></button>
+            <form action="" method="post" class="typeA" id="commonLogin" onsubmit="return procFilter(this, login)">
+                <fieldset>
+                    <legend>XE Login</legend>
+                    <dl>
+                        <dt><label for="uid">{$lang->user_id}</label></dt>
+                        <dd><input name="user_id" type="text" class="inputText" id="uid" /></dd>
+                        <dt><label for="upw">{$lang->password}</label></dt>
+                        <dd><input name="password" type="password" class="inputText" id="upw" /></dd>
+                    </dl>
+                    <p class="keep"><input name="keep_signed" type="checkbox" id="keepA" value="Y" class="inputCheck" onclick="if(this.checked) return confirm('{$lang->about_keep_signed}');"/><label for="keepA">{$lang->keep_signed}</label></p>
+                    <span class="loginButton"><input name="" type="submit" value="{$lang->cmd_login}" /></span>
+                </fieldset>
+            </form>
+            <!--@if($member_config->enable_openid=='Y')-->
+            <form action="./" method="post" class="typeB" id="openidLogin" onsubmit="return procFilter(this, openid_login)">
+                <fieldset>
+                    <legend>OpenID Login</legend>
+                    <dl>
+                        <dt><label for="oid">Open ID</label></dt>
+                        <dd><input name="openid" type="text" class="inputText" id="oid" /></dd>
+                    </dl>
+                    <span class="loginButton"><input name="" type="submit" value="{$lang->cmd_login}" /></span>
+                </fieldset>
+            </form>
+            <!--@end-->
+            <ul class="help">
+                <li class="join"><a href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a></li>
+                <li class="find"><a href="{getUrl('act','dispMemberFindAccount')}">{$lang->cmd_find_member_account}</a></li>
+                <li class="find"><a href="{getUrl('act','dispMemberResendAuthMail')}">{$lang->cmd_resend_auth_mail}</a></li>
+                <!--@if($member_config->enable_openid=='Y')-->
+                <li class="typeA"><a href="#openidLogin" onclick="document.getElementById('loginLayer').className='loginLayer loginTypeB'">OpenID</a></li>
+                <li class="typeB"><a href="#commonLogin" onclick="document.getElementById('loginLayer').className='loginLayer loginTypeA'">OpenID</a></li>
+                <!--@end-->
+            </ul>
+            <button type="button" class="close" onclick="document.getElementById('loginWindow').style.display='none'" accesskey="X"><span>Close Login Layer</span></button>
+        </div>
+    </div>
+    <!-- /loginWindow -->
+<!--@end-->
+<!--AJAX 로그인 창 끝-->

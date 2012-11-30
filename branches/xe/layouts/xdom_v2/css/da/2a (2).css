@@ -1,0 +1,60 @@
+@charset "utf-8";
+
+/*top 메뉴*/
+.top_gnb { position:relative; z-index:2; width:100%; height:22px; font-size:11px;}
+.top_gnb .top_bg { position:absolute; top:0; width:980px; height:22px; font-size:11px; background:#000; opacity:.2; filter:alpha(opacity:18);}
+.top_gnb .top_box { position:relative; width:965px; margin:0; padding:3px 5px 0 10px; z-index:10;}
+.top_gnb .top_left { position:absolute; text-align:left; width:300px; padding:0 0 0 3px; z-index:10;}
+
+/*헤더*/
+.bodyWrap { position:absolute; top:0px; width:980px; margin:0; }
+.header { position:relative; width:980px; height:280px }
+.header h1 { position:absolute; margin:0; padding:0; top:30px; left:35px; }
+.head_ad_3 { position: absolute; right: 0px; top: 0px; text-align: right; }
+
+/*메인메뉴*/
+.main_menu { height:69px; width:980px; position:relative; border-bottom:1px solid #DEDEDE; margin:0 auto 3px }
+.main_menu .gnb { overflow:hidden; white-space:nowrap; position:absolute; left:15px }
+.main_menu .roll_gnb { overflow:hidden; white-space:nowrap; position:absolute; left: 15px; margin:0; padding:0px }
+
+/*메인메뉴 광고*/
+.main_menu .head_ad_4 { position:absolute; left:15px; top:45px; width:655px; }
+.main_menu .head_ad_5 { position:absolute; right:10px; top:12px; text-align: right; width:200px; }
+
+/*메인2차메뉴*/
+.gnb2 { position:absolute; top:42px; left:20px; white-space:nowrap; overflow:hidden; margin:0; padding:0 }
+.roll_gnbSub { position:absolute; top:42px; left:18px; white-space:nowrap; overflow:hidden; margin:0; padding:0 }
+
+/*검색창*/
+.gSearch { position:absolute; top:0px; right:440px; padding:0; text-align:right; width:395px;}
+.gSearch .inputText { position:relative; width:320px; height:21px; vertical-align:middle; margin: 0; padding:2px; }
+.gSearch .submit { vertical-align:middle; padding:0 }
+.isSearch { position:absolute; top:40px; right:0px; text-align: right; }
+.isSearch .inputText { position:relative; width:195px; height:16px; vertical-align:middle; padding:2px 2px 2px 4px }
+.isSearch .submit { vertical-align:middle }
+
+/*사이드2차메뉴*/
+.lnbWrap { overflow:hidden; margin:0 0 2px 0; padding:0px 8px 0px 8px; }
+.lnbWrap .subtitle { width:232px }
+.lnbWrap .subtitle h1 { font-size:16px; font-weight:bold; letter-spacing:-2px; margin:0; padding:7px 0px 7px 10px }
+.lnb { position:relative; margin:10px 0px 10px 0px; padding:0;}
+.lnb li { list-style:none; overflow:hidden }
+.lnb li a { position:relative; z-index:99; display:block; height:15px; text-decoration:none; padding:6px 0px 4px 12px }
+.lnb li.on a { background:url(../../images/default/lnb_listOn.gif) no-repeat 4px 9px; font-weight:700; letter-spacing:-1px; text-decoration:none;}
+.lnb li ul { display:none; position:relative; margin:0; padding:0}
+.lnb li.on ul { display:block }
+.lnb li ul li { position:relative; top:0; font-size:11px; letter-spacing:-1px;}
+.lnb li a:hover, .lnb li.on a:hover { text-decoration:underline }
+.lnb li a:focus, .lnb li.on a:focus { text-decoration:none }
+.lnb li ul li a { background:url(../../images/blank.gif) no-repeat 12px 8px !important; padding:5px 10px 2px 20px; font-weight:normal !important; letter-spacing:normal !important;}
+.lnb li.on ul li a { background:url(../../images/blank.gif) no-repeat 12px 8px !important; padding:5px 10px 2px 20px; font-weight:normal !important; letter-spacing:normal !important;}
+.lnb li.on ul li.on a { background:url(../../images/default/lnb_sub.gif) no-repeat 12px 8px !important; font-weight:bold !important; letter-spacing:-1px !important;}
+
+/*본문*/
+.content_Body { clear:both; position:relative; width:980px; padding-bottom:1px; margin:3px 0 0 0 }
+.content_Body_top { width:980px; float:left; overflow:hidden; padding:0 0 0 20px; }
+.content_Body_bottom { width:980px; float:left; overflow:hidden; padding:0 0 0 20px; }
+.columnMenu { position:relative; width:250px; float:right;}
+.columnContent { width:690px; float:left; overflow:hidden; padding:0 0 0px 20px; }
+.main_bannerLeft { position:absolute; top:0px; left:-80px; z-index:100; }
+.main_bannerRight { position:absolute; top:0px; right:-80px; z-index:100; text-align: right;}

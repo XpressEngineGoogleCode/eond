@@ -1,0 +1,53 @@
+@charset "utf-8";
+
+a{color:#690;}
+a:hover, a:active{color:#ed4528;text-decoration:none;}
+body{background:url(../images/default/bg.jpg) repeat fixed;font-family:Arial,Tahoma,Sans-serif,Verdana;color:#555;}
+.mask { clear:both; display:block; margin:0; padding:0; height:0; line-height:1px; font-size:1px; width:0; overflow:hidden;}
+#outerWrapper{width:1002px;margin:0 auto 0;padding:0;position:relative;}
+#header{padding:2px 28px 0 26px;margin:5px 0 0;background:url(../images/default/header.png) no-repeat;height:142px;}
+#header h1{ float:left; padding:0;margin:0; }
+#header h1 a { cursor:pointer; width:500px; height:98px; display:block; background:url(../images/default/logo_design7.gif) no-repeat;}
+#header_content{background:url(../images/default/bg-carton.jpg) repeat;width:100%;height:100%;}
+#header_search{padding:12px 0 0 15px;float:right;margin:20px 10px 0 0;width:170px; height:46px;background:url(../images/default/compteur-bg.jpg) no-repeat;}
+#isSearch .inputText{color:#999;background:none;border:1px solid #aaa;margin:0;height:16px;width:100px;}
+#isSearch .submit{_margin-top:-5px; margin-left: 10px;width:25px;height:25px;vertical-align:middle;}
+#header_login{margin:7px 0 0 10px;background:url(../images/default/acc.png) no-repeat left top;padding:9px 0 0 7px;clear:both;float:left;width:295px;height:35px;}
+#header_menu{padding:10px 0 0 10px;margin-top:-7px;_margin:0;background:url(../images/default/note_paper.png) no-repeat;width:340px;height:50px;float:right}
+#header_menu a{position:relative;float:left;font:bold 12px Verdana;text-decoration:none;padding:0 3px;border-left:2px solid #aaa;}
+#header_menu a:link,
+#header_menu a:visited {color:#716759;}
+#header_menu a:hover,
+#header_menu a:active {color:#b94e34;}
+#contentWrapper{margin:0;padding:0 28px 0 26px;height:100%;background:url(../images/default/page.gif) repeat-y;}
+#centerWrapper{background:url(../images/default/bg-carton.jpg);padding-bottom:70px;}
+#widget{border-right:1px solid #bbb;clear:both;float:left;width:180px;padding:5px 6px 5px 12px;margin: 0 0 20px 5px;height:expression(this.scrollHeight<500?"500px":"auto" );min-height:500px;}
+
+#menuBox,
+#menuBox ul,
+#menuBox li { list-style:none; margin:0; padding:0; }
+#menuBox { color:#5c5e5a; }
+#menuBox li.menuItem { }
+#menuBox li.menuItem a.menuText { background:url(); margin:3px 0; width:90%; display:inline-block;  cursor:pointer; text-decoration:none; color:#555; font:bold 14px Tahoma, Geneva, Arial; padding:1px 3px;}
+#menuBox li.menuItem a.menuText:hover { background:#f5ebda; color:#b94e34; }
+#menuBox li.itemSelect a.menuText{ color:#8fb30d !important; background:#f5ebda !important;}
+#lnb li a{ background:url(); border-bottom:1px solid #aaa; padding:1px 2px; width:83%; margin:2px 0 2px 10px; font:bold 12px Georgia; color:#5c5e5a; text-decoration:none; display:inline-block;}
+#lnb li a.on { color:#8fb30d !important; background:#f5ebda url(../images/default/more.gif) no-repeat right center !important;}
+#lnb li a:hover { background:#f5ebda; color:#b94e34; }
+
+#content{min-height:420px;overflow:hidden;width:685px;margin:25px auto;}
+#footer{clear:both;padding:0 28px 0 26px;background:url(../images/default/footer.png) no-repeat left bottom;height:49px;}
+#scotch-l{position:absolute;top:125px;left:5px;width:35px;height:145px;background:url(../images/default/scotch-l.png) no-repeat;}
+#scotch-rt{position:absolute;top:135px;right:10px;width:35px;height:119px;background:url(../images/default/scotch-rt.png) no-repeat;}
+#scotch-br{position:absolute;right:3px;bottom:150px;width:38px;height:181px;background:url(../images/default/scotch-br.png) no-repeat right top;}
+#scotch-l2{position:absolute;left:3px;bottom:0;width:35px;height:145px;background:url(../images/default/scotch-l.png) no-repeat;}
+#shadow-br{width:23px;height:131px;clear:both;margin-right:3px;_margin-right:2px;float:right;margin-top:-163px;background:url(../images/default/shadow-br.png) no-repeat right top;}
+#footer p{margin:0;padding:0;position:relative;}
+#footer p.footer_left{float:left;width:320px;margin-left:10px;}
+#footer p.footer_center{float:left;width:300px;text-align:center;}
+#footer p.footer_right{float:right;margin-right:10px;}
+#footer p a:link,
+#footer p a:visited{color:#555;text-decoration:none;}
+#footer p a:hover,
+#footer p a:active{color:#ED4528;}
+#acc {position:relative;}

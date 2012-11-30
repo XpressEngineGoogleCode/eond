@@ -1,0 +1,77 @@
+<!-- js 파일 import -->
+<!--%import("js/webmini.js")-->
+<!--%import("js/menu.js")-->
+
+<!--%import("css/style.css")-->
+
+
+
+<style type="text/css">
+<!--@if($layout_info->bodywidth)-->
+#bodyWrap {width:{$layout_info->bodywidth}px;} /* 880 920 1120*/
+<!--@end-->
+
+<!--@if($layout_info->width)-->
+<!--
+#column { width:{$layout_info->width}px; }
+#content { width:{$layout_info->width *-1 + 250 + 615}px; }
+#content_origin { width:{$layout_info->width *-1 + 250 + 615}px; }
+
+#container { background-position:{$layout_info->width *-1 + 250 + 680}px top; }
+#container.ec { background-position:{$layout_info->width - 250 + 320}px top; }
+-->
+
+
+<!--@end-->
+</style>
+
+
+
+<style type="text/css">
+<!--@if($layout_info->background_image)-->
+body { background:#FFFFFF url({getUrl()}{$layout_info->background_image}) repeat-x center top; }
+<!--@end-->
+
+<!--@if($layout_info->searchbox_color)-->
+#isSearch .inputText {border-color: {$layout_info->searchbox_color};}
+<!--@end-->
+
+<!--@if($layout_info->menubar_bg)-->
+.wdg_menu{
+background-image:url({$layout_info->menubar_bg});
+}
+<!--@end-->
+
+</style>
+
+
+
+
+
+
+<!--@if(!$layout_info->colorset)-->
+    {@$layout_info->colorset = "default"}
+<!--@end-->
+
+<ul id="skip_navigation">
+<li><a href="#columnRight" title="주메뉴 바로가기">본문 바로가기</a></li>
+<li><a href="#gnb" title="주메뉴 바로가기">주메뉴 바로가기</a></li>
+</ul>
+<hr />
+
+
+<!--@if($layout_info->nav_display!='no')-->
+	<!--@if($layout_info->nav)-->
+		{$layout_info->nav}
+	<!--@elseif(!$layout_info->nav)-->
+		<!--#include("./_nav.html")-->
+	<!--@end-->
+<!--@end-->
+
+
+<div id="bodyWrap">
+	<div id="header"><!--#include("./_header.html")--></div>
+	<!--#include("./_menu.html")-->
+	<div id="container" class="{$layout_info->column}"><!--#include("./_container.html")--></div>
+	<div id="footer"><!--#include("./_footer.html")--></div>
+</div>

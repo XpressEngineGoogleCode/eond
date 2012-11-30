@@ -1,0 +1,35 @@
+/* colum */
+#content {
+	width:1000px;
+	margin:0 auto;
+	padding:0 0 20px 0;
+	background:#FFF url(../images/content_right.gif) repeat-y center top;
+	overflow:hidden;
+}
+
+#main {
+	float:right; 
+	margin:0; 
+	padding:25px 0 0 0;
+	width:720px;
+}
+
+#sidebar {
+	width:245px; 
+	float:left; 
+	margin:0; 
+	padding:25px 0 50px 0; 
+	font-size:.95em; 
+}
+#profile { margin-bottom:30px; }
+
+#sidebar h3 { 
+	font:bold 1.7em 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, Sans-Serif; 
+	letter-spacing:.2px; 
+	margin-left:10px; 
+	color:#333; 
+}
+
+#sidebar h3, #sidebar p { 
+	margin-left:10px; 
+}

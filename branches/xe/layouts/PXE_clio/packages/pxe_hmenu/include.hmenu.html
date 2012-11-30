@@ -1,0 +1,48 @@
+<!-- 컬러셋용 CSS 파일 로드 -->
+<load cond="$layout_info->colorset == 'default'" target="packages/pxe_hmenu/css/hmenu_default.css" />
+<load cond="$layout_info->colorset == 'custom'" target="packages/pxe_hmenu/css/hmenu_custom.css" />
+
+<div cond="$layout_info->display_hmenu == 'breadclumb'" class="menuPath pngFix" style="width:{$layout_info->container_site_width-15}px;">
+    <span class="terminator pngFix">Terminator</span>
+    <!-- depth 1 -->
+    <block loop="$main_menu->list=>$key, $val">
+        <block cond="$val['selected']">{@$depth1 = $val}</block>
+    </block>
+    
+    <!-- depth 2 -->
+    <block cond="$depth1">
+        <block loop="$depth1['list']=>$key, $val">
+            <block cond="$val['selected']">{@$depth2 = $val}</block>
+        </block>
+    </block>
+    
+    <!-- depth 3 -->
+    <block cond="$depth2">
+        <block loop="$depth2['list']=>$key, $val">
+            <block cond="$val['selected']">{@$depth3 = $val}</block>
+        </block>
+    </block>
+    
+    <!-- depth 4 -->
+    <block cond="$depth3">
+        <block loop="$depth3['list']=>$key, $val">
+            <block cond="$val['selected']">{@$depth4 = $val}</block>
+        </block>
+    </block>
+    
+    <a href="{getSiteUrl()}" class="home">&nbsp;</a>
+    <a cond="$depth1" href="{$depth1['href']}">{$depth1['text']}</a>
+    <a cond="$depth2" href="{$depth2['href']}">{$depth2['text']}</a>
+    <a cond="$depth3" href="{$depth3['href']}">{$depth3['text']}</a>
+    <a cond="$depth4" href="{$depth3['href']}">{$depth4['text']}</a>
+    <span class="pageTitle"><!--@if($module_info->title)-->{$module_info->title}<!--@else-->{Context::getBrowserTitle()}<!--@end--></span>
+</div>
+
+<div id="header_hnb" cond="$layout_info->display_hmenu == '2ndmenu' && $menu_1st['list']" class="pngFix" style="width:{$layout_info->container_site_width-15}px;">
+    <span class="terminator pngFix">Terminator</span>
+    <ul id="hnb">
+            <block cond="$val['link']">
+                <li loop="$menu_1st['list']=>$key, $val" <block cond="$val['selected']">class="on"</block>><a href="{$val['href']}" <block cond="$val['open_window']=='Y'">onclick="window.open(this.href);return false;"</block>>{$val['link']}</a></li>
+            </block>
+    </ul>
+</div><!--header_hnb 끝-->

@@ -1,0 +1,38 @@
+<!-- js 파일 import -->
+<!--%import("js/default.js")-->
+<!--%import("js/layerControl.js")-->
+<!--%import("css/layerControl.css")-->
+
+<div id="header">
+	<!-- s : mainmenu -->
+
+				<ul>
+				{@ $idx = 1 }<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+					<!--@if($val['selected'])-->
+					{@ $menu_1st = $val }
+					<!--@end-->
+					<li onMouseOver="show({$idx})"<!--@if($val['selected'])-->class="on mainmenu"<!--@end-->class="mainmenu"><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href)return false"<!--@end-->>{$val['link']}</a></li>
+				{@$idx++}<!--@end--><!--@end-->
+				</ul>
+	<!-- e : mainmenu -->
+
+	<!-- s : submenu -->
+	<div id="submenu"></div>
+	<div id="submenu1" class="submenu" style="position:absolute;z-index:12;">  
+	야후1
+	야후2  
+	야후3  
+	</div>
+	<div id="submenu2" class="submenu">  
+	야후4  
+	야후5  
+	야후6  
+	</div>  
+	<div id="submenu3" class="submenu">  
+	야후7  
+	야후8  
+	야후9  
+	</div>  
+	<!-- e : submenu -->
+</div>
+<div>{$content}</div>

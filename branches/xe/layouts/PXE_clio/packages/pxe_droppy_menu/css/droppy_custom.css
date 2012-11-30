@@ -1,0 +1,36 @@
+/* 메인 메뉴 (pxe_droppy_menu)
+---------------------------------------------------------------------------------*/
+ #nav { display: block; margin: 0; padding: 0; position:relative; z-index:1; }
+  #nav li { display: block; list-style: none; margin: 0; padding: 0; float: left; position: relative; }
+  #nav { display: block; }
+  #nav ul { display: none; position: absolute; left: 0; margin: 0; padding: 0; }
+  * html #nav ul { line-height: 0; } /* IE6 "fix" */
+  	#nav ul a { zoom: 1; } /* IE6/7 fix */
+    #nav ul li a { float: none; }
+    #nav ul ul { top: 0; }
+    
+/* Essentials - configure this */
+#nav ul { width: 160px; top:65px; }
+#nav ul ul { left: 158px; top:-1px; }
+
+/* Everything else is theming */
+#nav { height:70px; background:url(../img/custom/menubar_left.png); }
+#nav span.menuR { position:absolute; width:10px; height:70px; top:0; right:-10px; background:url(../img/custom/menubar_right.png); text-indent:-1000em; }
+#nav *:hover { background-color: none; }
+#nav li a { position:relative; margin:0 20px; _margin:0 10px; padding:13px 0 0 0; height:47px; text-align:center; color:#999; display:block; font:12px 굴림, 돋움, Helvetica, sans-serif; z-index:10; float:left; top:5px; font-weight:normal; text-decoration:none; font-weight:bold; line-height:38px; outline:0; selector-dummy:expression(this.hideFocus=true); }
+#nav li a img { position:relative; top:-2px; }
+#nav li a:hover { color:#000; }
+*:first-child+html #nav li a img { top:-6px; }
+#nav li a .vr { position:absolute; width:2px; height:60px; top:0; right:-20px; z-index:10; background: url("../img/custom/vr.png"); display:block; }
+#nav li.back { background: url("../img/custom/lava.png") no-repeat center top; height:52px; z-index:8; position: absolute; top:39px; }
+#nav li.on a { color:#000!important; }
+#nav li.hover a { background:url(../img/menu_hover.gif) no-repeat; color:#000; }
+
+    #nav ul {  }
+    #nav ul li { margin-bottom:-1px; border:1px solid #dfdfdf; background:#f9f9f9; color:#505050 }
+	#nav ul a { color:#505050; display:block; margin:0; padding:9px 0 0 12px!important; width:146px!important; height:21px!important; font:8pt 돋움; letter-spacing:-1px; text-align:left; background:none !important; top:0!important; font-weight:normal!important; line-height:120%!important; }
+	#nav ul a span { position:absolute; top:10px; right:10px; }
+	#nav ul a:hover { background:#fff !important; color:#6b95b2!important; }
+	#nav ul .on { background:#fff; }
+
+/* #nav ul a { border-bottom: none; } - I also needed this for IE6/7 */

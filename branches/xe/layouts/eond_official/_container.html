@@ -1,0 +1,86 @@
+<!--@if($layout_info->column != "c")-->
+<div id="column">
+	<!--@if($layout_info->widget_1)-->
+	<div class="extension">
+		<!--@if($layout_info->widget_1_title)--><h3 class="title">{$layout_info->widget_1_title}</h3><!--@end-->
+		<div class="section">{$layout_info->widget_1}</div>
+	</div>
+	<!--@end-->
+
+	<!--@if($layout_info->widget_login)-->
+		{$layout_info->widget_login}
+	<!--@elseif(!$layout_info->widget_login)-->
+		<!--#include("./_login.html")-->
+	<!--@end-->
+
+	<!--@if($layout_info->widget_2)-->
+	<div class="extension">
+		<!--@if($layout_info->widget_2_title)--><h3 class="title">{$layout_info->widget_2_title}</h3><!--@end-->
+		<div class="section">{$layout_info->widget_2}</div>
+	</div>
+	<!--@end-->
+	<!--@if($layout_info->widget_3)-->
+	<div class="extension">
+		<!--@if($layout_info->widget_3_title)--><h3 class="title">{$layout_info->widget_3_title}</h3><!--@end-->
+		<div class="section">{$layout_info->widget_3}</div>
+	</div>
+	<!--@end-->
+
+	<!--@if($layout_info->widget_4)-->
+	<div class="extension">
+		<!--@if($layout_info->widget_4_title)--><h3 class="title">{$layout_info->widget_4_title}</h3><!--@end-->
+		<div class="section">{$layout_info->widget_4}</div>
+	</div>
+	<!--@end-->
+
+	<!-- 아래 코드는 저작권상 삭제하지 마세요.-->
+	<div class="wdg">
+	<h4>powered by</h4>
+	<ul>
+	<li><a href="http://www.raonnet.com/invite2/xynex" target="_blank"><img src="./images/bns/bn_raonnet.gif" alt="무료호스팅 라온넷" /></a></li>
+	<li><a href="http://eond.com/mynote"><img src="./images/bns/bn_eond.gif" alt="이온디 마이노트" /></a></li>
+
+	</ul>
+	</div>
+	<!-- 끝 -->
+
+	<!--@if($layout_info->widget_5)-->
+	<div class="extension">
+		<!--@if($layout_info->widget_5_title)--><h3 class="title">{$layout_info->widget_5_title}</h3><!--@end-->
+		<div class="section">{$layout_info->widget_5}</div>
+	</div>
+	<!--@end-->
+
+</div>
+<!--@end-->
+
+ <!--@if($layout_info->sky_banner)-->
+  <!-- 스카이 스크랩퍼 -->
+  <div id="sky_banner">
+  <a href="{$layout_info->sky_url}" <!--@if($layout_info->sky_target== "yes")-->onclick="window.open(this.href);return false;"<!--@else if($layout_info->sky_target== "no")--><!--@end-->><img src="{$layout_info->sky_banner}" alt="{$layout_info->sky_alt}" border="0" class="iePngFix" /></a>
+  </div>
+ <hr />
+  <!--@else--><!--@end-->
+
+<div id="content">
+{$content}
+</div>
+
+<!--@if($layout_info->adsense_skyscraper_left)-->
+  <div id="adsense_skyscraper_left">
+ {$layout_info->adsense_skyscraper_left}
+  </div>
+<!--@else--><!--@end-->
+
+<!--@if($layout_info->adsense_skyscraper_right)-->
+  <div id="adsense_skyscraper_right">
+ {$layout_info->adsense_skyscraper_right}
+  </div>
+<!--@else--><!--@end-->
+
+
+<!--@if($layout_info->column = "ece")-->
+<div id="e2">
+e2
+</div>
+<!--@end-->

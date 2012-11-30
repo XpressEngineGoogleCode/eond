@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title>Elkha - neutral</title>
+    <description>
+		http://www.mono-lab.net/ 의 워드프레스 스킨을 XE에 맞게 퍼블리싱 하였습니다.
+        WordPress 'neutral' skin has been published for XE.
+    </description>
+    <version>0.4.3</version>
+    <date>2010-08-03</date>
+    <link>http://elkha.kr</link>
+    <author email_address="elkha1914@hotmail.com" link="http://elkha.kr">
+        <name>Elkha</name>
+    </author>
+
+    <extra_vars>
+        <var name="name" type="text">
+            <title>Homepage Name (사이트 제목)</title>
+        </var>
+    	<var name="logo" type="image">
+            <title>Logo (로고)</title>
+        </var>
+        <var name="url" type="text">
+            <title>Homepage URL (사이트 주소)</title>
+        </var>
+        <var name="headerLayer" type="textarea">
+            <title>Header HTML Tags (헤더영역 태그)</title>
+			<description>상단에 배너를 띄울때 사용할 수 있습니다.</description>
+        </var>
+
+		<var name="login" type="select">
+			<title>Login Layer (로그인 창)</title>
+			<options value="default">
+				<title>Use Layer (로그인 클릭시 레이어 띄움)</title>
+			</options>
+			<options value="links">
+				<title>Use Links (링크를 이동함)</title>
+			</options>
+		</var>
+
+        <var name="slide" type="select">
+            <title>Menu Animation (메뉴 애니메이션)</title>
+            <options value="default">
+                <title>Fade In (서서히 보임)</title>
+            </options>
+            <options value="none">
+                <title>No Animation (애니메이션 없음)</title>
+            </options>
+        </var>
+
+
+        <var name="rss" type="select">
+            <title>RSS</title>
+            <options value="default">
+                <title>Show the button if RSS URL is exist. (현재 페이지에 RSS 정보가 있을 경우)</title>
+            </options>
+            <options value="show">
+                <title>Show all RSS (사이트 전체의 RSS를 보임)</title>
+            </options>
+            <options value="hide">
+                <title>Hide RSS (숨김)</title>
+            </options>
+        </var>
+		<var name="column" type="select">
+            <title>Column (칼럼 정렬)</title>
+            <options value="default">
+                <title>Content | Column (본문 | 칼럼)</title>
+            </options>
+			<options value="ec">
+				<title>Column | Content (칼럼 | 본문)</title>
+			</options>
+			<options value="c">
+				<title>Content (본문)</title>
+			</options>
+		</var>
+        <var name="width" type="text">
+            <title>Column Width (칼럼 너비)</title>
+            <description>eg. 250 (입력 예: 250)</description>
+        </var>
+        <var name="widget_1_title" type="text">
+            <title>Widget 1 Title (위젯 1 제목)</title>
+        </var>
+        <var name="widget_1" type="textarea">
+            <title>Widget 1 HTML Tags (위젯 1 태그)</title>
+        </var>
+        <var name="widget_2_title" type="text">
+            <title>Widget 2 Title (위젯 2 제목)</title>
+        </var>
+        <var name="widget_2" type="textarea">
+            <title>Widget 2 HTML Tags (위젯 2 태그)</title>
+        </var>
+        <var name="widget_3_title" type="text">
+            <title>Widget 3 Title (위젯 3 제목)</title>
+        </var>
+        <var name="widget_3" type="textarea">
+            <title>Widget 3 HTML Tags (위젯 3 태그)</title>
+        </var>
+
+        <var name="copyright" type="textarea">
+            <title>Copyright comment (저작권 문구)</title>
+        </var>
+    </extra_vars>
+
+    <menus>
+        <menu name="gnb" default="true">
+            <title>Global Navigation Bar (주 메뉴)</title>
+            <maxdepth>3</maxdepth>
+        </menu>
+        <menu name="sta">
+            <title>Service Title Area (부가 메뉴)</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+    </menus>
+</layout>

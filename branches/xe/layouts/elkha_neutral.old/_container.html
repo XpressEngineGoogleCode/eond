@@ -1,0 +1,26 @@
+<!--@if($layout_info->column != "c")-->
+	<div id="column">
+		<!--@if($layout_info->widget_1)-->
+		<div class="extension">
+			<!--@if($layout_info->widget_1_title)--><h3 class="title">{$layout_info->widget_1_title}</h3><!--@end-->
+			<div class="section">{$layout_info->widget_1}</div>
+		</div>
+		<!--@end-->
+		<!--@if($layout_info->widget_2)-->
+		<div class="extension">
+			<!--@if($layout_info->widget_2_title)--><h3 class="title">{$layout_info->widget_2_title}</h3><!--@end-->
+			<div class="section">{$layout_info->widget_2}</div>
+		</div>
+		<!--@end-->
+		<!--@if($layout_info->widget_3)-->
+		<div class="extension">
+			<!--@if($layout_info->widget_3_title)--><h3 class="title">{$layout_info->widget_3_title}</h3><!--@end-->
+			<div class="section">{$layout_info->widget_3}</div>
+		</div>
+		<!--@end-->
+	</div>
+<!--@end-->
+
+<div id="content">
+	{$content}
+</div>

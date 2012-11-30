@@ -1,0 +1,126 @@
+
+<!-- 컬러셋용 CSS 파일 로드 -->
+<load cond="$layout_info->colorset == 'default'" target="packages/pxe_omenu/css/omenu_default.css" />
+<load cond="$layout_info->colorset == 'custom'" target="packages/pxe_omenu/css/omenu_custom.css" />
+
+<!-- 언어팩용 내부 CSS -->
+<block cond="$lang_type == 'ko'">
+<style type="text/css">
+#option_menu .optionMenuList .memberProfile li a { font:8pt 돋움,Dotum; letter-spacing:-1px }
+#option_menu .optionMenuList .loginLayer input.user_id { background-position:0 0 }
+#option_menu .optionMenuList .loginLayer input.user_pw { background-position:0 -26px }
+#option_menu .optionMenuList .loginLayer input.open_id { background-position:0 -52px }
+#option_menu .optionMenuList .loginLayer button.submit,
+#option_menu .optionMenuList .loginLayer button.submit_oid { background-position:0 0 }
+#option_menu .optionMenuList .loginLayer .saveIDinfo,
+#option_menu .optionMenuList .loginLayer .help li a { font:8pt 돋움; letter-spacing:-1px; }
+</style>
+</block>
+
+<block cond="$lang_type == 'en'">
+<style type="text/css">
+#option_menu .optionMenuList .memberProfile li a { font: 11px Arial, Helvetica, sans-serif; line-height:100%; }
+#option_menu .optionMenuList .loginLayer input.user_id { background-position:0 -78px }
+#option_menu .optionMenuList .loginLayer input.user_pw { background-position:0 -104px }
+#option_menu .optionMenuList .loginLayer input.open_id { background-position:0 -130px }
+#option_menu .optionMenuList .loginLayer button.submit,
+#option_menu .optionMenuList .loginLayer button.submit_oid { background-position:0 -26px }
+#option_menu .optionMenuList .loginLayer .saveIDinfo,
+#option_menu .optionMenuList .loginLayer .help li a { font:11px Arial, Helvetica, sans-serif }
+</style>
+</block>
+
+<block cond="$lang_type == 'jp'">
+<style type="text/css">
+#option_menu .optionMenuList .memberProfile li a { font:10px meiryo,Arial,Helvetica; line-height:100%; }
+#option_menu .optionMenuList .loginLayer input.user_id { background-position:0 -156px }
+#option_menu .optionMenuList .loginLayer input.user_pw { background-position:0 -182px }
+#option_menu .optionMenuList .loginLayer input.open_id { background-position:0 -208px }
+#option_menu .optionMenuList .loginLayer button.submit,
+#option_menu .optionMenuList .loginLayer button.submit_oid { background-position:0 -52px }
+#option_menu .optionMenuList .loginLayer .saveIDinfo,
+#option_menu .optionMenuList .loginLayer .help li a { font:10px meiryo,Arial,Helvetica }
+</style>
+</block>
+
+<ul id="option_menu">
+    <span class="tw_bird pngFix">Twitter</span>
+    <li class="olb pngFix"></li>
+    <li class="ocb pngFix">
+        <ul class="optionMenuList">
+        
+            <block cond="$layout_info->display_accounts == 'omenu'">
+            
+            <li cond="$is_logged" class="logout"><a href="{getUrl('act','dispMemberLogout')}">{$lang->pxe_logout}</a> <span class="vr"></span></li>
+            <li cond="!$is_logged" class="login"><a href="#" onclick="jQuery('.loginLayer').css('display','block');">{$lang->pxe_login}</a> <span class="vr"></span>
+            
+                <!--AJAX 로그인 창 시작-->
+                <block cond="!$is_logged">
+                {@ $member_config = MemberModel::getMemberConfig(); }
+                <!--%import("packages/pxe_omenu/filter/login.xml")-->
+                <!--@if($member_config->enable_openid=='Y')--><!--%import("packages/pxe_omenu/filter/openid_login.xml")--><!--@end-->
+                
+                <!-- loginWindow -->
+                    <div class="loginLayer pngFix">
+                        <span class="close" onclick="jQuery('.loginLayer').css('display','none');"></span>
+                        
+                        <div class="inner">
+                            <form action="" method="post" id="commonLogin" onsubmit="return procFilter(this, login)">
+                                <input name="user_id" type="text" id="uid" value="" onfocus="this.className='user_id focus'" onblur="if (this.value.length==0) {this.className='user_id'}else {this.className='user_id focusnot'}" class="user_id" />
+                                <input name="password" type="password" id="upw" onfocus="this.className='user_pw focus'" onblur="if (this.value.length==0) {this.className='user_pw'}else {this.className='user_pw focusnot'};" class="user_pw" />
+                                <button type="submit" value="submit" class="submit">SUBMIT</button>
+                                    
+                                <div class="saveIDinfo">
+                                    <input name="keep_signed" type="checkbox" id="keepA" value="Y" class="inputCheck" onclick="if(this.checked) return confirm('{$lang->about_keep_signed}');"/>
+                                    <label for="keepA">{$lang->pxe_save}</label>
+                                </div>
+                            </form>
+                        </div>
+
+                        <span cond="$member_config->enable_openid=='N'" class="info_openid">Open ID Information</span>
+
+                        <div cond="$member_config->enable_openid=='Y'" class="inner_oid">
+                            <form action="./" method="post" id="openidLogin" onsubmit="return procFilter(this, openid_login)">
+                                <input name="openid" type="text" id="oid" onfocus="this.className='open_id focus'" onblur="if (this.value.length==0) {this.className='open_id'}else {this.className='open_id focusnot'}" class="open_id" />
+                                <button type="submit" value="submit" class="submit_oid">SUBMIT</button>
+                            </form>
+                        </div>
+                        
+                        <ul class="help">
+                            <li class="first"><a href="<!--@if($layout_info->signup_mid)-->{getUrl('act','dispMemberSignUpForm','mid', $layout_info->signup_mid)}<!--@else-->{getUrl('act','dispMemberSignUpForm')}<!--@end-->"><strong>{$lang->pxe_signup}</strong></a></li>
+                            <li><a href="<!--@if($layout_info->signup_mid)-->{getUrl('act','dispMemberFindAccount','mid', $layout_info->signup_mid)}<!--@else-->{getUrl('act','dispMemberFindAccount')}<!--@end-->">{$lang->pxe_find}</a></li>
+                            <li><a href="<!--@if($layout_info->signup_mid)-->{getUrl('act','dispMemberResendAuthMail','mid', $layout_info->signup_mid)}<!--@else-->{getUrl('act','dispMemberResendAuthMail')}<!--@end-->">{$lang->pxe_auth}</a></li>
+                        </ul>
+                    </div>
+            
+                <!-- /loginWindow -->
+                </block><!--로그인 되어있지 않은 경우 조건 끝-->
+            </li>
+            
+            <li cond="!$is_logged" class="signup"><a href="<!--@if($layout_info->signup_mid)-->{getUrl('act','dispMemberSignUpForm','mid', $layout_info->signup_mid)}<!--@else-->{getUrl('act','dispMemberSignUpForm')}<!--@end-->">{$lang->pxe_signup}</a> <span class="vr"></span></li>
+
+            <!-- memberProfile -->
+            <li cond="$is_logged" class="profile"><a href="#" onclick="jQuery('#memberProfile').css('display','block');">{$lang->pxe_member_info}</a> <span class="vr"></span>
+                <div id="memberProfile" class="memberProfile pngFix">
+                    <span class="close" onclick="jQuery('#memberProfile').css('display','none');"></span>
+                    <ul>
+                        <li loop="$logged_info->menu_list=>$key, $val"><a href="<!--@if($layout_info->mypage_mid)-->{getUrl('act',$key,'member_srl','','mid',$layout_info->mypage_mid)}<!--@else-->{getUrl('act',$key,'member_srl','')}<!--@end-->">{Context::getLang($val)}</a></li>
+                    </ul>
+                </div>
+                <!-- /memberProfile -->
+            </li><!--회원정보 출력 끝-->
+            
+            </block><!--계정관련 조건문 끝-->
+        
+            <!--옵션 메뉴 출력-->
+            <li cond="$val['link']" loop="$option_menu->list=>$key, $val"><a href="{$val['href']}" <block cond="$val['open_window']=='Y'">onclick="window.open(this.href);return false;"</block>>{$val['link']}</a> <span class="vr"></span></li>
+            <block cond="$layout_info->display_splash == 'show'">
+            <li><a href="http://www.xpressengine.com" target="_blank">XpressEngine</a></li>
+            <li><a href="http://www.premiumxe.com" target="_blank">Premium XE</a></li>
+            </block>
+            <li class="twitter"><a href="{$layout_info->twitter_url}" target="_blank"><img src="packages/pxe_omenu/img/{$layout_info->colorset}/twitter.gif" alt="Twitter" /></a></li>
+        </ul>
+        
+    </li><!--ocb 끝-->
+    <li class="orb pngFix"></li>
+</ul><!--option_menu 끝-->

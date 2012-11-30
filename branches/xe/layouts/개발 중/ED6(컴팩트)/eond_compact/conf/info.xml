@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout version="0.1">
+    <title xml:lang="ko">이온디 광장 레이아웃</title>
+    <title xml:lang="en">Eond Plaza layout</title>
+    <author email_address="eond@eond.com" link="http://eond.com" date="2008-07-22">
+        <name xml:lang="ko">정낙훈</name>
+	<name xml:lang="en">eond</name>
+        <description xml:lang="ko">
+            이온디 광장 레이아웃입니다.
+        디자인/퍼블리싱/레이아웃 제작 : 이온디
+    </description>
+    <description xml:lang="en">
+        This layout is the Eond Plaza Layout.
+        Designer, HTML/CSS, Layout producer : EOND
+    </description>
+    </author>
+    <version>0.2</version>
+    <date>2008-07-22</date>
+    <extra_vars>
+        <var name="colorset" type="select">
+            <title xml:lang="ko">컬러셋</title>
+            <title xml:lang="en">Colorset</title>
+            <description xml:lang="ko">원하시는 컬러셋을 선택해주세요.</description>
+            <description xml:lang="en">Please select a colorset you want.</description>
+            <options name="default">
+                <title xml:lang="ko">기본</title>
+                <title xml:lang="en">Basic</title>
+                <value>default</value>
+            </options>
+            <options name="black">
+                <title xml:lang="ko">검은색</title>
+                <title xml:lang="en">Black</title>
+                <value>black</value>
+            </options>
+            <options name="white">
+                <title xml:lang="ko">하얀색</title>
+                <title xml:lang="en">white</title>
+                <value>white</value>
+            </options>
+        </var>
+        <var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+            <title xml:lang="en">Logo image</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요. (세로길이가 23px인 투명이미지가 가장 어울립니다)</description>
+            <description xml:lang="en">Please input a logo image which will be displayed on the top of layout. (Transparent image with height of 23px is recommended.)</description>
+        </var>
+        <var name="index_url" type="text">
+            <title xml:lang="ko">홈 페이지 URL</title>
+            <title xml:lang="en">Homepage URL</title>
+            <description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+            <description xml:lang="en">Please input the URL to redirect when user clicks the logo</description>
+             </var>
+        <var name="background_image" type="image">
+            <title xml:lang="ko">배경 이미지</title>
+            <title xml:lang="en">Background Image</title>
+            <description xml:lang="ko">배경 이미지를 사용하시려면 등록해주세요.</description>
+            <description xml:lang="en">Please input if you want to use background image.</description>
+        </var>
+    </extra_vars>
+
+
+    <menus>
+        <menu name="navi_menu">
+            <title xml:lang="ko">네이게이션 메뉴 </title>
+            <title xml:lang="en">Navigation menu</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+        <menu name="main_menu" default="true">
+            <title xml:lang="ko">상단 메뉴</title>
+            <title xml:lang="en">Top menu</title>
+            <maxdepth>3</maxdepth>
+        </menu>
+        <menu name="bottom_menu">
+            <title xml:lang="ko">하단 메뉴 </title>
+            <title xml:lang="en">Bottom menu</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+        <menu name="favorite_site">
+            <title xml:lang="ko">즐겨찾는 사이트</title>
+            <title xml:lang="en">Favorite Site</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+    </menus>
+</layout>

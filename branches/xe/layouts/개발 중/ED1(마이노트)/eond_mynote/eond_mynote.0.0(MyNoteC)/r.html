@@ -1,0 +1,49 @@
+<html>
+<head>
+<style type="text/css">
+body {  font: 14px Arial, Helvetica, sans-serif;
+        background-color: #FFFFFF;
+        color: #FFFF66;background:url(./images/bg_wrap.gif);}
+.rblock {
+        background-color: #fff;
+}
+.rblock *.m5 {
+        margin: 0 5px;
+}
+.rblock *.m3 {
+        margin: 0 3px;
+}
+.rblock *.m2 { 
+        margin: 0 2px;
+}
+.rblock *.m1 {
+        margin: 0 1px;
+}
+.rblock p.content {
+        padding: 0px 10px;
+}
+.rblocktop, .rblockbottom {
+        background:url(./images/bg_wrap.gif); /* must be of the same as body bg-color */
+        display: block;
+        width: 100%;
+}
+.rblocktop *, .rblockbottom * {
+        background-color: #fff; /* must be of the same as .rblock bg-color */
+        display: block;
+        height: 1px;
+        overflow: hidden;
+}
+</style>
+</head>
+<body>
+<div class="rblock" style="width: 500px;">
+    <div class="rblocktop">
+        <span class="m5"></span><span class="m3"></span><span class="m2"></span><span class="m1"></span><span class="m1"></span>
+    </div>        
+    a
+    <div class="rblockbottom">
+        <span class="m1"></span><span class="m1"></span><span class="m2"></span><span class="m3"></span><span class="m5"></span>
+    </div>
+</div>
+</body>
+</html>

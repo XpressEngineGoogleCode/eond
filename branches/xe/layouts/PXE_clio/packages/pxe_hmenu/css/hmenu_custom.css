@@ -1,0 +1,21 @@
+/* 상단 경로표시기 (pxe_hmenu)
+---------------------------------------------------------------------------------*/
+.menuPath { position:relative;  height:33px; margin:0 0 25px 0; background:url(../img/custom/bg_bread.png) no-repeat; }
+.menuPath a,
+.menuPath a:visited { float:left; display:inline-block; height:22px; padding-top:11px; padding-right:20px; margin-right:10px; background:url(../img/custom/icon_bread_arrow.gif) no-repeat right top; color:#666; font:9pt 돋움, Geneva, sans-serif; }
+.menuPath a:hover { color:#000; }
+.menuPath a.home { width:25px; }
+.menuPath .terminator { position:absolute; display:block; width:15px; height:33px; top:0; right:-15px; background:url(../img/custom/tm_bread.png) no-repeat; text-indent:-1000em; }
+.menuPath span.pageTitle { float:left; display:inline-block; height:22px; padding-top:11px; padding-right:20px; margin-right:10px; color:#666; font:bold 9pt 돋움, Geneva, sans-serif; }
+
+/* 가로 서브메뉴*/
+#header_hnb { position:relative; height:33px; margin:0 0 25px 0; background:url(../img/custom/bg_hnb.png) no-repeat; }
+#header_hnb .terminator { position:absolute; display:block; width:15px; height:33px; top:0; right:-15px; background:url(../img/custom/tm_bread.png) no-repeat; text-indent:-1000em; }
+
+#hnb { margin:0; padding:0; list-style:none; }
+#hnb li { float:left; }
+#hnb li a { float:left; display:inline-block; height:22px; margin:0; padding:11px 15px 0 15px; text-decoration:none; background:url(../img/custom/vr.gif) no-repeat right top; font:9pt 돋움, Geneva, sans-serif; }
+#hnb li a,
+#hnb li a:visited { color:#666; }
+#hnb li a:hover { color:#000; }
+#hnb li.on a { color:#000; font-weight:bold; }

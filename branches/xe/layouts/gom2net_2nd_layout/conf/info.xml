@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+	<title xml:lang="ko">곰이넷 레이아웃 2</title>
+	<title xml:lang="en">Gom-e.net Layout 2</title>
+    <description xml:lang="ko">
+		곰이넷에서 배포하는 두번째 레이아웃 입니다.
+		레이아웃에 대한 질문은 곰이넷 사이트에서 받습니다.
+		본 레이아웃은 IE6,7,8, 파이어폭스, 크롬, 사파리, 오페라 브라우저를 지원합니다.
+	</description>
+	<description xml:lang="en">
+		This layout is deployed in "Gom-e.net" is the second formal layout.
+		For questions about the layout of this site is Gom-e.net.
+		The layout of IE6, 7,8, Firefox, Chrome, Safari, Opera browser support.
+	</description>
+	<version>2.0.3</version>
+	<date>2010-11-05</date>
+	<author email_address="webmaster@gom-e.net" link="http://gom-e.net/">
+		<name xml:lang="ko">곰이넷</name>
+		<name xml:lang="en">Gom-e.net</name>
+	</author>
+    <extra_vars>
+		<var name="layout_type" type="select">
+			<title xml:lang="ko">본문 형태</title>
+			<description xml:lang="ko">원하시는 본문 형태를 선택해주세요.</description>
+			<options value="left">
+			<title xml:lang="ko">왼쪽 본문</title>
+			<value>left</value>
+			</options>
+			<options value="right">
+			<title xml:lang="ko">우측 본문</title>
+			<value>right</value>
+			</options>
+		</var>
+		<var name="language_type" type="select">
+			<title xml:lang="ko">언어선택 타입</title>
+			<description xml:lang="ko">원하시는 언어선택위젯의 타입을 선택해주세요. (List:목록형(xe공홈 언어위젯) Flag:국기형)</description>
+			<options value="list">
+			<title xml:lang="ko">List</title>
+			<value>list</value>
+			</options>
+			<options value="flag">
+			<title xml:lang="ko">Flag</title>
+			<value>flag</value>
+			</options>
+		</var>
+    	<var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요.</description>
+        </var>
+    	<var name="index_url" type="text">
+            <title xml:lang="ko">홈페이지 주소</title>
+            <description xml:lang="ko">홈페이지 주소를 입력하세요.</description>
+        </var>
+        <var name="rss" type="text">
+			<title xml:lang="ko">RSS 주소</title>
+			<description xml:lang="ko">RSS 주소를 입력하세요.</description>
+		</var>    
+		<var name="profile_image" type="image">
+            <title xml:lang="ko">프로필이미지</title>
+            <description xml:lang="ko">40px*40px의 프로필 이미지를 입력하세요.</description>
+        </var>
+		<var name="profile" type="textarea">
+			<title xml:lang="ko">프로필</title>
+			<description xml:lang="ko">프로필을 입력하세요. 입력하지 않으면 출력되지 않습니다.</description>
+		</var>
+		<var name="profile_page" type="text">
+			<title xml:lang="ko">프로필 url</title>
+			<description xml:lang="ko">프로필 페이지가 있다면 주소를 입력하세요. 입력하지 않으면 "Learn more..." 이 부분은 출력되지 않습니다.</description>
+		</var>
+        <var name="side_name" type="text">
+			<title xml:lang="ko">사이드 메뉴 타이틀</title>
+			<description xml:lang="ko">사이드 메뉴 위에 나타날 글을 입력하세요. 입력하지않으면 "Sidebar Menu"로 표기됨.</description>
+		</var>
+	    <var name="widget1" type="text">
+               <title xml:lang="ko">위젯 1</title>
+               <description xml:lang="ko">사이드 컬럼에 가로 사이즈 240px의 위젯 코드를 추가하실 수 있습니다.</description>
+        </var>
+        <var name="widget2" type="text">
+               <title xml:lang="ko">위젯 2</title>
+               <description xml:lang="ko">사이드 컬럼에 가로 사이즈 240px의 위젯 코드를 추가하실 수 있습니다.</description>
+        </var>
+        <var name="widget3" type="text">
+               <title xml:lang="ko">위젯 3</title>
+               <description xml:lang="ko">사이드 컬럼에 가로 사이즈 240px의 위젯 코드를 추가하실 수 있습니다.</description>
+        </var>
+        <var name="widget4" type="text">
+               <title xml:lang="ko">위젯 4</title>
+               <description xml:lang="ko">사이드 컬럼에 가로 사이즈 240px의 위젯 코드를 추가하실 수 있습니다.</description>
+        </var>
+    	<var name="banner01" type="text">
+            <title xml:lang="ko">배너 1</title>
+            <description xml:lang="ko">하단 사이트맵 위에 넣을 가로 150px정도의 배너를 입력하세요.</description>
+        </var>
+    	<var name="banner02" type="text">
+            <title xml:lang="ko">배너 2</title>
+            <description xml:lang="ko">하단 사이트맵 위에 넣을 가로 150px정도의 배너를 입력하세요.</description>
+        </var>
+    	<var name="banner03" type="text">
+            <title xml:lang="ko">배너 3</title>
+            <description xml:lang="ko">하단 사이트맵 위에 넣을 가로 150px정도의 배너를 입력하세요.</description>
+        </var>
+    	<var name="banner04" type="text">
+            <title xml:lang="ko">배너 4</title>
+            <description xml:lang="ko">하단 사이트맵 위에 넣을 가로 150px정도의 배너를 입력하세요.</description>
+        </var>
+    	<var name="banner05" type="text">
+            <title xml:lang="ko">배너 5</title>
+            <description xml:lang="ko">하단 사이트맵 위에 넣을 가로 150px정도의 배너를 입력하세요.</description>
+        </var>
+    	<var name="facebook" type="text">
+            <title xml:lang="ko">페이스북 주소</title>
+            <description xml:lang="ko">페이스북 블로그 주소를 입력하세요.</description>
+        </var>
+    	<var name="twitter" type="text">
+            <title xml:lang="ko">트위터 주소</title>
+            <description xml:lang="ko">트위터 주소를 입력하세요.</description>
+        </var>
+    	<var name="mail" type="text">
+            <title xml:lang="ko">이메일 주소</title>
+            <description xml:lang="ko">이메일 주소를 입력하세요.</description>
+        </var>
+    	<var name="sitemap_image" type="image">
+            <title xml:lang="ko">사이트맵 로고</title>
+            <description xml:lang="ko">하단 사이트맵 왼쪽에 출력될 로고를 입력하세요. (XE 공식홈페이지 메인페이지 참고)</description>
+        </var>
+		<var name="copyright" type="textarea">
+			<title xml:lang="ko">Copyright</title>
+			<description xml:lang="ko">카피라이터 정보를 입력하세요. HTML태그 가능</description>
+		</var>
+    </extra_vars>
+    <menus>
+        <menu name="main_menu" default="true">
+            <title xml:lang="ko">메인 메뉴</title>
+            <maxdepth>3</maxdepth>
+        </menu>
+        <menu name="global_menu" default="true">
+            <title xml:lang="ko">글로벌 메뉴</title>
+            <maxdepth>3</maxdepth>
+        </menu>
+    </menus>
+</layout>

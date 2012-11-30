@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>wrapScroll exsmple layout</title>
+	<script type="text/javascript" src="../scripts/wrapscroll.js"></script>
+	<script type="text/javascript">
+		var mov = new wrapScroll('movable','wrap','static');
+		mov.marginTop = 10;
+		mov.marginBottom = 50;
+	</script>
+	<style>
+	html {
+		margin:0;
+		padding:0;
+		background:#fbfbfc;
+	}
+	body {
+		margin:20px;
+		padding:0;
+		font-family:arial,sans-serif;
+		font-size:90%;
+	}
+	a{
+		color:#eb5c6c;
+		text-decoration:none;
+	}
+	h3 {
+		margin:0px;
+		padding-top:5px;
+	}
+	/* -- layout -- */
+	#wrap {
+		width:100%;
+		float:left;
+	}
+	#content {
+		margin-right:260px;
+	}
+	#sidebar {
+		float:left;
+		margin-left:-250px;
+		width:230px;
+	}
+	#static {
+		width:210px;
+	}
+	#movable {
+		width:210px;
+	}
+	/* -- design -- */
+	#content .column {
+		background-color:#fff;
+		border:8px solid #eee;
+		padding:8px;
+		margin-bottom:10px;
+		height:2000px;
+	}
+	#content .top {
+		height:160px;
+	}
+	#static {
+		background-color:#fff;
+		border:8px solid #eee;
+		padding:8px;
+		height:160px;
+	}
+	#movable {
+		background-color:#f1f5fa;
+		border:8px solid #c9d8ed;
+		padding:8px;
+		height:120px;
+	}
+	code {
+		display:block;
+		margin:8px 0px;
+		padding:8px;
+		font-size:small;
+		color:#008000;
+		line-height:150%;
+		background:#fcfcfc;
+		border:1px solid #eee;
+	}
+	</style>
+</head>
+
+<body>
+<div id="container" class="fixed">
+
+	<div id="wrap">
+	<div id="content">
+		<div class="column top">
+		<h3>Sample JavaScript code</h3>
+		<code>
+		&lt;script type=&quot;text/javascript&quot;&gt;<br />
+		&nbsp;&nbsp;&nbsp;var mov = new wrapScroll('movable','wrap','static');<br />
+		&nbsp;&nbsp;&nbsp;mov.marginTop = 10;<br />
+		&nbsp;&nbsp;&nbsp;mov.marginBottom = 50;<br />
+		&lt;/script&gt;<br />
+		</code>
+		</div>
+		<div class="column">
+		<h3>Sample CSS Layout code</h3>
+		<code>
+		/* -- layout -- */<br />
+		#wrap {<br />
+		&nbsp;&nbsp;&nbsp;width:100%;<br />
+		&nbsp;&nbsp;&nbsp;float:left;<br />
+		}<br />
+		#content {<br />
+		&nbsp;&nbsp;&nbsp;margin-right:260px;<br />
+		}<br />
+		#sidebar {<br />
+		&nbsp;&nbsp;&nbsp;float:left;<br />
+		&nbsp;&nbsp;&nbsp;margin-left:-250px;<br />
+		&nbsp;&nbsp;&nbsp;width:230px;<br />
+		}<br />
+		#static {<br />
+		&nbsp;&nbsp;&nbsp;width:210px;<br />
+		}<br />
+		#movable {<br />
+		&nbsp;&nbsp;&nbsp;width:210px;<br />
+		}<br />
+		</code>
+
+		<h3>Sample CSS Design code</h3>
+		<code>
+		/* -- design -- */<br />
+		#content&nbsp;.column&nbsp;{<br />
+		&nbsp;&nbsp;&nbsp;background-color:#fff;<br />
+		&nbsp;&nbsp;&nbsp;border:8px solid #eee;<br />
+		&nbsp;&nbsp;&nbsp;padding:8px;<br />
+		&nbsp;&nbsp;&nbsp;margin-bottom:10px;<br />
+		&nbsp;&nbsp;&nbsp;height:2000px;<br />
+		}<br />
+		#static&nbsp;{<br />
+		&nbsp;&nbsp;&nbsp;background-color:#fff;<br />
+		&nbsp;&nbsp;&nbsp;border:8px solid #eee;<br />
+		&nbsp;&nbsp;&nbsp;padding:8px;<br />
+		&nbsp;&nbsp;&nbsp;height:160px;<br />
+		}<br />
+		#movable&nbsp;{<br />
+		&nbsp;&nbsp;&nbsp;background-color:#f1f5fa;<br />
+		&nbsp;&nbsp;&nbsp;border:8px solid #c9d8ed;<br />
+		&nbsp;&nbsp;&nbsp;padding:8px;<br />
+		&nbsp;&nbsp;&nbsp;height:120px;<br />
+		}<br />
+		code&nbsp;{<br />
+		&nbsp;&nbsp;&nbsp;display:block;<br />
+		&nbsp;&nbsp;&nbsp;margin:8px 0px;<br />
+		&nbsp;&nbsp;&nbsp;padding:8px;<br />
+		&nbsp;&nbsp;&nbsp;font-size:small;<br />
+		&nbsp;&nbsp;&nbsp;color:#008000;<br />
+		&nbsp;&nbsp;&nbsp;line-height:130%;<br />
+		&nbsp;&nbsp;&nbsp;background:#fbfbfc;<br />
+		&nbsp;&nbsp;&nbsp;border:1px solid #eee;<br />
+		}<br />
+		</code>
+
+		<h3>Sample HTML body code</h3>
+		<code>
+		&lt;body&gt;<br />
+		&lt;div&nbsp;id=&quot;container&quot;&gt;<br />
+		<br />
+		&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;wrap&quot;&gt;<br />
+		&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;content&quot;&gt;<br />
+		&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;column&quot;&gt;#content&nbsp;.column&lt;/div&gt;<br />
+		&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+		&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+		<br />
+		&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;sidebar&quot;&gt;<br />
+		&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;static&quot;&gt;#static&lt;/div&gt;<br />
+		&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;movable&quot;&gt;#movable&lt;/div&gt;<br />
+		&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+		&lt;/div&gt;<br />
+		&lt;!--&nbsp;end&nbsp;of&nbsp;container&nbsp;--&gt;<br />
+		&lt;/body&gt;<br />
+		</code>
+
+		</div>
+	</div>
+	</div>
+
+	<div id="sidebar">
+	<div id="static">#static</div>
+	<div id="movable">#movable</div>
+	</div>
+</div>
+<!-- end of container -->
+<a href="http://youmos.com/labs/wrapscroll/">&copy; youmos.com</a>
+</body>
+</html>

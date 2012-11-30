@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+/*
+PXE Sky
+Markup : Hyunhw Jung
+Website: http://www.premiumxe.com
+Email : clubnb2@naver.com
+*/
+
+/* Colorset - Sky
+---------------------------------------------------------------------------------*/
+body { color:#999; background:url(../img/sky/background.gif) repeat-x; }
+a, a:visited { color:#5dc0f6; }
+a:hover,
+a:active,
+a:focus { color:#22aaee }
+
+.wideLeaflet { background:url(../img/sky/bg_leaflet_wide.gif) repeat-y; }
+.normalLeaflet { background:url(../img/sky/bg_leaflet_normal.gif) repeat-y; }
+
+#leaflet_normal { background:url(../img/sky/bg_leaflet_normal_style.gif) no-repeat; }
+#leaflet_wide { background:url(../img/sky/bg_leaflet_wide_style.gif) no-repeat; }
+
+#header_sub { background:url(../img/sky/bg_hnb.gif) no-repeat; }
+#header_sub .terminator { background:url(../img/sky/bg_hnb.gif) right top; }
+#container_contents { background-color:#fff; }
+#footer_sub { border-top:1px solid #e3e3e3; border-bottom:1px solid #f4f4f4; }
+
+
+/* 메인메뉴
+---------------------------------------------------------------------------------*/
+.gnb li a { color:#999; _color:#999!important; background:url(../img/sky/vr.gif) no-repeat right 0px; }
+.gnb li a:hover { color:#555; _color:#555!important; }
+.gnb li.selected a { color:#22aaee; _color:#22aaee!important;}
+
+/* 가로 서브메뉴
+---------------------------------------------------------------------------------*/
+#hnb li a { background:url(../img/sky/vr_hnb.gif) no-repeat right 4px; color:#999; }
+#hnb li.on a { color:#22aaee; font-weight:bold; }
+#hnb li:last-child a { background:none }
+
+/* 하단메뉴
+---------------------------------------------------------------------------------*/
+.extraMenuLeft li a { color:#999 !important; background:url(../img/sky/vr_extra.gif) no-repeat right 1px; }
+.extraMenuLeft li:last-child a { background:none }
+
+.extraMenuRight li a { color:#999 !important; background:url(../img/sky/vr_extra.gif) no-repeat left 1px; }
+.extraMenuRight li:First-child a { background:none }

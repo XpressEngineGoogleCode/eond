@@ -1,0 +1,84 @@
+<!--%import("js/MyUI.js")-->
+<!--%import("../../common/js/jquery.js")-->
+
+<!-- 레이아웃과 연동될 css 파일 import -->
+<!--@if($layout_info->colorset == "zero")-->
+    <!--%import("css/zero.css")-->
+<!--@elseif($layout_info->colorset == "black")-->
+    <!--%import("css/eond_rosso.css")-->
+<!--@elseif($layout_info->colorset == "yg")-->
+    <!--%import("css/yg.css")-->
+<!--@else-->
+    <!--%import("css/ngine.css")-->
+<!--@end-->
+
+
+<style type="text/css">
+<!--@if($layout_info->head_bg)-->
+#head { background:#FFF url({getUrl()}{$layout_info->head_bg}) no-repeat right bottom; }
+<!--@end-->
+<!--@if($layout_info->bgcolor)-->
+body { background:{$layout_info->bgcolor}; }
+<!--@end-->
+<!--@if($layout_info->position!='left')-->
+#wrap {margin:0 auto;}
+<!--@end-->
+<!--@if($layout_info->width)-->
+#wrap { width:{$layout_info->width}px; }
+<!--@end-->
+<!--@if($layout_info->content_bgcolor)-->
+#contentwrap { background:{$layout_info->content_bgcolor}; }
+<!--@end-->
+.sf-menu {font:11px dotum;}
+</style>
+
+<div id="wrap">
+	<div id="container">
+		<div id="head">
+			<h1 id="logo"><!--@if(!$layout_info->logo_image)--><a href="{Context::getDefaultUrl()}"><img src="./images/{$layout_info->colorset}/logo.gif" alt="이온디 네트웍스" <!--@else--><a href="{$layout_info->index_url}"><img src="{$layout_info->logo_image}" alt="{$layout_info->logo_alt}" border="0" <!--@end-->class="iePngFix" /></a></h1>
+			<div id="sitemap"><a href="./sitemap"><img src="./images/{$layout_info->colorset}/sitemap_1.gif"></a></div>
+			<div id="menu"><!--#include("./menu.html")--></div>
+		</div>
+		<div id="body">
+
+	<!-- 2차 메뉴 전에 선행된 1차 메뉴 숨김 : 현재 위치 출력을 위하여 -->
+	<ul style="display:none;">{@$loc=0}
+	<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['selected'])-->
+	<li class="first_li<!--@if($val['selected'])-->{@$location[$loc]=$val}{@$loc++} selected<!--@end-->">
+	{@ $menu_1st = $val }
+			<!--@if($val['list'])-->
+			<ul>
+				<!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+				<li class="second_li<!--@if($v['selected'])--> selected selected_2{@$location[$loc]=$v}{@$loc++}<!--@end-->"></li>
+				<!--@end--><!--@end-->
+			</ul>
+			<!--@end-->
+	</li>
+	<!--@end--><!--@endforeach-->
+	</ul>
+
+			<div id="nav">
+				<img src="./images/location.gif" style="margin-top:5px;float:left;">
+				<!--@if($layout_info->location_view!='hidden')-->
+				<ul id="location">
+					<li class="location c_0"><a class="location_home" href="{$layout_info->index_url}"><span class="blank"><!--@if(!$layout_info->index_name)-->HOME<!--@else-->{$layout_info->index_name}<!--@end--></span></a></li>
+					<!--@if($loc > 0)--><!--@for($i=0; $i<$loc; $i++)-->
+					<li class="location c_{$i+1}"><a href="{$location[$i]['href']}">{$location[$i]['text']}</a></li>
+					<!--@end--><!--@end-->
+				</ul>
+				<style type="text/css">#location .c_{$loc} { background:none;}</style>
+				<!--@end-->
+				<div align="right">	<!--#include("./login.html")--></div>
+			</div>
+
+
+			<div id="contentwrap"><!--#include("./content.html")--></div>
+		</div>
+
+	</div>
+
+	<div id="foot">
+		<div id="copyright"><img src="./images/copyright.gif" width="189px" height="7px" align="left" style="margin:5px;"></div>
+		<div id="top"><a href="#"><img src="./images/btn_top.gif" width="45px" height="15px" align="right" style="margin:5px 0;"></a></div>
+	</div>
+</div>

@@ -1,0 +1,48 @@
+/* Common */
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,th,td,form,fieldset,legend,input,textarea,button,select{margin:0;padding:0}
+body,input,textarea,select,button,table{font-family:'돋움',Dotum,AppleGothic,sans-serif;font-size:12px}
+img,fieldset{border:0}
+ul,ol{list-style:none}
+em,address{font-style:normal}
+a{text-decoration:none}
+a:hover,a:active,a:focus{text-decoration:underline}
+
+/* Layout */
+#wrap{width:100%;height:100%;margin:0 auto}
+#header{width:50px;float:left;height:100%;overflow:hidden;}
+#container{width:800p;float:left;height:100%;}
+#container:after{display:block;clear:both;content:''}
+#content{float:left;width:600px}
+#footer{width:100%;position:absolute;left:0;bottom:0;}
+.snb{float:left;width:50px;margin-right:5px;}
+.aside{float:left;width:200px}
+
+.sta{position:relative;width:100%;height:100%;margin:0 auto;padding-top:18px;font-size:12px;font-family:'돋움',Dotum,'굴림',Gulim,AppleGothic,Sans-serif}
+.sta img,#sta fieldset{border:none}
+.sta legend{overflow:hidden;visibility:hidden;position:absolute;top:0;left:0;width:1px;height:1px;font-size:0;line-height:0}
+.sta:after{display:block;clear:both;content:''}
+.sta h1{_display:inline;float:left;margin:0 15px 0 12px;_margin:0 12px;font-size:0}
+.sta h1 a{display:block;float:left;margin:0 3px}
+.sta a{color:#646464;text-decoration:none}
+.sta .premium_search{display:inline-block;margin-top:1px;*margin-top:0;padding:6px;vertical-align:top;*vertical-align:baseline}
+.sta .search_box{float:left;position:relative}
+.sta .search_box .search_text{float:left;width:202px;height:15px;margin-right:4px;_margin-right:1px;padding:4px 0 0 7px;border:3px solid #3eaf0e;color:#000;font-size:12px;font-family:'돋움',Dotum,AppleGothic,sans-serif}
+:root .sta .search_box .search_text{padding:3px 1px 1px 6px}
+.sta .search_box .btn_search{margin-left:-1px;font-size:0;zoom:1}
+.sta .search_box .btn_arrow{position:absolute;left:191px;top:3px}
+.sta .search_box .btn_arrow img{vertical-align:top}
+#footer{overflow:hidden;clear:both;margin:0;padding:5px 0;border-top:2px solid #8a8a8a;color:#333;font-family:'나눔고딕',NanumGothic,'돋움',Dotum,AppleGothic,Sans-serif;text-align:center}
+#footer a{color:#444;text-decoration:none}
+#footer a:visited{color:#666;text-decoration:none}
+#footer a:hover{text-decoration:underline}
+#footer ul{margin:0 0 10px}
+#footer ul li{display:inline;position:relative;padding:0 5px 0 7px;background:url(http://static.naver.com/common/footer/bu_bar.gif) 0 50% no-repeat;_background-position:0 10%;font-size:12px;white-space:nowrap}
+#footer ul li a:hover,#footer ul li a:hover strong{color:#438a01}
+#footer ul li.first{padding:0 3px 0 0;background:none}
+
+/* You must delete below style */
+#wrap{background:#eee}
+#header div{border:1px solid #ddd;background:#272727}
+#header .sta,#header .sta div{border:none;background:#fff}
+#container div,#content{background:#ccc}
+#footer{background:#000}

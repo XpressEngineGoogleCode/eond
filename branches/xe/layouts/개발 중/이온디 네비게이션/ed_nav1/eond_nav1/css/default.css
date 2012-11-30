@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+html, body {height: 100%;margin: 0;padding: 0;overflow:no:}
+
+ul {margin:0;padding:0;}
+
+#navi_UpService {height: 23px;background: url('../images/navi_UpService_bg.gif') repeat-x left top;text-align:center;vertical-align:middle; padding-top:4px;font-size:11px;font-family:맑은 고딕;color:black;}
+#navi_UpService li {display:inline;margin-right:13px;list-style-type: none;}
+#navi_UpService li.first-child {}
+#navi_UpService li a { text-decoration:none;color:#000;height:27px;padding-top:4;}
+#navi_UpService li a:hover{ text-decoration:none;color:#999;}
+
+.navi_Upservice_admin {position:absolute; right:2px;top:6px;width:20px;}

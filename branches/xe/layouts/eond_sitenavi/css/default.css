@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+html, body {height: 100%;margin: 0;padding: 0;}
+
+#sitebar {height: 23px;background: url('../images/default/bg_sitebar.gif') repeat-x left top;text-align:center;vertical-align:middle; padding-top:4px;font-size:11px;font-family:맑은 고딕;color:black;}
+#sitebar ul {position:relative;margin:0 15px;padding:0;}
+#sitebar li {display:inline;margin-right:13px;list-style-type: none;}
+#sitebar li.first-child {}
+#sitebar li a { text-decoration:none;color:#000;height:27px;padding-top:4;}
+#sitebar li a:hover{ text-decoration:none;color:#999;}
+
+.admin {position:absolute; float:right;right:5px;top:5px; width:20px;}
+

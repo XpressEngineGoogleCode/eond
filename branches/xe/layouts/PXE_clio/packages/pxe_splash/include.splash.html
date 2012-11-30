@@ -1,0 +1,192 @@
+<load target="packages/pxe_splash/css/splash.css" />
+
+<!-- 언어팩용 CSS -->
+<style type="text/css">
+.splash_body {
+	<block cond="$lang_type == 'ko'">font:9pt 돋움,Dotum; line-height:160%;</block>
+	<block cond="$lang_type == 'en'">font:12px Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif; line-height:140%;</block>
+	<block cond="$lang_type == 'jp'">font:12px meiryo,Arial,Helvetica; line-height:200%;</block>
+}
+.splash_body h2 {
+	<block cond="$lang_type == 'ko'">font:bold 12px 굴림,Gulim; letter-spacing:-1px; line-height:140%;</block>
+	<block cond="$lang_type == 'en'">font:24px Georgia, "Times New Roman", Times, serif; line-height:140%;</block>
+	<block cond="$lang_type == 'jp'">font:bold 18px PMingLiU,Arial,Helvetica; line-height:180%;</block>
+}
+.splash_body .moreBox .list li {
+	<block cond="$lang_type == 'ko'">font:8pt 돋움,Dotum; letter-spacing:-1px;</block>
+	<block cond="$lang_type == 'en'">font:10px Arial, Helvetica, sans-serif; text-transform:uppercase; line-height:120%;</block>
+	<block cond="$lang_type == 'jp'">font:10px meiryo,Arial,Helvetica; line-height:120%;</block>
+}
+.splash_body .moreBox .list li.title {
+	<block cond="$lang_type == 'ko'">font:bold 8pt 돋움,Dotum; letter-spacing:-1px;</block>
+	<block cond="$lang_type == 'en'">font:bold 12px Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif; line-height:140%;</block>
+	<block cond="$lang_type == 'jp'">font:bold 12px meiryo,Arial,Helvetica; line-height:180%;</block>
+}
+.splash_body .clio_feature li { 
+    <block cond="$lang_type == 'ko'">font:8pt 돋움,Dotum; letter-spacing:-1px; line-height:170%;</block>
+	<block cond="$lang_type == 'en'">font:10px Lucida Sans, Lucida Grande, Lucida Sans Unicode, sans-serif; line-height:140%;</block>
+	<block cond="$lang_type == 'jp'">font:10px meiryo,Arial,Helvetica; line-height:160%;</block>
+ }
+.splash_body .clio_feature li h3 { 
+    <block cond="$lang_type == 'ko'">font:bold 12px 굴림,Gulim; line-height:170%;</block>
+	<block cond="$lang_type == 'en'">font:italic 28px times, Times New Roman, times-roman, georgia, serif; letter-spacing: -1px; line-height:80%;</block>
+	<block cond="$lang_type == 'jp'">font:14px meiryo,Arial,Helvetica; line-height:100%;</block>
+}
+</style>
+
+<div class="section_02" style="margin-bottom:0">
+    <div class="sec_body">
+       <div class="splash_body">
+       
+           <span style="display:block; text-align:center; padding-top:3px;"><a href="http://www.premiumxe.com/99912" target="_blank"><img src="packages/pxe_splash/img/splash_{$lang_type}.gif" alt="Splash Image"></a></span><br /><br /><br />
+       
+           <h2>{$lang->sample_01}</h2>
+           {$lang->sample_02}<br /><br /><br />
+           
+           <h2>{$lang->sample_03}</h2>
+           {$lang->sample_04}
+           <div class="moreBox">
+               <div class="left">
+                   <ul class="list">
+                       <li class="title">{$lang->sample_sp_title_01}</li>
+                       <li class="nocheck">{$lang->sample_sp_01}</li>
+                       <li class="check">{$lang->sample_sp_02}</li>
+                       <li class="check">{$lang->sample_sp_03}</li>
+                       <li class="check">{$lang->sample_sp_04}</li>
+                       <li class="check">{$lang->sample_sp_05}</li>
+                       <li class="check">{$lang->sample_sp_06}</li>
+                       <li class="nocheck">{$lang->sample_sp_07}</li>
+                       <li class="check">{$lang->sample_sp_08}</li>
+                       <li class="check">{$lang->sample_sp_09}</li>
+                       <li class="check">{$lang->sample_sp_10}</li>
+                       <li class="check">{$lang->sample_sp_11}</li>
+                       <li class="check">{$lang->sample_sp_12}</li>
+                       <li class="check">{$lang->sample_sp_13}</li>
+                       <li class="nocheck">{$lang->sample_sp_14}</li>
+                       <li class="nocheck">{$lang->sample_sp_15}</li>
+                       
+                       <li class="title">{$lang->sample_sp_title_02}</li>
+                       <li class="check">{$lang->sample_sp_16}</li>
+                       <li class="check">{$lang->sample_sp_17}</li>
+                       <li class="check">{$lang->sample_sp_18}</li>
+                       <li class="check">{$lang->sample_sp_19}</li>
+                       <li class="check">{$lang->sample_sp_20}</li>
+                       <li class="check">{$lang->sample_sp_21}</li>
+                       <li class="check">{$lang->sample_sp_22}</li>
+                       <li class="check">{$lang->sample_sp_23}</li>
+                       <li class="nocheck">{$lang->sample_sp_24}</li> 
+                       
+                       <li class="title">{$lang->sample_sp_title_03}</li>
+                       <li class="check">{$lang->sample_sp_25}</li>
+                       <li class="check">{$lang->sample_sp_27}</li>
+                       <li class="nocheck">{$lang->sample_sp_28}</li>
+                   </ul> 
+               </div>
+               
+               <div class="right">
+                   <ul class="list">
+                       <li class="title">{$lang->sample_sp_title_04}</li>
+                       <li class="check">{$lang->sample_sp_29}</li>
+                       <li class="check">{$lang->sample_sp_30}</li>
+                       <li class="check">{$lang->sample_sp_31}</li>
+                       <li class="check">{$lang->sample_sp_32}</li>
+                       <li class="nocheck">{$lang->sample_sp_33}</li>
+                       
+                       <li class="title">{$lang->sample_sp_title_05}</li>
+                       <li class="check">{$lang->sample_sp_34}</li>
+                       <li class="nocheck">{$lang->sample_sp_35}</li>
+                       <li class="check">{$lang->sample_sp_36}</li>
+                       <li class="check">{$lang->sample_sp_37}</li>
+                       <li class="check">{$lang->sample_sp_38}</li>
+
+                       <li class="title">{$lang->sample_sp_title_06}</li>
+                       <li class="check">{$lang->sample_sp_39}</li>
+                       <li class="check">{$lang->sample_sp_40}</li>
+                       <li class="check">{$lang->sample_sp_41}</li>
+                       <li class="check">{$lang->sample_sp_42}</li>
+                       <li class="nocheck">{$lang->sample_sp_43}</li>
+                       <li class="check">{$lang->sample_sp_44}</li>
+                       
+                       <li class="title">{$lang->sample_sp_title_07}</li>
+                       <li class="check">{$lang->sample_sp_45}</li>
+                       <li class="check">{$lang->sample_sp_46}</li>
+                       <li class="check">{$lang->sample_sp_47}</li>
+                       <li class="nocheck">{$lang->sample_sp_48}</li>
+                       <li class="nocheck">{$lang->sample_sp_49}</li>
+                       <li class="nocheck">{$lang->sample_sp_50}</li>
+                       <li class="nocheck">{$lang->sample_sp_51}</li>
+                   </ul> 
+               </div>
+               <div class="clear"></div>    
+           </div><!--moreBox 끝--><br />
+           
+           <h2>{$lang->sample_05}</h2>
+           <ul class="clio_feature">
+               <li>
+                   <p class="imgFeature"><img src="packages/pxe_splash/img/feature/div.gif" width="70" height="70" /></p>
+                   <p class="body">
+                       <h3>{$lang->sample_06a}</h3>
+                       {$lang->sample_06b}
+                   </p>
+               </li>
+               
+               <li>
+                   <p class="imgFeature"><img src="packages/pxe_splash/img/feature/code.gif" width="70" height="70" /></p>
+                   <p class="body">
+                       <h3>{$lang->sample_07a}</h3>
+                       {$lang->sample_07b}
+                   </p>
+               </li>
+               
+               <li>
+                   <p class="imgFeature"><img src="packages/pxe_splash/img/feature/margin.gif" width="70" height="70" /></p>
+                   <p class="body">
+                       <h3>{$lang->sample_08a}</h3>
+                       {$lang->sample_08b}
+                   </p>
+               </li>
+               
+               <li>
+                   <p class="imgFeature"><img src="packages/pxe_splash/img/feature/promo.gif" width="70" height="70" /></p>
+                   <p class="body">
+                       <h3>{$lang->sample_09a}</h3>
+                       {$lang->sample_09b}
+                   </p>
+               </li>
+               
+               <li>
+                   <p class="imgFeature"><img src="packages/pxe_splash/img/feature/transparent.gif" width="70" height="70" /></p>
+                   <p class="body">
+                       <h3>{$lang->sample_10a}</h3>
+                       {$lang->sample_10b}
+                   </p>
+               </li>
+               
+               <li>
+                   <p class="imgFeature"><img src="packages/pxe_splash/img/feature/social.gif" width="70" height="70" /></p>
+                   <p class="body">
+                       <h3>{$lang->sample_11a}</h3>
+                       {$lang->sample_11b}
+                   </p>
+               </li>
+               
+               <li>
+                   <p class="imgFeature"><img src="packages/pxe_splash/img/feature/trend.gif" width="70" height="70" /></p>
+                   <p class="body">
+                       <h3>{$lang->sample_12a}</h3>
+                      {$lang->sample_12b}
+                   </p>
+               </li>
+               
+               <li>
+                   <p class="imgFeature"><img src="packages/pxe_splash/img/feature/language.gif" width="70" height="70" /></p>
+                   <p class="body">
+                       <h3>{$lang->sample_13a}</h3>
+                      {$lang->sample_13b}
+                   </p>
+               </li>
+           </ul>
+           
+       </div><!--splash_body 끝-->
+    </div><!--sec_body 끝-->
+</div><!--clio_splash 끝-->

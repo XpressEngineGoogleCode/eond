@@ -1,0 +1,21 @@
+<block cond="$layout_info->column != 'c'">
+	<div id="column">
+		<div class="extension" cond="$layout_info->widget_1">
+			<h3 class="title" cond="$layout_info->widget_1_title">{$layout_info->widget_1_title}</h3>
+			<div class="section">{$layout_info->widget_1}</div>
+		</div>
+		<div class="extension" cond="$layout_info->widget_2">
+			<h3 class="title" cond="$layout_info->widget_2_title">{$layout_info->widget_2_title}</h3>
+			<div class="section">{$layout_info->widget_2}</div>
+		</div>
+		<div class="extension" cond="$layout_info->widget_3">
+			<h3 class="title" cond="$layout_info->widget_3_title">{$layout_info->widget_3_title}</h3>
+			<div class="section">{$layout_info->widget_3}</div>
+		</div>
+	</div>
+</block>
+
+<hr />
+<div id="content">
+	{$content}
+</div>

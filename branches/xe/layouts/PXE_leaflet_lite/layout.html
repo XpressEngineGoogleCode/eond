@@ -1,0 +1,318 @@
+
+<!-- 기본 JS 파일 로드 -->
+    
+<!-- PXE Packages JS 파일 로드 -->
+    <!--%import("./packages/basic_plugin_pxeLeaflet/modal_window.js")-->
+    
+<!-- 기본 CSS 파일 로드 -->
+    <!--%import("./css/layout.css")-->
+    
+<!-- 컬러셋용 CSS 파일 로드 -->
+<!--@if($layout_info->colorset == "black")-->
+	<!--%import("css/black.css")-->
+    {@ $colorset = "pxeBlack"}
+<!--@elseif($layout_info->colorset == "sky" || !$colorset)-->
+	<!--%import("css/sky.css")-->
+    {@ $colorset = "pxeSky"}
+<!--@end-->
+
+<!-- PXE Packages CSS 파일 로드 -->
+    <!--%import("./packages/basic_plugin_pxeLeaflet/accounts.css")-->
+    <!--%import("./packages/basic_plugin_pxeLeaflet/isSearch.css")-->
+    <!--%import("./packages/pxe_vertical_menu_pxeLeaflet/vertical_menu.css")-->
+
+
+<div id="container_site" class="{$layout_info->leaflet_style}" 
+<!--@if($layout_info->container_site_width)-->
+    style="width:{$layout_info->container_site_width};"
+<!--@else-->
+    style="width:990px;"
+<!--@end-->
+>
+    
+    
+    <!--@if($layout_info->leaflet_style == "wideLeaflet")-->
+    <div id="leaflet_wide">
+        <div class="wrapper">
+            <a href="{$layout_info->banner_url}" class="leaflet_banner" target="_blank">
+            <!--@if($layout_info->logo_image)-->
+                <img src="{$layout_info->leaflet_banner}" class="iePngfix" alt="" />
+            <!--@else-->
+                <img src="img/{$layout_info->colorset}/logo_leaflet_wide.gif" class="iePngFix" alt="" />
+            <!--@end-->
+            </a>
+        </div>
+    </div><!--lefaletWide 끝-->
+    <!--@else-->
+    <div id="leaflet_normal">
+        <div class="wrapper">
+            <a href="{$layout_info->banner_url}" class="leaflet_banner" target="_blank">
+            <!--@if($layout_info->logo_image)-->
+                <img src="{$layout_info->leaflet_banner}" class="iePngfix" alt="" />
+            <!--@else-->
+                <img src="img/{$layout_info->colorset}/logo_leaflet_small.gif" class="iePngFix" />
+            <!--@end-->
+            </a>
+                              
+            <!--@if($layout_info->leaflet_locator == "Y")-->
+            <!-- 리플렛 2차 메뉴 -->
+            <ul id="sub_nav_{$colorset}">            
+                 <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+                 <!--@if($val['selected']&&$val['list'])-->
+                 {@ $menu_1st = $val }                       
+                 <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+      
+                     <!-- main_menu 2차 시작 -->	
+                     <ul>
+                         <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+                         {@ $menu_2nd = $val }
+                         <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+      
+                             <!-- main_menu 3차 시작 -->
+                             <ul>
+                                 <!--@foreach($menu_2nd['list'] as $key => $val)--><!--@if($val['link'])-->
+                                 {@ $menu_3rd = $val }
+                                 <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+          
+                                     <!-- main_menu 4차 시작 -->
+                                     <ul>
+                                         <!--@foreach($menu_3rd['list'] as $key => $val)--><!--@if($val['link'])-->
+                                         {@ $menu_4th = $val }
+                                         <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+      
+                                         </li>
+                                         <!--@endif--><!--@endforeach-->
+                                     </ul>
+                                     <!-- main_menu 4차 끝 -->
+      
+                                 </li>
+                                 <!--@endif--><!--@endforeach-->
+                             </ul>
+                             <!-- main_menu 3차 끝 -->
+      
+                         </li>
+                         <!--@endif--><!--@endforeach-->
+                     </ul>
+                     <!-- main_menu 2차 끝 -->
+      
+                 </li>
+                 <!--@endif-->
+                 <!--@endif--><!--@endforeach-->
+                  
+             </ul>
+             <!-- 리플렛 2차 메뉴 끝-->
+             <!--@end-->
+                       
+        </div><!--wrapper 끝-->
+    </div><!--lefaletNormal 끝-->
+    <!--@end-->
+    
+    
+    <div id="container_body" class="{$layout_info->layout_type}">
+        
+        <div id="header">
+        
+        <a href="{$layout_info->index_url}" class="logo" target="_blank">
+        <!--@if($layout_info->logo_image)-->
+            <img src="{$layout_info->logo_image}" class="iePngfix" alt="" />
+        <!--@else-->
+            <img src="img/{$layout_info->colorset}/logo.gif" class="iePngFix" />
+        <!--@end-->
+        </a>
+            
+            <ul class="gnb">
+                {@$_idx = 0}
+                <!--@foreach($main_menu->list as $key => $val)-->
+                <!--@if($val['selected'])-->{@ $menu_1st = $val }<!--@end-->
+                <!--@if($val['link'])-->
+                <li class="<!--@if($val['selected'])-->selected<!--@end-->"><a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->><!--@if($val['text']==$val['link'])-->{$val['text']}<!--@else-->{$val['link']}<!--@end--></a></li>
+                {@$_idx++}
+                <!--@if($_idx>=count($_colorset_list))-->{@$_idx=0}<!--@end-->
+                <!--@end-->
+                <!--@end-->
+            </ul><!--gnb 끝-->
+              
+            <!--통합 검색창 시작-->
+            <div id="searchLanguage">        
+                <form action="{getUrl()}" method="post" id="isSearch">
+                <input type="hidden" name="mid" value="{$mid}" />
+                <input type="hidden" name="act" value="IS" />
+                <input type="hidden" name="search_target" value="title_content" />
+                <input name="is_keyword" type="text" class="inputText" title="keyword" />
+                <input type="image" src="packages/basic_plugin_pxeLeaflet/images/buttonSearch.gif" alt="{$lang->cmd_search}" class="submit" />
+                </form>
+            </div>
+            <!--통합 검색창 끝-->
+            
+            <ul class="account">
+                <li class="log">
+                    <!--@if($is_logged)-->
+                        <a href="{getUrl('act','dispMemberLogout')}"><img src="packages/basic_plugin_pxeLeaflet/images/buttonLogout.gif" width="33" height="5" alt="LOGOUT" /></a>
+                    <!--@else-->
+                        <a href="#loginWindow" onclick="jQuery('#loginWindow').css('display','block');" accesskey="L"><img src="packages/basic_plugin_pxeLeaflet/images/buttonLogin.gif" width="25" height="5" alt="LOGIN" /></a>
+                    <!--@end-->
+                    </li>
+                    <!--@if(!$is_logged)-->
+                    <li class="register"><a href="{getUrl('act','dispMemberSignUpForm')}"><span>Register</span></a></li>
+                    <!--@else-->
+                    <li class="profile">
+                        <button type="button" onclick="jQuery('#memberProfile').toggleClass('active');"><span>Profile</span></button>
+                        <!-- memberProfile -->
+                        <div id="memberProfile" class="memberProfile">
+                        <!-- class="memberProfile" | class="memberProfile active" -->
+                            <button type="button" class="close" onclick="jQuery('#memberProfile').toggleClass('active');" accesskey="X"><span>Close profile layer</span></button>
+                            <h2 class="authorName">{$logged_info->nick_name}</h2>
+                            <ul>
+                                <!--@foreach($logged_info->menu_list as $key => $val)-->
+                                <li><a href="{getUrl('act',$key,'member_srl','')}">{Context::getLang($val)}</a></li>
+                                <!--@end-->
+                            </ul>
+                            <button type="button" class="close" onclick="jQuery('#memberProfile').toggleClass('active');" accesskey="X"><span>Close profile layer</span></button>
+                        </div>
+                        <!-- /memberProfile -->
+                    </li>
+                    <!--@end-->
+                    <li class="language">
+                    <!-- class="language" | class="language open" -->
+                        <em class="{$lang_type}"><span>{$lang_supported[$lang_type]}</span></em>
+                        <button type="button" class="sLanguage" onclick="jQuery('.language').toggleClass('open'); return false;"><span>Select Language</span></button>
+                        <ul class="languageList">
+                            <!--@foreach($lang_supported as $key => $val)--><!--@if($key!= $lang_type)-->
+                            <li class="{$key}"><button type="button" onclick="doChangeLangType('{$key}');return false;"><span>{$val}</span></button></li>
+                            <!--@end--><!--@end-->
+                        </ul>
+                    </li>
+                </ul>
+                <!--계정/다국어 설정 끝-->
+    
+        </div><!--header 끝-->
+        
+        <!--@if($layout_info->menu_type == "double")-->
+        <!--@if($menu_1st && isset($menu_1st['list']) && count($menu_1st['list']))-->
+        <div id="header_sub">
+            <!-- main_menu 2차 시작 -->
+               <!--@if($menu_1st)-->
+               <ul id="hnb">
+                   {@ $idx = 1 }
+                   <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+                   <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}<!--@if($val['list'])--><!--@end--></a></li>
+                   {@$idx++}
+                   <!--@end--><!--@end-->
+               </ul>
+               <!--@end-->
+            
+            <div class="terminator"></div>
+        </div><!--header_sub 끝-->
+        <!--@end--><!--@end-->
+  
+        
+        <div id="container_contents">           
+            <!--@if($layout_info->container_contents_style == "useBackground")-->    
+            <div class="wrapper">
+                {$content}
+            </div>
+            
+            <!--@else-->            
+            <div class="wrapperTrans">
+                {$content}
+
+            </div>
+            <!--@end--><!--container_contents 배경선택부 끝-->
+
+        </div><!--container_contens 끝-->
+        
+    </div><!--container_body 끝-->
+    
+</div><!--container_site 끝-->
+
+<div id="footer_sub">
+    <div class="wrapper" 
+    <!--@if($layout_info->container_site_width)-->
+        style="width:{$layout_info->container_site_width};"
+    <!--@else-->
+        style="width:990px;"
+    <!--@end-->
+    >
+        <!--좌측하단 메뉴-->
+        <ul class="extraMenuLeft">
+            <!--@foreach($bottom_menu->list as $key => $val)-->
+            <li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+            <!--@end-->
+        </ul>
+    </div>
+</div><!--footer_sub 끝-->
+
+
+
+<div id="footer">
+    <div class="wrapper" 
+    <!--@if($layout_info->container_site_width)-->
+        style="width:{$layout_info->container_site_width};"
+    <!--@else-->
+        style="width:990px;"
+    <!--@end-->
+    >
+        <div id="footer_box1">
+            사용자 정의 공간 4
+        </div>
+    
+        <div id="footer_box3">
+            <!--우측하단 엑스트라 메뉴-->
+            <ul class="extraMenuRight">
+                <!--@foreach($extra_menu->list as $key => $val)-->
+                <li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+                <!--@end-->
+            </ul>
+        </div>
+    </div>
+</div><!--footer 끝 -->
+
+<!--AJAX 로그인 창 시작-->
+<!--@if(!$is_logged)-->
+    {@ $member_config = MemberModel::getMemberConfig(); }
+    <!--%import("packages/basic_plugin_pxeLeaflet/filter/login.xml")-->
+    <!--@if($member_config->enable_openid=='Y')--><!--%import("packages/basic_plugin_pxeLeaflet/filter/openid_login.xml")--><!--@end-->
+    <!-- loginWindow -->
+    <div id="loginWindow" class="loginWindow">
+    <!-- class="loginWindow" | class="loginWindow open" -->
+        <span class="modalWindow"></span>
+        <div id="loginLayer" class="loginLayer loginTypeA">
+        <!-- class="loginLayer loginTypeA" | class="loginLayer loginTypeB" -->
+            <button type="button" class="close" onclick="document.getElementById('loginWindow').style.display='none'" accesskey="X"><span>Close Login Layer</span></button>
+            
+            <form action="" method="post" id="commonLogin" onsubmit="return procFilter(this, login)">
+                <input name="user_id" type="text" class="id" id="uid" value="" class="id" onFocus="this.style.backgroundImage='url(none)';" />
+                <input name="password" type="password" class="password" id="upw" onFocus="this.style.backgroundImage='url(none)';" /> <input name="" type="submit" value=" " class="submit" />
+                    
+                <div class="saveIDinfo">
+                    <input name="keep_signed" type="checkbox" id="keepA" value="Y" class="inputCheck" onclick="if(this.checked) return confirm('{$lang->about_keep_signed}');"/>
+                    <label for="keepA">{$lang->keep_signed}</label>
+                </div>
+            </form>
+            
+            <!--@if($member_config->enable_openid=='Y')-->           
+            
+            <hr noshade="noshade" width="100%" color="#e8e8e8" size="1" />
+            <div class="clear"></div>
+
+            <div class="oid_desc"><img src="packages/basic_plugin_pxeLeaflet/images/oid_desc.gif" alt="" /></div>
+                
+            <div class="form_field">
+                <form action="./" method="post" id="openidLogin" onsubmit="return procFilter(this, openid_login)">
+                    <input name="openid" type="text" class="oid" id="oid" onFocus="this.style.backgroundImage='url(none)';" />
+                    <input name="" type="submit" value=" " class="submit_oid" />
+                </form>
+            </div>
+            <!--@end-->
+            
+            <ul class="help">
+                <li class="join"><a href="{getUrl('act','dispMemberSignUpForm')}">{$lang->cmd_signup}</a></li>
+                <li class="find"><a href="{getUrl('act','dispMemberFindAccount')}">{$lang->cmd_find_member_account}</a></li>
+                <li class="find"><a href="{getUrl('act','dispMemberResendAuthMail')}">{$lang->cmd_resend_auth_mail}</a></li>
+            </ul>
+            <button type="button" class="close" onclick="document.getElementById('loginWindow').style.display='none'" accesskey="X"><span>Close Login Layer</span></button>
+        </div>
+    </div>
+    <!-- /loginWindow -->
+<!--@end-->
+<!--AJAX 로그인 창 끝-->

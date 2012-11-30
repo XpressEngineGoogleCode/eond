@@ -1,0 +1,25 @@
+/* 소셜 네트워크 링크 (pxe_social)
+---------------------------------------------------------------------------------*/
+.social_networks { margin:0; padding:0; overflow:hidden; *zoom:1; }
+
+.social_networks .label { font:11px Arial, Helvetica, sans-serif; float:left; display:block; padding:0; line-height: 16px; font-weight: 900; color: #666; }
+.social_networks .label-content { float:left; display: block; width: 145px; padding: 0 0 0 5px; line-height: 16px; font-size: 11px; }
+.social_networks .label-content a { color: #878787; font-weight: 900; text-decoration: none; }
+.social_networks .label-content a:hover { color: #4a4a4a; }
+.social_networks .label-content.icons a { display: block; float: left; margin: 0 0 3px 3px; padding: 0; width: 16px; height: 16px; text-indent: -4000px; background: transparent url('../img/default/social.gif') no-repeat; }
+.social_networks .label-content.icons a.twitter { background-position: right 0; }
+.social_networks .label-content.icons a.twitter:hover { background-position: left 0; }
+.social_networks .label-content.icons a.facebook { background-position: right -16px; }
+.social_networks .label-content.icons a.facebook:hover { background-position: left -16px; }
+.social_networks .label-content.icons a.delicious { background-position: right -32px; }
+.social_networks .label-content.icons a.delicious:hover { background-position: left -32px; }
+.social_networks .label-content.icons a.digg { background-position: right -48px; }
+.social_networks .label-content.icons a.digg:hover { background-position: left -48px; }
+.social_networks .label-content.icons a.stumbleupon { background-position: right -64px; }
+.social_networks .label-content.icons a.stumbleupon:hover { background-position: left -64px; }
+.social_networks .label-content.icons a.friendfeed { background-position: right -80px; }
+.social_networks .label-content.icons a.friendfeed:hover { background-position: left -80px; }
+.social_networks .label-content.icons a.myspace { background-position: right -96px; }
+.social_networks .label-content.icons a.myspace:hover { background-position: left -96px; }
+.social_networks .label-content.icons a.tumblr { background-position: right -112px; }
+.social_networks .label-content.icons a.tumblr:hover { background-position: left -112px; }

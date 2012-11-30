@@ -1,0 +1,49 @@
+<load target="packages/pxe_category/js/category.js" />
+
+<!--// 컬러셋과 연동될 css 파일 import -->
+<load cond="$layout_info->colorset == 'default'" target="packages/pxe_category/css/category_default.css" />
+<load cond="$layout_info->colorset == 'custom'" target="packages/pxe_category/css/category_custom.css" />
+
+{@ $pDepth = 0;}
+<div class="pxeCategoryTree">
+    <a href="{getUrl('category',$val->category_srl)}" class="all">{$lang->pxe_total_count}</a>
+    <ul>
+    <block loop="$category_list=>$key,$val">
+        <block cond="$pDepth > $val->depth">
+            <block loop="$i=$val->depth; $i<$pDepth; $i++">
+                </ul>
+                </li>
+            </block>
+            {@ $pDepth = $val->depth}
+        </block>
+        <li class="<!--@if($val->last)-->nav_tree_last<!--@end--> <!--@if($val->expand)-->nav_tree_on<!--@else-->nav_tree_off<!--@end--> <!--@if($category==$val->category_srl)-->active<!--@end-->" id="category_parent_{$val->category_srl}">
+        <block cond="$val->child_count">
+            <block cond="$val->expand">
+                <button type="button" class="category_{$val->category_srl}">+</button>
+            </block>
+            <block cond="!$val->expand">
+                <button type="button" class="category_{$val->category_srl}">-</button>
+            </block>
+        </block>
+        <a href="{getUrl('category',$val->category_srl)}" class="nav_tree_label <!--@if($val->selected)-->selected<!--@end-->">{$val->text}</a>
+        <block cond="$val->document_count">
+            <span class="readBox">
+                <span>
+                    <strong>{$val->document_count}</strong>
+                </span>
+            </span>
+        </block>
+        <block cond="$val->child_count">
+            {@$pDepth++}
+            <ul>
+        </block>
+        <block cond="!$val->child_count">
+            </li>
+        </block>
+    </block><!--//loop-->
+    <block loop="$i=0;$i<$pDepth;$i++">
+        </ul>
+    </block>
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,22 @@
+<mp3player>
+	<settings>
+		<width>230</width>
+		<height>120</height>
+		<autoLoad>true</autoLoad>
+		<autoPlay>true</autoPlay>
+		<continuousPlay>true</continuousPlay>
+		<onCompleteJumpToNext>true</onCompleteJumpToNext>
+		<repeat>false</repeat>
+		<shuffleSongs>false</shuffleSongs>
+		<showSongNumber>true</showSongNumber>
+		<initialVolume>100</initialVolume>
+		<bufferTime>5</bufferTime>
+	</settings>
+	<songs>		
+		<song>		
+			<url>./layouts/PXE_clio/packages/pxe_promo/songs/01.mp3</url>
+			<songname>Christmas Eve</songname>
+			<artist>Tatsuro Yamashita</artist>		
+		</song>
+	</songs>
+</mp3player>

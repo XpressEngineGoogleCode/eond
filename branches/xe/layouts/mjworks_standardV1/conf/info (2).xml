@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout version="1.0">
+    <title xml:lang="ko">mjworks. standard V1</title>
+    <author email_address="contact@mjworks.kr" link="http://mjworks.kr" date="2008. 7. 10.">
+        <name xml:lang="ko">mjworks</name>
+        <description xml:lang="ko">  
+		       
+		  		mjworks STANDARD V1 스킨을 공개합니다.
+				
+				상단메뉴와 우측서브메뉴의 스타일을 각각 적용할 수 있도록 해서
+				
+				총 아홉가지의 컬러셋 조합이 가능합니다.
+				
+				로고 이미지는 200 x 160px의 투명 PNG파일로 생성하면 됩니다.
+				
+        </description>
+    </author>
+    <extra_vars>
+	
+<var name="home_title" type="text">
+            <title xml:lang="ko">홈페이지 타이틀</title>
+            <description xml:lang="ko">홈페이지 타이틀을 입력해주세요.</description>
+           </var>
+		
+<var name="home_url" type="text">
+            <title xml:lang="ko">메인페이지 주소</title>
+            <description xml:lang="ko">메인페이지 주소를 입력해주세요.</description>
+          </var>
+		  
+<var name="logo_img" type="image">
+            <title xml:lang="ko">로고이미지</title>
+            <description xml:lang="ko"></description>
+          </var>
+		  
+<var name="mail" type="text">
+            <title xml:lang="ko">Contact 메일주소</title>
+            <description xml:lang="ko"></description>
+          </var>
+		  
+<var name="top_menu" type="select">
+            <title xml:lang="ko">상단메뉴컬러</title>
+               <description xml:lang="ko"></description>
+			 <options name="red">
+                <title xml:lang="ko">Red</title>
+                    <value>red</value>
+            </options>
+				 <options name="blue">
+                <title xml:lang="ko">Blue</title>
+                    <value>blue</value>
+            </options>
+				 <options name="green">
+                <title xml:lang="ko">Green</title>
+                    <value>green</value>
+            </options>
+			</var> 
+		   
+<var name="sub_menu" type="select">
+            <title xml:lang="ko">서브메뉴컬러</title>
+                     <description xml:lang="ko"></description>
+			 <options name="red">
+                <title xml:lang="ko">Red</title>
+                    <value>red</value>
+            </options>
+				 <options name="blue">
+                <title xml:lang="ko">Blue</title>
+                    <value>blue</value>
+            </options>
+				 <options name="green">
+                <title xml:lang="ko">Green</title>
+                    <value>green</value>
+            </options>
+			</var> 
+		  
+<var name="bg_img" type="image">
+            <title xml:lang="ko">배경이미지</title>
+            <description xml:lang="ko"></description>
+          </var>
+		  
+<var name="bg_color" type="text">
+            <title xml:lang="ko">배경색</title>
+            <description xml:lang="ko">배경이미지가 등록된 상태에서 변경이 가능합니다. #999999 형식으로 입력해주세요.</description>
+          </var>
+		  
+<var name="copyright" type="text">
+            <title xml:lang="ko">카피라이트</title>
+            <description xml:lang="ko">ex. Copyright 2008 mjworks. all rights reserved.</description>
+          </var>
+		  
+<var name="rss" type="text">
+            <title xml:lang="ko">RSS 주소</title>
+            <description xml:lang="ko">RSS주소를 입력하면 하단에 버튼이 생성됩니다.</description>
+          </var>
+		
+    </extra_vars>
+	
+    <menus>
+        <menu name="navi_menu">
+            <title xml:lang="ko">네이게이션 메뉴 </title>
+            <title xml:lang="en">Navigation menu</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+        <menu name="main_menu" default="true">
+        <title xml:lang="ko">메인 메뉴</title>
+        <maxdepth>3</maxdepth></menu>
+			
+		<menu name="extra_menu" >
+        <title xml:lang="ko">추가 메뉴</title>
+        <maxdepth>1</maxdepth></menu>
+    </menus>
+	
+</layout> 
+

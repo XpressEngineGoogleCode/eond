@@ -1,0 +1,111 @@
+<div style="display:none;">
+<table id="wrap" height="100%" cellpadding="0" cellspacing="0" nowrap>
+<tbody><tr>
+<td id="header" valign="top">
+<!-- s : header -->
+	<!-- s : Title-->
+	<div id="title"><ul>
+	<li id="logo"><a href="{$layout_info->index_url}"><span class="bgp"></span></a></li>
+	<li class="separator"></li>
+	<li id="about"><span class="bgp"></span></li>
+	<li id="msg"><span class="bgp"></span></li>
+	</ul></div>
+	<!-- e : Title-->
+	<!-- s : Theme-->
+	<ul id="theme">
+	<li><a href="http://eond.com" target="_blank"><span class="squre1"></span></a></li>
+	<li><span class="squre1"></span></li>
+	<li><span class="squre1"></span></li>
+	<li><span class="squre1"></span></li>
+	<li><span class="squre2"></span></li>
+	<li><span class="squre2"></span></li>
+	</ul>
+	<!-- e : Theme -->
+<!-- e : header -->
+</td>
+<td id="container" valign="top">
+<!-- s : container (width:900;height:550;margin:0px 0px 0px 10px;) -->
+<table style="width: 100%; height: 100%;" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td valign="middle">
+		<!-- Main Table Start 724 / 520 -->
+		<script>top_round("100%","#FFFFFF");</script>
+		<table style="width: 100%; height:100%; background-color: rgb(255, 255, 255);" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+		<td style="width: 170px;height:100%;" valign="top" align="center">
+		<!-- s : side nav -->
+			<div id="counter"><img src="./images/counter_today.gif"> 1<img src="./images/counter_total.gif"> 3999</div>
+			<!-- s: profile -->
+			<script>top_round("150px","#383838");</script>
+			<div id="profile">
+			<a href="{$layout_info->index_url}"><img src="./images/profile_ahjhj.png"></a>
+			¾Æ³úÁ¤~¾Æ³úÁ¤~¾Æ³úÁ¤~¾Æ³úÁ¤~¾Æ³úÁ¤~¾Æ³úÁ¤~¾Æ³úÁ¤~¾Æ³úÁ¤~¾Æ³úÁ¤~
+			</div>
+			<script>bottom_round("150px","#383838");</script>
+			<!-- e : profile -->
+			<!-- History Start -->
+			<!-- History End -->
+			<!-- s : login -->
+			<div id="login"><img src="./images/blank.gif" class="zbxe_widget_output" widget="login_info" skin="eond_mynote" colorset="{$layout_info->colorset}" /></div>
+			<!-- e : login -->
+		<!-- e : side nav -->
+		</td>
+		<!-- ±¸ºÐ¼± ½ÃÀÛ --><td id="seperateline"></td><!-- ±¸ºÐ¼± ³¡ -->
+		<td style="padding: 0px 0px 0px 5px;height:100%;" valign="top">
+		<!-- s : content -->
+			<!-- s : menu -->
+			<table style="width:100%;" cellpadding="0" cellspacing="0">
+			<tbody><tr>
+			<td><!-- width:523px or 570px -->
+				<script>top_round("100%","#F0F0F0");</script>
+				<div id="menu">
+				<!-- GNB -->
+				<ul id="gnb">
+					<!-- main_menu 1Â÷ ½ÃÀÛ -->
+					<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+						<!--@if($val['selected'])-->
+							{@ $menu_1st = $val }
+						<!--@end-->
+
+						<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+
+					<!--@endif--><!--@endforeach-->
+				</ul>
+			</div>
+				<script>bottom_round("100%","#F0F0F0");</script>
+			</td>
+			<td width="27" align="center">
+				<img src="./images/search.gif" border="0">
+			</td>
+			</tr>
+			<tr><td>
+            <!-- ÄÁÅÙÃ÷ ½ÃÀÛ -->
+            <div id="content">{$content}</div>
+			</td><td></td>
+			</tr></tbody>
+			</table>
+			<!-- e : menu -->
+			
+		<!-- e : content -->
+		</td>
+		</tr></tbody>
+		</table>
+		<script>bottom_round("100%","#FFFFFF");</script>
+		<!-- Main TAble End -->
+</td>
+</tr><tbody>
+</table>
+<!-- e : container -->
+</td>
+<td id="footer" valign="top">
+<!-- s : footer -->
+	<script>top_round("160","#FFFFFF");</script>
+	<div id="widget_box">
+	<img class="zbxe_widget_output" widget="DroArc_clock" skin="ncloudblog" colorset="normal" clock_width="125" clock_height="125" />
+	</div>
+	<script>bottom_round("160","#FFFFFF");</script>
+<!-- e : footer -->
+</td>
+</tr></tbody>
+</table>
+</div>

@@ -1,0 +1,27 @@
+<!--%import("css/default.css")--> 
+
+<div id=navi_UpService>
+<!--GNB-->
+<ul id="gnb">
+            <!-- navi_menu 1Â÷ -->
+            <!--@foreach($navi_menu->list as $key => $val)--><!--@if($val['link'])-->
+                <!--@if($val['selected'])-->
+                    {@ $menu_1st = $val }
+                <!--@end-->
+
+                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end--> target=_top>{$val['link']}</a></li>
+
+            <!--@end--><!--@end-->
+            <!-- //navi_menu 1Â÷ -->
+</ul>
+<!--//GNB-->
+<div class=navi_Upservice_admin>
+<a href="./?module=admin&act=dispBoardAdminContent" target=_top><img src="./images/navi_ico_admin.gif" width=10 height=10></a>
+</div>
+</div>
+	<div id="contentBody">
+		<div id="columnLeft">
+            <!-- ÄÁÅÙÃ÷ ½ÃÀÛ -->
+            {$content}
+		</div>
+	</div>

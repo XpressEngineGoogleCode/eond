@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">PXE 리플릿 라이트</title>
+    <title xml:lang="en">PXE Leaflet Lite</title>
+    <description xml:lang="ko">
+        PXE 리플릿 라이트 레이아웃
+        디자인 : 정현화
+        퍼블리싱 : 정현화
+        레이아웃 제작 : 정현화
+    </description>
+    <description xml:lang="en">
+        PXE Leaflet Layout
+        Designer : Hyunhwa Jung
+        HTML/CSS : Hyunhwa Jung
+        Layout producer : Hyunhwa Jung
+    </description>
+    <version>1.01</version>
+    <date>2009-09-28</date>
+
+    <author email_address="clubnb2@naver.com" link="http://www.premiumxe.com">
+        <name xml:lang="ko">Hyunhwa Jung</name>
+        <name xml:lang="en">Hyunhwa Jung</name>
+    </author>
+
+    <extra_vars>
+	    <var name="colorset" type="select">
+            <title xml:lang="ko">컬러셋</title>
+            <description xml:lang="ko">원하시는 컬러셋을 선택해주세요.</description>
+			<description xml:lang="en">Please select colorset you want.</description>
+            <options value="sky">
+                <title xml:lang="ko">스카이 블루(기본)</title>
+				<title xml:lang="en">Sky Blue</title>
+            </options>
+            <options value="black">
+                <title xml:lang="ko">검은 색</title>
+				<title xml:lang="en">Black</title>
+            </options>
+        </var>
+		<var name="leaflet_style" type="select">
+            <title xml:lang="ko">리플릿 스타일 선택</title>
+            <title xml:lang="en">Leaflet style Preference</title>
+            <description xml:lang="ko">원하시는 리플릿의 스타일을 선택해주세요.</description>
+            <description xml:lang="en">Please select leaflet style you want.</description>
+            <options value="wideLeaflet">
+                <title xml:lang="ko">넓은 리플릿(436px)</title>
+                <title xml:lang="en">Wide Leaflet</title>
+            </options>
+			<options value="normalLeaflet">
+                <title xml:lang="ko">일반 리플릿(279px)</title>
+                <title xml:lang="en">Normal Leaflet</title>
+            </options>
+        </var>
+		<var name="leaflet_locator" type="select">
+            <title xml:lang="ko">리플릿 위치표시기 출력여부</title>
+            <title xml:lang="en">Leaflet Locator Preference</title>
+            <description xml:lang="ko">리플릿에 위치하는 위치표시기(세로메뉴) 출력여부를 선택해주세요. 이 메뉴는 리플릿 스타일이 일반형(279px)일 경우에만 출력됩니다</description>
+            <description xml:lang="en">Please select leaflet locator you want.</description>
+            <options value="Y">
+                <title xml:lang="ko">출력</title>
+                <title xml:lang="en">Display</title>
+            </options>
+			<options value="N">
+                <title xml:lang="ko">출력 안함</title>
+                <title xml:lang="en">Not Display</title>
+            </options>
+        </var>
+		<var name="container_contents_style" type="select">
+            <title xml:lang="ko">컨텐츠 스타일</title>
+            <title xml:lang="en">Contents Style</title>
+            <description xml:lang="ko">원하는 컨텐츠 영역의 스타일을 선택하세요. 기본적으로 여백 없음으로 하는 것이 일반적입니다</description>
+            <description xml:lang="en">Please select a contents style you want.</description>
+            <options value="transparent">
+                <title xml:lang="ko">여백 없음(투명)</title>
+                <title xml:lang="en">Transparent Background</title>
+            </options>
+			<options value="useBackground">
+                <title xml:lang="ko">여백 있음(흰색)</title>
+                <title xml:lang="en">Use Background Color</title>
+            </options>
+        </var>
+		<var name="menu_type" type="select">
+            <title xml:lang="ko">메인 메뉴 선택</title>
+            <title xml:lang="en">Main Menu Preference</title>
+            <description xml:lang="ko">원하시는 메인 메뉴 구성을 선택해주세요.</description>
+            <description xml:lang="en">Please select Main menu preference you want.</description>
+            <options value="normal">
+                <title xml:lang="ko">일반 1단 형식</title>
+                <title xml:lang="en">Normal (1 Depth)</title>
+            </options>
+			<options value="double">
+                <title xml:lang="ko">일반 2단 형식</title>
+                <title xml:lang="en">Normal (2 Depth)</title>
+            </options>
+        </var>
+        <var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+            <title xml:lang="en">Logo image</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요. 이미지의 너비는 상관없지만 높이는 반드시 30px이어야 합니다</description>
+            <description xml:lang="en">Please input a logo image which will be displayed on the top of layout</description>
+        </var>
+        <var name="index_url" type="text">
+            <title xml:lang="ko">홈 페이지 URL</title>
+            <title xml:lang="en">Homepage URL</title>
+            <description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요</description>
+            <description xml:lang="en">Please input the URL to redirect when user clicks the logo</description>
+        </var>
+		<var name="leaflet_banner" type="image">
+            <title xml:lang="ko">리플릿 배너 이미지</title>
+            <title xml:lang="en">Banner image on leaflet</title>
+            <description xml:lang="ko">리플릿에 표시될 배너 이미지를 입력하세요</description>
+            <description xml:lang="en">Please input a banner image which will be displayed on the leaflet area of layout</description>
+        </var>
+		<var name="banner_url" type="text">
+            <title xml:lang="ko">리플릿 배너 URL</title>
+            <title xml:lang="en">Please input the URL to redirect when user clicks the banner</title>
+            <description xml:lang="ko">배너를 클릭시에 이동할 URL을 입력해 주세요.</description>
+            <description xml:lang="en">Please input the URL to redirect when user clicks the site logo</description>
+        </var>
+		<var name="container_site_width" type="text">
+            <title xml:lang="ko">사이트 너비</title>
+            <title xml:lang="en">Site Width</title>
+            <description xml:lang="ko">사이트 전체 폭 (기본 990px). 990px과 같이 px혹은 %까지 적어주세요. 리플릿이 있는 경우는 990px로, 없는 경우에는 960px이 적당합니다</description>
+            <description xml:lang="en">Please input the size to Site</description>
+        </var>
+    </extra_vars>
+
+    <menus>
+        <menu name="main_menu" default="true">
+            <title xml:lang="ko">상단 메인메뉴</title>
+            <title xml:lang="en">Top menu</title>
+            <maxdepth>3</maxdepth>
+        </menu>
+		<menu name="extra_menu">
+            <title xml:lang="ko">하단 우측메뉴 </title>
+            <title xml:lang="en">Bottom Extra Menu</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+        <menu name="bottom_menu">
+            <title xml:lang="ko">하단 좌측메뉴 </title>
+            <title xml:lang="en">Bottom Left menu</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+    </menus>
+</layout>

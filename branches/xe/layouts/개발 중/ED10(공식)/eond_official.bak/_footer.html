@@ -1,0 +1,40 @@
+<div style="height:15px;background:#FAFAFA; border-top:1px solid #EBEBEB; border-bottom:1px solid #EBEBEB;padding:5px;margin-bottom:10px;verticle-align:middle;padding:8px 15px;">
+	
+	<div name=fnbl style="float:left;width:610px;">
+	<!--@foreach($bottomL_menu->list as $key => $val)-->
+	<ul style="margin:0;padding:0;"><li style="display:inline; float:left;margin-right:10px;letter-spacing:-1px;font-weight:bold;"><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></ul>
+	<!--@endforeach-->
+	
+	<img class="zbxe_widget_output" widget="content" skin="default" colorset="white" content_type="document" list_type="normal" tab_type="none" option_view="title" show_browser_title="N" show_comment_count="N" show_trackback_count="N" show_category="N" show_icon="N" order_target="update_order" order_type="desc" thumbnail_type="crop" list_count="1" page_count="1" module_srls="217355" markup_type="list" />
+	
+	</div>
+
+	<div name=fnbr style="float:left;">
+	<!--@foreach($bottomR_menu->list as $key => $val)-->
+	<ul style="margin:0;padding:0;"><li style="display:inline;margin-right:10px;letter-spacing:-1px;font-weight:bold;"><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></ul>
+	<!--@endforeach-->
+
+	<!--@if($layout_info->family_site)-->
+	<div id="family_site">
+		<h4 onclick="slideFamilySite()"><span>Family Site</span></h4>
+		<div id="site_list">
+			<ul>
+				<!--@foreach($family_site->list as $key => $val)-->
+				<li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+				<!--@endforeach-->
+			</ul>
+		</div>
+	</div>
+	<hr />
+	<!--@end-->
+	</div>
+</div>
+
+
+<ul class="foot_list">
+<!--@foreach($bottom_menu->list as $key => $val)-->
+<li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+<!--@endforeach-->
+</ul>
+
+<p class="copyright"><!--@if(!$layout_info->copyright)-->Copyright ⓒ <font style="font:bold 10px Verdana;color:#33AEE1;">eond.</font> All Rights Reserved.<!--@else--><img src="{$layout_info->copyright}" alt="{$layout_info->copyright_alt}" border="0" class="iePngFix" /><!--@end--></p>

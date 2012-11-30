@@ -1,0 +1,103 @@
+<!--%import("../../widgets/login_info/skins/xe_official/filter/login.xml")-->
+<!--%import("../../widgets/login_info/skins/xe_official/filter/openid_login.xml")-->
+<!--%import("./js/login.js")-->
+<!--%import("./js/MyUI.js")-->
+
+<style type="text/css">
+</style>
+
+<!--@if($is_logged)-->
+<fieldset id="login" class="login_{$colorset}">
+<legend>{$lang->cmd_login}</legend>
+<form action="" method="post">
+
+
+<ul>
+<li style="margin-top:2px;"><a href="#layer" onclick="jQuery('#memberProfile').toggleClass('active');"><img src="./images/{$layout_info->colorset}/login/ico_pers.gif" align="top" style="margin-top:1px;margin-right:5px;">{htmlspecialchars($logged_info->nick_name)}님</li>
+<li><img src="./images/{$layout_info->colorset}/login/border.gif" style="margin:0 8px;" align="abstop"></li>
+<li style="margin-right:5px"><a href="{getUrl('act','dispMemberLogout')}"><span class="btn_logout" alt="{$lang->cmd_logout}"></span></a></li>
+<li><a href="{getUrl('act','dispMemberInfo')}"><span class="btn_loginfo"></span></a></li>
+<!--@if($logged_info->is_admin=="Y")-->
+<li><img src="./images/{$layout_info->colorset}/login/border.gif" style="margin:0 8px;"></li>
+<li style="margin-right:5px;"><a href="{getUrl('','module','admin')}" onclick="window.open(this.href);return false;" title="{$lang->cmd_management}"><img src="./images/{$layout_info->colorset}/login/btn_admin.gif" alt="{$lang->cmd_management}"></a></li>
+<li style="margin-right:5px;"><!--@if($layout_info->layout_srl)--><a href="{getUrl('act','dispLayoutAdminModify','layout_srl',$layout_info->layout_srl)}" title="{$lang->cmd_layout_management}"><img src="./images/{$layout_info->colorset}/login/btn_layout.gif" alt="{$lang->cmd_layout_management}"></a></li>
+<li style="margin-right:5px;"><a href="{getUrl('act','dispLayoutAdminEdit','layout_srl',$layout_info->layout_srl)}" title="{$lang->cmd_edit}"><img src="./images/{$layout_info->colorset}/login/btn_edit.gif" alt="{$lang->cmd_edit}"></a></li>
+<!--@end-->
+<!--@elseif($logged_info->is_site_admin)-->
+<li><img src="./images/{$layout_info->colorset}/login/border.gif" style="margin:0 8px;" align="abstop"></li>
+<li><a href="{getUrl('','module','homepage')}" onclick="window.open(this.href);return false;"><img src="./images/{$layout_info->colorset}/login/btn_admin.gif" alt="{$lang->cmd_management}"></a></li>
+<!--@end-->
+<!--@if(Context::get('is_homepage'))-->
+	<!--@if($grant->manager)--><li style="margin-right:5px;"><a href="{getUrl('act','dispHomepageManage')}"><img src="./images/{$layout_info->colorset}/login/btn_cafe.gif" alt="{$lang->cmd_cafe_setup}"></a></li><!--@end-->
+<!--@end-->
+</ul>
+
+
+
+
+<div id="mini_gnb">
+	  <div class="top_box">
+		<!--@if($is_logged)-->
+	   <!-- memberProfile -->
+		<div id="memberProfile" class="memberProfile">
+			<button type="button" class="close" onclick="jQuery('#memberProfile').toggleClass('active');" accesskey="X"><span>Close profile layer</span></button>
+			<h2 class="authorName">{$logged_info->nick_name}</h2>
+			{@ $oPointModel = &getModel('point'); $point = $oPointModel->getPoint($logged_info->member_srl); $oModuleModel = &getModel('module');  $config = $oModuleModel->getModuleConfig('point'); $level = $oPointModel->getLevel($point, $config->level_step); }
+			<ul>
+				<!--@foreach($logged_info->menu_list as $key => $val)-->
+				<li><a href="{getUrl('act',$key,'member_srl','')}">{Context::getLang($val)}</a></li>
+				<!--@end-->
+				<li>레벨 : <span>{$level}</span></li>
+				<li>포인트 : <span>{$point}</span></li>
+			</ul>
+
+			<button type="button" class="close" onclick="jQuery('#memberProfile').toggleClass('active');" accesskey="X"><span>Close profile layer</span></button>
+		</div>
+		<!-- /memberProfile -->
+		<!--@end-->
+		</div>
+</div>
+
+
+
+
+
+
+
+</form>
+</fieldset>
+
+
+<!--@else-->
+<script type="text/javascript">
+    var keep_signed_msg = "{$lang->about_keep_signed}";
+    xAddEventListener(window, "load", function(){ doFocusUserId("fo_login_widget"); });
+</script>
+
+<fieldset id="login" class="login_{$colorset}">
+<legend>{$lang->cmd_login}</legend>
+<form action="./" method="post" onsubmit="return procFilter(this, widget_login)" id="fo_login_widget" name="login_form">
+
+<ul>
+<li><img src="./images/{$layout_info->colorset}/login/border.gif" style="margin-right:8px;"></li>
+<li class="id"><img src="./images/{$layout_info->colorset}/login/ico_id.gif"><input name="user_id" type="text" title="user id" /></li>
+<li class="id"><img src="./images/{$layout_info->colorset}/login/ico_pw.gif"><input name="password" type="password" title="password" /></li>
+<li><img src="./images/{$layout_info->colorset}/login/border.gif" style="margin:0 2px 0 5px;"></li>
+<li><input type="image" src="./images/{$layout_info->colorset}/login/btn_login.gif" alt="login" class="btn_login" /></li>
+<li style="margin-top:-2px;"><input type="checkbox" name="keep_signed" id="keepid" value="Y" onclick="if(this.checked) return confirm(keep_signed_msg);" /><label for="keepid" style="display:none;">{$lang->keep_signed}</label></li>
+<li><img src="./images/{$layout_info->colorset}/login/border.gif"></li>
+<li><a href="{getUrl('act','dispMemberSignUpForm')}"><span class="btn_join"></span></a></li>
+<li><a href="{getUrl('act','dispMemberFindAccount')}"><img src="./images/{$layout_info->colorset}/login/btn_find.gif" alt="{$lang->cmd_find_member_account}"></a></li>
+
+</ul>
+
+
+</form>
+</fieldset>
+
+<script type="text/javascript">
+var mycheckboxes = new MyCheckBoxes(document.forms['login_form']);
+xAddEventListener(window, "load", function(){ doFocusUserId("fo_login_widget"); });
+</script>
+
+<!--@end-->

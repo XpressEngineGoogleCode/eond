@@ -1,0 +1,250 @@
+<!--// js 파일 import -->
+<!--%import("js/lang.js")-->
+<!--%import("js/jquery-1.3.2.min.js")-->
+<!--%import("js/ddsmoothmenu1.js")-->
+
+<!--@if($layout_info->layout_type == "main")-->
+	<!--%import("js/jquery.coda-slider-2.0.js")-->
+	<!--%import("js/jquery.easing.1.3.js")-->
+	<!--%import("js/coda.js")-->
+<!--@end-->
+
+<!--// 레이아웃과 연동될 css 파일 import -->
+    <!--%import("css/style.css")-->
+<!--@if($layout_info->layout_type == "main")-->
+    <!--%import("css/homepage.css")-->
+    <!--%import("css/coda-slider-2.0.css")-->
+<!--@elseif($layout_info->layout_type == "sub")-->
+    <!--%import("css/sub.css")-->
+<!--@end-->
+
+
+<div id="header">
+	<div class="logo"><h1><!--@if($layout_info->logo_image)--><a href="{$layout_info->logo_url}"><img src="{$layout_info->logo_image}" alt="logo" border="0"  class="iePngFix" /></a><!--@else--><a href="{$layout_info->index_url}"><img src="./images/logo.png" class="iePngFix" alt="Logo" /></a><!--@end--></h1></div>
+	<div class="langBar">
+		<div class="langSelect">
+			<a href="javascript:void(0);" onfocus="this.blur();" onclick="selLanguage('langbar')"><span>Select Language</span></a>
+			<div class="lang" id="langbar">
+				<ul>
+					<!--@foreach($lang_supported as $key => $val)--><!--@if($key!= $lang_type)-->
+					<li><a href="#" onclick="doChangeLangType('{$key}');return false;">{$val}</a></li>
+					<!--@end--><!--@end-->					
+				</ul>
+			</div>
+		</div>
+		<div class="langTxt">{$lang_supported[$lang_type]}</div>
+	</div>
+	<ul class="gnb">
+		{@$_idx = 1}
+		<!--@foreach($main_menu->list as $key => $val)-->
+		<!--@if($val['selected'])-->{@ $menu_1st = $val }<!--@end-->
+		<!--@if($val['selected']&&$val['url']==$mid)-->{@$_menu_depth=1}{@$selected_menu=$val}<!--@end-->
+		<!--@if($val['link'])-->
+		<li class="nav{$_idx}"><a href="{$val['href']}"<!--@if($val['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end--> <!--@if($val['selected'])-->class="on"<!--@end-->><!--@if($val['text']==$val['link'])--><span>{$val['text']}</span><!--@else-->{$val['link']}<!--@end--></a>
+		<!--@if($val['list'])-->
+
+			<ul style="display:none;">
+				<!--@foreach($val['list'] as $k => $v)-->
+				<!--@if($val['link'])-->
+				<li><a href="{$v['href']}"<!--@if($v['open_window']=='Y')--> onclick="window.open(this.href);return false;"<!--@end-->>{$v['text']}</a></li>
+				<!--@end-->
+				<!--@end-->
+				<li class="bottom"></li>
+			</ul>	
+		<!--@end-->
+			
+		</li>
+		{@$_idx++}
+		<!--@end-->
+		<!--@end-->
+		<li class="search">
+			<form action="{getUrl()}" method="post" class="search">
+                <input type="hidden" name="vid" value="{$vid}" />
+                <input type="hidden" name="mid" value="{$mid}" />
+                <input type="hidden" name="act" value="IS" />
+                <input type="hidden" name="search_target" value="title_content" />
+				<div class="searchBox">
+					<input name="is_keyword" type="text" title="Search" class="inputText" accesskey="S" />
+					<input type="submit" class="submit" value=" " />
+				</div>
+			</form>
+		</li>
+	</ul>
+</div>
+	
+<!--@if($layout_info->layout_type == "main")-->
+<div style="position:relative;height:250px;overflow:hidden;z-index:0;width:970px;margin:0 auto;">&nbsp;
+	<div class="coda-slider preload" id="coda-slider-1">
+		<!--@if($layout_info->banner_image_1)-->
+		<div class="panel">
+			<div class="panel-wrapper">
+				<h2 class="title">1</h2>
+				<img src="{$layout_info->banner_image_1}" class="iePngFix" alt="" />
+				<!--@if($layout_info->banner_txt_1)--><a href="{$layout_info->banner_url_1}" class="bannerBtn"><span>{$layout_info->banner_txt_1}</span></a><!--@end-->
+			</div>
+		</div>
+		<!--@end-->
+
+		<!--@if($layout_info->banner_image_2)-->
+		<div class="panel">
+			<div class="panel-wrapper">
+				<h2 class="title">2</h2>
+				<img src="{$layout_info->banner_image_2}" class="iePngFix" alt="" />
+				<!--@if($layout_info->banner_txt_2)--><a href="{$layout_info->banner_url_2}" class="bannerBtn"><span>{$layout_info->banner_txt_2}</span></a><!--@end-->
+			</div>
+		</div>
+		<!--@end-->
+
+		<!--@if($layout_info->banner_image_3)-->
+		<div class="panel">
+			<div class="panel-wrapper">
+				<h2 class="title">3</h2>
+				<img src="{$layout_info->banner_image_3}" class="iePngFix" alt="" />
+				<!--@if($layout_info->banner_txt_3)--><a href="{$layout_info->banner_url_3}" class="bannerBtn"><span>{$layout_info->banner_txt_3}</span></a><!--@end-->
+			</div>
+		</div>
+		<!--@end-->
+
+		<!--@if($layout_info->banner_image_4)-->
+		<div class="panel">
+			<div class="panel-wrapper">
+				<h2 class="title">4</h2>
+				<img src="{$layout_info->banner_image_4}" class="iePngFix" alt="" />
+				<!--@if($layout_info->banner_txt_4)--><a href="{$layout_info->banner_url_4}" class="bannerBtn"><span>{$layout_info->banner_txt_4}</span></a><!--@end-->
+			</div>
+		</div>
+		<!--@end-->
+
+		<!--@if($layout_info->banner_image_5)-->
+		<div class="panel">
+			<div class="panel-wrapper">
+				<h2 class="title">5</h2>
+				<img src="{$layout_info->banner_image_5}" class="iePngFix" alt="" />
+				<!--@if($layout_info->banner_txt_5)--><a href="{$layout_info->banner_url_5}" class="bannerBtn"><span>{$layout_info->banner_txt_5}</span></a><!--@end-->
+			</div>
+		</div>
+		<!--@end-->
+
+		<!--@if($layout_info->banner_image_6)-->
+		<div class="panel">
+			<div class="panel-wrapper">
+				<h2 class="title">6</h2>
+				<img src="{$layout_info->banner_image_6}" class="iePngFix" alt="" />
+				<!--@if($layout_info->banner_txt_6)--><a href="{$layout_info->banner_url_6}" class="bannerBtn"><span>{$layout_info->banner_txt_6}</span></a><!--@end-->
+			</div>
+		</div>
+		<!--@end-->
+
+	</div><!-- .coda-slider -->
+</div>
+<div class="bclear"></div>
+<!--@end-->
+
+
+<div id="content">
+
+	<div class="columnLeft">
+		<!--@if($layout_info->layout_type == "main")-->
+		<img class="zbxe_widget_output" widget="login_info" skin="login_blooz" colorset="white" />
+		<!--@elseif($layout_info->layout_type == "sub")-->
+		<img class="zbxe_widget_output" widget="login_info" skin="login_blooz" colorset="black" />
+		<!--@end-->
+
+		<!--@if($layout_info->layout_type == "sub")-->
+
+		<!-- sub_menu 2차 시작 -->
+		<!--@if($menu_1st)-->
+		<div class="subNav">
+		<!--@if($bottom_menu->list)-->
+			<!--@foreach($bottom_menu->list as $key => $val)-->
+				<!--@if($val['selected'])-->
+				{@ $menu_bottom = $val }
+				<!--@endif-->
+			<!--@endforeach-->
+		<!--@endif-->
+
+		<!--@if($menu_2nd['selected'])-->
+			<!--@foreach($menu_1st['list'] as $key => $val)-->
+				<!--@if($val['selected'])-->
+				<h2>{$val['link']}</h2>
+				<!--@endif-->
+			<!--@endforeach-->
+		<!--@elseif($menu_bottom['selected']) -->
+			<h2>{$menu_bottom['text']}</h2>
+		<!--@else-->
+			<h2>{$menu_1st['text']}</h2>
+		<!--@endif-->
+			<ul>
+				<!--@foreach($menu_1st['list'] as $key => $sub_menu)-->
+				<!--@if($sub_menu['selected'])-->
+					{@ $menu_2nd = $sub_menu }
+				<!--@end-->
+
+				<!--@if($sub_menu['link'])-->
+				<li><a href="{$sub_menu['href']}" <!--@if($sub_menu['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end--> <!--@if($sub_menu['selected'])--> class="on"<!--@end-->>{$sub_menu['link']}</a></li>
+				<!--@endif--><!--@endforeach-->
+			</ul>
+		</div>
+		<!--@end-->
+		<!--@end-->
+	</div>
+
+	<div class="columnRight">
+		<!--@if($layout_info->layout_type == "sub")-->
+		<div class="bread-crumb">
+			<ul>
+				<li class="home"><a href="{$layout_info->logo_url}"><span>Home</span></a></li>
+				<!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+				<!--@if($val['selected'])-->
+					<li><a href="{$val['href']}">{$val['link']}</a></li>
+					{@ $menu_1st = $val }
+				<!--@end-->
+				<!--@endif--><!--@endforeach-->
+				<!--@if($menu_1st)-->
+					{@ $idx = 1 }
+				<!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+					<!--@if($val['selected'])-->
+					<li><strong><a href="{$val['href']}">{$val['link']}</a></strong></li>
+					{@$idx++}
+						<!--@if($val['list'] && ($val['expand']=='Y'||$val['selected']) )-->
+						<!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+							<!--@if($v['selected'])-->
+							>
+					<li><strong>{$v['link']}</strong></li>
+							<!--@endif-->
+						<!--@endif--><!--@endforeach-->
+						<!--@endif-->
+
+					<!--@end-->
+				<!--@endif--><!--@endforeach-->
+				<!--@endif-->
+			</ul>
+			<div class="bclear"></div>
+		</div>
+		<div class="subContent">
+			{$content}
+		</div>
+		<!--@elseif($layout_info->layout_type == "main")-->
+			{$content}
+		<!--@end-->
+		<div class="bclear"></div>
+
+	</div>
+</div>
+<div class="bclear"></div>
+
+<div id="footer">
+	<div class="logo-links">
+		<div class="logo">
+			<h1><!--@if($layout_info->logo_image)--><a href="{$layout_info->logo_url}"><img src="{$layout_info->bottom_logo_image}" alt="logo" border="0"  class="iePngFix" /></a><!--@else--><a href="{$layout_info->index_url}"><img src="./images/bottomLogo.png" class="iePngFix" alt="Logo" /></a><!--@end--></h1> 
+		</div>
+		<ul class="bnb">
+			<!--@foreach($bottom_menu->list as $key => $val)-->
+			<li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->><!--@if($val['selected'])--><strong><!--@endif-->{$val['link']}<!--@if($val['selected'])--></strong><!--@endif--></a></li>
+			<!--@endforeach-->
+		</ul>
+		<div class="bclear"></div>
+	</div>
+	<div class="copyright"><strong>{$layout_info->copyright}</strong></div>
+</div>
+

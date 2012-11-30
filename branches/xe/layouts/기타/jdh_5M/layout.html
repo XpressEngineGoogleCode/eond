@@ -1,0 +1,373 @@
+<!-- js 파일 import -->
+<!--%import("js/xe_official.js")-->
+
+<!-- 레이아웃과 연동될 css 파일 import -->
+<!--@if($layout_info->colorset == "default")-->
+    <!--%import("css/default.css")-->
+<!--@else-->
+    <!--%import("css/default.css")-->
+<!--@end-->
+
+<!--@if($layout_info->background_image)-->
+<style type="text/css">
+    body {  
+	background:	<!--@if(!$layout_info->background_color)-->#ffffff<!--@else-->{$layout_info->background_color}<!--@end--> 
+	url({getUrl()}{$layout_info->background_image}) {$layout_info->background_image_repeat} left top; }
+</style>
+<!--@end-->
+
+<!--@if(!$layout_info->colorset)-->
+	{@$layout_info->colorset = "default"}
+<!--@end-->
+
+
+
+
+<div id="bodyWrap" style="margin:{$layout_info->layout_align}">
+	<div id="header">
+		<div class="logo"><a href="{$layout_info->index_url}" onfocus="this.blur();"><!--@if(!$layout_info->logo_image)--><img src="./images/{$layout_info->colorset}/zeroBoardXE.png" alt="ZeroBoard™  XE" class="iePngFix" /><!--@else--><img src="{$layout_info->logo_image}" alt="logo" border="0" class="iePngFix" /><!--@end--></a></div>
+
+		<div id="language">
+			<strong title="{$lang_type}">{$lang_supported[$lang_type]}</strong> <a href="#selectLang" onclick="showHide('selectLang');return false;"><img src="./images/{$layout_info->colorset}/buttonLang.gif" alt="Select Language" width="87" height="15" /></a>
+			<ul id="selectLang">
+                <!--@foreach($lang_supported as $key => $val)--><!--@if($key!= $lang_type)-->
+				<li><a href="#" onclick="doChangeLangType('{$key}');return false;">{$val}</a></li>
+                <!--@end--><!--@end-->
+			</ul>
+		</div>
+
+		<!--GNB-->
+		<ul id="gnb">
+            <!-- main_menu 1차 시작 -->
+			{@$menu_cnt=0}
+            <!--@foreach($main_menu->list as $key => $val)-->
+				<!--@if($val['menu_btn'] || $val['active_btn'] || $val['hover_btn'])-->
+					<!--이미지 메뉴일때-->
+					<!--@if($val['link'])-->
+						<!--@if($val['selected'])-->
+							{@ $menu_1st = $val }
+						<!--@end-->
+						<!--@if($menu_cnt < $layout_info->top_menu_count)-->
+						<li <!--@if($val['selected'])-->class="on"<!--@end-->>
+							<span class="img_btn">
+								<a href="{$val['href']}" 
+									<!--@if($val['open_window']=='Y')-->
+										onclick="window.open(this.href);return false;"
+									<!--@end--> 
+									onfocus="this.blur();"
+								>
+									
+										<!--@if($val['selected'])--><img src='{$val['active_btn']}' border='0'><!--@else-->{$val['link']}<!--@end-->
+									
+								</a>
+							</span>
+						</li><li id='gnb_middle' style='padding:0px {$layout_info->menu_padding} 0px {$layout_info->menu_padding};'><img src='./images/{$layout_info->colorset}/bgGnbMiddle.gif'></li>
+						<!--@end-->
+					<!--@end-->
+				<!--@else-->
+						<!--텍스트 메뉴일때-->
+
+						<!--@if($val['link'])-->
+						<!--@if($val['selected'])-->
+							{@ $menu_1st = $val }
+						<!--@end-->
+
+						<!--@if($menu_cnt < $layout_info->top_menu_count)-->
+							<!--@if($val['selected'])--><li><img src='./images/{$layout_info->colorset}/bgGnbOn_left.gif' alt='left'  /></li><!--@end-->
+							<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end--> onfocus="this.blur();">{$val['link']}</a></li>
+							<!--@if($val['selected'])--><li><img src='./images/{$layout_info->colorset}/bgGnbOn_right.gif' alt='right'  /></li><!--@end-->
+							<li id='gnb_middle' style='padding:0px {$layout_info->menu_padding} 0px {$layout_info->menu_padding};'><img src='./images/{$layout_info->colorset}/bgGnbMiddle.gif'></li>
+
+						<!--@end-->
+					<!--@end-->
+				<!--@end-->
+				{@$menu_cnt++}
+
+			<!--@end-->
+
+            <!-- main_menu 1차 끝 -->
+		</ul>
+		<!--//GNB-->
+		
+		<!--top_date-->
+		<div id="top_date">
+		{@$n_date = date('Y년 m월 d일')}
+		오늘은 {$n_date} 입니다.
+		</div>
+
+		<!--top_index-->
+		<div id="top_index">
+			
+			<!--@if($logged_info->is_admin=="Y")--><a href={$layout_info->index_url}/admin><img src="images/{$layout_info->colorset}/btn_admin.gif" border="0" align="absmiddle"></a><!--@end-->
+			<!--@if($logged_info)-->
+				<!--@if(!$logged_info->is_admin=="Y")-->
+				<a href="{$layout_info->index_url}/?&act=dispMemberMessages&member_srl=4"><img src="images/{$layout_info->colorset}/btn_mbox.gif" border="0" align="absmiddle"></a>
+				<!--@end-->
+			<a href="{$layout_info->index_url}/?act=dispMemberLogout&member_srl="><img src="images/{$layout_info->colorset}/btn_logout.gif" border="0" align="absmiddle"></a>
+			<!--@else-->
+			<a href="{$layout_info->index_url}/?act=dispMemberLoginForm"><img src="images/{$layout_info->colorset}/btn_login.gif" border="0" align="absmiddle"></a>
+			<!--@end-->
+			<!--@if(!$logged_info)-->
+			<a href="{$layout_info->index_url}/?act=dispMemberSignUpForm&member_srl=" onfocus="this.blur();"><img src="images/{$layout_info->colorset}/btn_join.gif" border="0" align="absmiddle"></a>
+			<!--@end-->
+			<a href="{$layout_info->index_url}/sitemap" onfocus="this.blur()"><img src="images/{$layout_info->colorset}/btn_sitemap.gif" border="0" align="absmiddle"></a>
+		</div>
+
+		
+		<!--top_banner-->
+		<div id="top_banner">
+		<a href="http://jobdahan.net/request" onfocus="this.blur()"><img src="images/{$layout_info->colorset}/client.gif" align='absmiddle' border="0"></a>
+		<a href="http://shopjjang.com" target="_blank" onfocus="this.blur();"><img src="images/{$layout_info->colorset}/shopping.gif" align='absmiddle' border="0"></a>
+		</div>
+
+
+		
+		<div id="gnb_sub">
+			잡다한 몽상백서 - 누군가에겐 꿈이길 바랍니다. ^^
+		</div>
+
+
+		<div id="Search_icon">
+			<img src='./images/{$layout_info->colorset}/searchtitle.gif'>
+		</div>
+
+		<form action="{getUrl()}" method="post" id="isSearch">
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="act" value="IS" />
+
+			<input name="search_target" type="radio" value="title" id="search_target" class="searchOrder" checked="checked" title="search option" />
+			<label for="search_target" class="checked" id="search_target_label" onclick="showHide('selectOrder'); return false">{$lang->title}</label>
+			<ul id="selectOrder">
+				<li>
+					<input type="radio" name="search_target" value="title" id="search_target1" />
+					<label for="search_target1" onclick="chkIsKind(1, '{$lang->title}'); return false;" onmouseover="this.className='on'" onmouseout="this.style.background='none'">{$lang->title}</label>
+				</li>
+				<li>
+					<input type="radio" name="search_target" value="content" id="search_target2" />
+					<label for="search_target2" onclick="chkIsKind(2, '{$lang->content}'); return false;" onmouseover="this.className='on'" onmouseout="this.style.background='none'">{$lang->content}</label>
+				</li>
+				<li>
+					<input type="radio" name="search_target" value="title_content" id="search_target3" />
+					<label for="search_target3" onclick="chkIsKind(3, '{$lang->title}+{$lang->content}'); return false;" onmouseover="this.className='on'" onmouseout="this.style.background='none'">{$lang->title}+{$lang->content}</label>
+				</li>
+				<li>
+					<input type="radio" name="search_target" value="comment" id="search_target4" />
+					<label for="search_target4" onclick="chkIsKind(4, '{$lang->comment}'); return false;" onmouseover="this.className='on'" onmouseout="this.style.background='none'">{$lang->comment}</label>
+				</li>
+				<li>
+					<input type="radio" name="search_target" value="tag" id="search_target5" />
+					<label for="search_target5" onclick="chkIsKind(5, '{$lang->tag}'); return false;" onmouseover="this.className='on'" onmouseout="this.style.background='none'">{$lang->tag}</label>
+				</li>
+			</ul>
+			<input name="is_keyword" type="text" class="inputText" title="keyword" />
+
+			<input type="image" src="./images/{$layout_info->colorset}/buttonSearch.gif" alt="{$lang->cmd_search}" class="submit" />
+		</form>
+
+	</div>
+	<!--@if($act)-->
+	<div id="contentBody">
+	{$content}
+	</div>
+	<!--@else-->
+
+	<div id="contentBody">
+
+		<div id="columnLeft">
+			<!-- 로그인 위젯 -->
+			<img width="100%" height="100" src="/common/tpl/images/widget_bg.jpg" class="zbxe_widget_output" style="clear:both;" widget="login_info" body="" skin="jdh_orange" colorset="default" widget_cache="0"/>
+			<br>
+			<!--최근인기게시물-->
+			<img width="100%" height="100" src="/common/tpl/images/widget_bg.jpg"  class="zbxe_widget_output" style="clear:both;" widget="popular_document" body="" skin="jdh_default" colorset="normal" widget_cache="0" title="최근인기게시물" order_target="readed_count" order_type="desc" list_count="10" view_date="7" mid_list="" 
+			subject_cut_size="12" 
+			widget_margin_top="5" 
+			widget_margin_left="0" 
+			widget_margin_right="0"  widget_fix_width="" widget_width="50" widget_width_type="200px" widget_position="" widget_sequence="673" 
+			design_top="./images/mweekbest_top.gif" 
+			design_middle="./images/mleftbox_middle.gif" 
+			design_bottom="./images/mleftbox_bottom.gif"/>
+			<br>
+
+			<!--명언한마디-->
+			<img width="100%" height="100" src="http://jobdahan.net/common/tpl/images/widget_bg.jpg" class="zbxe_widget_output" style="clear:both;" widget="newest_document" body="" skin="jdh_default" colorset="white" widget_cache="0" title="명언한마디" order_target="regdate" order_type="desc" list_count="5" duration_new="" subject_cut_size="18" mid_list="wise_saying" design_top="./images/wise_saying_title.gif" design_middle="./images/sbox_middle.gif" design_bottom="./images/sbox_bottom.gif" design_img=""  />
+
+			<br>
+
+			<!--포토갤러리-->
+			<img width="100%" height="100" src="/common/tpl/images/widget_bg.jpg" class="zbxe_widget_output" style="clear:both;" widget="newest_images" body="" skin="jdh_default" colorset="normal" widget_cache="0" title="최근이미지" 
+			mid_list="board" 
+			title_length="20" 
+			thumbnail_type="crop" 
+			thumbnail_width="80" 
+			thumbnail_height="80" cols_list_count="2" rows_list_count="1" display_author="N" display_regdate="N" display_readed_count="N" display_voted_count="N" 
+			design_top="./images/photo_title.gif" 
+			design_middle="./images/sbox_middle.gif" 
+			design_bottom="./images/sbox_bottom.gif" 
+			design_img="./images/sbox_middle.gif" 
+			widget_sequence="598416" />
+			<br>
+
+
+			<!--서식/양식-->
+			<img width="100%" height="100" src="http://jobdahan.net/common/tpl/images/widget_bg.jpg" class="zbxe_widget_output" style="clear:both;" widget="newest_document" body="" skin="jdh_default" colorset="white" widget_cache="0" title="서식/양식" order_target="regdate" order_type="asc" list_count="10" duration_new="" subject_cut_size="18" mid_list="document" 
+			design_top="./images/form_title.gif" 
+			design_middle="./images/sbox_middle.gif" 
+			design_bottom="./images/sbox_bottom.gif" 
+			design_img="" widget_sequence="598403" />
+			<br>
+
+
+			<!--로그인회원-->
+
+			<img class="zbxe_widget_output" widget="logged_members" skin="default" colorset="normal" list_count="5" use_mid="total" 
+			design_top="./images/nowlogin_title.gif" 
+			design_middle="./images/sbox_middle.gif" 
+			design_bottom="./images/sbox_bottom.gif"
+			/>
+
+
+			
+			<!--@if($logged_info->is_admin=="Y")-->
+			<img width="200px" height="100" src="/common/tpl/images/widget_bg.jpg" class="zbxe_widget_output" style="clear:both;" widget="counter_status" skin="styx_flash" colorset="normal" widget_cache="0" widget_margin_top="5" widget_margin_left="10" widget_margin_right="10"  widget_fix_width="" widget_width="50" widget_width_type="200px" widget_position="" >
+			<!--@end-->
+
+			<!--@if($grant->is_admin)-->
+			<a href="{getUrl('','mid',$layout_info->target_mid,'act','dispLayoutAdminModify','layout_srl',$layout_info->layout_srl)}">관리</a>|
+			<a href="{getUrl('','mid',$layout_info->target_mid,'act','dispLayoutAdminEdit','layout_srl',$layout_info->layout_srl)}">편집</a>
+			<!--@end-->
+
+
+			
+
+		</div>
+
+		<div id="columnCenter">
+			
+			<!--매인배너-->
+			<a href="http://jobdahan.net/?mid=jdh2&document_srl=982553">
+			<img src='./images/{$layout_info->colorset}/5main_banner.gif' align='absmiddle' border="0">
+			</a>
+			<br>
+			
+			<img src=./images/template.jpg align='absmiddle' border="0" usemap="#ImageMap1">
+			<map name="ImageMap1">
+			<area shape="rect" coords="15, 49, 160, 158" href="http://jobdahan.net/jdh_2home">
+			<area shape="rect" coords="177, 50, 323, 157" href="http://jobdahan.net/jdh_5home">
+			<area shape="rect" coords="339, 50, 485, 156" href="http://jobdahan.net/jdh_1home">
+			<area shape="rect" coords="19, 200, 159, 225" href="http://jobdahan.net/jdh2">
+			<area shape="rect" coords="176, 200, 317, 226" href="http://jobdahan.net/jdh5">
+			<area shape="rect" coords="342, 200, 484, 228" href="http://jobdahan.net/jdh1">
+			<area shape="rect" coords="133, 3, 192, 27" href="http://jobdahan.net/template_jobdahan_zbxe">
+			<area shape="rect" coords="204, 3, 254, 28" href="http://jobdahan.net?mid=power_template&category=502191">
+			<area shape="rect" coords="265, 4, 313, 28" href="http://jobdahan.net?mid=power_template&category=502193">
+			<area shape="rect" coords="322, 3, 366, 28" href="http://jobdahan.net?mid=power_template&category=502192">
+			<area shape="rect" coords="379, 4, 491, 29" href="http://jobdahan.net?mid=power_template&category=502195">
+			</map>
+			<br>
+			
+			<!--탭메뉴1-->
+			<img class="zbxe_widget_output" widget="tab_newest_document" skin="xe_official" colorset="normal" order_target="list_order" order_type="desc" duration_new="24" subject_cut_size="25" thumbnail_type="crop" display_author="Y" display_regdate="Y" display_readed_count="Y" display_voted_count="Y" 
+			mid_list="notice,wise_saying,document,freeboard" 
+			design_top="./images/tabtest_title.gif" />
+			<br>
+
+			<!--탭메뉴2-->
+			<img class="zbxe_widget_output" widget="tab_newest_document" skin="xe_official" colorset="normal" order_target="list_order" order_type="desc" duration_new="24" subject_cut_size="25" thumbnail_type="crop" display_author="Y" display_regdate="Y" display_readed_count="Y" display_voted_count="Y" 
+			mid_list="notice,wise_saying,document,freeboard" 
+			design_top="./images/tabtest_title.gif" />
+			<br>
+
+			<!--탭메뉴3-->
+			<img class="zbxe_widget_output" widget="tab_newest_document" skin="xe_official" colorset="normal" order_target="list_order" order_type="desc" duration_new="24" subject_cut_size="25" thumbnail_type="crop" display_author="Y" display_regdate="Y" display_readed_count="Y" display_voted_count="Y" 
+			mid_list="notice,wise_saying,document,freeboard" 
+			design_top="./images/tabtest_title.gif" />
+
+
+
+
+	
+			<br>						
+			<!--최근댓글-->
+			<img width="100%" height="100" src="/common/tpl/images/widget_bg.jpg" class="zbxe_widget_output" style="clear:both;" widget="newest_comment" body="" skin="blog_newest_comment" colorset="normal" widget_cache="0" title="최근댓글" list_count="15" duration_new="" mid_list="" 
+			design_top="./images/reply_title.gif" 
+			design_middle="./images/reply_middle.gif" 
+			design_bottom="./images/reply_bottom.gif"  
+			design_img="./images/reply_middle.gif"
+			widget_sequence="598436" />
+
+		</div>
+		<div id="columnRight" >
+			<img src=./images/right_banner.gif align='absmiddle' border="0">
+
+			<br>
+
+			<!--공지사항-->
+			<img width="100%" height="100" src="/common/tpl/images/widget_bg.jpg" class="zbxe_widget_output" style="clear:both;" widget="newest_document" body="" skin="jdh_default" colorset="white" widget_cache="0" title="공지사항" order_target="regdate" order_type="asc" list_count="5" duration_new="" subject_cut_size="18" 
+			mid_list="notice" 
+			design_top="./images/notice_title.gif" 
+			design_middle="./images/sbox2_middle.gif" 
+			design_bottom="./images/sbox2_bottom.gif" 
+			design_img="" widget_sequence="598403" />
+			<br>
+			<!--자유토크-->
+			<img width="100%" height="100" src="/common/tpl/images/widget_bg.jpg" class="zbxe_widget_output" style="clear:both;" widget="newest_document" body="" skin="jdh_default" colorset="white" widget_cache="0" title="공지사항" order_target="regdate" order_type="asc" list_count="5" duration_new="" subject_cut_size="16" 
+			mid_list="freeboard" 
+			design_top="./images/freetalk_title.gif" 
+			design_middle="./images/sbox2_middle.gif" 
+			design_bottom="./images/sbox2_bottom.gif" 
+			design_img="" widget_sequence="598403" />
+			<br>
+			<!--최근게시물-->				
+			<img width="100%" height="100" src="/common/tpl/images/widget_bg.jpg" class="zbxe_widget_output" style="clear:both;" widget="newest_document" body="" skin="jdh_default" colorset="white" widget_cache="0" title="최근게시물" order_target="regdate" order_type="asc" list_count="15" duration_new="" subject_cut_size="18" 	mid_list="" 
+			design_top="./images/newlist_title.gif" 
+			design_middle="./images/sbox2_middle.gif" 
+			design_bottom="./images/sbox2_bottom.gif" 
+			design_img="" widget_sequence="598403" />
+			<br>
+			<!--최근질문-->				
+			<img width="100%" height="100" src="http://jobdahan.net/common/tpl/images/widget_bg.jpg" class="zbxe_widget_output" style="clear:both;" widget="newest_document" body="" skin="jdh_default" colorset="white" widget_cache="0" title="새롭게 등록된 질문" order_target="regdate" order_type="asc" list_count="15" duration_new="" subject_cut_size="18" 	mid_list="business_question,flash_question,homepage_question,photoshop_question,zb5_question_design,zb5_question_layout,zb5_question_module,zb5_question_plugin,zbxe_question,sqna" 
+			design_top="./images/qa_title.gif" 
+			design_middle="./images/sbox2_middle.gif" 
+			design_bottom="./images/sbox2_bottom.gif" 
+			design_img="" widget_sequence="598403" />
+
+			<br>
+			<!--태그위젯-->
+			<img width="100%" height="100" src="http://jobdahan.net/common/tpl/images/widget_bg.jpg" class="zbxe_widget_output" style="clear:both;" widget="tag_list" body="" skin="color_text" colorset="naver" widget_cache="0" title="태그" list_count="" mid_list="" 
+			design_top="./images/tag_title.gif" 
+			design_middle="./images/sbox2_middle.gif" 
+			design_bottom="./images/sbox2_bottom.gif"
+			widget_sequence="598413" />
+			<br>
+		</div>
+		<div>
+		{$content}
+		</div>
+
+	</div>
+	
+
+	<!--@end-->
+
+	<div id="footer">
+		<li class="first-child">
+			<address>
+			<a href="http://jobdahan.net" onclick="window.open(this.href);return false;"><img src="./images/{$layout_info->colorset}/jobdahan.gif" alt="Designed by jobdahan.net" /></a>
+			</address>
+
+		</li>
+	    {@$menu_cnt=0}
+        <!--@foreach($bottom_menu->list as $key => $val)-->
+			<!--@if($menu_cnt> 0 && $menu_cnt < 7)-->
+				<li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['text']}</a></li>
+			
+			<!--@end-->
+			{@$menu_cnt++}
+        <!--@end-->
+	</div>
+
+
+	<!--카피라이터 부분-->
+	<div id="copyright">Copyright ⓒ <b><font color="#ff9900">jobdahan.net</font></b>. All rights reserved.<br><br></div>
+
+</div>

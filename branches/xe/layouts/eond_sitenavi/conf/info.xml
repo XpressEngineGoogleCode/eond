@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">이온디 사이트 네비게이션</title>
+	<description xml:lang="ko">
+		사이트 네비게이션을 나타내는 네비게이션 레이아웃입니다. (eond_SiteNavigation)
+	</description>
+	<version>1.1</version>
+	<date>2005-08-01</date>
+	<author email_address="eond@eond.com" link="http://eond.com" date="080720">
+        <name xml:lang="ko">이온디</name>
+	</author>
+
+    <extra_vars>
+        <var name="colorset" type="select">
+            <title>스타일</title>
+            <description>원하시는 스타일을 선택해주세요.</description>
+            <options value="default">
+                <title>기본</title>
+            </options>
+			<options value="naver">
+                <title>네이버 스타일</title>
+            </options>
+        </var>
+
+		<var name="position" type="select">
+            <title>정렬</title>
+            <options value="center">
+                <title>가운데</title>
+            </options>
+			<options value="left">
+                <title>왼쪽</title>
+            </options>
+			<options value="right">
+                <title>오른쪽</title>
+            </options>
+        </var>
+
+		<var name="login" type="select">
+            <title>로그인 버튼</title>
+            <options value="on">
+                <title>출력함</title>
+            </options>
+			<options value="off">
+                <title>출력안함</title>
+            </options>
+        </var>
+
+		<var name="familysite" type="select">
+            <title>패밀리사이트</title>
+            <options value="on">
+                <title>출력함</title>
+            </options>
+			<options value="off">
+                <title>출력안함</title>
+            </options>
+        </var>
+
+		<var name="more" type="select">
+            <title>더보기 메뉴</title>
+            <options value="on">
+                <title>출력함</title>
+            </options>
+			<options value="off">
+                <title>출력안함</title>
+            </options>
+        </var>
+
+    </extra_vars>
+	
+    <menus>
+        <menu name="sitebar">
+            <title xml:lang="ko">사이트 네이게이션</title>
+            <title xml:lang="en">Site Navigation</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+		<menu name="familysite">
+            <title xml:lang="ko">패밀리사이트</title>
+            <title xml:lang="en">Family Sites</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+		<menu name="more">
+            <title xml:lang="ko">더보기</title>
+            <title xml:lang="en">More</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+	</menus>
+</layout>

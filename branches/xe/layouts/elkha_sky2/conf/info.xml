@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <title xml:lang="ko">Elkha - Sky2</title>
+    <description xml:lang="ko">
+    		플래시 메뉴를 적용한 깔끔한 레이아웃입니다.
+        HTML/CSS : 김무건
+        Layout producer : 김무건
+    </description>
+    <version>1.4.5</version>
+    <date>2009-02-13</date>
+    <link>http://notepad.wo.tc</link>
+    <author email_address="elkha1914@hotmail.com" link="http://notepad.wo.tc">
+        <name xml:lang="ko">Elkha</name>
+    </author>
+    <extra_vars>
+    		<var name="xe_dir" type="text">
+            <title xml:lang="ko">XE가 설치된 경로</title>
+            <title xml:lang="jp">XE Directory</title>
+            <title xml:lang="zh-CN">XE Directory</title>
+            <title xml:lang="en">XE Directory</title>
+						<title xml:lang="ge">XE Directory</title>
+						<title xml:lang="ru">XE Directory</title>
+            <title xml:lang="es">XE Directory</title>
+            <description xml:lang="ko">하위 폴더에 XE를 설치한경우 경로를 입력해주세요. 예) xe/</description>
+            <description xml:lang="jp">Input the directory of XE. eg) xe/</description>
+            <description xml:lang="zh-CN">Input the directory of XE. eg) xe/</description>
+            <description xml:lang="en">Input the directory of XE. eg) xe/</description>
+						<description xml:lang="ge">Input the directory of XE. eg) xe/</description>
+						<description xml:lang="ru">Input the directory of XE. eg) xe/</description>
+            <description xml:lang="es">Input the directory of XE. eg) xe/</description>
+        </var>
+				<var name="colorset" type="select">
+            <title xml:lang="ko">컬러셋</title>
+            <title xml:lang="jp">カラ?セット</title>
+            <title xml:lang="zh-CN">?色</title>
+            <title xml:lang="en">Colorset</title>
+            <title xml:lang="es">Set de colores</title>
+            <options name="">
+                <title xml:lang="ko">Skyblue (default)</title>
+                <title xml:lang="jp">Skyblue (default)</title>
+                <title xml:lang="en">Skyblue (default)</title>
+                <title xml:lang="es">Skyblue (default)</title>
+                <title xml:lang="zh-CN">Skyblue (default)</title>
+                <value></value>
+            </options>
+            <options name="red">
+                <title xml:lang="ko">Red</title>
+                <title xml:lang="jp">Red</title>
+                <title xml:lang="en">Red</title>
+                <title xml:lang="es">Red</title>
+                <title xml:lang="zh-CN">Red</title>
+                <value>red</value>
+            </options>
+            <options name="green">
+                <title xml:lang="ko">Green</title>
+                <title xml:lang="jp">Green</title>
+                <title xml:lang="en">Green</title>
+                <title xml:lang="es">Green</title>
+                <title xml:lang="zh-CN">Green</title>
+                <value>green</value>
+            </options>
+            <options name="orange">
+                <title xml:lang="ko">Orange</title>
+                <title xml:lang="jp">Orange</title>
+                <title xml:lang="en">Orange</title>
+                <title xml:lang="es">Orange</title>
+                <title xml:lang="zh-CN">Orange</title>
+                <value>orange</value>
+            </options>
+            <options name="pink">
+                <title xml:lang="ko">Pink</title>
+                <title xml:lang="jp">Pink</title>
+                <title xml:lang="en">Pink</title>
+                <title xml:lang="es">Pink</title>
+                <title xml:lang="zh-CN">Pink</title>
+                <value>pink</value>
+            </options>
+            <options name="gray">
+                <title xml:lang="ko">Gray</title>
+                <title xml:lang="jp">Gray</title>
+                <title xml:lang="en">Gray</title>
+                <title xml:lang="es">Gray</title>
+                <title xml:lang="zh-CN">Gray</title>
+                <value>gray</value>
+            </options>
+            <options name="random">
+                <title xml:lang="ko">Random</title>
+                <title xml:lang="jp">Random</title>
+                <title xml:lang="en">Random</title>
+                <title xml:lang="es">Random</title>
+                <title xml:lang="zh-CN">Random</title>
+                <value>random</value>
+            </options>
+        </var>
+    		<var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+            <title xml:lang="jp">ロゴイメ?ジ</title>
+            <title xml:lang="zh-CN">LOGO?片</title>
+            <title xml:lang="en">Logo image</title>
+						<title xml:lang="ge">Logobildes</title>
+						<title xml:lang="ru">Изображения логотипа</title>
+            <title xml:lang="es">Imagen del logotipo</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요. (width:150px, height:90px)</description>
+            <description xml:lang="jp">レイアウトの上段に表示されるロゴイメ?ジを入力してください。 (width:150px, height:90px)</description>
+            <description xml:lang="zh-CN">??入?示在布局?部的LOGO?片。(width:150px, height:90px)</description>
+            <description xml:lang="en">Please input a logo image which will be displayed on the top of layout. (width:150px, height:90px)</description>
+						<description xml:lang="ge">Bitte geben Sie ein Logo das Bild wird auf dem oberen Layout. (width:150px, height:90px)</description>
+						<description xml:lang="ru">Введите логотип изображение, которое будет отображаться в верхней части формы. (width:150px, height:90px)</description>
+            <description xml:lang="es">Ingresar una imagen para logotipo. (width:150px, height:90px)</description>
+        </var>
+        <var name="index_name" type="text">
+            <title xml:lang="ko">사이트 제목</title>
+            <title xml:lang="jp">Site Name</title>
+            <title xml:lang="zh-CN">Site Name</title>
+            <title xml:lang="en">Site Name</title>
+						<title xml:lang="ru">Site Name</title>
+            <title xml:lang="es">Site Name</title>
+            <description xml:lang="ko">사이트 제목을 입력해주세요.</description>
+            <description xml:lang="jp">Please input a name that your site.</description>
+            <description xml:lang="zh-CN">Please input a name that your site.</description>
+            <description xml:lang="en">Please input a name that your site.</description>
+						<description xml:lang="ru">Please input a name that your site.</description>
+            <description xml:lang="es">Please input a name that your site.</description>
+        </var>
+        <var name="index_url" type="text">
+            <title xml:lang="ko">홈 페이지 URL</title>
+            <title xml:lang="jp">ホ?ムペ?ジURL</title>
+            <title xml:lang="zh-CN">主?地址</title>
+            <title xml:lang="en">Homepage URL</title>
+						<title xml:lang="ge">Homepage URL</title>
+						<title xml:lang="ru">Домашняя страница URL</title>
+            <title xml:lang="es">URL de la pagina web</title>
+            <description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+            <description xml:lang="jp">ロゴをクリックした時に移動するホ?ムペ?ジのURLを入力してください。</description>
+            <description xml:lang="zh-CN">点??站LOGO?要移?的?面URL。</description>
+            <description xml:lang="en">Please input the URL to redirect when user clicks the logo</description>
+						<description xml:lang="ge">Bitte geben Sie die URL umzuleiten, wenn Benutzer klickt das Logo</description>
+						<description xml:lang="ru">Пожалуйста, введите URL для перенаправления, когда пользователь нажимает логотип</description>
+            <description xml:lang="es">Ingresar el URL de la pagina web para redireccionar al pulsar el logotipo</description>
+        </var>
+        <!--
+				<var name="flash" type="select">
+            <title xml:lang="ko">플래시 디자인</title>
+            <title xml:lang="jp">Flash design</title>
+            <title xml:lang="zh-CN">Flash design</title>
+            <title xml:lang="en">Flash design</title>
+            <title xml:lang="es">Flash design</title>
+            <options name="">
+                <title xml:lang="ko">Number (default)</title>
+                <title xml:lang="jp">Number (default)</title>
+                <title xml:lang="en">Number (default)</title>
+                <title xml:lang="es">Number (default)</title>
+                <title xml:lang="zh-CN">Number (default)</title>
+                <value>default</value>
+            </options>
+            <options name="simple">
+                <title xml:lang="ko">Simple</title>
+                <title xml:lang="jp">Simple</title>
+                <title xml:lang="en">Simple</title>
+                <title xml:lang="es">Simple</title>
+                <title xml:lang="zh-CN">Simple</title>
+                <value>simple</value>
+            </options>
+        </var>
+        -->
+				<var name="map" type="select">
+            <title xml:lang="ko">언어선택과 검색창</title>
+            <title xml:lang="jp">Language select, search area</title>
+            <title xml:lang="zh-CN">Language select, search area</title>
+            <title xml:lang="en">Language select, search area</title>
+            <title xml:lang="es">Language select, search area</title>
+            <options name="default">
+                <title xml:lang="ko">언어선택을 보임 (default)</title>
+                <title xml:lang="jp">View language select (default)</title>
+                <title xml:lang="en">View language select (default)</title>
+                <title xml:lang="es">View language select (default)</title>
+                <title xml:lang="zh-CN">View language select (default)</title>
+                <value>default</value>
+            </options>
+            <options name="search">
+                <title xml:lang="ko">검색창을 보임</title>
+                <title xml:lang="jp">View search area</title>
+                <title xml:lang="en">View search area</title>
+                <title xml:lang="es">View search area</title>
+                <title xml:lang="zh-CN">View search area</title>
+                <value>search</value>
+            </options>
+            <options name="hidden">
+                <title xml:lang="ko">둘다 숨김</title>
+                <title xml:lang="jp">Hide both</title>
+                <title xml:lang="en">Hide both</title>
+                <title xml:lang="es">Hide both</title>
+                <title xml:lang="zh-CN">Hide both</title>
+                <value>hidden</value>
+            </options>
+        </var>
+    		<var name="footer" type="text">
+            <title xml:lang="ko">Footer</title>
+            <title xml:lang="jp">Footer</title>
+            <title xml:lang="zh-CN">Footer</title>
+            <title xml:lang="en">Footer</title>
+						<title xml:lang="ge">Footer</title>
+						<title xml:lang="ru">Footer</title>
+            <title xml:lang="es">Footer</title>
+            <description xml:lang="ko">사이트 하단의 태그를 입력할 수 있으며 입력하면 '하단로고', '사이트 소개' 이미지는 보이지 않습니다.</description>
+            <description xml:lang="jp">Please input the footer tags. 'Bottom logo' and 'Site intro' will be hidden if input tags.</description>
+            <description xml:lang="zh-CN">Please input the footer tags. 'Bottom logo' and 'Site intro' will be hidden if input tags.</description>
+            <description xml:lang="en">Please input the footer tags. 'Bottom logo' and 'Site intro' will be hidden if input tags.</description>
+						<description xml:lang="ge">Please input the footer tags. 'Bottom logo' and 'Site intro' will be hidden if input tags.</description>
+						<description xml:lang="ru">Please input the footer tags. 'Bottom logo' and 'Site intro' will be hidden if input tags.</description>
+            <description xml:lang="es">Please input the footer tags. 'Bottom logo' and 'Site intro' will be hidden if input tags.</description>
+        </var>
+    		<var name="logo_2" type="image">
+            <title xml:lang="ko">하단 로고</title>
+            <title xml:lang="jp">Bottom logo</title>
+            <title xml:lang="zh-CN">Bottom logo</title>
+            <title xml:lang="en">Bottom logo</title>
+						<title xml:lang="ge">Bottom logo</title>
+						<title xml:lang="ru">Bottom logo</title>
+            <title xml:lang="es">Bottom logo</title>
+            <description xml:lang="ko">사이트 하단에 들어갈 로고를 넣어주세요.</description>
+            <description xml:lang="jp">Please input the bottom logo.</description>
+            <description xml:lang="zh-CN">Please input the bottom logo.</description>
+            <description xml:lang="en">Please input the bottom logo.</description>
+						<description xml:lang="ge">Please input the bottom logo.</description>
+						<description xml:lang="ru">Please input the bottom logo.</description>
+            <description xml:lang="es">Please input the bottom logo.</description>
+        </var>
+    		<var name="site_intro" type="image">
+            <title xml:lang="ko">사이트 소개</title>
+            <title xml:lang="jp">Site intro</title>
+            <title xml:lang="zh-CN">Site intro</title>
+            <title xml:lang="en">Site intro</title>
+						<title xml:lang="ge">Site intro</title>
+						<title xml:lang="ru">Site intro</title>
+            <title xml:lang="es">Site intro</title>
+            <description xml:lang="ko">사이트 하단에 들어갈 이미지를 넣어주세요.</description>
+            <description xml:lang="jp">Please input the bottom image.</description>
+            <description xml:lang="zh-CN">Please input the bottom image.</description>
+            <description xml:lang="en">Please input the bottom image.</description>
+						<description xml:lang="ge">Please input the bottom image.</description>
+						<description xml:lang="ru">Please input the bottom image.</description>
+            <description xml:lang="es">Please input the bottom image.</description>
+        </var>
+				<var name="sitemap" type="select">
+            <title xml:lang="ko">사이트 맵 노출</title>
+            <title xml:lang="jp">Sitemap view</title>
+            <title xml:lang="zh-CN">Sitemap view</title>
+            <title xml:lang="en">Sitemap view</title>
+            <title xml:lang="es">Sitemap view</title>
+            <options name="default">
+                <title xml:lang="ko">보임 (default)</title>
+                <title xml:lang="jp">View (default)</title>
+                <title xml:lang="en">View (default)</title>
+                <title xml:lang="es">View (default)</title>
+                <title xml:lang="zh-CN">View (default)</title>
+                <value>default</value>
+            </options>
+            <options name="hide">
+                <title xml:lang="ko">숨김</title>
+                <title xml:lang="jp">Hide</title>
+                <title xml:lang="en">Hide</title>
+                <title xml:lang="es">Hide</title>
+                <title xml:lang="zh-CN">Hide</title>
+                <value>hide</value>
+            </options>
+        </var>
+    		<var name="menu_mbs" type="text">
+            <title xml:lang="ko">menu(mbs).swf 주소</title>
+            <title xml:lang="jp">URL of menu(mbs).swf</title>
+            <title xml:lang="zh-CN">URL of menu(mbs).swf</title>
+            <title xml:lang="en">URL of menu(mbs).swf</title>
+						<title xml:lang="ge">URL of menu(mbs).swf</title>
+						<title xml:lang="ru">URL of menu(mbs).swf</title>
+            <title xml:lang="es">URL of menu(mbs).swf</title>
+            <description xml:lang="ko">menu(mbs).swf 파일을 외부에 업로드한 경우 url을 입력해주세요. (사이트 트래픽을 덜어줍니다)</description>
+            <description xml:lang="jp">Please input the URL of menu(mbs).swf, if you uploaded to out server.</description>
+            <description xml:lang="zh-CN">Please input the URL of menu(mbs).swf, if you uploaded to out server.</description>
+            <description xml:lang="en">Please input the URL of menu(mbs).swf, if you uploaded to out server.</description>
+						<description xml:lang="ge">Please input the URL of menu(mbs).swf, if you uploaded to out server.</description>
+						<description xml:lang="ru">Please input the URL of menu(mbs).swf, if you uploaded to out server.</description>
+            <description xml:lang="es">Please input the URL of menu(mbs).swf, if you uploaded to out server.</description>
+        </var>
+    </extra_vars>
+    <menus>
+        <menu name="main_menu" default="true">
+            <title xml:lang="ko">상단 메뉴</title>
+            <title xml:lang="jp">上段メニュ?</title>
+            <title xml:lang="zh-CN">主菜?</title>
+            <title xml:lang="en">Top menu</title>
+						<title xml:lang="ge">Top Menu</title>
+						<title xml:lang="ru">Верхнее меню</title>
+            <title xml:lang="es">Menu Principal</title>
+            <maxdepth>2</maxdepth>
+        </menu>
+        <menu name="slide_menu">
+            <title xml:lang="ko">슬라이드 메뉴</title>
+            <title xml:lang="jp">Slide menu</title>
+            <title xml:lang="zh-CN">Slide menu</title>
+            <title xml:lang="en">Slide menu</title>
+						<title xml:lang="ge">Slide Menu</title>
+						<title xml:lang="ru">Slide Menu</title>
+            <title xml:lang="es">Slide Menu</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+        <menu name="bottom_menu">
+            <title xml:lang="ko">하단 메뉴 </title>
+            <title xml:lang="jp">下段メニュ?</title>
+            <title xml:lang="zh-CN">底部菜?</title>
+            <title xml:lang="en">Bottom menu</title>
+						<title xml:lang="ge">Bottom-Menu</title>
+						<title xml:lang="ru">Внизу меню</title>
+            <title xml:lang="es">Menu Inferior </title>
+            <maxdepth>1</maxdepth>
+        </menu>
+    </menus>
+</layout>

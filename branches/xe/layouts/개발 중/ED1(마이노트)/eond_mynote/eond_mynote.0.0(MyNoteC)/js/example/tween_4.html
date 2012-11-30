@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>wrapScroll Tween function override sample</title>
+	<script type="text/javascript" src="../scripts/wrapscroll.js"></script>
+	<script type="text/javascript">
+		opacityEaseIn = function(t, b, c, d, s){
+			var op = ( c > 1 || c < -1 ) ? 0.3 : 1;
+			if((t == 0) || (op == 1)){
+				s.opacity = op;
+				s.filter = 'alpha(opacity=' + op * 100 + ')';
+			}
+			return c * Math.pow( 2, 10 * (t/d - 1) ) + b;
+		}
+		new wrapScroll('movable1','wrap');
+		var mov2 = new wrapScroll('movable2','wrap');
+		mov2.setTween(opacityEaseIn, 100);
+	</script>
+	<style>
+	html {
+		margin:0;
+		padding:0;
+		background:#fbfbfc;
+	}
+	body {
+		margin:20px;
+		padding:0;
+		font-family:arial,sans-serif;
+		font-size:90%;
+	}
+	a{
+		color:#eb5c6c;
+		text-decoration:none;
+	}
+	h3 {
+		margin:0px;
+		padding-top:5px;
+	}
+	/* -- layout -- */
+	#wrap {
+		width:100%;
+		float:left;
+	}
+	#content {
+		margin-right:400px;
+	}
+	#sidebar {
+		float:left;
+		margin-left:-390px;
+		width:90px;
+	}
+	#movable1 {
+		width:150px;
+	}
+	#movable2 {
+		width:150px;
+		margin-left:190px;
+	}
+	/* -- design -- */
+	#content .column {
+		background-color:#fff;
+		border:8px solid #eee;
+		padding:8px;
+		margin-bottom:10px;
+		height:2000px;
+	}
+	#content .top {
+		height:auto;
+		overflow:hidden;
+	}
+	#movable1{
+		background-color:#f1f5fa;
+		border:8px solid #c9d8ed;
+		padding:8px;
+		height:150px;
+	}
+	#movable2{
+		background-color:#f5faf1;
+		border:8px solid #d8edc9;
+		padding:8px;
+		height:150px;
+	}
+	code {
+		display:block;
+		margin:8px 0px;
+		padding:8px;
+		font-size:small;
+		color:#008000;
+		line-height:150%;
+		background:#fcfcfc;
+		border:1px solid #eee;
+	}
+	</style>
+</head>
+
+<body>
+<div id="container" class="fixed">
+
+	<div id="wrap">
+	<div id="content">
+		<div class="column top">
+		<h3>Sample JavaScript code</h3>
+		<code>
+		&lt;script type=&quot;text/javascript&quot;&gt;<br />
+		opacityEaseIn = function(t, b, c, d, s){<br />
+		&nbsp;&nbsp;&nbsp;var op = ( c > 1 || c < -1 ) ? 0.3 : 1;<br />
+		&nbsp;&nbsp;&nbsp;if((t == 0) || (op == 1)){<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.opacity = op;<br />
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.filter = 'alpha(opacity=' + op * 100 + ')';<br />
+		&nbsp;&nbsp;&nbsp;}<br />
+		&nbsp;&nbsp;&nbsp;return c * Math.pow( 2, 10 * (t/d - 1) ) + b;<br />
+		}<br />
+		new wrapScroll('movable1','wrap');<br />
+		var mov2 = new wrapScroll('movable2','wrap');<br />
+		mov2.setTween(opacityEaseIn, 100);<br />
+		&lt;/script&gt;<br />
+		</code>
+		</div>
+		<div class="column">
+		<h3>Sample CSS Layout code</h3>
+		<code>
+		/* -- layout -- */<br />
+		#wrap {<br />
+		&nbsp;&nbsp;&nbsp;width:100%;<br />
+		&nbsp;&nbsp;&nbsp;float:left;<br />
+		}<br />
+		#content {<br />
+		&nbsp;&nbsp;&nbsp;margin-right:400px;<br />
+		}<br />
+		#sidebar {<br />
+		&nbsp;&nbsp;&nbsp;float:left;<br />
+		&nbsp;&nbsp;&nbsp;margin-left:-390px;<br />
+		&nbsp;&nbsp;&nbsp;width:90px;<br />
+		}<br />
+		#movable1 {<br />
+		&nbsp;&nbsp;&nbsp;width:150px;<br />
+		}<br />
+		#movable2 {<br />
+		&nbsp;&nbsp;&nbsp;width:150px;<br />
+		&nbsp;&nbsp;&nbsp;margin-left:190px;<br />
+		}<br />
+		</code>
+
+		<h3>Sample CSS Design code</h3>
+		<code>
+		/* -- design -- */<br />
+		#content&nbsp;.column&nbsp;{<br />
+		&nbsp;&nbsp;&nbsp;background-color:#fff;<br />
+		&nbsp;&nbsp;&nbsp;border:8px solid #eee;<br />
+		&nbsp;&nbsp;&nbsp;padding:8px;<br />
+		&nbsp;&nbsp;&nbsp;margin-bottom:10px;<br />
+		&nbsp;&nbsp;&nbsp;height:2000px;<br />
+		}<br />
+		#movable1{<br />
+		&nbsp;&nbsp;&nbsp;background-color:#f1f5fa;<br />
+		&nbsp;&nbsp;&nbsp;border:8px solid #c9d8ed;<br />
+		&nbsp;&nbsp;&nbsp;padding:8px;<br />
+		&nbsp;&nbsp;&nbsp;height:150px;<br />
+		}<br />
+		#movable2{<br />
+		&nbsp;&nbsp;&nbsp;background-color:#f5faf1;<br />
+		&nbsp;&nbsp;&nbsp;border:8px solid #d8edc9;<br />
+		&nbsp;&nbsp;&nbsp;padding:8px;<br />
+		&nbsp;&nbsp;&nbsp;height:150px;<br />
+		}<br />
+		code&nbsp;{<br />
+		&nbsp;&nbsp;&nbsp;display:block;<br />
+		&nbsp;&nbsp;&nbsp;margin:8px 0px;<br />
+		&nbsp;&nbsp;&nbsp;padding:8px;<br />
+		&nbsp;&nbsp;&nbsp;font-size:small;<br />
+		&nbsp;&nbsp;&nbsp;color:#008000;<br />
+		&nbsp;&nbsp;&nbsp;line-height:130%;<br />
+		&nbsp;&nbsp;&nbsp;background:#fbfbfc;<br />
+		&nbsp;&nbsp;&nbsp;border:1px solid #eee;<br />
+		}<br />
+		</code>
+
+		<h3>Sample HTML body code</h3>
+		<code>
+		&lt;body&gt;<br />
+		&lt;div&nbsp;id=&quot;container&quot;&gt;<br />
+		<br />
+		&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;wrap&quot;&gt;<br />
+		&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;content&quot;&gt;<br />
+		&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;column&quot;&gt;#content&nbsp;.column&lt;/div&gt;<br />
+		&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+		&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+		<br />
+		&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;sidebar&quot;&gt;<br />
+		&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;movable1&quot;&gt;#movable1&lt;/div&gt;<br />
+		&nbsp;&nbsp;&nbsp;&lt;div&nbsp;id=&quot;movable2&quot;&gt;#movable2&lt;/div&gt;<br />
+		&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+		&lt;/div&gt;<br />
+		&lt;!--&nbsp;end&nbsp;of&nbsp;container&nbsp;--&gt;<br />
+		&lt;/body&gt;<br />
+		</code>
+
+		</div>
+	</div>
+	</div>
+
+	<div id="sidebar">
+	<div id="movable1">#movable1</div>
+	<div id="movable2">#movable2</div>
+	</div>
+</div>
+<!-- end of container -->
+<a href="http://youmos.com/labs/wrapscroll/">&copy; youmos.com</a>
+</body>
+</html>

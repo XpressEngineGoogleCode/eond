@@ -1,0 +1,140 @@
+@charset "utf-8";
+
+/*
+PXE Default layout template for XpressEngine (Dummy Version)
+Markup : Hyunhw Jung
+Website: http://www.premiumxe.com
+Email : clubnb2@naver.com
+*/
+
+
+/* Browser Reset Preference - 수정하지 마십시오
+---------------------------------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6, pre, code { font-size: 1em }
+a img { border: none; }
+fieldset { border:none; }
+
+
+
+/* Layouts - Restricted Preference - 수정하지 마십시오
+---------------------------------------------------------------------------------*/
+#container_site { *zoom:1; }
+#leaflet_normal { *zoom:1; }
+#leaflet_wide { *zoom:1; }
+#header { position:relative; *zoom:1; z-index:1; }
+#header_sub { position:relative; *zoom:1; }
+#container_body { *zoom:1; }
+#container_body:after{ content:""; display:block; clear:both;}
+#container_contents { *zoom:1; }
+#container_contents .wrapper { *zoom:1; }
+#container_contents .wrapperTrans { *zoom:1; }
+
+#footer { position:relative; *zoom:1; }
+#footer_box1 { position:relative; *zoom:1; }
+#footer_box2 { position:relative; *zoom:1; }
+#footer_box3 { position:relative; *zoom:1; }
+#footer_sub { position:relative; *zoom:1; }
+
+
+/* Layouts - Margin & Position Preference - 필요에 따라 margin 값만 수정하세요
+---------------------------------------------------------------------------------*/
+
+#container_site { margin:0 auto; padding:0 0 50px 0; }
+#header { margin:0 auto; }
+#header_sub { margin:25px auto 0 auto; }
+#container_body { margin:0px auto 0 auto; }
+#container_contents { margin-top:35px; }
+#container_contents .wrapper { padding:20px; }
+#container_contents .wrapperTrans { padding:0 0 0 0; }
+#footer { margin:12px auto 80px auto; padding:0; }
+#footer .wrapper { margin:0 auto; }
+#footer_sub { margin:0 auto; padding:10px 0 20px 0; *padding:10px 0 9px 0; _padding:10px 0 7px 0; }
+#footer_sub .wrapper { margin:0 auto; }
+#footer_box1 { margin-left:28px; _margin-left:14px; }
+
+
+/* 리플렛을 좌측에 정렬 */
+#leaflet_normal { float:left; margin-right:20px; }
+#leaflet_wide { float:left; margin-right:20px; }
+
+#leaflet_normal .wrapper { margin:0; padding:62px 58px 65px 56px; }
+#leaflet_wide .wrapper { margin:0; padding:62px 68px 65px 66px; }
+
+
+
+/* Layouts - Customization - 여기서부터 자유롭게 코딩합니다
+---------------------------------------------------------------------------------*/
+body {  }
+p a {  }
+a, a:visited { text-decoration: none; }
+a:hover,
+a:active,
+a:focus { text-decoration:none; }
+
+#container_site { }
+
+#leaflet_normal { width:279px; overflow:hidden; }
+#leaflet_wide { width:436px; overflow:hidden; }
+.leaflet_banner { margin-bottom:20px; display:block; }
+
+#header { height:105px; }
+#header a.logo { position:relative; top:20px; left:0; }
+#header_sub { height:35px; overflow:hidden; }
+#header_sub .terminator { position:absolute; top:0; right:0; width:20px; height:35px; }
+#container_body {  }
+#container_contents { text-align:justify; line-height:140%; overflow:hidden; }
+#container_contents .wrapper { overflow:hidden; }
+#container_contents .wrapperTrans { overflow:hidden; }
+
+#e1 { overflow:hidden; }
+#e1 .wrapper { overflow:hidden; }
+
+#e2 { overflow:hidden; }
+#e2 .wrapper { overflow:hidden; }
+
+#footer { font:8pt 돋움, Dotum; letter-spacing:-1px; overflow:hidden; }
+#footer_box1 { float:left; overflow:hidden; }
+#footer_box2 {  }
+#footer_box3 { float:right; text-align:right; overflow:hidden; }
+#footer_sub { font:8pt 돋움, Dotum; letter-spacing:-1px; clear:both; }
+
+
+/* 메인메뉴
+---------------------------------------------------------------------------------*/
+.gnb{ position:relative; left:0; top:46px; margin:0; padding:0; list-style:none; *zoom:1; }
+.gnb li { float:left; *zoom:1; }
+.gnb li a{ padding:0 14px 0 0; margin:0 14px 0 0; _margin:0 8px 0 0; display:block; text-decoration:none !important; font-weight:bold; float:left; *zoom:1; }
+
+/* 가로 서브메뉴
+---------------------------------------------------------------------------------*/
+#hnb { position:relative; margin:0; padding:0; top:11px; left:100px; *zoom:1; font:12px Tahoma; list-style:none; }
+#hnb li { float:left; margin-right:10px; *zoom:1; }
+#hnb li a { float:left; padding-right:10px; display:block; text-decoration:none; *zoom:1; }
+#hnb li a:hover,
+#hnb li a:focus {  }
+#hnb li.on a {  }
+#hnb li.on a:hover,
+#hnb li.on a:focus {  }
+
+/* 하단메뉴
+---------------------------------------------------------------------------------*/
+.extraMenuLeft { list-style:none; margin:0 0 0 28px; padding:0; }
+.extraMenuLeft li { float:left; margin-right:10px; }
+.extraMenuLeft li a { padding-right:10px; }
+.extraMenuLeft li:last-child a {  }
+.extraMenuLeft li a:hover {  }
+
+.extraMenuRight { list-style:none; margin:0; padding:0; }
+.extraMenuRight li { float:left; margin-left:10px; }
+.extraMenuRight li a { padding-left:10px; }
+.extraMenuRight li:last-child a {  }
+.extraMenuRight li a:hover {  }
+
+#bottomBanner { list-style:none; position:absolute; top:11px; right:0; margin:0; padding:0; }
+#bottomBanner li { float:left; margin-right:30px; height:30px; }
+
+/* 2 Coulmn 박스
+---------------------------------------------------------------------------------*/
+.box { margin-bottom:40px; overflow:hidden; *zoom:1; }
+.box .box_left { width:48%; float:left; }
+.box .box_right { width:48%; float:right; }

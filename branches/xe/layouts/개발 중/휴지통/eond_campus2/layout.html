@@ -1,0 +1,184 @@
+<!-- js 파일 import -->
+<!--%import("js/eond_campus.js")-->
+
+<!-- 레이아웃과 연동될 css 파일 import -->
+<!--@if($layout_info->colorset == "white")-->
+    <!--%import("css/white.css")-->
+<!--@elseif($layout_info->colorset == "black")-->
+    <!--%import("css/black.css")-->
+<!--@else-->
+    <!--%import("css/white.css")-->
+<!--@end-->
+
+<!--@if($layout_info->background_image)-->
+<style type="text/css">
+    body {  background:#FFFFFF url({getUrl()}{$layout_info->background_image}) repeat-x left top; }
+</style>
+<!--@end-->
+
+<!--@if(!$layout_info->colorset)-->
+	{@$layout_info->colorset = "default"}
+<!--@end-->
+
+<div id="bodyWrap">
+	<div id="header">
+		<h1><a href="{$layout_info->index_url}"><!--@if(!$layout_info->logo_image)--><img src="./images/{$layout_info->colorset}/zeroBoardXE.png" alt="ZeroBoard™  XE" class="iePngFix" /><!--@else--><img src="{$layout_info->logo_image}" alt="logo" border="0" class="iePngFix" /><!--@end--></a></h1>
+
+		<div id="language">
+			<strong title="{$lang_type}">{$lang_supported[$lang_type]}</strong> <a href="#selectLang" onclick="showHide('selectLang');return false;"><img src="./images/{$layout_info->colorset}/buttonLang.gif" alt="Select Language" width="87" height="15" /></a>
+			<ul id="selectLang">
+                <!--@foreach($lang_supported as $key => $val)--><!--@if($key!= $lang_type)-->
+				<li><a href="#" onclick="doChangeLangType('{$key}');return false;">{$val}</a></li>
+                <!--@end--><!--@end-->
+			</ul>
+		</div>
+
+		<!--GNB-->
+		<ul id="gnb">
+            <!-- main_menu 1차 시작 -->
+            <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+                <!--@if($val['selected'])-->
+                    {@ $menu_1st = $val }
+                <!--@end-->
+
+                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+
+            <!--@end--><!--@end-->
+            <!-- main_menu 1차 끝 -->
+		</ul>
+		<!--//GNB-->
+
+		<form action="{getUrl()}" method="post" id="isSearch">
+            <input type="hidden" name="mid" value="{$mid}" />
+            <input type="hidden" name="act" value="IS" />
+            <input type="hidden" name="search_target" value="title_content" />
+			<input name="is_keyword" type="text" class="inputText" title="keyword" />
+
+			<input type="image" src="./images/{$layout_info->colorset}/buttonSearch.gif" alt="{$lang->cmd_search}" class="submit" />
+		</form>
+
+	</div>
+	<div id="contentBody">
+		<div id="columnLeft">
+
+            <!-- 로그인 위젯 -->
+            <img src="./images/blank.gif" class="zbxe_widget_output" widget="login_info" skin="xe_official" colorset="{$layout_info->colorset}" />
+
+            <!-- 왼쪽 2차 메뉴 -->
+			<img src="./images/blank.gif" alt="" class="mask" />
+
+            <!--@if($menu_1st)-->
+			<ol id="lnb">
+                {@ $idx = 1 }
+                <!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['link'])-->
+				<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a>
+
+                    <!-- main_menu 3차 시작 -->
+                    <!--@if($val['list'] && ($val['expand']=='Y'||$val['selected']) )-->
+					<ul>
+                    <!--@foreach($val['list'] as $k => $v)--><!--@if($v['link'])-->
+						<li <!--@if($v['selected'])-->class="on"<!--@end-->><a href="{$v['href']}" <!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$v['link']}</a></li>
+                    <!--@end--><!--@end-->
+					</ul>
+                    <!--@end-->
+				</li>
+                {@$idx++}
+                <!--@end--><!--@end-->
+			</ol>
+            <!--@end-->
+<img class="zbxe_widget_output" widget="lavalic_show" skin="ms_logo" colorset="default" lavalic_module="music_xml" />
+
+<img class="zbxe_widget_output" widget="tag_list" skin="blog_tag_list" colorset="normal" />
+
+
+<div align=center style="line-height:160%;">
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-7200623708996327";
+/* 200x200, 작성됨 08. 10. 25 */
+google_ad_slot = "2032284386";
+google_ad_width = 200;
+google_ad_height = 200;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+
+<a href=http://docs.google.com target=_blank><img src="http://www.google.com/google-d-s/intl/ko/images/docslogo.gif" border=0></a><br>
+<a href=http://www.tworld.co.kr/ target=_blank>Tworld</a><br>
+<a href=http://banking.nonghyup.com target=_blank>농협 뱅킹</a><br>
+<a href=http://longtermcare.or.kr target=_blank>노인장기요양보험</a><br>
+<a href="http://www.google.com/reader" target=_blank>구글 리더스</a><br>
+<a href="http://www.laziel.com/" target=_blank>라지엘 스튜디오</a><br>
+<a href="http://extremesms.egloos.com" target=_blank>eXtremeSMS</a><br>
+
+<a href="http://playercue.imbc.com/onair/" target=_blank>MBC onaire</a><br>
+<a href="http://www.imbc.com/broad/tv/culture/toron/bbs/index.html" target=_blank>100분 토론</a><br>
+<a href="http://www.ebsi.co.kr/ebs/jsp/apz/etc/etcOnAirPlayer.jsp?onair_ch=RADIO" target=_blank>EBS 라디오</a><br>
+<a href="http://home.ebs.co.kr/ivoca/index.html" target=_blank>상상 VOCA</a><br>
+<a href="http://cafe.naver.com/shinylady" target=_blank>샤이니 카페</a><br>
+<a href="http://www.ebse.co.kr/ebs/jsp/fhz/aie/Aie_PrInfoPram_List.jsp?forum_id=306" target=_blank>World News Review</a><a href="http://www.ebse.co.kr/ebs/fhz.AtbRetrieveArticleList.laf?forum_id=306" target=_blank>.</a><br>
+<a href="http://www.ebs.co.kr/actions/CustomerSubIntro?menu_id=Q014&media=B" target=_blank>EBS 편성표</a><a href="http://www.ebs.co.kr/jsp/portal/customer/organize_index.jsp?menu_id=Q014&&media=B#" target=_blank>.</a><br>
+
+<a href="http://www.arirang.co.kr/Player/TV_Player.asp?code=News" target=_blank>Arirang Player</a><br>
+<a href="http://www.arirang.co.kr/News/News_Index.asp" target=_blank>아리랑TV NEWS</a><br>
+
+<a href="http://english.donga.com/" target=_blank>동아일보 영어판서비스</a><br>
+<a href="http://endic.naver.com/" target=_blank>네이버 영어사전</a><br>
+
+<a href="http://miniwini.com" target=_blank>미니위니</a><br>
+<a href="http://www.mirstyle.com" target=_blank>미르스타일</a><br>
+<a href="http://clien.net" target="_blank">클리앙</a><br>
+<a href="http://www.slrclub.com/" target="_blank">SLRCLUB</a><br>
+<a href="http://www.coolenjoy.net/" target="_blank">쿨엔조이</a><br>
+<a href="http://ppomppu.co.kr" target="_blank">뽐뿌</a><br>
+<a href="http://thinkmania.com" target=_blank>THINKMANIA</a><br>
+<a href="http://www.offree.net/" target=_blank>도아의 세상사는이야기</a><br>
+<a href="http://usboffice.kr" target=_blank>USB office</a><br>
+<a href="http://cafe.naver.com/usboffice.cafe" target=_blank>USB office.cafe</a><br>
+<a href="http://svc.canon-bs.co.kr/" target=_blank>캐논코리아 비즈니스</a><br>
+
+<A HREF="http://www.colossus.co.kr" TARGET="_BLANK">COLOSSUS</A><BR>
+<A HREF="http://www.skyok.co.kr/" TARGET="_BLANK">Skydigital</A><br>
+<a href="http://www.ez-net.co.kr" target="_blank">이지넷</a><br>
+<a href="http://www.royche.co.kr/" target="_blank">ROYCHE</a><br>
+<a href="http://audiotrak.co.kr" target="_blank">오디오 트랙</a><br>
+
+
+<a href="http://www.qting.co.kr" target="_blank">Qting</a><br>
+<a href="http://banking.nonghyup.com/" target="_blank">농협인터넷뱅킹</a><br>
+<a href="http://www.tworld.co.kr/" target="_blank">T world</a><br>
+
+<a href="http://mar.gar.in/" target="_blank">마가린</a><br>
+<a href="http://springnote.com" target="_blank">스프링노트</a><br>
+<a href="http://www.lemonpen.com/" target="_blank">레몬펜</a><br>
+<a href="http://kwzf.net/" target="_blank">묻지마 검색</a><br>
+<a href="http://cyworld.com/" target="_blank">싸이월드</a><br>
+
+<a href="http://mini-i.com" target="_blank">the M</a><br>
+<a href="http://nzeo.com" target="_blank">제로보드 공식사이트</a><br>
+<a href="http://mini.moneta.co.kr/" target="_blank">모네타 미니가계부</a><br>
+<a href="http://www.teps.or.kr/" target="_blank">텝스</a><br>
+</div>
+
+		</div>
+		<div id="columnRight">
+            <!-- 컨텐츠 시작 -->
+            {$content}
+
+		</div>
+	</div>
+	<ul id="footer">
+		<li class="first-child">
+			<address>
+			<a href="http://www.zeroboard.com" onclick="window.open(this.href);return false;"><img src="./images/{$layout_info->colorset}/powerdByZeroboard.gif" alt="Powered By ZeroBoard" width="106" height="5" /></a>
+			</address>
+
+		</li>
+
+        <!--@foreach($bottom_menu->list as $key => $val)-->
+		<li><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+        <!--@end-->
+	</ul>
+</div>

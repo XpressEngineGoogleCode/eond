@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <title xml:lang="ko">Elkha - Sky</title>
+    <description xml:lang="ko">
+        Design : 엘카
+        HTML/CSS : 엘카
+        Layout producer : 엘카
+    </description>
+    <version>1.4.4</version>
+    <date>2009-03-01</date>
+    <link>http://elkha.kr/</link>
+    <author email_address="elkha1914@hotmail.com" link="http://elkha.kr/">
+        <name xml:lang="ko">엘카</name>
+    </author>
+    <extra_vars>
+    		<var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+            <title xml:lang="jp">ロゴイメ?ジ</title>
+            <title xml:lang="zh-CN">LOGO?片</title>
+            <title xml:lang="en">Logo image</title>
+						<title xml:lang="ge">Logobildes</title>
+						<title xml:lang="ru">Изображения логотипа</title>
+            <title xml:lang="es">Imagen del logotipo</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요. (width:210px, height:100px)</description>
+            <description xml:lang="jp">レイアウトの上段に表示されるロゴイメ?ジを入力してください。 (width:210px, height:100px)</description>
+            <description xml:lang="zh-CN">??入?示在布局?部的LOGO?片。(width:210px, height:100px)</description>
+            <description xml:lang="en">Please input a logo image which will be displayed on the top of layout. (width:210px, height:100px)</description>
+						<description xml:lang="ge">Bitte geben Sie ein Logo das Bild wird auf dem oberen Layout. (width:210px, height:100px)</description>
+						<description xml:lang="ru">Введите логотип изображение, которое будет отображаться в верхней части формы. (width:210px, height:100px)</description>
+            <description xml:lang="es">Ingresar una imagen para logotipo. (width:210px, height:100px)</description>
+        </var>
+        <var name="index_name" type="text">
+            <title xml:lang="ko">사이트 제목</title>
+            <title xml:lang="jp">Site Name</title>
+            <title xml:lang="zh-CN">Site Name</title>
+            <title xml:lang="en">Site Name</title>
+						<title xml:lang="ru">Site Name</title>
+            <title xml:lang="es">Site Name</title>
+            <description xml:lang="ko">사이트 제목을 입력해주세요.</description>
+            <description xml:lang="jp">Please input a name that your site.</description>
+            <description xml:lang="zh-CN">Please input a name that your site.</description>
+            <description xml:lang="en">Please input a name that your site.</description>
+						<description xml:lang="ru">Please input a name that your site.</description>
+            <description xml:lang="es">Please input a name that your site.</description>
+        </var>
+        <var name="index_url" type="text">
+            <title xml:lang="ko">홈 페이지 URL</title>
+            <title xml:lang="jp">ホ?ムペ?ジURL</title>
+            <title xml:lang="zh-CN">主?地址</title>
+            <title xml:lang="en">Homepage URL</title>
+						<title xml:lang="ge">Homepage URL</title>
+						<title xml:lang="ru">Домашняя страница URL</title>
+            <title xml:lang="es">URL de la pagina web</title>
+            <description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+            <description xml:lang="jp">ロゴをクリックした時に移動するホ?ムペ?ジのURLを入力してください。</description>
+            <description xml:lang="zh-CN">点??站LOGO?要移?的?面URL。</description>
+            <description xml:lang="en">Please input the URL to redirect when user clicks the logo</description>
+						<description xml:lang="ge">Bitte geben Sie die URL umzuleiten, wenn Benutzer klickt das Logo</description>
+						<description xml:lang="ru">Пожалуйста, введите URL для перенаправления, когда пользователь нажимает логотип</description>
+            <description xml:lang="es">Ingresar el URL de la pagina web para redireccionar al pulsar el logotipo</description>
+        </var>
+				<var name="colorset" type="select">
+            <title xml:lang="ko">컬러셋</title>
+            <title xml:lang="jp">カラ?セット</title>
+            <title xml:lang="zh-CN">?色</title>
+            <title xml:lang="en">Colorset</title>
+            <title xml:lang="es">Set de colores</title>
+            <description xml:lang="ko">원하시는 컬러셋을 선택해주세요.</description>
+            <description xml:lang="jp">希望するカラ?セットを選?してください。</description>
+            <description xml:lang="zh-CN">????色。</description>
+            <description xml:lang="en">Please select a colorset you want.</description>
+            <description xml:lang="es">Seleccione set de colores que desea.</description>
+            <options name="default">
+                <title xml:lang="ko">스카이블루 (default)</title>
+                <title xml:lang="jp">skyblue (default)</title>
+                <title xml:lang="en">skyblue (default)</title>
+                <title xml:lang="es">skyblue (default)</title>
+                <title xml:lang="zh-CN">skyblue (default)</title>
+                <value>default</value>
+            </options>
+            <options name="pink">
+                <title xml:lang="ko">분홍</title>
+                <title xml:lang="jp">pink</title>
+                <title xml:lang="en">pink</title>
+                <title xml:lang="es">pink</title>
+                <title xml:lang="zh-CN">pink</title>
+                <value>pink</value>
+            </options>
+            <options name="orange">
+                <title xml:lang="ko">주황</title>
+                <title xml:lang="jp">orange</title>
+                <title xml:lang="en">orange</title>
+                <title xml:lang="es">orange</title>
+                <title xml:lang="zh-CN">orange</title>
+                <value>orange</value>
+            </options>
+            <options name="green">
+                <title xml:lang="ko">초록</title>
+                <title xml:lang="jp">green</title>
+                <title xml:lang="en">green</title>
+                <title xml:lang="es">green</title>
+                <title xml:lang="zh-CN">green</title>
+                <value>green</value>
+            </options>
+            <options name="black">
+                <title xml:lang="ko">검정</title>
+                <title xml:lang="jp">black</title>
+                <title xml:lang="en">black</title>
+                <title xml:lang="es">black</title>
+                <title xml:lang="zh-CN">black</title>
+                <value>black</value>
+            </options>
+        </var>
+    		<var name="content_align" type="select">
+            <title xml:lang="ko">문서 정렬</title>
+            <title xml:lang="jp">Content align</title>
+            <title xml:lang="zh-CN">Content align</title>
+            <title xml:lang="en">Content align</title>
+            <title xml:lang="es">Content align</title>
+            <options name="default">
+                <title xml:lang="ko">오른쪽 정렬 (default)</title>
+                <title xml:lang="jp">Right (default)</title>
+                <title xml:lang="en">Right (default)</title>
+                <title xml:lang="es">Right (default)</title>
+                <title xml:lang="zh-CN">Right (default)</title>
+                <value>default</value>
+            </options>
+            <options name="left">
+                <title xml:lang="ko">왼쪽 정렬</title>
+                <title xml:lang="jp">Left</title>
+                <title xml:lang="en">Left</title>
+                <title xml:lang="es">Left</title>
+                <title xml:lang="zh-CN">Left</title>
+                <value>left</value>
+            </options>
+            <options name="bottom">
+                <title xml:lang="ko">위젯을 하단에 배치</title>
+                <title xml:lang="jp">Widget - bottom</title>
+                <title xml:lang="en">Widget - bottom</title>
+                <title xml:lang="es">Widget - bottom</title>
+                <title xml:lang="zh-CN">Widget - bottom</title>
+                <value>bottom</value>
+            </options>
+            <options name="none">
+                <title xml:lang="ko">위젯 없음</title>
+                <title xml:lang="jp">None widget</title>
+                <title xml:lang="en">None widget</title>
+                <title xml:lang="es">None widget</title>
+                <title xml:lang="zh-CN">None widget</title>
+                <value>none</value>
+            </options>
+      </var>
+        <var name="wdget_var_1_title" type="text">
+            <title xml:lang="ko">위젯 태그 1 제목</title>
+            <title xml:lang="jp">Widget tag 1 title</title>
+            <title xml:lang="zh-CN">Widget tag 1 title</title>
+            <title xml:lang="en">SWidget tag 1 title</title>
+						<title xml:lang="ru">Widget tag 1 title</title>
+            <title xml:lang="es">Widget tag 1 title</title>
+        </var>
+        <var name="wdget_var_1" type="text">
+            <title xml:lang="ko">위젯 태그 1</title>
+            <title xml:lang="jp">Widget tag 1</title>
+            <title xml:lang="zh-CN">Widget tag 1</title>
+            <title xml:lang="en">SWidget tag 1</title>
+						<title xml:lang="ru">Widget tag 1</title>
+            <title xml:lang="es">Widget tag 1</title>
+        </var>
+        <var name="wdget_var_2_title" type="text">
+            <title xml:lang="ko">위젯 태그 2 제목</title>
+            <title xml:lang="jp">Widget tag 2 title</title>
+            <title xml:lang="zh-CN">Widget tag 2 title</title>
+            <title xml:lang="en">SWidget tag 2 title</title>
+						<title xml:lang="ru">Widget tag 2 title</title>
+            <title xml:lang="es">Widget tag 2 title</title>
+        </var>
+        <var name="wdget_var_2" type="text">
+            <title xml:lang="ko">위젯 태그 2</title>
+            <title xml:lang="jp">Widget tag 2</title>
+            <title xml:lang="zh-CN">Widget tag 2</title>
+            <title xml:lang="en">SWidget tag 2</title>
+						<title xml:lang="ru">Widget tag 2</title>
+            <title xml:lang="es">Widget tag 2</title>
+        </var>
+        <var name="wdget_var_3_title" type="text">
+            <title xml:lang="ko">위젯 태그 3 제목</title>
+            <title xml:lang="jp">Widget tag 3 title</title>
+            <title xml:lang="zh-CN">Widget tag 3 title</title>
+            <title xml:lang="en">SWidget tag 3 title</title>
+						<title xml:lang="ru">Widget tag 3 title</title>
+            <title xml:lang="es">Widget tag 3 title</title>
+        </var>
+        <var name="wdget_var_3" type="text">
+            <title xml:lang="ko">위젯 태그 3</title>
+            <title xml:lang="jp">Widget tag 3</title>
+            <title xml:lang="zh-CN">Widget tag 3</title>
+            <title xml:lang="en">SWidget tag 3</title>
+						<title xml:lang="ru">Widget tag 3</title>
+            <title xml:lang="es">Widget tag 3</title>
+        </var>
+    </extra_vars>
+    <menus>
+        <menu name="main_menu" default="true">
+            <title xml:lang="ko">상단 메뉴</title>
+            <title xml:lang="jp">上段メニュ?</title>
+            <title xml:lang="zh-CN">主菜?</title>
+            <title xml:lang="en">Top menu</title>
+						<title xml:lang="ge">Top Menu</title>
+						<title xml:lang="ru">Верхнее меню</title>
+            <title xml:lang="es">Menu Principal</title>
+            <maxdepth>3</maxdepth>
+        </menu>
+        <menu name="bottom_menu">
+            <title xml:lang="ko">하단 메뉴 </title>
+            <title xml:lang="jp">下段メニュ?</title>
+            <title xml:lang="zh-CN">底部菜?</title>
+            <title xml:lang="en">Bottom menu</title>
+						<title xml:lang="ge">Bottom-Menu</title>
+						<title xml:lang="ru">Внизу меню</title>
+            <title xml:lang="es">Menu Inferior </title>
+            <maxdepth>1</maxdepth>
+        </menu>
+    </menus>
+</layout>

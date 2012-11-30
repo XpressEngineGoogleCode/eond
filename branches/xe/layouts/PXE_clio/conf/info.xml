@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.2">
+    <title xml:lang="ko">PXE Clio (공모전용)</title>
+    <title xml:lang="en">PXE Clio Layout (For XE Contest)</title>
+    <description xml:lang="ko">
+        PXE 클리오 레이아웃
+        디자인 : 정현화
+        퍼블리싱 : 정현화
+        레이아웃 제작 : 정현화
+    </description>
+    <description xml:lang="en">
+        PXE Clio layout
+        Designer : Hyunhwa Jung
+        HTML/CSS : Hyunhwa Jung
+        Layout producer : Hyunhwa Jung
+    </description>
+    <version>1.0.2</version>
+    <date>2011-02-20</date>
+
+    <author email_address="clubnb2@naver.com" link="http://www.premiumxe.com">
+        <name xml:lang="ko">Hyunhwa Jung</name>
+        <name xml:lang="en">Hyunhwa Jung</name>
+    </author>
+
+    <extra_vars>
+	
+	    <var name="display_splash" type="select">
+            <title xml:lang="ko">데모 보기</title>
+            <title xml:lang="en">Display Splash contents</title>
+            <description xml:lang="ko">PXE Clio 데모 컨텐츠 보기</description>
+            <description xml:lang="en">Please select a contents.</description>
+			<options value="show">
+                <title xml:lang="ko">사용</title>
+                <title xml:lang="en">View splash contents</title>
+            </options>
+			<options value="hide">
+                <title xml:lang="ko">사용 안함</title>
+                <title xml:lang="en">Not display</title>
+            </options>
+        </var>
+		
+	    <var name="colorset" type="select">
+            <title xml:lang="ko">컬러셋</title>
+            <description xml:lang="ko">원하시는 컬러셋을 선택해주세요.</description>
+			<description xml:lang="en">Please select colorset you want.</description>
+            <options value="default">
+                <title xml:lang="ko">기본(흰 색)</title>
+				<title xml:lang="en">Default(White)</title>
+            </options>
+            <options value="custom">
+                <title xml:lang="ko">사용자 지정</title>
+				<title xml:lang="en">Custom Color</title>
+            </options>
+        </var>
+		
+		<var name="container_site_width" type="text">
+            <title xml:lang="ko">사이트 너비</title>
+            <title xml:lang="en">Site Width</title>
+            <description xml:lang="ko">사이트 전체 폭 (기본 980px). 980과 같이 수치만 적어주세요. px과 같은 단위는 넣지 않습니다.</description>
+            <description xml:lang="en">Please input the size to Site</description>
+        </var>
+		
+		<var name="wid1_width" type="text">
+            <title xml:lang="ko">위젯공간 1의 너비</title>
+            <title xml:lang="en">Widget Number 1 Width</title>
+            <description xml:lang="ko">첫번째 위젯의 너비(기본 280px). 200과 같이 수치만 적어주세요. px과 같은 단위는 넣지 않습니다.</description>
+            <description xml:lang="en">Please input the size to Widget Number 1</description>
+        </var>
+		
+		<var name="wid2_width" type="text">
+            <title xml:lang="ko">위젯공간 2의 너비</title>
+            <title xml:lang="en">Widget Number 2 Width</title>
+            <description xml:lang="ko">두번째 위젯의 너비(기본 150px). 150과 같이 수치만 적어주세요. px과 같은 단위는 넣지 않습니다.</description>
+            <description xml:lang="en">Please input the size to Widget Number 2</description>
+        </var>
+		
+		<var name="margin_width" type="text">
+            <title xml:lang="ko">마진 너비</title>
+            <title xml:lang="en">Margin Width</title>
+            <description xml:lang="ko">각 단 사이의 마진 너비를 설정합니다(기본 10) 숫자만 기재해주세요. px과 같은 단위는 넣지 않습니다.</description>
+            <description xml:lang="en">Please input the size to margin</description>
+        </var>
+		
+        <var name="layout_type" type="select">
+            <title xml:lang="ko">구성 선택</title>
+            <title xml:lang="en">Preference</title>
+            <description xml:lang="ko">원하시는 구성을 선택해주세요.</description>
+            <description xml:lang="en">Please select site preference you want.</description>
+            <options value="ece">
+                <title xml:lang="ko">3단 형식 스타일 3</title>
+                <title xml:lang="en">3col Style 3</title>
+            </options>
+			<options value="cee">
+                <title xml:lang="ko">3단 형식 스타일 2</title>
+                <title xml:lang="en">3col Style 2</title>
+            </options>
+			<options value="eec">
+                <title xml:lang="ko">3단 형식 스타일 1</title>
+                <title xml:lang="en">3col Style 1</title>
+            </options>
+			<options value="ce">
+                <title xml:lang="ko">2단 형식 스타일 2</title>
+                <title xml:lang="en">2col Style 2</title>
+            </options>
+			<options value="ec">
+                <title xml:lang="ko">2단 형식 스타일 1</title>
+                <title xml:lang="en">2col Style 1</title>
+            </options>
+			<options value="c">
+                <title xml:lang="ko">1단 형식</title>
+                <title xml:lang="en">Only Contents Style</title>
+            </options>
+        </var>
+		
+		<var name="apply_rounding" type="select">
+            <title xml:lang="ko">박스 라운딩 효과</title>
+            <title xml:lang="en">Box rounding effects</title>
+            <description xml:lang="ko">위젯이나 본문부 박스의 모서리에 라운딩 처리를 할 것인지 선택해 주세요.</description>
+            <description xml:lang="en">Please select box cornering style you want.</description>
+            <options value="Y">
+                <title xml:lang="ko">사용 함</title>
+                <title xml:lang="en">Use</title>
+            </options>
+			<options value="N">
+                <title xml:lang="ko">사용 안함</title>
+                <title xml:lang="en">Not use</title>
+            </options>
+        </var>
+		
+		<var name="apply_rounding_px" type="text">
+            <title xml:lang="ko">라운딩 수치 입력</title>
+            <title xml:lang="en">Rounding Key</title>
+            <description xml:lang="ko">각 모서리를 몇 픽셀 단위로 둥글게 처리할지 결정합니다. 기본은 5px이며, 입력할 때는 px은 빼고 수치만 적어주세요. 박스 라운딩 효과를 사용하는 경우에만 적용됩니다.</description>
+            <description xml:lang="en">Please input the size to box rounding.</description>
+        </var>
+		
+		<var name="container_contents_style" type="select">
+            <title xml:lang="ko">컨텐츠(본문부) 스타일</title>
+            <title xml:lang="en">Contents Style</title>
+            <description xml:lang="ko">원하는 컨텐츠 영역(본문부)의 스타일을 선택하세요.</description>
+            <description xml:lang="en">Please select a contents style you want.</description>
+			<options value="useRound">
+                <title xml:lang="ko">박스</title>
+                <title xml:lang="en">Use rounded corners box</title>
+            </options>
+			<options value="default">
+                <title xml:lang="ko">기본</title>
+                <title xml:lang="en">Default</title>
+            </options>
+        </var>
+		
+		<var name="display_content_breadclumb" type="select">
+            <title xml:lang="ko">본문 경로 표시기 출력</title>
+            <title xml:lang="en">Contents Breadclumb Preference</title>
+            <description xml:lang="ko">본문부 상단에 현재 메뉴의 위치를 출력하거나 감춥니다. 이 기능은 컨텐츠 스타일을 라운드 코너 박스로 설정했을 경우에만 작동합니다.</description>
+            <description xml:lang="en">Please select contents breadclumb display you want.</description>
+            <options value="Y">
+                <title xml:lang="ko">출력</title>
+                <title xml:lang="en">Display</title>
+            </options>
+			<options value="N">
+                <title xml:lang="ko">출력 안함</title>
+                <title xml:lang="en">Not Display</title>
+            </options>
+        </var>
+		
+		<var name="display_accounts" type="select">
+            <title xml:lang="ko">계정 관련 정보 출력</title>
+            <title xml:lang="en">Accounts Information Preference</title>
+            <description xml:lang="ko">로그인 및 회원정보와 같은 계정 정보를 출력합니다.</description>
+            <description xml:lang="en">Please select accounts information display you want.</description>
+			<options value="widget">
+                <title xml:lang="ko">위젯 영역(e1)에서 출력</title>
+                <title xml:lang="en">Display to widget area(e1).</title>
+            </options>
+			<options value="omenu">
+                <title xml:lang="ko">우측 상단 옵션 메뉴에서 출력</title>
+                <title xml:lang="en">Display to option menu</title>
+            </options>
+        </var>
+		
+		<var name="menu_type" type="select">
+            <title xml:lang="ko">메인 메뉴 선택</title>
+            <title xml:lang="en">Main Menu Preference</title>
+            <description xml:lang="ko">원하시는 메인 메뉴 구성을 선택해주세요.</description>
+            <description xml:lang="en">Please select Main menu preference you want.</description>
+            <options value="normal">
+                <title xml:lang="ko">일반 1단 형식</title>
+                <title xml:lang="en">Normal (1 Depth)</title>
+            </options>
+			<options value="pulldown">
+                <title xml:lang="ko">4단 풀다운 형식</title>
+                <title xml:lang="en">Pull Down (4 Depth)</title>
+            </options>
+        </var>
+		
+		<var name="display_hmenu" type="select">
+            <title xml:lang="ko">서브 메뉴(가로) 출력</title>
+            <title xml:lang="en">Topside 2nd menu and Breadclumb Preference</title>
+            <description xml:lang="ko">페이지 상단에 출력 할 가로메뉴 형태를 결정합니다.</description>
+            <description xml:lang="en">Please select topside menu display you want.</description>
+            <options value="breadclumb">
+                <title xml:lang="ko">빵조각 경로표시기 출력</title>
+                <title xml:lang="en">Display Breadclumb</title>
+            </options>
+			<options value="2ndmenu">
+                <title xml:lang="ko">2차 가로메뉴 출력</title>
+                <title xml:lang="en">Display 2nd Horizontal Sub Menu</title>
+            </options>
+			<options value="notuse">
+                <title xml:lang="ko">출력 안함</title>
+                <title xml:lang="en">Not Display</title>
+            </options>
+        </var>
+		
+		<var name="display_vmenu" type="select">
+            <title xml:lang="ko">서브 메뉴(세로) 출력</title>
+            <title xml:lang="en">Sub Menu(Vertical) Preference</title>
+            <description xml:lang="ko">위젯영역 1에 출력 될 서브메뉴(세로) 출력여부를 결정합니다.</description>
+            <description xml:lang="en">Please select Sub menu display you want.</description>
+            <options value="Y">
+                <title xml:lang="ko">출력</title>
+                <title xml:lang="en">Display</title>
+            </options>
+		    <options value="N">
+                <title xml:lang="ko">출력 안함</title>
+                <title xml:lang="en">Not Display</title>
+            </options>
+        </var>
+		
+		<var name="display_category" type="select">
+            <title xml:lang="ko">카테고리(트리) 출력</title>
+            <title xml:lang="en">Category(Tree Style) Preference</title>
+            <description xml:lang="ko">위젯영역 1에 현재 보고 있는 게시판 모듈의 카테고리 출력여부를 결정합니다. 해당 게시판 모듈에서 카테고리 기능을 사용해야만 레이아웃에서도 카테고리를 출력합니다.</description>
+            <description xml:lang="en">Please select category display you want.</description>
+            <options value="Y">
+                <title xml:lang="ko">출력</title>
+                <title xml:lang="en">Display</title>
+            </options>
+			<options value="N">
+                <title xml:lang="ko">출력 안함</title>
+                <title xml:lang="en">Not Display</title>
+            </options>
+        </var>
+
+		<var name="logo_image" type="image">
+            <title xml:lang="ko">로고이미지</title>
+            <title xml:lang="en">Logo image</title>
+            <description xml:lang="ko">레이아웃의 상단에 표시될 로고이미지를 입력하세요. 크기는 139*66 픽셀이 적당합니다.</description>
+            <description xml:lang="en">Please input a logo image which will be displayed on the top of layout</description>
+        </var>
+		
+        <var name="index_url" type="text">
+            <title xml:lang="ko">홈 페이지 URL</title>
+            <title xml:lang="en">Homepage URL</title>
+            <description xml:lang="ko">로고를 클릭시에 이동할 홈 페이지 URL을 입력해 주세요.</description>
+            <description xml:lang="en">Please input the URL to redirect when user clicks the logo</description>
+        </var>
+		
+		<var name="twitter_url" type="text">
+            <title xml:lang="ko">트위터 URL</title>
+            <title xml:lang="en">Twitter URL</title>
+            <description xml:lang="ko">우측 상단 트위터 링크를 클릭했을 때 이동할 URL을 입력해 주세요.</description>
+            <description xml:lang="en">Please input the URL to redirect when user clicks the Twitter Icon.</description>
+        </var>
+		
+		<var name="display_promotion" type="select">
+            <title xml:lang="ko">상단 프로모션 출력</title>
+            <title xml:lang="en">Display promotion area</title>
+            <description xml:lang="ko">화면 상단의 프로모션 영역의 출력 여부를 결정합니다.</description>
+            <description xml:lang="en">Please select you want.</description>
+            <options value="Y">
+                <title xml:lang="ko">출력</title>
+                <title xml:lang="en">Display Promotion</title>
+            </options>
+			<options value="N">
+                <title xml:lang="ko">출력 안함</title>
+                <title xml:lang="en">Not display</title>
+            </options>
+        </var>
+		
+		<var name="promo_selected" type="select">
+            <title xml:lang="ko">프로모션 기본값 설정</title>
+            <title xml:lang="en">Default Promotion Display Preference</title>
+            <description xml:lang="ko">처음으로 출력할 프로모션 종류를 선택해 주세요.</description>
+            <description xml:lang="en">Please select display promotion first you want.</description>
+            <options value="slide">
+                <title xml:lang="ko">슬라이드 이미지</title>
+                <title xml:lang="en">Slide Image</title>
+            </options>
+			<options value="image">
+                <title xml:lang="ko">단일 이미지</title>
+                <title xml:lang="en">Image</title>
+            </options>
+			<options value="movie">
+                <title xml:lang="ko">플래쉬</title>
+                <title xml:lang="en">Flash</title>
+            </options>
+        </var>
+		
+		<var name="promo_height" type="text">
+            <title xml:lang="ko">프로모션 영역의 이미지 높이</title>
+            <title xml:lang="en">input image height for promotion.</title>
+            <description xml:lang="ko">프로모션 영역에 출력 될 단일 이미지와 슬라이드 이미지의 높이를 적어주세요(기본 327px). 327과 같이 수치만 적고 px과 같은 단위는 넣지 않습니다. 프로모션 이미지의 너비는 사이트 너비와 동일하게 설정되기 때문에 별도의 설정없이 높이값만 입력 받습니다.</description>
+            <description xml:lang="en">Please input the size to image promotion.</description>
+        </var>
+		
+		<var name="promotion_image" type="image">
+            <title xml:lang="ko">프로모션 이미지</title>
+            <title xml:lang="en">Promotion image</title>
+            <description xml:lang="ko">프로모션 영역에 출력 될 단일 이미지를 입력하세요. 슬라이드 이미지의 경우는 매뉴얼을 참조해주세요.</description>
+            <description xml:lang="en">Please input a promotion image which will be displayed on promotion area.</description>
+        </var>
+		
+		<var name="promotion_url" type="text">
+            <title xml:lang="ko">프로모션 페이지 URL</title>
+            <title xml:lang="en">Promotion URL</title>
+            <description xml:lang="ko">프로모션 이미지를 클릭시에 이동할 URL을 입력해 주세요. 단일 이미지에 사용되는 부분입니다. 슬라이드 이미지의 경우는 매뉴얼을 참조해주세요.</description>
+            <description xml:lang="en">Please input the URL to redirect when user clicks the promotion image</description>
+        </var>
+		
+		<var name="promo_movie_height" type="text">
+            <title xml:lang="ko">프로모션 플래쉬 높이</title>
+            <title xml:lang="en">input flash height for promotion.</title>
+            <description xml:lang="ko">프로모션 영역에 출력 될 플래쉬의 높이를 적어주세요(기본 579px). 579와 같이 수치만 적고 px과 같은 단위는 넣지 않습니다. 플래쉬의 너비는 사이트 너비와 동일하게 설정되기 때문에 별도의 설정없이 높이값만 입력 받습니다.</description>
+            <description xml:lang="en">Please input the size to flash promotion.</description>
+        </var>
+		
+		<var name="promo_movie_url" type="text">
+            <title xml:lang="ko">프로모션 플래쉬 URL</title>
+            <title xml:lang="en">Flash URL for display promotion.</title>
+            <description xml:lang="ko">프로모션 영역에 출력 될 플래쉬의 경로를 적어주세요. SWF 파일등의 경로를 적어주면 됩니다. 경로에 대한 부분은 매뉴얼을 통해 더 자세한 방법을 알아보세요.</description>
+            <description xml:lang="en">Please input the URL to display when user clicks the movie promotiom.</description>
+        </var>
+		
+		<var name="display_mp3" type="select">
+            <title xml:lang="ko">프로모션 MP3 플레이어 기본값</title>
+            <title xml:lang="en">MP3 Player Preference</title>
+            <description xml:lang="ko">프로모션 영역의 MP3 플레이어 기본값을 설정합니다.</description>
+            <description xml:lang="en">Please select you want.</description>
+            <options value="show">
+                <title xml:lang="ko">보이기</title>
+                <title xml:lang="en">Show</title>
+            </options>
+			<options value="hide">
+                <title xml:lang="ko">감추기</title>
+                <title xml:lang="en">Hide</title>
+            </options>
+        </var>
+
+		<var name="display_footer_widgets" type="select">
+            <title xml:lang="ko">하단 위젯 영역 출력</title>
+            <title xml:lang="en">Display bottom widgets area</title>
+            <description xml:lang="ko">화면 하단의 위젯영역 출력 여부를 결정합니다.</description>
+            <description xml:lang="en">Please select you want.</description>
+            <options value="Y">
+                <title xml:lang="ko">출력</title>
+                <title xml:lang="en">Display</title>
+            </options>
+			<options value="N">
+                <title xml:lang="ko">출력 안함</title>
+                <title xml:lang="en">Not display</title>
+            </options>
+        </var>
+		
+		<var name="display_bottom_breadclumb" type="select">
+            <title xml:lang="ko">하단 경로 표시기 출력</title>
+            <title xml:lang="en">Bottom Breadclumb Preference</title>
+            <description xml:lang="ko">하단 위젯 영역에 현재 메뉴의 위치를 출력하거나 감춥니다. 이 기능은 하단 위젯 영역이 출력으로 설정되어 있어야만 작동합니다.</description>
+            <description xml:lang="en">Please select bottom breadclumb display you want.</description>
+            <options value="Y">
+                <title xml:lang="ko">출력</title>
+                <title xml:lang="en">Display</title>
+            </options>
+			<options value="N">
+                <title xml:lang="ko">출력 안함</title>
+                <title xml:lang="en">Not Display</title>
+            </options>
+        </var>
+
+		<var name="signup_mid" type="text">
+            <title xml:lang="ko">회원가입용 고정 mid값 사용</title>
+            <description xml:lang="ko">설정한 mid값으로 회원가입 페이지를 출력시킵니다. 자세한 내용은 매뉴얼을 참조해주세요.</description>
+        </var>
+		
+		<var name="mypage_mid" type="text">
+            <title xml:lang="ko">마이페이지용 고정 mid값 사용</title>
+            <description xml:lang="ko">설정한 mid값으로 회원정보 페이지를 출력시킵니다. 자세한 내용은 매뉴얼을 참조해주세요.</description>
+        </var>
+    </extra_vars>
+
+    <menus>
+        <menu name="main_menu" default="true">
+            <title xml:lang="ko">상단 메뉴</title>
+            <title xml:lang="en">Top menu</title>
+            <maxdepth>3</maxdepth>
+        </menu>
+		<menu name="option_menu">
+            <title xml:lang="ko">옵션 메뉴 </title>
+            <title xml:lang="en">Option Menu</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+        <menu name="bottom_menu">
+            <title xml:lang="ko">하단 메뉴 </title>
+            <title xml:lang="en">Bottom menu</title>
+            <maxdepth>1</maxdepth>
+        </menu>
+    </menus>
+</layout>

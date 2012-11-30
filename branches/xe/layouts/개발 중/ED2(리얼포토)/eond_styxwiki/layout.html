@@ -1,0 +1,56 @@
+<!--%import("css/default.css")-->
+
+<sitebar>
+	<!--#include("sitebar_old.html")-->
+</sitebar>
+
+<div>
+
+	<div id=header>
+		<div id=logo><img src="./images/logo.png"></a></div>
+	</div>
+	<div id=navi>
+	<div id=navi1>
+		<!--GNB-->
+	<ul>
+            <!-- main_menu 1차 시작 -->
+            <!--@foreach($main_menu->list as $key => $val)--><!--@if($val['link'])-->
+                <!--@if($val['selected'])-->
+                    {@ $menu_1st = $val }
+                <!--@end-->
+				                <li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['link']}</a></li>
+
+            <!--@end--><!--@end-->
+            <!-- main_menu 1차 끝 -->
+		</ul>
+		<!--//GNB-->
+	</div>
+
+
+<div id=navi2>
+<!--@if($menu_1st)-->
+<ul>
+{@ $idx = 1 }
+<!--@foreach($menu_1st['list'] as $key => $val)--><!--@if($val['text'])-->
+<li <!--@if($val['selected'])-->class="on"<!--@end-->><a href="{$val['href']}" <!--@if($val['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$val['text']}</a>
+
+<!-- main_menu 3차 시작 -->
+	<!--@if($val['list'])-->
+	<ul>
+	<!--@foreach($val['list'] as $k => $v)--><!--@if($v['text'])-->
+		<li <!--@if($v['selected'])-->class="on"<!--@end-->><a href="{$v['href']}" <!--@if($v['open_window']=='Y')-->onclick="window.open(this.href);return false;"<!--@end-->>{$v['text']}</a></li>
+	<!--@end--><!--@end-->
+	</ul>
+	<!--@end-->
+</li>
+{@$idx++}
+<!--@end-->
+
+<!--@end-->
+</ul>
+<!--@end-->
+</div>
+
+	</div>
+	<div id="content">{$content}</div>
+</div>

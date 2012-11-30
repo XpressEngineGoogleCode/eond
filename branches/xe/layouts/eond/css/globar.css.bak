@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+/* 애드센스 */
+.ad {background: url(../images/bg_ad.gif) no-repeat center center;}
+
+.ad_raonnet {width:200px;height:60px;border:1px solid #ddd;float:left;border-right:1;margin-right:5px;background:#EDEFF0;}
+.ad_text {color:#6B6D70;width:200px;padding-left:0px;padding-top:7px;height:21px;font-size:11px;font-family:돋움;border-top:1px solid #fff;border-bottom:1px solid #DADDDF;text-align:center;letter-spacing:1px;}
+.ad_468 {width:468px;height:60px;border:1px solid #DDD;float:left;}
+
+.ad_336 {width:336px;height:280px;border:1px solid #DDD;float:right;}
+.ad_300 {width:300px;height:250px;border:1px solid #DDD;float:right;}
+
+.bn {display:none;}

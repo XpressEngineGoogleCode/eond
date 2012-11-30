@@ -1,0 +1,47 @@
+<load target="packages/pxe_category/js/category.js" />
+
+<!--// 컬러셋과 연동될 css 파일 import -->
+<load cond="$layout_info->colorset == 'default'" target="packages/pxe_category/css/category_default.css" />
+<load cond="$layout_info->colorset == 'custom'" target="packages/pxe_category/css/category_custom.css" />
+
+{@ $_pDepth = 0;}
+<div class="pxeCategoryTree">
+    <a href="{getUrl('category',$val->category_srl)}" class="all">전체글</a>
+    <ul>
+        <!--@foreach($category_list as $key => $val)-->
+        <!--@if($_pDepth > $val->depth)-->
+        <!--@for($i=$val->depth; $i<$_pDepth; $i++)-->
+    </ul>
+    </li>
+    <!--@end-->
+    {@ $_pDepth = $val->depth}
+    <!--@end-->
+    <li class="<!--@if($val->last)-->nav_tree_last<!--@end--> <!--@if($val->expand)-->nav_tree_on<!--@else-->nav_tree_off<!--@end--> <!--@if($category==$val->category_srl)-->active<!--@end-->" id="category_parent_{$val->category_srl}">
+    <!--@if($val->child_count)-->
+    <!--@if($val->expand)-->
+    <button type="button" class="category_{$val->category_srl}">+</button>
+    <!--@else-->
+    <button type="button" class="category_{$val->category_srl}">-</button>
+    <!--@end-->
+    <!--@end-->
+    <a href="{getUrl('category',$val->category_srl)}" class="nav_tree_label <!--@if($val->selected)-->selected<!--@end-->">{$val->text}</a>
+    <!--@if($val->document_count)-->
+    <span class="readBox">
+        <span>
+            <strong>{$val->document_count}</strong>
+        </span>
+    </span>
+    <!--@end-->
+    <!--@if($val->child_count)-->
+    {@$_pDepth++}
+    <ul>
+        <!--@else-->
+        </li>
+        <!--@end-->
+        <!--@end-->
+        <!--@for($i=0;$i<$_pDepth;$i++)-->
+    </ul>
+    <!--@end-->
+    </li>
+    </ul>
+</div>
