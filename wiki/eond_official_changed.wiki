@@ -24,6 +24,10 @@
 	</p>
 	<p class="keep_msg">{$lang->about_keep_warning}</p>
 }}}
+   * onclick 이벤트가 발생하는 코드
+{{{
+<input type="checkbox" name="keep_signed" id="keepid" value="Y" onclick="if(this.checked) return confirm(keep_signed_msg);" />
+}}}
 
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
