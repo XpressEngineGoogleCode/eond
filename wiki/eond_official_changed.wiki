@@ -29,10 +29,12 @@
 <input type="checkbox" name="keep_signed" id="keepid" value="Y" onclick="if(this.checked) return confirm(keep_signed_msg);" />
 }}}
   * 로그인유지 div의 ID 변경
+   * 변경 전
 {{{
 <input type="checkbox" name="keep_signed" id="keepid" value="Y" />
         <label for="keepid">{$lang->keep_signed}</label>
 }}}
+   * 변경 후
 {{{
 <input type="checkbox" name="keep_signed" id="keep_signed" value="Y" />
         <label for="keep_signed">{$lang->keep_signed}</label>
