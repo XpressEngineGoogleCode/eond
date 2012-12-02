@@ -18,10 +18,12 @@ ver.0.1
 
 설치 방법
   # 검색어 통계 모듈 ver.0.3
+[http://www.xpressengine.com/index.php?&mid=download&search_keyword=%ED%86%B5%ED%95%A9&package_srl=18608455]
 {{{
 ./modules/keywordstatistics/
 }}}
   # 검색어 통계 수집 애드온 ver.0.1
+[http://www.xpressengine.com/?mid=download&package_srl=18608457]
 {{{
 ./addons/keywordstatistics/
 }}}
@@ -31,7 +33,11 @@ ver.0.1
 }}}
 
 = Details =
+모듈/애드온 배포 안내
+[http://www.xpressengine.com/freeboard/18611563]
 
+카밀린넷 실시간 인기 검색어
+[http://www.xpressengine.com/index.php?&mid=download&search_keyword=%EB%84%A4%EC%9D%B4%EB%B2%84&package_srl=18596706]
 Add your content here.  Format your content with:
   * Text in *bold* or _italic_
   * Headings, paragraphs, and lists
