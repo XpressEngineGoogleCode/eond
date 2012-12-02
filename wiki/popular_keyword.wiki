@@ -5,6 +5,9 @@
 인기 검색어 출력 위젯
 
 ver.0.2
+http://www.xpressengine.com/files/attach/images/18537513/166/688/018/wow.PNG
+자유게시판 
+http://www.xpressengine.com/freeboard/18688166
 
 ver.0.1
 현재 작동하지 않음.
