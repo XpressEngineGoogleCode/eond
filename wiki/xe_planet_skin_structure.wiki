@@ -29,6 +29,16 @@ write.include.html
 }}}
 
 
+  * 기본 몸체 파일
+{{{
+header.html
+main.html
+footer.html
+
+write.include.html
+search.html
+}}}
+
 = Details =
 
 Add your content here.  Format your content with:
