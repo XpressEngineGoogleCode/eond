@@ -81,3 +81,13 @@ Err : './widgets/newest_comment/skins/mynote/list' template file does not exists
 
 === 배포 ===
 이온디 마이노트 레이아웃은 XE 공식사이트 자료실과 구글 프로젝트 이 외에서의 배포를 금지합니다.
+
+=== 기타 ===
+Q. 프로필 부분 음악 듣기 주소 수정하는 방법?
+A. 프로필 부분 음악 듣기는 로그인 위젯 스킨의 일부분입니다. 로그인 위젯 스킨에서 해당 부분을 주석 처리 또는 지우면 됩니다.
+.\widgets\login_info\skins\eond_mynote\login_info.html
+{{{
+<a href="#" onClick="window.open('http://eond.com/?mid=mp3','new','toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=410, height=311')"><span id="music"><span class=bgp></span>음악듣기</span></a>
+}}}
+Q. 카테고리는 어떻게 설정하죠?
+A. 
