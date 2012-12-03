@@ -84,10 +84,11 @@ Err : './widgets/newest_comment/skins/mynote/list' template file does not exists
 
 === 기타 ===
 Q. 프로필 부분 음악 듣기 주소 수정하는 방법?
-A. 프로필 부분 음악 듣기는 로그인 위젯 스킨의 일부분입니다. 로그인 위젯 스킨에서 해당 부분을 주석 처리 또는 지우면 됩니다.
+ A. 프로필 부분 음악 듣기는 로그인 위젯 스킨의 일부분입니다. 로그인 위젯 스킨에서 해당 부분을 주석 처리 또는 지우면 됩니다.
 .\widgets\login_info\skins\eond_mynote\login_info.html
 {{{
 <a href="#" onClick="window.open('http://eond.com/?mid=mp3','new','toolbar=no, location=no, status=no, menubar=no, scrollbars=no, resizable=no, width=410, height=311')"><span id="music"><span class=bgp></span>음악듣기</span></a>
 }}}
+
 Q. 카테고리는 어떻게 설정하죠?
-A. 
+ A. 2차 메뉴가 카테고리로 표현되는데, 다음 버전에서는 2차 메뉴가 없을 경우 카테고리 메뉴명이 출력되지 않도록 수정하도록 하겠습니다.
