@@ -1,11 +1,12 @@
-#summary One-sentence summary of this page.
+#summary 플래닛 스킨 구조
 
-= Introduction =
+= 플래닛 스킨 구조 =
 
-css
-filter
-images
-js
+{{{
+.\css
+.\filter
+.\images
+.\js
 content_list.html
 create.html
 favorite.html
@@ -25,7 +26,7 @@ search_planet.html
 search_tab.include.html
 skin.xml
 write.include.html
-
+}}}
 
 
 = Details =
