@@ -1,4 +1,4 @@
-#summary 이온디 공식 레이아웃의 버전별 달라진 점
+#summary 이온디 공식 레이아웃 매뉴얼
 #labels eond_official,layouts,manual
 
 = 이온디 공식 레이아웃 매뉴얼 =
