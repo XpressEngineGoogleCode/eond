@@ -1,4 +1,4 @@
-#summary 이온디 마이노트 레이아웃 설치 방법
+#summary 이온디 마이노트 레이아웃 매뉴얼
 #labels mynote,layouts,manual
 
 === 소개 ===
