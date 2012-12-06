@@ -2,11 +2,14 @@
 
 = Introduction =
 
-XE 위젯스타일, 글로시박스(glossybox)
+이온디 공식 위젯스타일, 이온디 글로시박스(eond_glossybox)
 
   * 
 = 스타일 =
-
+ # 심플라인 - 한줄로 
+ # N박스
+ # 스트롱심플
+ # 글로시박스
 
 = History =
  * 글로시박스(glossybox)
