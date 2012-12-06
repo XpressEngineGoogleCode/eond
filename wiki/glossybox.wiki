@@ -1,10 +1,11 @@
-#summary 위젯스타일 > glossybox
+#summary 위젯스타일 > 이온디 글로시박스(eond_glossybox)
 
 = Introduction =
 
 XE 위젯스타일, 글로시박스(glossybox)
 
   * 
+= 스타일 =
 
 
 = History =
