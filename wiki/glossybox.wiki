@@ -6,10 +6,15 @@
 
   * 
 = 스타일 =
- # 심플라인 - 한줄로 
- # N박스
+ # 심플라인
+  1line, underline, thin line
  # 스트롱심플
+  1line, underline, borderline
+ # N박스
  # 글로시박스
+ # 희망하늘
+  투톤의 겹쳐진 박스 위젯 스타일
+ # ㅇ
 
 = History =
  * 글로시박스(glossybox)
