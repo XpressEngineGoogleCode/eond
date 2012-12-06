@@ -7,9 +7,9 @@
   * 
 = 스타일 =
  # 심플라인
-  1line, underline, thin line
+  thin underline, 1color
  # 스트롱심플
-  1line, underline, borderline
+  border underline, 1color
  # N박스
  # 글로시박스
  # 희망하늘
