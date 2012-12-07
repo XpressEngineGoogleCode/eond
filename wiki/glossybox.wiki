@@ -3,8 +3,8 @@
 = Introduction =
 
 이온디 공식 위젯스타일, 이온디 글로시박스(eond_glossybox)
-
   * 
+
 = 스타일 =
  # 심플라인
   thin underline, 1color
@@ -19,7 +19,9 @@
   투톤의 겹쳐진 박스 위젯 스타일
  # 도트라인
   한 줄 도트 라인
- # 더블라인
+ # 더블레이어
+ # 미들라인
+ # 둥근테두리
 
 = History =
  * 글로시박스(glossybox)
