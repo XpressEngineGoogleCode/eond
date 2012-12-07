@@ -42,6 +42,31 @@
   * 본문 컨텐츠 영역 테두리 추가
   * 색상 스킨의 추가
 
+=== 버전 1.4.1 ===
+ * 검색이 안되는 점 수정함.
+_header.html
+{{{
+	<div id="logo">
+		<h1><!--@if(!$layout_info->logo_image)--><a href="http://eond.com"><img src="./images/{$layout_info->colorset}/logo.png" alt="이온디" <!--@else--><a href="{$layout_info->index_url}"><img src="{$layout_info->logo_image}" alt="{$layout_info->logo_alt}" border="0" <!--@end-->class="iePngFix" /></a>
+		</h1>
+		<fieldset id="isSearch">
+		<legend>검색창</legend>
+		<form action="{getUrl()}" method="post">
+		<!--@if($vid)-->
+		<input type="hidden" name="vid" value="{$vid}" cond="$vid" />
+		<!--@end-->
+		<input type="hidden" name="mid" value="{$mid}" />
+		<input type="hidden" name="act" value="IS" />
+		<input type="hidden" name="search_target" value="title_content" />
+		<input name="is_keyword" value="{$is_keyword}" type="text" class="inputText" title="검색어 입력" />
+		<input type="image" src="./images/{$layout_info->colorset}/buttonSearch.gif" alt="{$lang->cmd_search}" class="submit" />
+		</form>
+		</fieldset>
+		<p id="search_se"><a href="http://eond.com/is"><img src="./images/{$layout_info->colorset}/icon_zoom.gif" alt="검색창" /></a></p>
+	</div>
+<div id="notice"></div>
+}}}
+
 === 버전 1.4 ===
   * 색상 스타일이 추가됨
 
