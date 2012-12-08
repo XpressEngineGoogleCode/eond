@@ -84,6 +84,12 @@ Err : './widgets/newest_comment/skins/mynote/list' template file does not exists
 {{{
 #lnb li {display:block;list-style:none;background:url(../images/bg_menu.gif) no-repeat 0 1px;padding:0 0 5px 12px;vertical-align:top;font:11px dotum;_background:url(../images/bg_menu.gif) no-repeat 0 0px;}
 }}}
+  * apm setup으로 설치한 xe에서 배경 이미지 저장 경로 수정함
+{{{
+<!--@if($layout_info->background_image)-->
+	html {background:url({$layout_info->background_image});}
+<!--@end-->
+}}}
  # ver.1.3.3.
   * 글수정 화면에서 본문 출력되지 않는 문제 해결.
  # ver.1.3.2.
