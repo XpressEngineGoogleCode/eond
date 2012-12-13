@@ -71,6 +71,26 @@ Err : './widgets/newest_comment/skins/mynote/list' template file does not exists
 설치경로 : widgets\newest_comment\skins\mynote
 }}}
 
+=== 설정방법 ===
+ * 레이아웃을 가운데 정렬하고 싶습니다. 어떻게 하나요?
+  * layout.html 30번째 줄
+{{{
+<!-- s : wrap -->
+<table id="wrap" cellSpacing="0" style="position:absolute;left:50%;margin-left:-550px;"><tr valign="top">
+}}}
+이 코드를 집어넣으시면 됩니다.
+{{{
+style="position:absolute;left:50%;margin-left:-550px;"
+}}}
+ * 왼쪽 검은색 영역을 지우고 싶습니다.
+  * 32번째줄  style="display:none;" 추가
+{{{
+<!-- s : column -->
+<td id="column" nowrap style="display:none;">
+<a href="http://eond.com"><h1 id="logo"></h1></a><span id="theme"></span><span id="top" onclick="back_top()"></span></td>
+<!-- e : column -->
+}}}
+
 
 === 수정계획 ===
   * 현재 마이노트는 모바일 레이아웃이 없습니다. 모바일 레이아웃을 제작 하여 배포할 계획을 가지고 있습니다.
