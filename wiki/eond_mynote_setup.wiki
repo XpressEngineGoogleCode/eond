@@ -76,9 +76,9 @@ Err : './widgets/newest_comment/skins/mynote/list' template file does not exists
   * layout.html 30번째 줄
 {{{
 <!-- s : wrap -->
-<table id="wrap" cellSpacing="0" style="position:relative;left:50%;margin-left:-550px;"><tr valign="top">
+<table id="wrap" cellSpacing="0" style="width:1000px;position:relative;left:50%;margin-left:-550px;"><tr valign="top">
 }}}
-이 코드를 집어넣으시면 됩니다. position:absolute를 하면 위젯 aside 영역 슬라이드가 되지 않으니 유의하세요.
+이 코드를 집어넣으시면 됩니다. position:absolute를 하면 위젯 aside 영역 슬라이드가 되지 않으니 유의하세요. 또 width값을 넣지 않으면 가로 스크롤이 생깁니다.
 {{{
 style="position:absolute;left:50%;margin-left:-550px;"
 }}}
