@@ -15,7 +15,8 @@
  * 레이아웃 넓이 설정
  * 레이아웃 배경색상 지정
  * 본문 배경색상 지정
- * 카페 레이아웃으로 설정 시 카페 설정 버튼 출력되나, 카페 메뉴 설정시 메뉴명 수정 안됨
+ * 카페 레이아웃으로 설정 시 카페 설정 버튼 출력
+ * 알려진 버그 - 카페 메뉴 설정시 메뉴명 수정 안됨
 
 http://replay.web.archive.org/20010627091104/http://ngine.yedong.com/ver2/home/ 
 http://replay.web.archive.org/20010629085250/http://ngine.yedong.com/ver2/home/study.php
