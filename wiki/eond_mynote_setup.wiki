@@ -14,7 +14,6 @@
     * 카머티브 : 초기 영감을 받은 유경우님의 마이노트 디자인 배경이미지와 색상을 차용하였습니다.
     * 모노크롬 : XE의 모노크롬 레이아웃을 보고 영감을 받아 만들었습니다.
     * 뉴트럴 : XE의 뉴트럴 레이아웃을 보고 영감을 받아 만들었습니다.
-     
   # 레이아웃 정렬과 너비 설정
    * 모든 컬러셋이 왼쪽과 가운데 레이아웃 정렬 기능이 가능
    * 기본 컨텐츠 박스의 너비는 880px입니다만 원할 경우 레이아웃 설정에서 본문 너비를 조정할 수 있습니다.
@@ -43,7 +42,6 @@
    * 크로스브라우징을 지향합니다.
 
 === 설치 방법 ===
-
   # 이온디 마이노트 레이아웃 스킨을 설치합니다.
   # 이온디 마이노트 카운터 위젯 스킨을 설치합니다.
    * 설치하지 않을 경우 아래와 같은 오류 메세지가 출력됩니다.
@@ -66,8 +64,8 @@ Err : './widgets/newest_comment/skins/mynote/list' template file does not exists
 
 아래 파일을 모두 다운받아 사용하세요.
 
-  * 이온디 마이노트 레이아웃 스킨 ver.1.3.2
-  [http://code.google.com/p/eond/downloads/detail?name=eond_mynote.1.3.2.zip&can=2&q=label%3Alayouts#makechanges]
+  * 이온디 마이노트 레이아웃 스킨 ver.1.3.9
+  [http://code.google.com/p/eond/downloads/detail?name=eond_mynote.1.3.9.zip&can=2&q=#makechanges]
 {{{
 설치경로 : layouts\eond_mynote
 }}}
@@ -77,19 +75,14 @@ Err : './widgets/newest_comment/skins/mynote/list' template file does not exists
 설치경로 : widgets\counter_status\skins\mynote
 }}}
   * 이온디 마이노트 로그인위젯 스킨
-  [http://code.google.com/p/eond/downloads/detail?name=login_eond_mynote.0.7.zip&can=2&q=#makechanges]
+  [http://code.google.com/p/eond/downloads/detail?name=login_eond_mynote.0.8.zip&can=2&q=#makechanges]
 {{{
 설치경로 : widgets\login_info\skins\eond_mynote
 }}}
-  * 최근 댓글 위젯
-  [http://www.xpressengine.com/index.php?&mid=download&category_srl=18322927&search_keyword=%EB%8C%93%EA%B8%80&package_srl=18324343]
+  * 이온디 마이노트 최근컨텐츠위젯 스킨
+  [http://code.google.com/p/eond/downloads/detail?name=content_mynote.0.1.zip&can=2&q=#makechanges]
 {{{
-설치경로 : widgets\newest_comment
-}}}
-  * 이온디 마이노트 최근댓글위젯 스킨
-  [http://code.google.com/p/eond/downloads/detail?name=newest_comment_mynote.zip&can=2&q=label%3Amynote#makechanges]
-{{{
-설치경로 : widgets\newest_comment\skins\mynote
+설치경로 : ./widgets/content/skins/mynote
 }}}
 
 === 설정방법 ===
