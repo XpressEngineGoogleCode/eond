@@ -94,6 +94,12 @@ Err : './widgets/newest_comment/skins/mynote/list' template file does not exists
  * http://dolmijm.pe.kr/xe/
  * http://koreaangel.net/
  * http://evant.ufree.kr/xe/
+ * http://gab3326.dominohosting.kr/xe/
+http://minny.dothome.co.kr/
+http://mika5p.com/vng
+http://www.ptosys.com/sub/
+http://grrrr.namoweb.net/
+
 === 수정계획 ===
   * 현재 마이노트는 모바일 레이아웃이 없습니다. 모바일 레이아웃을 제작 하여 배포할 계획을 가지고 있습니다. 그 전까지는 skectbook5의 모바일 스킨을 대용하여 사용하시길 추천합니다.
 
