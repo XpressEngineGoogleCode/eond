@@ -50,7 +50,7 @@
 {{{
 설치경로 : layouts\eond_mynote
 }}}
- * 이온디 마이노트 카운터 위젯 스킨 ver.0.3
+ * 이온디 마이노트 카운터 위젯 스킨 ver.0.3 (최근 업데이트 날짜 : 2013년 2월 12일)
   [http://code.google.com/p/eond/downloads/detail?name=counter_mynote.0.3.zip&can=2&q=#makechanges]
      {{{
 설치경로 : widgets\counter_status\skins\mynote
@@ -60,7 +60,7 @@
 {{{
 설치경로 : widgets\login_info\skins\eond_mynote
 }}}
- * 이온디 마인노트 컨텐트 위젯 스킨 ver.0.3
+ * 이온디 마인노트 컨텐트 위젯 스킨 ver.0.3 (최근 업데이트 날짜 : 2013년 2월 16일)
   [http://code.google.com/p/eond/downloads/detail?name=content_mynote.0.3.zip&can=2&q=#makechanges]
 {{{
 설치경로 : ./widgets/content/skins/mynote
