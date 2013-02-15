@@ -74,7 +74,7 @@ Err : './widgets/newest_comment/skins/mynote/list' template file does not exists
      {{{
 설치경로 : widgets\counter_status\skins\mynote
 }}}
-  * 이온디 마이노트 로그인위젯 스킨 ver.0.9
+  * 이온디 마이노트 로그인위젯 스킨 ver.0.9 (최근 업데이트 날짜 : 2013년 2월 16일)
   [http://code.google.com/p/eond/downloads/detail?name=login_eond_mynote.0.9.zip&can=2&q=#makechanges]
 {{{
 설치경로 : widgets\login_info\skins\eond_mynote
