@@ -45,8 +45,8 @@
 
 이온디 마이노트 레이아웃을 사용할 경우 아래 파일을 모두 다운받아 설치하세요.
 
- * 이온디 마이노트 레이아웃 ver.1.4.1 (최근 업데이트 날짜 : 2013년 2월 16일)
-  [http://code.google.com/p/eond/downloads/detail?name=eond_mynote.1.4.1.zip&can=2&q=#makechanges]
+ * 이온디 마이노트 레이아웃 ver.1.4.2 (최근 업데이트 날짜 : 2013년 2월 17일)
+  [http://code.google.com/p/eond/downloads/detail?name=eond_mynote.1.4.2.zip&can=2&q=#makechanges]
 {{{
 설치경로 : layouts\eond_mynote
 }}}
