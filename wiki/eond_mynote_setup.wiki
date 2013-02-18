@@ -65,6 +65,8 @@
 {{{
 설치경로 : ./widgets/content/skins/mynote
 }}}
+ * 달력 위젯
+ * 태그 위젯
 
 === 설치 방법 ===
   # 이온디 마이노트 레이아웃 스킨을 설치합니다.
@@ -83,7 +85,8 @@ Err : './widgets/login_info/skins/eond_mynote/login_form' template file does not
 {{{
 Err : './widgets/content/skins/mynote/list' template file does not exists.
 }}}
-
+  # 태그 위젯 설치
+  # 달력 위젯 설치
 
 === 설정방법 ===
 레이아웃 설정을 자세히 살펴봐주시길 바랍니다.
