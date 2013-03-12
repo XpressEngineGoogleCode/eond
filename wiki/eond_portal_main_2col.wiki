@@ -2,15 +2,19 @@
 
 = 이온디 포털 메인 2단 레이아웃 =
 
-제작일시
-최근 버전 : ver.0.6
+포털 느낌의 2단 정렬의 레이아웃입니다.
 
-사용된 위젯 스킨
-코지 심플 태그 위젯 스킨
-./widget/tag_list/skins/cozy_list/
-엑스돔 로그인 위젯 스킨
-./widgets/login_info/skins/xdom_login_v2/login_info
+=== 버전 정보 === 
+ * ver.0.7 (2013.03.12)
+ * ver.0.6 (2010-11-18)
 
+=== 연동 자료 ===
+ * 코지 심플 태그 위젯 스킨
+ ./widget/tag_list/skins/cozy_list/
+ * 엑스돔 로그인 위젯 스킨
+ ./widgets/login_info/skins/xdom_login_v2/login_info
+ * 사이트맵 위젯
+ ./widgets/sitemap/
 
 = Details =
 
