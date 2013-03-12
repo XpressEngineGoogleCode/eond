@@ -1,0 +1,20 @@
+#summary 이온디 포털 메인 2단 레이아웃
+
+= 이온디 포털 메인 2단 레이아웃 =
+
+제작일시
+최근 버전 : ver.0.6
+
+사용된 위젯 스킨
+코지 심플 태그 위젯 스킨
+./widget/tag_list/skins/cozy_list/
+엑스돔 로그인 위젯 스킨
+./widgets/login_info/skins/xdom_login_v2/login_info
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
