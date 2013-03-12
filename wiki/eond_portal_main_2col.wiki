@@ -21,6 +21,13 @@
  # 사이트맵 위젯 : sitemap (스킨 : eond)
   * ./widgets/sitemap/
 
+
+=== 변경 사항 ===
+ * ver.0.7
+  # 네이게이션 위젯을 레이아웃 본체로 레이아웃화(bgw_menu 위젯은 더 이상 필요하지 않습니다.)
+  # 스타일시트 구문법을 신문법으로 교체
+  # HTML5 태그 사용
+  # 검색 버튼 높이 6px 늘린 이미지 추가 제작 (btn_search2.png)
 = Details =
 
 Add your content here.  Format your content with:
