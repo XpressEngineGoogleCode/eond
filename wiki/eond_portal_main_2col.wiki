@@ -29,6 +29,7 @@
   # HTML5 태그 사용
   # 검색 버튼 높이 6px 늘린 이미지 추가 제작 (btn_search2.png)
   # 검색 기능 안되던 것 수정함
+  # 검색 결과에 보이던 검색 창 안 보이도록 수정함
 = Details =
 
 Add your content here.  Format your content with:
