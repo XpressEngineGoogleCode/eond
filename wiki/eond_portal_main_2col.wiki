@@ -11,12 +11,15 @@
   * XE 초기 제작한 레이아웃으로 다양한 위젯을 많이 사용하였습니다.
 
 === 연동 자료 ===
- * 코지 심플 태그 위젯 스킨
- ./widget/tag_list/skins/cozy_list/
- * 엑스돔 로그인 위젯 스킨
- ./widgets/login_info/skins/xdom_login_v2/login_info
- * 사이트맵 위젯
- ./widgets/sitemap/
+ # 네비게이션 위젯 : bgw_menu (스킨 : eond_fms)
+ # 최신글 위젯 : newest_document (스킨 : news_ticker_eond_portal, mynote_side)
+ # 태그 위젯 : tag_list (스킨 : cozy_simple, tagcloud)
+  * ./widget/tag_list/skins/cozy_list/
+ # 로그인 위젯 : login_info (스킨 : xdom_login_v2)
+  * ./widgets/login_info/skins/xdom_login_v2/login_info
+ # JW_player 
+ # 사이트맵 위젯 : sitemap (스킨 : eond)
+  * ./widgets/sitemap/
 
 = Details =
 
